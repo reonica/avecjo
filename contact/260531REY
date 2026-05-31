@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Programme de Voyage - Avec Jo</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+
+:root{
+--blue:#355F82;
+--orange:#E67643;
+--light:#F7F7F7;
+--text:#333333;
+}
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family:'Open Sans',sans-serif;
+color:var(--text);
+line-height:1.7;
+background:white;
+}
+
+.container{
+max-width:900px;
+margin:auto;
+padding:40px;
+}
+
+.cover{
+text-align:center;
+padding:80px 0;
+border-bottom:2px solid #eee;
+}
+
+.logo{
+width:180px;
+margin-bottom:25px;
+}
+
+h1{
+font-family:'Montserrat',sans-serif;
+font-size:38px;
+color:var(--blue);
+margin-bottom:15px;
+}
+
+.subtitle{
+font-size:18px;
+color:#666;
+margin-bottom:30px;
+}
+
+.client-box{
+display:inline-block;
+text-align:left;
+background:#fafafa;
+padding:25px;
+border-radius:12px;
+border-left:5px solid var(--orange);
+}
+
+.section{
+margin-top:50px;
+}
+
+.section-title{
+font-family:'Montserrat',sans-serif;
+font-size:28px;
+color:var(--blue);
+margin-bottom:20px;
+padding-bottom:10px;
+border-bottom:2px solid #eee;
+}
+
+.info-table{
+width:100%;
+border-collapse:collapse;
+}
+
+.info-table td{
+padding:12px;
+border-bottom:1px solid #eee;
+}
+
+.price-box{
+margin-top:30px;
+background:var(--orange);
+color:white;
+text-align:center;
+padding:25px;
+border-radius:12px;
+}
+
+.price{
+font-size:42px;
+font-weight:700;
+}
+
+.day{
+margin-bottom:40px;
+padding:25px;
+background:#fafafa;
+border-radius:12px;
+}
+
+.day h3{
+color:var(--blue);
+margin-bottom:10px;
+}
+
+.day ul{
+padding-left:20px;
+margin-top:10px;
+}
+
+.day-note{
+margin-top:15px;
+font-style:italic;
+color:#777;
+}
+
+.include-grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:30px;
+}
+
+.box{
+background:#fafafa;
+padding:25px;
+border-radius:12px;
+}
+
+.box h3{
+margin-bottom:15px;
+color:var(--blue);
+}
+
+.box ul{
+padding-left:20px;
+}
+
+.tips{
+background:#fafafa;
+padding:25px;
+border-radius:12px;
+}
+
+.tips h3{
+margin-top:20px;
+margin-bottom:10px;
+color:var(--blue);
+}
+
+.footer{
+margin-top:60px;
+padding-top:30px;
+border-top:1px solid #ddd;
+text-align:center;
+}
+
+.brand{
+font-size:22px;
+font-weight:700;
+color:var(--blue);
+margin-bottom:10px;
+}
+
+.contact{
+color:#666;
+}
+
+.highlight{
+color:var(--orange);
+font-weight:600;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<!-- COVER -->
+
+<section class="cover">
+
+<img src="logo.png" alt="Avec Jo" class="logo">
+
+<h1>Voyage Privé à Hanoi</h1>
+
+<p class="subtitle">
+Programme personnalisé conçu pour découvrir Hanoi et sa région à travers la culture, la gastronomie et la vie locale.
+</p>
+
+<div class="client-box">
+
+<p><strong>Nom du voyageur :</strong> ABC</p>
+
+<p><strong>Nationalité :</strong> Française</p>
+
+<p><strong>Dates :</strong> 11 - 13 Juin 2026</p>
+
+<p><strong>Guide :</strong> Joseph Hai</p>
+
+</div>
+
+</section>
+
+<!-- RESUME -->
+
+<section class="section">
+
+<h2 class="section-title">Informations du voyage</h2>
+
+<table class="info-table">
+
+<tr>
+<td>Destination</td>
+<td>Hanoi et ses environs</td>
+</tr>
+
+<tr>
+<td>Type de voyage</td>
+<td>Culture, artisanat, gastronomie et rencontres locales</td>
+</tr>
+
+<tr>
+<td>Langue du guide</td>
+<td>Français</td>
+</tr>
+
+<tr>
+<td>Voyage</td>
+<td>Privé et personnalisé</td>
+</tr>
+
+</table>
+
+<div class="price-box">
+
+<div>Prix du programme</div>
+
+<div class="price">XXX €</div>
+
+<div>par personne</div>
+
+</div>
+
+</section>
+
+<!-- OPTION 1 -->
+
+<section class="section">
+
+<h2 class="section-title">Option 1 – Hanoi & Villages Artisanaux</h2>
+
+<div class="day">
+
+<h3>11 Juin | 16h00 - 20h00</h3>
+
+<h4>Découverte du Vieux Quartier & Street Food Tour</h4>
+
+<ul>
+<li>Lac Hoan Kiem</li>
+<li>Quartier des 36 corporations</li>
+<li>Dégustation de spécialités vietnamiennes</li>
+<li>Café vietnamien traditionnel</li>
+<li>Vie nocturne du vieux Hanoi</li>
+</ul>
+
+<p class="day-note">
+Une première immersion dans l'atmosphère unique de Hanoi entre patrimoine et gastronomie.
+</p>
+
+</div>
+
+<div class="day">
+
+<h3>12 Juin</h3>
+
+<h4>Villages artisanaux autour de Hanoi</h4>
+
+<ul>
+<li>Village du chapeau conique de Chuong</li>
+<li>Village de l'encens de Quang Phu Cau</li>
+<li>Village de la marqueterie de Chuon Ngo</li>
+</ul>
+
+<p class="day-note">
+Découverte des savoir-faire traditionnels transmis de génération en génération.
+</p>
+
+</div>
+
+<div class="day">
+
+<h3>13 Juin</h3>
+
+<h4>Hanoi Authentique</h4>
+
+<ul>
+<li>Balade en cyclo-pousse</li>
+<li>Rue du train</li>
+<li>Marché Dong Xuan</li>
+<li>Temps libre pour les achats ou le café</li>
+</ul>
+
+<p class="day-note">
+Une journée dédiée à la vie locale et au quotidien des habitants de Hanoi.
+</p>
+
+</div>
+
+</section>
+
+<!-- OPTION 2 -->
+
+<section class="section">
+
+<h2 class="section-title">Option 2 – Hanoi & Ninh Binh</h2>
+
+<div class="day">
+
+<h3>11 Juin | 16h00 - 20h00</h3>
+
+<h4>Découverte du Vieux Quartier & Street Food Tour</h4>
+
+<ul>
+<li>Lac Hoan Kiem</li>
+<li>Vieux Quartier</li>
+<li>Dégustations locales</li>
+<li>Café vietnamien</li>
+</ul>
+
+</div>
+
+<div class="day">
+
+<h3>12 Juin</h3>
+
+<h4>Ninh Binh - Nature & Patrimoine</h4>
+
+<ul>
+<li>Réserve naturelle de Van Long en barque</li>
+<li>Balade à vélo dans la région de Tam Coc</li>
+<li>Temple Thai Vi</li>
+<li>Pagode Bich Dong</li>
+</ul>
+
+<p class="day-note">
+Une journée entre paysages karstiques, rizières et patrimoine historique.
+</p>
+
+</div>
+
+<div class="day">
+
+<h3>13 Juin</h3>
+
+<h4>Hang Mua & Retour à Hanoi</h4>
+
+<ul>
+<li>Montée au point de vue de Hang Mua</li>
+<li>Temps libre pour les photos</li>
+<li>Retour à Hanoi</li>
+</ul>
+
+<p class="day-note">
+L'un des plus beaux panoramas du nord du Vietnam.
+</p>
+
+</div>
+
+</section>
+
+<!-- INCLUS -->
+
+<section class="section">
+
+<h2 class="section-title">Prestations</h2>
+
+<div class="include-grid">
+
+<div class="box">
+
+<h3>Inclus</h3>
+
+<ul>
+<li>Guide francophone privé</li>
+<li>Transport selon programme</li>
+<li>Billets d'entrée mentionnés</li>
+<li>Dégustations prévues</li>
+<li>Assistance avant et pendant le voyage</li>
+</ul>
+
+</div>
+
+<div class="box">
+
+<h3>Non inclus</h3>
+
+<ul>
+<li>Vols internationaux</li>
+<li>Assurance voyage</li>
+<li>Dépenses personnelles</li>
+<li>Boissons supplémentaires</li>
+<li>Pourboires facultatifs</li>
+</ul>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- CONSEILS -->
+
+<section class="section">
+
+<h2 class="section-title">Conseils pratiques pour le Vietnam</h2>
+
+<div class="tips">
+
+<h3>Argent</h3>
+
+<p>
+La monnaie locale est le Dong vietnamien (VND). Les cartes bancaires sont acceptées dans les hôtels et restaurants, mais il est recommandé d'avoir des espèces pour les petits achats.
+</p>
+
+<h3>Circulation</h3>
+
+<p>
+La circulation peut sembler impressionnante. Pour traverser la rue, avancez calmement et régulièrement sans courir.
+</p>
+
+<h3>Eau</h3>
+
+<p>
+Il est conseillé de boire uniquement de l'eau en bouteille.
+</p>
+
+<h3>Respect culturel</h3>
+
+<p>
+Une tenue correcte est recommandée pour visiter les temples et lieux religieux.
+</p>
+
+<h3>Météo en juin</h3>
+
+<p>
+Température entre 28°C et 36°C. Prévoir un chapeau, de la crème solaire, des lunettes de soleil et un répulsif anti-moustiques.
+</p>
+
+<h3>Applications utiles</h3>
+
+<p>
+Grab, Google Maps et Google Translate peuvent être très utiles pendant votre séjour.
+</p>
+
+</div>
+
+</section>
+
+<!-- FOOTER -->
+
+<section class="footer">
+
+<div class="brand">Avec Jo</div>
+
+<p>
+Voyager au Vietnam autrement.
+</p>
+
+<div class="contact">
+
+guidehanoi.com<br>
+WhatsApp : +84 XXX XXX XXX<br>
+Email : [contact@guidehanoi.com](mailto:contact@guidehanoi.com)
+
+</div>
+
+</section>
+
+</div>
+
+</body>
+</html>
