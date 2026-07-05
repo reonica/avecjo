@@ -7,7 +7,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
   <style>
     /* – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – 
-       STYLES (exactement le même ADN que la page contact) 
+       STYLES (hérités de la page contact) 
        – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – */
     :root {
       --blue: #355F82;
@@ -36,7 +36,7 @@
     }
 
     /* – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – 
-       COVER 
+       COVER avec ảnh 16:9 
        – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – */
     .cover {
       text-align: center;
@@ -44,35 +44,91 @@
       border-bottom: 2px solid #eee;
     }
 
-    .logo {
-      width: 180px;
-      margin-bottom: 25px;
+    /* BANNER 16:9 avec overlay gradient + ảnh */
+    .banner-wrapper {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background: url('../images/29-hanoi-1-jour.jpg') center/cover no-repeat;
+      border-radius: 20px;
+      overflow: hidden;
+      margin-bottom: 40px;
+      box-shadow: 0 8px 25px rgba(53, 95, 130, 0.25);
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
-    h1 {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 38px;
-      color: var(--blue);
+    .banner-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.30);
+      background: linear-gradient(135deg, rgba(53, 95, 130, 0.55) 0%, rgba(0, 0, 0, 0.30) 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 30px;
+      color: white;
+      text-align: center;
+    }
+
+    .banner-overlay .logo {
+      width: 130px;
       margin-bottom: 15px;
+      filter: drop-shadow(0 2px 8px rgba(0,0,0,0.2));
     }
 
-    .subtitle {
-      font-size: 18px;
-      color: #666;
-      margin-bottom: 30px;
+    .banner-overlay h1 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: clamp(28px, 5vw, 48px);
+      color: white;
+      margin-bottom: 8px;
+      text-shadow: 0 2px 12px rgba(0,0,0,0.25);
+      letter-spacing: 0.5px;
     }
 
+    .banner-overlay .subtitle-banner {
+      font-size: clamp(15px, 2vw, 22px);
+      opacity: 0.95;
+      font-weight: 300;
+      text-shadow: 0 1px 8px rgba(0,0,0,0.2);
+    }
+
+    .banner-overlay .confirmation-badge {
+      background: rgba(255,255,255,0.20);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      border-radius: 40px;
+      padding: 6px 22px;
+      display: inline-block;
+      font-weight: 600;
+      font-size: 0.9rem;
+      letter-spacing: 0.5px;
+      color: white;
+      border: 1px solid rgba(255,255,255,0.25);
+      margin-bottom: 12px;
+    }
+
+    /* – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – 
+       CLIENT BOX (dưới banner) 
+       – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – */
     .client-box {
       display: inline-block;
       text-align: left;
       background: #fafafa;
-      padding: 25px;
+      padding: 25px 35px;
       border-radius: 12px;
       border-left: 5px solid var(--orange);
+      margin-top: 5px;
+    }
+
+    .client-box p {
+      margin: 3px 0;
     }
 
     /* – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – 
-       SECTIONS & TABLE 
+       SECTIONS 
        – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – */
     .section {
       margin-top: 50px;
@@ -87,18 +143,51 @@
       border-bottom: 2px solid #eee;
     }
 
-    .info-table {
-      width: 100%;
-      border-collapse: collapse;
+    /* – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – 
+       DAY / ITINÉRAIRE DÉTAILLÉ 
+       – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – */
+    .day {
+      margin-bottom: 40px;
+      padding: 28px 30px;
+      background: #fafafa;
+      border-radius: 12px;
     }
 
-    .info-table td {
-      padding: 12px;
-      border-bottom: 1px solid #eee;
+    .day h3 {
+      color: var(--blue);
+      margin-bottom: 12px;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    .day p {
+      margin-bottom: 12px;
+    }
+
+    .day ul {
+      padding-left: 20px;
+      margin-top: 10px;
+    }
+
+    .day-note {
+      margin-top: 15px;
+      font-style: italic;
+      color: #777;
+      padding-top: 12px;
+      border-top: 1px dashed #ddd;
+    }
+
+    .highlight {
+      color: var(--orange);
+      font-weight: 600;
+    }
+
+    .highlight-blue {
+      color: var(--blue);
+      font-weight: 600;
     }
 
     /* – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – 
-       PRICE BOX (orange) 
+       PRICE BOX 
        – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – */
     .price-box {
       margin-top: 30px;
@@ -115,33 +204,48 @@
     }
 
     /* – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – 
-       ITINERAIRE (jour / box) 
+       RÉCAP PAIEMENT 
        – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – */
-    .day {
-      margin-bottom: 40px;
-      padding: 25px;
-      background: #fafafa;
+    .recap-paiement {
+      background: #f5f5f5;
       border-radius: 12px;
+      padding: 20px 25px;
+      margin: 20px 0;
+      border-left: 4px solid var(--orange);
     }
 
-    .day h3 {
+    .recap-paiement strong {
       color: var(--blue);
-      margin-bottom: 10px;
     }
 
-    .day ul {
-      padding-left: 20px;
-      margin-top: 10px;
+    .flex-paiement {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 15px;
+      background: white;
+      padding: 15px 18px;
+      border-radius: 8px;
+      margin: 10px 0;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.03);
     }
 
-    .day-note {
+    .flex-paiement span {
+      font-weight: 500;
+    }
+
+    .acompte-note {
+      font-size: 0.95rem;
+      color: #555;
+      background: #fcf8f6;
+      padding: 14px 18px;
+      border-radius: 10px;
+      border: 1px solid #efded6;
       margin-top: 15px;
-      font-style: italic;
-      color: #777;
     }
 
     /* – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – 
-       BOX "INCLUS / NON INCLUS" 
+       INCLUDE GRID 
        – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – */
     .include-grid {
       display: grid;
@@ -158,14 +262,19 @@
     .box h3 {
       margin-bottom: 15px;
       color: var(--blue);
+      font-family: 'Montserrat', sans-serif;
     }
 
     .box ul {
       padding-left: 20px;
     }
 
+    .box ul li {
+      margin-bottom: 6px;
+    }
+
     /* – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – 
-       TIPS (conseils) 
+       TIPS 
        – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – */
     .tips {
       background: #fafafa;
@@ -175,12 +284,13 @@
 
     .tips h3 {
       margin-top: 20px;
-      margin-bottom: 10px;
+      margin-bottom: 8px;
       color: var(--blue);
+      font-family: 'Montserrat', sans-serif;
     }
 
     .tips p {
-      margin-bottom: 8px;
+      margin-bottom: 6px;
     }
 
     .tips ul {
@@ -213,88 +323,22 @@
       text-decoration: none;
     }
 
-    .highlight {
-      color: var(--orange);
-      font-weight: 600;
-    }
-
-    /* – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – 
-       PETITES TOUCHES SPÉCIFIQUES (pour la confirmation) 
-       – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – */
-    .confirmation-badge {
-      background: #eef3f7;
-      border-radius: 40px;
-      padding: 6px 20px;
-      display: inline-block;
-      font-weight: 600;
-      color: var(--blue);
-      letter-spacing: 0.5px;
-      margin-bottom: 10px;
-    }
-
-    .recap-paiement {
-      background: #f5f5f5;
-      border-radius: 12px;
-      padding: 20px 25px;
-      margin: 20px 0;
-      border-left: 4px solid var(--orange);
-    }
-
-    .recap-paiement strong {
-      color: var(--blue);
-    }
-
-    .recap-paiement .montant {
-      font-weight: 700;
-      font-size: 1.2rem;
-      color: var(--orange);
-    }
-
-    .flex-paiement {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      gap: 15px;
-      background: white;
-      padding: 15px 18px;
-      border-radius: 8px;
-      margin: 10px 0;
-      box-shadow: 0 1px 4px rgba(0,0,0,0.03);
-    }
-
-    .flex-paiement span {
-      font-weight: 500;
-    }
-
-    .acompte-note {
-      font-size: 0.95rem;
-      color: #555;
-      background: #fcf8f6;
-      padding: 14px 18px;
-      border-radius: 10px;
-      border: 1px solid #efded6;
-      margin-top: 15px;
-    }
-
-    .acompte-note i {
-      font-style: italic;
-    }
-
-    hr {
-      border: none;
-      border-top: 1px dashed #ddd;
-      margin: 25px 0;
-    }
-
     /* – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – 
        RESPONSIVE 
        – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – */
     @media (max-width: 650px) {
       .container { padding: 20px; }
-      .cover { padding: 40px 0; }
-      h1 { font-size: 30px; }
+      .cover { padding: 30px 0; }
       .include-grid { grid-template-columns: 1fr; }
       .flex-paiement { flex-direction: column; }
+      .client-box { padding: 18px 20px; }
+      .day { padding: 20px; }
+      .banner-overlay .logo { width: 90px; }
+    }
+
+    @media (max-width: 480px) {
+      .banner-overlay .confirmation-badge { font-size: 0.7rem; padding: 4px 14px; }
+      .banner-overlay h1 { font-size: 22px; }
     }
   </style>
 </head>
@@ -303,54 +347,82 @@
 <div class="container">
 
   <!-- – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – 
-  COVER : confirmation 
+  COVER avec BANNER 16:9 – ẢNH ĐÃ ĐƯỢC THÊM 
   – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – -->
   <section class="cover">
-    <img src="https://reonica.github.io/avecjo/images/logo-Avec-JO.png" alt="Avec Jo" class="logo">
-    <div class="confirmation-badge">✓ Réservation confirmée</div>
-    <h1>Confirmation de visite guidée</h1>
-    <p class="subtitle">
-      Hanoi · 26 juillet 2026<br>
-      <span style="font-size:0.9rem; color:#888;">Programme privé avec Joseph</span>
-    </p>
 
+    <!-- BANNER 16:9 – với ảnh từ thư mục images (cùng cấp với final) -->
+    <div class="banner-wrapper">
+      <div class="banner-overlay">
+        <img src="https://reonica.github.io/avecjo/images/logo-Avec-JO.png" alt="Avec Jo" class="logo">
+        <span class="confirmation-badge">✓ Réservation confirmée</span>
+        <h1>Hanoi · Journée d'exception</h1>
+        <span class="subtitle-banner">Visite privée – 26 juillet 2026</span>
+      </div>
+    </div>
+
+    <!-- Client box -->
     <div class="client-box">
-      <p><strong>Voyageur :</strong> Keo &amp; Reyhana</p>
+      <p><strong>Voyageur :</strong> Nico et sa famille</p>
       <p><strong>Nationalité :</strong> Française</p>
-      <p><strong>Date de la visite :</strong> 26 juillet 2026</p>
+      <p><strong>Date :</strong> 26 juillet 2026 – départ 9h</p>
       <p><strong>Guide :</strong> Joseph (francophone)</p>
     </div>
+
   </section>
 
   <!-- – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – 
-  PROGRAMME DÉTAILLÉ (ce qui a été convenu) 
+  ITINÉRAIRE DÉTAILLÉ – expérience EEAT 
   – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – -->
   <section class="section">
-    <h2 class="section-title">Programme du 26 juillet 2026</h2>
+    <h2 class="section-title">Itinéraire détaillé</h2>
 
     <div class="day">
-      <h3>📍 Itinéraire personnalisé</h3>
-      <ul>
-        <li><strong>Musée d’ethnographie</strong> – plongée dans la richesse des groupes ethniques du Vietnam</li>
-        <li><strong>Mausolée Hô Chi Minh</strong> (visite extérieure) – hommage au père de l’indépendance</li>
-        <li><strong>Rue du train</strong> – l’emblématique voie ferrée en plein cœur de Hanoi</li>
-        <li><strong>Balade dans le Vieux Quartier</strong> – rues animées, architectures et ambiance typique</li>
-      </ul>
-      <p style="margin-top: 10px;"><span class="highlight">✓ Dégustation d’une boisson locale</span> incluse dans le tarif</p>
+      <h3>🇻🇳 Bienvenue à Hanoi, la capitale millénaire du Vietnam</h3>
+
+      <p>
+        <span class="highlight">9h00 – Rendez-vous à votre hôtel</span> · Nous commençons notre journée par une immersion dans l’histoire et les cultures du Vietnam.
+      </p>
+
+      <p>
+        <strong>🏛️ Musée d’ethnographie</strong> – l’un des plus beaux musées d’Asie du Sud-Est. Nous y passerons environ 1 heure à explorer la richesse des 54 groupes ethniques du Vietnam, à travers des reconstitutions de maisons traditionnelles et des objets du quotidien. Une plongée fascinante dans la diversité culturelle du pays.
+      </p>
+
+      <p>
+        <strong>🏛️ Mausolée de Hô Chi Minh & son complexe</strong> – après le musée, nous nous rendons sur la place Ba Dình pour visiter le mausolée où repose « l’Oncle Hô ». Nous découvrirons également le <span class="highlight-blue">Palais présidentiel</span>, la <span class="highlight-blue">maison sur pilotis</span> où il vécut, et la célèbre <span class="highlight-blue">pagode à un pilier</span>, l’un des symboles spirituels de Hanoi.
+      </p>
+
+      <p>
+        <strong>🥢 Déjeuner</strong> – pause dans un restaurant local (à vos frais) pour goûter aux spécialités de la cuisine hanoïenne, comme le <em>phở</em> ou le <em>bún chả</em>.
+      </p>
+
+      <p>
+        <strong>🚂 15h00 – Rue du train (Phùng Hưng)</strong> – nous retournons vers le quartier de la rue du train, un lieu devenu célèbre sur les réseaux sociaux. Nous y observerons la vie locale, les échoppes et, avec un peu de chance, le passage du train en plein cœur de la ville. Une expérience authentique et photographique.
+      </p>
+
+      <p>
+        <strong>🚶 Balade dans le Vieux Quartier</strong> – pour terminer, nous flânerons dans les ruelles animées du <span class="highlight">quartier des 36 corporations</span>. Vous découvrirez l’âme des Hanoïens, que l’on surnomme affectueusement <span class="highlight-blue">« Người Tràng An »</span> – les habitants de la cité millénaire. Entre temples cachés, maisons à colombages et l’effervescence des marchés, c’est ici que bat le cœur de Hanoi.
+      </p>
+
+      <p>
+        <strong>☕ Dégustation de café à l’œuf</strong> – nous terminerons cette belle journée autour d’un <span class="highlight">cà phê trứng</span> (café à l’œuf), la spécialité locale créée dans les années 1940. Une douceur onctueuse et réconfortante pour clôturer cette immersion.
+      </p>
+
       <p class="day-note">
-        Découverte authentique de Hanoi, entre culture, histoire et vie locale.
+        ⏱️ Retour prévu vers 17h30 – 18h00 · Un voyage à travers l’histoire, la culture et les saveurs de Hanoi.
       </p>
     </div>
 
     <!-- – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – 
-    TARIF & PAIEMENT (informations précises) 
+    TARIF & PAIEMENT 
     – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – -->
     <div style="margin-top: 20px;">
       <h3 style="font-family: 'Montserrat', sans-serif; color: var(--blue); margin-bottom: 6px;">💶 Tarif & paiement</h3>
+
       <div class="price-box" style="background: var(--blue);">
         <div>Montant total de la visite</div>
         <div class="price">100 €</div>
-        <div style="font-size: 0.9rem; opacity: 0.9; margin-top: 5px;">pour les deux voyageurs</div>
+        <div style="font-size: 0.9rem; opacity: 0.9; margin-top: 5px;">pour le groupe (Nico et sa famille)</div>
       </div>
 
       <div class="recap-paiement">
@@ -371,19 +443,12 @@
           <p><strong>📌 Acompte de 50 %</strong> – le versement confirme votre réservation et <strong>n’est pas remboursable</strong> en cas d’annulation de votre part.</p>
           <p style="margin-top: 6px;">Les éventuels frais de transaction de la plateforme de paiement ou de votre banque restent à votre charge.</p>
         </div>
-
-        <p style="margin-top: 15px; font-size: 0.95rem;">
-          ✅ <strong>Pourboire</strong> non compris dans le tarif (à votre discrétion).
-        </p>
-        <p style="font-size: 0.9rem; color: #555;">
-          🚖 <strong>Billets d’entrée, transports (Grab/taxi…)</strong> sont à votre charge.
-        </p>
       </div>
     </div>
   </section>
 
   <!-- – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – 
-  PRESTATIONS (inclus / non inclus) 
+  PRESTATIONS – INCLUS / NON INCLUS (version optimisée) 
   – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – -->
   <section class="section">
     <h2 class="section-title">Prestations</h2>
@@ -391,47 +456,55 @@
       <div class="box">
         <h3>✅ Inclus</h3>
         <ul>
-          <li>Guide francophone privé (Joseph) – toute la journée</li>
-          <li>Dégustation d’une boisson locale</li>
-          <li>Accompagnement et conseils personnalisés</li>
-          <li>Eau potable pendant la visite</li>
-          <li>Assistance avant et pendant le tour</li>
+          <li><strong>Guide francophone privé</strong> – Joseph, expert local, vous accompagne durant toute la journée</li>
+          <li><strong>Dégustation d’une boisson locale</strong> – café à l’œuf ou autre spécialité au choix</li>
+          <li><strong>Accompagnement personnalisé</strong> – conseils, anecdotes et découverte authentique de Hanoi</li>
+          <li><strong>Eau potable</strong> – à disposition pendant toute la visite</li>
+          <li><strong>Assistance avant et pendant le tour</strong> – contact direct avec le guide</li>
+          <li><strong>Flexibilité</strong> – le rythme de la journée s’adapte à vos envies</li>
         </ul>
       </div>
       <div class="box">
         <h3>❌ Non inclus</h3>
         <ul>
-          <li>Billets d’entrée (musée, mausolée…)</li>
-          <li>Transports (Grab, taxi, cyclo…)</li>
-          <li>Repas et boissons (hors dégustation prévue)</li>
-          <li>Pourboires (guide, chauffeur, prestataires)</li>
-          <li>Dépenses personnelles</li>
-          <li>Assurance voyage</li>
+          <li><strong>Billets d’entrée</strong> – musée d’ethnographie, mausolée, pagode (env. 8–10 €/pers.)</li>
+          <li><strong>Transports</strong> – Grab, taxi, cyclo… (à votre charge et selon vos besoins)</li>
+          <li><strong>Déjeuner</strong> – restaurant local (à vos frais, comptez environ 5–10 €/pers.)</li>
+          <li><strong>Pourboires</strong> – pour le guide, le chauffeur ou les prestataires locaux (à votre discrétion)</li>
+          <li><strong>Dépenses personnelles</strong> – souvenirs, boissons supplémentaires, etc.</li>
+          <li><strong>Assurance voyage</strong> – nous vous conseillons d’en souscrire une avant votre départ</li>
         </ul>
       </div>
+    </div>
+
+    <!-- Petit conseil EEAT -->
+    <div style="margin-top: 20px; background: #f0f5fa; padding: 18px 22px; border-radius: 12px; border-left: 4px solid var(--blue);">
+      <p style="font-size: 0.95rem; color: #2a4a66;">
+        <strong>💡 À savoir :</strong> Les billets d’entrée et les transports sont volontairement laissés à votre charge pour que vous puissiez choisir ce qui vous convient le mieux (taxi, Grab, cyclo…). Je vous conseille de prévoir environ <strong>20–25 €</strong> par personne pour l’ensemble des frais annexes (entrées + transport + déjeuner).
+      </p>
     </div>
   </section>
 
   <!-- – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – 
-  CONSEILS PRATIQUES (reprise de l’esprit contact) 
+  CONSEILS PRATIQUES 
   – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – -->
   <section class="section">
     <h2 class="section-title">Conseils pratiques pour votre journée</h2>
     <div class="tips">
       <h3>📍 Rendez-vous</h3>
-      <p>Devant votre hôtel à l’heure convenue (8h30). Joseph vous contactera la veille.</p>
+      <p>Devant votre hôtel à <strong>9h00</strong>. Joseph vous contactera la veille pour confirmer l’heure exacte.</p>
 
       <h3>💵 Argent</h3>
-      <p>Prévoyez des <strong>Dongs vietnamiens</strong> pour les entrées et les transports. Les cartes sont acceptées dans certains lieux, mais l’espèce reste plus pratique.</p>
+      <p>Prévoyez des <strong>Dongs vietnamiens</strong> pour les entrées, les transports et le déjeuner. Les cartes sont acceptées dans certains lieux, mais l’espèce reste plus pratique.</p>
 
-      <h3>🚦 Circulation</h3>
-      <p>Hanoi est animée. Pour traverser, avancez calmement et régulièrement.</p>
+      <h3>👕 Tenue</h3>
+      <p>Pour la visite du mausolée et des lieux religieux, une tenue correcte est exigée (épaules et genoux couverts).</p>
 
       <h3>🌦️ Météo (juillet)</h3>
-      <p>Chaud et humide (28–36°C). N’oubliez pas : chapeau, crème solaire, lunettes, et une bouteille d’eau.</p>
+      <p>Chaud et humide (28–36°C). N’oubliez pas : chapeau, crème solaire, lunettes de soleil, et une bouteille d’eau.</p>
 
       <h3>📱 Applications utiles</h3>
-      <p>Grab (VTC), Google Maps, Google Translate.</p>
+      <p><strong>Grab</strong> (VTC), Google Maps, Google Translate.</p>
 
       <h3>💬 Pourboire</h3>
       <p>Le pourboire n’est pas obligatoire mais toujours apprécié. Beaucoup de voyageurs prévoient environ <strong>6 € par jour</strong> pour le guide, à votre discrétion.</p>
@@ -461,7 +534,7 @@
   </section>
 
   <!-- – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – 
-  FOOTER (identique à la page contact) 
+  FOOTER 
   – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – -->
   <section class="footer">
     <div class="brand">Avec Jo</div>
