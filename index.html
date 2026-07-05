@@ -1,463 +1,483 @@
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Confirmation de réservation · Avec Jo</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    /* – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – 
+       STYLES (exactement le même ADN que la page contact) 
+       – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – */
+    :root {
+      --blue: #355F82;
+      --orange: #E67643;
+      --light: #F7F7F7;
+      --text: #333333;
+    }
 
-<title>Joseph Hai | Guide Francophone Vietnam</title>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-<meta name="description" content="Découvrez le Vietnam avec Joseph Hai, guide francophone basé à Hanoï. Circuits privés, expériences authentiques, culture, gastronomie et voyages sur mesure au Vietnam.">
+    body {
+      font-family: 'Open Sans', sans-serif;
+      color: var(--text);
+      line-height: 1.7;
+      background: white;
+    }
 
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    .container {
+      max-width: 900px;
+      margin: auto;
+      padding: 40px;
+    }
 
-<style>
+    /* – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – 
+       COVER 
+       – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – */
+    .cover {
+      text-align: center;
+      padding: 80px 0;
+      border-bottom: 2px solid #eee;
+    }
 
-:root{
---blue:#355F82;
---orange:#E67643;
---light:#F7F7F7;
---text:#333333;
-}
+    .logo {
+      width: 180px;
+      margin-bottom: 25px;
+    }
 
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-}
+    h1 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 38px;
+      color: var(--blue);
+      margin-bottom: 15px;
+    }
 
-body{
-font-family:'Open Sans',sans-serif;
-line-height:1.8;
-color:var(--text);
-background:white;
-}
+    .subtitle {
+      font-size: 18px;
+      color: #666;
+      margin-bottom: 30px;
+    }
 
-.container{
-max-width:1100px;
-margin:auto;
-padding:40px;
-}
+    .client-box {
+      display: inline-block;
+      text-align: left;
+      background: #fafafa;
+      padding: 25px;
+      border-radius: 12px;
+      border-left: 5px solid var(--orange);
+    }
 
-.hero{
-padding:80px 0;
-text-align:center;
-}
+    /* – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – 
+       SECTIONS & TABLE 
+       – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – */
+    .section {
+      margin-top: 50px;
+    }
 
-.logo{
-width:180px;
-margin-bottom:25px;
-}
+    .section-title {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 28px;
+      color: var(--blue);
+      margin-bottom: 20px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid #eee;
+    }
 
-.hero h1{
-font-family:'Montserrat',sans-serif;
-font-size:52px;
-color:var(--blue);
-margin-bottom:15px;
-}
+    .info-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
 
-.hero p{
-max-width:800px;
-margin:auto;
-font-size:20px;
-color:#666;
-}
+    .info-table td {
+      padding: 12px;
+      border-bottom: 1px solid #eee;
+    }
 
-.btn{
-display:inline-block;
-margin-top:35px;
-padding:14px 32px;
-background:var(--orange);
-color:white;
-text-decoration:none;
-border-radius:50px;
-font-weight:600;
-}
+    /* – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – 
+       PRICE BOX (orange) 
+       – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – */
+    .price-box {
+      margin-top: 30px;
+      background: var(--orange);
+      color: white;
+      text-align: center;
+      padding: 25px;
+      border-radius: 12px;
+    }
 
-.section{
-margin-top:80px;
-}
+    .price {
+      font-size: 42px;
+      font-weight: 700;
+    }
 
-.section-title{
-font-family:'Montserrat',sans-serif;
-font-size:34px;
-color:var(--blue);
-margin-bottom:25px;
-text-align:center;
-}
+    /* – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – 
+       ITINERAIRE (jour / box) 
+       – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – */
+    .day {
+      margin-bottom: 40px;
+      padding: 25px;
+      background: #fafafa;
+      border-radius: 12px;
+    }
 
-.about{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:50px;
-align-items:center;
-}
+    .day h3 {
+      color: var(--blue);
+      margin-bottom: 10px;
+    }
 
-.about img{
-width:100%;
-border-radius:20px;
-}
+    .day ul {
+      padding-left: 20px;
+      margin-top: 10px;
+    }
 
-.card{
-background:#fafafa;
-padding:35px;
-border-radius:16px;
-}
+    .day-note {
+      margin-top: 15px;
+      font-style: italic;
+      color: #777;
+    }
 
-.card h3{
-color:var(--blue);
-margin-bottom:15px;
-}
+    /* – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – 
+       BOX "INCLUS / NON INCLUS" 
+       – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – */
+    .include-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+    }
 
-.features{
-display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:25px;
-}
+    .box {
+      background: #fafafa;
+      padding: 25px;
+      border-radius: 12px;
+    }
 
-.feature{
-background:#fafafa;
-padding:30px;
-border-radius:16px;
-text-align:center;
-}
+    .box h3 {
+      margin-bottom: 15px;
+      color: var(--blue);
+    }
 
-.feature h3{
-color:var(--blue);
-margin-bottom:15px;
-}
+    .box ul {
+      padding-left: 20px;
+    }
 
-.destinations{
-display:grid;
-grid-template-columns:repeat(4,1fr);
-gap:20px;
-}
+    /* – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – 
+       TIPS (conseils) 
+       – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – */
+    .tips {
+      background: #fafafa;
+      padding: 25px;
+      border-radius: 12px;
+    }
 
-.destination{
-background:#fafafa;
-padding:25px;
-border-radius:14px;
-text-align:center;
-font-weight:600;
-}
+    .tips h3 {
+      margin-top: 20px;
+      margin-bottom: 10px;
+      color: var(--blue);
+    }
 
-.quote{
-background:var(--blue);
-color:white;
-padding:60px;
-border-radius:20px;
-text-align:center;
-margin-top:70px;
-}
+    .tips p {
+      margin-bottom: 8px;
+    }
 
-.quote p{
-font-size:22px;
-font-style:italic;
-}
+    .tips ul {
+      padding-left: 20px;
+    }
 
-.contact{
-text-align:center;
-padding:70px 0;
-}
+    /* – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – 
+       FOOTER 
+       – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – */
+    .footer {
+      margin-top: 60px;
+      padding-top: 30px;
+      border-top: 1px solid #ddd;
+      text-align: center;
+    }
 
-.contact-box{
-display:inline-block;
-padding:35px;
-background:#fafafa;
-border-radius:20px;
-}
+    .brand {
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--blue);
+      margin-bottom: 10px;
+    }
 
-.contact a{
-color:var(--orange);
-font-weight:600;
-text-decoration:none;
-}
+    .contact {
+      color: #666;
+    }
 
-.footer{
-margin-top:60px;
-padding-top:25px;
-border-top:1px solid #ddd;
-text-align:center;
-color:#666;
-}
+    .contact a {
+      color: var(--blue);
+      text-decoration: none;
+    }
 
-@media(max-width:900px){
+    .highlight {
+      color: var(--orange);
+      font-weight: 600;
+    }
 
-.about{
-grid-template-columns:1fr;
-}
+    /* – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – 
+       PETITES TOUCHES SPÉCIFIQUES (pour la confirmation) 
+       – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – */
+    .confirmation-badge {
+      background: #eef3f7;
+      border-radius: 40px;
+      padding: 6px 20px;
+      display: inline-block;
+      font-weight: 600;
+      color: var(--blue);
+      letter-spacing: 0.5px;
+      margin-bottom: 10px;
+    }
 
-.features{
-grid-template-columns:1fr;
-}
+    .recap-paiement {
+      background: #f5f5f5;
+      border-radius: 12px;
+      padding: 20px 25px;
+      margin: 20px 0;
+      border-left: 4px solid var(--orange);
+    }
 
-.destinations{
-grid-template-columns:1fr 1fr;
-}
+    .recap-paiement strong {
+      color: var(--blue);
+    }
 
-.hero h1{
-font-size:40px;
-}
+    .recap-paiement .montant {
+      font-weight: 700;
+      font-size: 1.2rem;
+      color: var(--orange);
+    }
 
-}
+    .flex-paiement {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 15px;
+      background: white;
+      padding: 15px 18px;
+      border-radius: 8px;
+      margin: 10px 0;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.03);
+    }
 
-.floating-whatsapp{
-position:fixed;
-right:25px;
-bottom:25px;
-z-index:9999;
+    .flex-paiement span {
+      font-weight: 500;
+    }
 
-display:flex;
-align-items:center;
-gap:10px;
+    .acompte-note {
+      font-size: 0.95rem;
+      color: #555;
+      background: #fcf8f6;
+      padding: 14px 18px;
+      border-radius: 10px;
+      border: 1px solid #efded6;
+      margin-top: 15px;
+    }
 
-padding:14px 20px;
+    .acompte-note i {
+      font-style: italic;
+    }
 
-background:var(--orange);
-color:white;
+    hr {
+      border: none;
+      border-top: 1px dashed #ddd;
+      margin: 25px 0;
+    }
 
-text-decoration:none;
-font-weight:600;
-font-size:15px;
-
-border-radius:50px;
-
-box-shadow:0 10px 30px rgba(0,0,0,.18);
-
-transition:.3s ease;
-}
-
-.floating-whatsapp:hover{
-transform:translateY(-3px);
-background:var(--blue);
-}
-
-.floating-whatsapp svg{
-width:24px;
-height:24px;
-flex-shrink:0;
-}
-
-@media(max-width:768px){
-
-.floating-whatsapp{
-right:15px;
-bottom:15px;
-padding:14px;
-border-radius:50%;
-}
-
-.floating-whatsapp span{
-display:none;
-}
-
-.floating-whatsapp svg{
-width:28px;
-height:28px;
-}
-
-}
-
-</style>
+    /* – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – 
+       RESPONSIVE 
+       – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – */
+    @media (max-width: 650px) {
+      .container { padding: 20px; }
+      .cover { padding: 40px 0; }
+      h1 { font-size: 30px; }
+      .include-grid { grid-template-columns: 1fr; }
+      .flex-paiement { flex-direction: column; }
+    }
+  </style>
 </head>
-
 <body>
 
 <div class="container">
 
-<section class="hero">
+  <!-- – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – 
+  COVER : confirmation 
+  – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – -->
+  <section class="cover">
+    <img src="https://reonica.github.io/avecjo/images/logo-Avec-JO.png" alt="Avec Jo" class="logo">
+    <div class="confirmation-badge">✓ Réservation confirmée</div>
+    <h1>Confirmation de visite guidée</h1>
+    <p class="subtitle">
+      Hanoi · 26 juillet 2026<br>
+      <span style="font-size:0.9rem; color:#888;">Programme privé avec Joseph</span>
+    </p>
 
-<img src="https://reonica.github.io/avecjo/images/logo-Avec-JO.png" class="logo" alt="Avec Jo">
+    <div class="client-box">
+      <p><strong>Voyageur :</strong> Keo &amp; Reyhana</p>
+      <p><strong>Nationalité :</strong> Française</p>
+      <p><strong>Date de la visite :</strong> 26 juillet 2026</p>
+      <p><strong>Guide :</strong> Joseph (francophone)</p>
+    </div>
+  </section>
 
-<h1>Joseph Hai</h1>
+  <!-- – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – 
+  PROGRAMME DÉTAILLÉ (ce qui a été convenu) 
+  – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – -->
+  <section class="section">
+    <h2 class="section-title">Programme du 26 juillet 2026</h2>
 
-<p>
-Guide francophone au Vietnam basé à Hanoï.
-Découvrez le Vietnam autrement grâce à des voyages privés, authentiques et personnalisés, loin des circuits touristiques classiques.
-</p>
+    <div class="day">
+      <h3>📍 Itinéraire personnalisé</h3>
+      <ul>
+        <li><strong>Musée d’ethnographie</strong> – plongée dans la richesse des groupes ethniques du Vietnam</li>
+        <li><strong>Mausolée Hô Chi Minh</strong> (visite extérieure) – hommage au père de l’indépendance</li>
+        <li><strong>Rue du train</strong> – l’emblématique voie ferrée en plein cœur de Hanoi</li>
+        <li><strong>Balade dans le Vieux Quartier</strong> – rues animées, architectures et ambiance typique</li>
+      </ul>
+      <p style="margin-top: 10px;"><span class="highlight">✓ Dégustation d’une boisson locale</span> incluse dans le tarif</p>
+      <p class="day-note">
+        Découverte authentique de Hanoi, entre culture, histoire et vie locale.
+      </p>
+    </div>
 
-<a href="https://guidehanoi.com" class="btn">
-Planifier votre voyage
-</a>
+    <!-- – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – 
+    TARIF & PAIEMENT (informations précises) 
+    – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – -->
+    <div style="margin-top: 20px;">
+      <h3 style="font-family: 'Montserrat', sans-serif; color: var(--blue); margin-bottom: 6px;">💶 Tarif & paiement</h3>
+      <div class="price-box" style="background: var(--blue);">
+        <div>Montant total de la visite</div>
+        <div class="price">100 €</div>
+        <div style="font-size: 0.9rem; opacity: 0.9; margin-top: 5px;">pour les deux voyageurs</div>
+      </div>
 
-</section>
+      <div class="recap-paiement">
+        <p style="font-weight: 600; color: var(--blue);">Récapitulatif des versements</p>
 
-<section class="section">
+        <div class="flex-paiement">
+          <span>💳 Acompte versé (PayPal) : <strong>50 €</strong></span>
+          <span style="color: #777;">frais de transaction PayPal : <strong>−2,50 €</strong></span>
+          <span style="font-weight: 600; color: var(--orange);">net perçu : 47,50 €</span>
+        </div>
 
-<h2 class="section-title">Qui est Joseph ?</h2>
+        <div class="flex-paiement" style="background: #fafafa; box-shadow: none; border: 1px solid #eee;">
+          <span>💰 Solde restant (à régler le matin du 26/07) : <strong style="color: var(--orange); font-size: 1.2rem;">52,50 €</strong></span>
+          <span style="font-size: 0.9rem; color: #555;">à remettre en espèces à Joseph avant le départ</span>
+        </div>
 
-<div class="about">
+        <div class="acompte-note">
+          <p><strong>📌 Acompte de 50 %</strong> – le versement confirme votre réservation et <strong>n’est pas remboursable</strong> en cas d’annulation de votre part.</p>
+          <p style="margin-top: 6px;">Les éventuels frais de transaction de la plateforme de paiement ou de votre banque restent à votre charge.</p>
+        </div>
 
-<div>
-<img src="images/1-jo-lan-ha.jpg" alt="Joseph Hai">
-</div>
+        <p style="margin-top: 15px; font-size: 0.95rem;">
+          ✅ <strong>Pourboire</strong> non compris dans le tarif (à votre discrétion).
+        </p>
+        <p style="font-size: 0.9rem; color: #555;">
+          🚖 <strong>Billets d’entrée, transports (Grab/taxi…)</strong> sont à votre charge.
+        </p>
+      </div>
+    </div>
+  </section>
 
-<div class="card">
+  <!-- – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – 
+  PRESTATIONS (inclus / non inclus) 
+  – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – -->
+  <section class="section">
+    <h2 class="section-title">Prestations</h2>
+    <div class="include-grid">
+      <div class="box">
+        <h3>✅ Inclus</h3>
+        <ul>
+          <li>Guide francophone privé (Joseph) – toute la journée</li>
+          <li>Dégustation d’une boisson locale</li>
+          <li>Accompagnement et conseils personnalisés</li>
+          <li>Eau potable pendant la visite</li>
+          <li>Assistance avant et pendant le tour</li>
+        </ul>
+      </div>
+      <div class="box">
+        <h3>❌ Non inclus</h3>
+        <ul>
+          <li>Billets d’entrée (musée, mausolée…)</li>
+          <li>Transports (Grab, taxi, cyclo…)</li>
+          <li>Repas et boissons (hors dégustation prévue)</li>
+          <li>Pourboires (guide, chauffeur, prestataires)</li>
+          <li>Dépenses personnelles</li>
+          <li>Assurance voyage</li>
+        </ul>
+      </div>
+    </div>
+  </section>
 
-<h3>Votre guide francophone au Vietnam</h3>
+  <!-- – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – 
+  CONSEILS PRATIQUES (reprise de l’esprit contact) 
+  – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – -->
+  <section class="section">
+    <h2 class="section-title">Conseils pratiques pour votre journée</h2>
+    <div class="tips">
+      <h3>📍 Rendez-vous</h3>
+      <p>Devant votre hôtel à l’heure convenue (8h30). Joseph vous contactera la veille.</p>
 
-<p>
-Passionné par les rencontres humaines, la culture vietnamienne et les découvertes locales, Joseph accompagne depuis plusieurs années des voyageurs francophones à travers tout le Vietnam.
-</p>
+      <h3>💵 Argent</h3>
+      <p>Prévoyez des <strong>Dongs vietnamiens</strong> pour les entrées et les transports. Les cartes sont acceptées dans certains lieux, mais l’espèce reste plus pratique.</p>
 
-<br>
+      <h3>🚦 Circulation</h3>
+      <p>Hanoi est animée. Pour traverser, avancez calmement et régulièrement.</p>
 
-<p>
-Chaque voyage est conçu comme une expérience unique : comprendre le pays, rencontrer ses habitants, découvrir ses traditions et vivre le Vietnam de l’intérieur.
-</p>
+      <h3>🌦️ Météo (juillet)</h3>
+      <p>Chaud et humide (28–36°C). N’oubliez pas : chapeau, crème solaire, lunettes, et une bouteille d’eau.</p>
 
-<br>
+      <h3>📱 Applications utiles</h3>
+      <p>Grab (VTC), Google Maps, Google Translate.</p>
 
-<p>
-Basé à Hanoï, Joseph organise des circuits privés adaptés au rythme et aux envies de chaque voyageur.
-</p>
+      <h3>💬 Pourboire</h3>
+      <p>Le pourboire n’est pas obligatoire mais toujours apprécié. Beaucoup de voyageurs prévoient environ <strong>6 € par jour</strong> pour le guide, à votre discrétion.</p>
+    </div>
+  </section>
 
-</div>
+  <!-- – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – 
+  CONDITIONS 
+  – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – -->
+  <section class="section">
+    <h2 class="section-title">Conditions de réservation</h2>
+    <div class="tips">
+      <h3>🔒 Réservation</h3>
+      <p>Confirmée par l’acompte de 50 % (50 €). Le solde est dû le jour de la visite.</p>
 
-</div>
+      <h3>❌ Annulation</h3>
+      <ul>
+        <li>Plus de 15 jours avant → remboursement intégral (hors frais de transaction).</li>
+        <li>Entre 7 et 14 jours → remboursement de 50 %.</li>
+        <li>Moins de 7 jours → aucun remboursement.</li>
+      </ul>
+      <p style="margin-top: 10px;">L’acompte est non remboursable en cas d’annulation de votre part.</p>
 
-</section>
+      <h3>🌧️ Météo</h3>
+      <p>En cas de conditions exceptionnelles, l’itinéraire pourra être adapté pour garantir votre sécurité et votre confort.</p>
+    </div>
+  </section>
 
-<section class="section">
-
-<h2 class="section-title">Pourquoi voyager avec Joseph ?</h2>
-
-<div class="features">
-
-<div class="feature">
-<h3>Expert local</h3>
-<p>
-Une connaissance approfondie de l’histoire, de la culture vietnamienne et des régions authentiques du pays.
-</p>
-</div>
-
-<div class="feature">
-<h3>Voyages sur mesure</h3>
-<p>
-Chaque itinéraire est personnalisé selon vos centres d’intérêt, votre budget et votre rythme de voyage.
-</p>
-</div>
-
-<div class="feature">
-<h3>Accompagnement humain</h3>
-<p>
-Disponibilité avant, pendant et après votre séjour pour vous garantir une expérience fluide et sereine.
-</p>
-</div>
-
-</div>
-
-</section>
-
-<section class="section">
-
-<h2 class="section-title">Destinations populaires</h2>
-
-<div class="destinations">
-
-<div class="destination">Hanoï</div>
-<div class="destination">Ninh Binh</div>
-<div class="destination">Baie d’Halong</div>
-<div class="destination">Sapa</div>
-<div class="destination">Ha Giang</div>
-<div class="destination">Hue</div>
-<div class="destination">Hoi An</div>
-<div class="destination">Delta du Mékong</div>
-
-</div>
-
-</section>
-
-<section class="quote">
-
-<p>
-« Chaque voyage est une rencontre. Mon objectif n’est pas seulement de montrer le Vietnam, mais de vous faire vivre le Vietnam. »
-</p>
-
-</section>
-
-<section class="section">
-
-<h2 class="section-title">Ce que disent les voyageurs</h2>
-
-<div class="card">
-
-<p>
-« Joseph est un guide exceptionnel, passionné et chaleureux. Grâce à lui, nous avons découvert Hanoï sous un angle authentique, entre histoire, culture et gastronomie locale. »
-</p>
-
-<br>
-
-<p>
-« Une expérience humaine inoubliable. Joseph sait transmettre son amour du Vietnam avec simplicité et enthousiasme. »
-</p>
-
-</div>
-
-</section>
-
-<!-- FLOATING WHATSAPP -->
-
-<a
-  href="https://wa.me/84916882795"
-  class="floating-whatsapp"
-  target="_blank"
-  aria-label="WhatsApp Joseph Hai"
->
-  <svg viewBox="0 0 32 32" fill="currentColor">
-    <path d="M19.11 17.39c-.28-.14-1.63-.8-1.88-.89-.25-.09-.43-.14-.61.14-.18.28-.7.89-.86 1.08-.16.18-.32.21-.6.07-.28-.14-1.16-.43-2.21-1.37-.82-.73-1.37-1.63-1.53-1.91-.16-.28-.02-.43.12-.57.13-.13.28-.32.43-.48.14-.16.18-.28.28-.46.09-.18.05-.35-.02-.48-.07-.14-.61-1.48-.84-2.02-.22-.53-.44-.46-.61-.47h-.52c-.18 0-.48.07-.73.35s-.96.94-.96 2.29c0 1.35.98 2.65 1.12 2.83.14.18 1.92 2.93 4.65 4.11.65.28 1.15.44 1.54.56.65.21 1.24.18 1.71.11.52-.08 1.63-.67 1.86-1.31.23-.64.23-1.19.16-1.31-.07-.12-.25-.18-.53-.32z"/>
-    <path d="M16.03 3C8.85 3 3.03 8.82 3.03 16c0 2.53.72 4.99 2.09 7.12L3 29l6.08-2.08A12.9 12.9 0 0 0 16.03 29C23.2 29 29.03 23.18 29.03 16S23.2 3 16.03 3zm0 23.64c-2.11 0-4.18-.57-5.99-1.65l-.43-.25-3.61 1.24 1.18-3.52-.28-.46A10.57 10.57 0 0 1 5.4 16c0-5.86 4.77-10.63 10.63-10.63S26.66 10.14 26.66 16s-4.77 10.64-10.63 10.64z"/>
-  </svg>
-
-  <span>WhatsApp</span>
-</a>
-
-<section class="contact">
-
-<h2 class="section-title">Contact</h2>
-
-<div class="contact-box">
-
-<p><strong>Joseph Hai – Avec Jo</strong></p>
-
-<p>
-Guide Francophone Vietnam
-</p>
-
-<br>
-
-WhatsApp :
-<a href="tel:+84916882795">
-+84 91 688 2795
-</a>
-
-<br><br>
-
-Email :
-<a href="mailto:goavecjo@gmail.com">
-goavecjo@gmail.com
-</a>
-
-<br><br>
-
-Site web :
-<a href="https://guidehanoi.com" target="_blank">
-Guide Francophone Vietnam
-</a>
+  <!-- – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – 
+  FOOTER (identique à la page contact) 
+  – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – – -->
+  <section class="footer">
+    <div class="brand">Avec Jo</div>
+    <p>Chaque voyage, une expérience unique</p>
+    <div class="contact">
+      <a href="https://guidehanoi.com" target="_blank">Guide Francophone Vietnam</a><br>
+      WhatsApp : <a href="tel:+84916882795">+84 91 688 2795</a><br>
+      Email : <a href="mailto:goavecjo@gmail.com">goavecjo@gmail.com</a>
+    </div>
+    <p style="margin-top: 25px; font-size: 0.85rem; color: #aaa;">
+      Merci de votre confiance – à très vite pour cette découverte de Hanoi !
+    </p>
+  </section>
 
 </div>
-
-</section>
-
-<div class="footer">
-
-<p>
-Avec Jo — Chaque voyage, une expérience unique
-</p>
-
-</div>
-
-</div>
+<!-- fin container -->
 
 </body>
 </html>
