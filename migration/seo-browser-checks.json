@@ -1,0 +1,21 @@
+{
+  "checkedAt": "2026-10-14T15:32:17.602307+00:00",
+  "browser": "Codex in-app browser",
+  "verified": {
+    "requestedHeroTextAndHref": true,
+    "requestedFooterTextAndHref": true,
+    "home320pxNoOverflow": true,
+    "service390pxNoOverflow": true,
+    "serviceDesktopNoOverflow": true,
+    "desktopContactCardSticky": true,
+    "mobileContactCardStatic": true,
+    "fixedHeader": true,
+    "nativeFaqOpens": true,
+    "categoryServerRenderedCards": 4,
+    "legacyHanoiTagCount": 7,
+    "staticHanoiTagCount": 7
+  },
+  "limits": [
+    "Firebase production deployment and Search Console indexing were not performed by this task."
+  ]
+}

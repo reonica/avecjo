@@ -1,0 +1,50 @@
+{
+  "checkedAt": "2026-10-14T15:34:49.391Z",
+  "passed": true,
+  "counts": {
+    "structuredGraphs": 123,
+    "indexablePages": 89,
+    "guidePages": 9,
+    "keywordTargets": 9
+  },
+  "keywordTargets": [
+    {
+      "keyword": "guide francophone vietnam",
+      "slug": "",
+      "supportingPage": "guide-francophone-vietnam"
+    },
+    {
+      "keyword": "guide francophone hanoi",
+      "slug": "guide-francophone-hanoi"
+    },
+    {
+      "keyword": "guide francophone ninh binh",
+      "slug": "guide-francophone-ninh-binh"
+    },
+    {
+      "keyword": "guide francophone tam coc",
+      "slug": "guide-francophone-tam-coc"
+    },
+    {
+      "keyword": "guide francophone mai chau",
+      "slug": "mai-chau-phu-tho"
+    },
+    {
+      "keyword": "guide francophone pu luong",
+      "slug": "pu-luong"
+    },
+    {
+      "keyword": "guide francophone ha giang",
+      "slug": "ha-giang-loop"
+    },
+    {
+      "keyword": "guide francophone cao bang",
+      "slug": "cao-bang"
+    },
+    {
+      "keyword": "guide francophone nord vietnam",
+      "slug": "guide-francophone-nord-vietnam"
+    }
+  ],
+  "errors": []
+}
