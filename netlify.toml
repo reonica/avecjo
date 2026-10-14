@@ -1,0 +1,20 @@
+[build]
+  publish = "."
+  command = ""
+
+[build.processing.html]
+  pretty_urls = false
+
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=2592000"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+
+# URL rewrites and the original image paths are generated in _redirects.
+# Enable Netlify Forms detection in the site's dashboard before deployment.

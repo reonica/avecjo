@@ -1,0 +1,1582 @@
+[
+  {
+    "sourceUrl": "https://www.guidehanoi.com/",
+    "path": "/",
+    "target": "/",
+    "kind": "core",
+    "inSitemap": true,
+    "sourceStatus": 200,
+    "sourceCanonical": "https://www.guidehanoi.com/",
+    "strategy": "same-path"
+  },
+  {
+    "sourceUrl": "https://www.guidehanoi.com/4-jours-visite-cao-bang-lang-son",
+    "path": "/4-jours-visite-cao-bang-lang-son",
+    "target": "/4-jours-visite-cao-bang-lang-son",
+    "kind": "post",
+    "inSitemap": true,
+    "sourceStatus": 200,
+    "sourceCanonical": "https://www.guidehanoi.com/4-jours-visite-cao-bang-lang-son",
+    "strategy": "same-path"
+  },
+  {
+    "sourceUrl": "https://www.guidehanoi.com/5-jours-au-nord-vietnam",
+    "path": "/5-jours-au-nord-vietnam",
+    "target": "/5-jours-au-nord-vietnam",
+    "kind": "core",
+    "inSitemap": false,
+    "sourceStatus": 200,
+    "sourceCanonical": "https://www.guidehanoi.com/",
+    "strategy": "same-path"
+  },
+  {
+    "sourceUrl": "https://www.guidehanoi.com/aeroport-de-hanoi",
+    "path": "/aeroport-de-hanoi",
+    "target": "/aeroport-de-hanoi",
+    "kind": "album",
+    "inSitemap": true,
+    "sourceStatus": 200,
+    "sourceCanonical": "https://www.guidehanoi.com/aeroport-de-hanoi",
+    "strategy": "same-path"
+  },
+  {
+    "sourceUrl": "https://www.guidehanoi.com/ba-be-thai-nguyen",
+    "path": "/ba-be-thai-nguyen",
+    "target": "/ba-be-thai-nguyen",
+    "kind": "page",
+    "inSitemap": true,
+    "sourceStatus": 200,
+    "sourceCanonical": "https://www.guidehanoi.com/ba-be-thai-nguyen",
+    "strategy": "same-path"
+  },
+  {
+    "sourceUrl": "https://www.guidehanoi.com/baie-d-halong",
+    "path": "/baie-d-halong",
+    "target": "/baie-d-halong",
+    "kind": "page",
+    "inSitemap": true,
+    "sourceStatus": 200,
+    "sourceCanonical": "https://www.guidehanoi.com/baie-d-halong",
+    "strategy": "same-path"
+  },
+  {
+    "sourceUrl": "https://www.guidehanoi.com/baie-de-lan-ha",
+    "path": "/baie-de-lan-ha",
+    "target": "/baie-de-lan-ha",
+    "kind": "page",
+    "inSitemap": true,
+    "sourceStatus": 200,
+    "sourceCanonical": "https://www.guidehanoi.com/baie-de-lan-ha",
+    "strategy": "same-path"
+  },
+  {
+    "sourceUrl": "https://www.guidehanoi.com/blog",
+    "path": "/blog",
+    "target": "/blog",
+    "kind": "core",
+    "inSitemap": true,
+    "sourceStatus": 200,
+    "sourceCanonical": "https://www.guidehanoi.com/blog",
+    "strategy": "same-path"
+  },
+  {
+    "sourceUrl": "https://www.guidehanoi.com/blog?keyword=Blog Voyage Vietnam",
+    "path": "/blog?keyword=Blog Voyage Vietnam",
+    "target": "/blog?keyword=Blog Voyage Vietnam",
+    "kind": "query",
+    "inSitemap": false,
+    "sourceStatus": null,
+    "sourceCanonical": null,
+    "strategy": "query-compatible"
+  },
+  {
+    "sourceUrl": "https://www.guidehanoi.com/blog?keyword=Blog%20Voyage%20Vietnam",
+    "path": "/blog?keyword=Blog%20Voyage%20Vietnam",
+    "target": "/blog?keyword=Blog%20Voyage%20Vietnam",
+    "kind": "query",
+    "inSitemap": false,
+    "sourceStatus": null,
+    "sourceCanonical": null,
+    "strategy": "query-compatible"
+  },
+  {
+    "sourceUrl": "https://www.guidehanoi.com/blog?keyword=Carnet de Voyage Phu Tho",
+    "path": "/blog?keyword=Carnet de Voyage Phu Tho",
+    "target": "/blog?keyword=Carnet de Voyage Phu Tho",
+    "kind": "query",
+    "inSitemap": false,
+    "sourceStatus": null,
+    "sourceCanonical": null,
+    "strategy": "query-compatible"
+  },
+  {
+    "sourceUrl": "https://www.guidehanoi.com/blog?keyword=Carnet de Voyage Son La",
+    "path": "/blog?keyword=Carnet de Voyage Son La",
+    "target": "/blog?keyword=Carnet de Voyage Son La",
+    "kind": "query",
+    "inSitemap": false,
+    "sourceStatus": null,
+    "sourceCanonical": null,
+    "strategy": "query-compatible"
+  },
+  {
+    "sourceUrl": "https://www.guidehanoi.com/blog?keyword=Carnet%20de%20Voyage%20Phu%20Tho",
+    "path": "/blog?keyword=Carnet%20de%20Voyage%20Phu%20Tho",
+    "target": "/blog?keyword=Carnet%20de%20Voyage%20Phu%20Tho",
+    "kind": "query",
+    "inSitemap": false,
+    "sourceStatus": null,
+    "sourceCanonical": null,
+    "strategy": "query-compatible"
+  },
+  {
+    "sourceUrl": "https://www.guidehanoi.com/blog?keyword=Carnet%20de%20Voyage%20Son%20La",
+    "path": "/blog?keyword=Carnet%20de%20Voyage%20Son%20La",
+    "target": "/blog?keyword=Carnet%20de%20Voyage%20Son%20La",
+    "kind": "query",
+    "inSitemap": false,
+    "sourceStatus": null,
+    "sourceCanonical": null,
+    "strategy": "query-compatible"
+  },
+  {
+    "sourceUrl": "https://www.guidehanoi.com/blog?keyword=Circuit Nord Vietnam",
+    "path": "/blog?keyword=Circuit Nord Vietnam",
+    "target": "/blog?keyword=Circuit Nord Vietnam",
+    "kind": "query",
+    "inSitemap": false,
+    "sourceStatus": null,
+    "sourceCanonical": null,
+    "strategy": "query-compatible"
+  },
+  {
+    "sourceUrl": "https://www.guidehanoi.com/blog?keyword=Circuit Voyage Vietnam",
+    "path": "/blog?keyword=Circuit Voyage Vietnam",
+    "target": "/blog?keyword=Circuit Voyage Vietnam",
+    "kind": "query",
+    "inSitemap": false,
+    "sourceStatus": null,
+    "sourceCanonical": null,
+    "strategy": "query-compatible"
+  },
+  {
+    "sourceUrl": "https://www.guidehanoi.com/blog?keyword=Circuit%20Nord%20Vietnam",
+    "path": "/blog?keyword=Circuit%20Nord%20Vietnam",
+    "target": "/blog?keyword=Circuit%20Nord%20Vietnam",
+    "kind": "query",
+    "inSitemap": false,
+    "sourceStatus": null,
+    "sourceCanonical": null,
+    "strategy": "query-compatible"
+  },
+  {
+    "sourceUrl": "https://www.guidehanoi.com/blog?keyword=Circuit%20Voyage%20Vietnam",
+    "path": "/blog?keyword=Circuit%20Voyage%20Vietnam",
+    "target": "/blog?keyword=Circuit%20Voyage%20Vietnam",
+    "kind": "query",
+    "inSitemap": false,
+    "sourceStatus": null,
+    "sourceCanonical": null,
+    "strategy": "query-compatible"
+  },
+  {
+    "sourceUrl": "https://www.guidehanoi.com/blog?keyword=Guide Francophone Vietnam",
+    "path": "/blog?keyword=Guide Francophone Vietnam",
+    "target": "/blog?keyword=Guide Francophone Vietnam",
+    "kind": "query",
+    "inSitemap": false,
+    "sourceStatus": null,
+    "sourceCanonical": null,
+    "strategy": "query-compatible"
+  },
+  {
+    "sourceUrl": "https://www.guidehanoi.com/blog?keyword=Guide%20Francophone%20Vietnam",
+    "path": "/blog?keyword=Guide%20Francophone%20Vietnam",
+    "target": "/blog?keyword=Guide%20Francophone%20Vietnam",
+    "kind": "query",
+    "inSitemap": false,
+    "sourceStatus": null,
+    "sourceCanonical": null,
+    "strategy": "query-compatible"
+  },
+  {
+    "sourceUrl": "https://www.guidehanoi.com/blog?keyword=Que faire à Baie dHalong",
+    "path": "/blog?keyword=Que faire à Baie dHalong",
+    "target": "/blog?keyword=Que faire à Baie dHalong",
+    "kind": "query",
+    "inSitemap": false,
+    "sourceStatus": null,
+    "sourceCanonical": null,
+    "strategy": "query-compatible"
+  },
+  {
+    "sourceUrl": "https://www.guidehanoi.com/blog?keyword=Que faire à Cao Bang",
+    "path": "/blog?keyword=Que faire à Cao Bang",
+    "target": "/blog?keyword=Que faire à Cao Bang",
+    "kind": "query",
+    "inSitemap": false,
+    "sourceStatus": null,
+    "sourceCanonical": null,
+    "strategy": "query-compatible"
+  },
+  {
+    "sourceUrl": "https://www.guidehanoi.com/blog?keyword=Que faire à Da Nang",
+    "path": "/blog?keyword=Que faire à Da Nang",
+    "target": "/blog?keyword=Que faire à Da Nang",
+    "kind": "query",
+    "inSitemap": false,
+    "sourceStatus": null,
+    "sourceCanonical": null,
+    "strategy": "query-compatible"
+  },
+  {
+    "sourceUrl": "https://www.guidehanoi.com/blog?keyword=Que faire à Ha Giang",
+    "path": "/blog?keyword=Que faire à Ha Giang",
+    "target": "/blog?keyword=Que faire à Ha Giang",
+    "kind": "query",
+    "inSitemap": false,
+    "sourceStatus": null,
+    "sourceCanonical": null,
+    "strategy": "query-compatible"
+  },
+  {
+    "sourceUrl": "https://www.guidehanoi.com/blog?keyword=Que faire à Hanoi",
+    "path": "/blog?keyword=Que faire à Hanoi",
+    "target": "/blog?keyword=Que faire à Hanoi",
+    "kind": "query",
+    "inSitemap": false,
+    "sourceStatus": null,
+    "sourceCanonical": null,
+    "strategy": "query-compatible"
+  },
+  {
+    "sourceUrl": "https://www.guidehanoi.com/blog?keyword=Que faire à Lang Son",
+    "path": "/blog?keyword=Que faire à Lang Son",
+    "target": "/blog?keyword=Que faire à Lang Son",
+    "kind": "query",
+    "inSitemap": false,
+    "sourceStatus": null,
+    "sourceCanonical": null,
+    "strategy": "query-compatible"
+  },
+  {
+    "sourceUrl": "https://www.guidehanoi.com/blog?keyword=Que faire à Mai Chau",
+    "path": "/blog?keyword=Que faire à Mai Chau",
+    "target": "/blog?keyword=Que faire à Mai Chau",
+    "kind": "query",
+    "inSitemap": false,
+    "sourceStatus": null,
+    "sourceCanonical": null,
+    "strategy": "query-compatible"
+  },
+  {
+    "sourceUrl": "https://www.guidehanoi.com/blog?keyword=Que faire à Moc Chau",
+    "path": "/blog?keyword=Que faire à Moc Chau",
+    "target": "/blog?keyword=Que faire à Moc Chau",
+    "kind": "query",
+    "inSitemap": false,
+    "sourceStatus": null,
+    "sourceCanonical": null,
+    "strategy": "query-compatible"
+  },
+  {
+    "sourceUrl": "https://www.guidehanoi.com/blog?keyword=Que faire à Ninh Binh",
+    "path": "/blog?keyword=Que faire à Ninh Binh",
+    "target": "/blog?keyword=Que faire à Ninh Binh",
+    "kind": "query",
+    "inSitemap": false,
+    "sourceStatus": null,
+    "sourceCanonical": null,
+    "strategy": "query-compatible"
+  },
+  {
+    "sourceUrl": "https://www.guidehanoi.com/blog?keyword=Que faire à Phu Tho",
+    "path": "/blog?keyword=Que faire à Phu Tho",
+    "target": "/blog?keyword=Que faire à Phu Tho",
+    "kind": "query",
+    "inSitemap": false,
+    "sourceStatus": null,
+    "sourceCanonical": null,
+    "strategy": "query-compatible"
+  },
+  {
+    "sourceUrl": "https://www.guidehanoi.com/blog?keyword=Que faire à Pu Luong",
+    "path": "/blog?keyword=Que faire à Pu Luong",
+    "target": "/blog?keyword=Que faire à Pu Luong",
+    "kind": "query",
+    "inSitemap": false,
+    "sourceStatus": null,
+    "sourceCanonical": null,
+    "strategy": "query-compatible"
+  },
+  {
+    "sourceUrl": "https://www.guidehanoi.com/blog?keyword=Que%20faire%20%C3%A0%20Baie%20dHalong",
+    "path": "/blog?keyword=Que%20faire%20%C3%A0%20Baie%20dHalong",
+    "target": "/blog?keyword=Que%20faire%20%C3%A0%20Baie%20dHalong",
+    "kind": "query",
+    "inSitemap": false,
+    "sourceStatus": null,
+    "sourceCanonical": null,
+    "strategy": "query-compatible"
+  },
+  {
+    "sourceUrl": "https://www.guidehanoi.com/blog?keyword=Que%20faire%20%C3%A0%20Cao%20Bang",
+    "path": "/blog?keyword=Que%20faire%20%C3%A0%20Cao%20Bang",
+    "target": "/blog?keyword=Que%20faire%20%C3%A0%20Cao%20Bang",
+    "kind": "query",
+    "inSitemap": false,
+    "sourceStatus": null,
+    "sourceCanonical": null,
+    "strategy": "query-compatible"
+  },
+  {
+    "sourceUrl": "https://www.guidehanoi.com/blog?keyword=Que%20faire%20%C3%A0%20Da%20Nang",
+    "path": "/blog?keyword=Que%20faire%20%C3%A0%20Da%20Nang",
+    "target": "/blog?keyword=Que%20faire%20%C3%A0%20Da%20Nang",
+    "kind": "query",
+    "inSitemap": false,
+    "sourceStatus": null,
+    "sourceCanonical": null,
+    "strategy": "query-compatible"
+  },
+  {
+    "sourceUrl": "https://www.guidehanoi.com/blog?keyword=Que%20faire%20%C3%A0%20Ha%20Giang",
+    "path": "/blog?keyword=Que%20faire%20%C3%A0%20Ha%20Giang",
+    "target": "/blog?keyword=Que%20faire%20%C3%A0%20Ha%20Giang",
+    "kind": "query",
+    "inSitemap": false,
+    "sourceStatus": null,
+    "sourceCanonical": null,
+    "strategy": "query-compatible"
+  },
+  {
+    "sourceUrl": "https://www.guidehanoi.com/blog?keyword=Que%20faire%20%C3%A0%20Hanoi",
+    "path": "/blog?keyword=Que%20faire%20%C3%A0%20Hanoi",
+    "target": "/blog?keyword=Que%20faire%20%C3%A0%20Hanoi",
+    "kind": "query",
+    "inSitemap": false,
+    "sourceStatus": null,
+    "sourceCanonical": null,
+    "strategy": "query-compatible"
+  },
+  {
+    "sourceUrl": "https://www.guidehanoi.com/blog?keyword=Que%20faire%20%C3%A0%20Lang%20Son",
+    "path": "/blog?keyword=Que%20faire%20%C3%A0%20Lang%20Son",
+    "target": "/blog?keyword=Que%20faire%20%C3%A0%20Lang%20Son",
+    "kind": "query",
+    "inSitemap": false,
+    "sourceStatus": null,
+    "sourceCanonical": null,
+    "strategy": "query-compatible"
+  },
+  {
+    "sourceUrl": "https://www.guidehanoi.com/blog?keyword=Que%20faire%20%C3%A0%20Mai%20Chau",
+    "path": "/blog?keyword=Que%20faire%20%C3%A0%20Mai%20Chau",
+    "target": "/blog?keyword=Que%20faire%20%C3%A0%20Mai%20Chau",
+    "kind": "query",
+    "inSitemap": false,
+    "sourceStatus": null,
+    "sourceCanonical": null,
+    "strategy": "query-compatible"
+  },
+  {
+    "sourceUrl": "https://www.guidehanoi.com/blog?keyword=Que%20faire%20%C3%A0%20Moc%20Chau",
+    "path": "/blog?keyword=Que%20faire%20%C3%A0%20Moc%20Chau",
+    "target": "/blog?keyword=Que%20faire%20%C3%A0%20Moc%20Chau",
+    "kind": "query",
+    "inSitemap": false,
+    "sourceStatus": null,
+    "sourceCanonical": null,
+    "strategy": "query-compatible"
+  },
+  {
+    "sourceUrl": "https://www.guidehanoi.com/blog?keyword=Que%20faire%20%C3%A0%20Ninh%20Binh",
+    "path": "/blog?keyword=Que%20faire%20%C3%A0%20Ninh%20Binh",
+    "target": "/blog?keyword=Que%20faire%20%C3%A0%20Ninh%20Binh",
+    "kind": "query",
+    "inSitemap": false,
+    "sourceStatus": null,
+    "sourceCanonical": null,
+    "strategy": "query-compatible"
+  },
+  {
+    "sourceUrl": "https://www.guidehanoi.com/blog?keyword=Que%20faire%20%C3%A0%20Phu%20Tho",
+    "path": "/blog?keyword=Que%20faire%20%C3%A0%20Phu%20Tho",
+    "target": "/blog?keyword=Que%20faire%20%C3%A0%20Phu%20Tho",
+    "kind": "query",
+    "inSitemap": false,
+    "sourceStatus": null,
+    "sourceCanonical": null,
+    "strategy": "query-compatible"
+  },
+  {
+    "sourceUrl": "https://www.guidehanoi.com/blog?keyword=Que%20faire%20%C3%A0%20Pu%20Luong",
+    "path": "/blog?keyword=Que%20faire%20%C3%A0%20Pu%20Luong",
+    "target": "/blog?keyword=Que%20faire%20%C3%A0%20Pu%20Luong",
+    "kind": "query",
+    "inSitemap": false,
+    "sourceStatus": null,
+    "sourceCanonical": null,
+    "strategy": "query-compatible"
+  },
+  {
+    "sourceUrl": "https://www.guidehanoi.com/blog?keyword=Visite Baie dHalong",
+    "path": "/blog?keyword=Visite Baie dHalong",
+    "target": "/blog?keyword=Visite Baie dHalong",
+    "kind": "query",
+    "inSitemap": false,
+    "sourceStatus": null,
+    "sourceCanonical": null,
+    "strategy": "query-compatible"
+  },
+  {
+    "sourceUrl": "https://www.guidehanoi.com/blog?keyword=Visite Baie de Lan Ha",
+    "path": "/blog?keyword=Visite Baie de Lan Ha",
+    "target": "/blog?keyword=Visite Baie de Lan Ha",
+    "kind": "query",
+    "inSitemap": false,
+    "sourceStatus": null,
+    "sourceCanonical": null,
+    "strategy": "query-compatible"
+  },
+  {
+    "sourceUrl": "https://www.guidehanoi.com/blog?keyword=Visite Long Coc",
+    "path": "/blog?keyword=Visite Long Coc",
+    "target": "/blog?keyword=Visite Long Coc",
+    "kind": "query",
+    "inSitemap": false,
+    "sourceStatus": null,
+    "sourceCanonical": null,
+    "strategy": "query-compatible"
+  },
+  {
+    "sourceUrl": "https://www.guidehanoi.com/blog?keyword=Visite%20Baie%20dHalong",
+    "path": "/blog?keyword=Visite%20Baie%20dHalong",
+    "target": "/blog?keyword=Visite%20Baie%20dHalong",
+    "kind": "query",
+    "inSitemap": false,
+    "sourceStatus": null,
+    "sourceCanonical": null,
+    "strategy": "query-compatible"
+  },
+  {
+    "sourceUrl": "https://www.guidehanoi.com/blog?keyword=Visite%20Baie%20de%20Lan%20Ha",
+    "path": "/blog?keyword=Visite%20Baie%20de%20Lan%20Ha",
+    "target": "/blog?keyword=Visite%20Baie%20de%20Lan%20Ha",
+    "kind": "query",
+    "inSitemap": false,
+    "sourceStatus": null,
+    "sourceCanonical": null,
+    "strategy": "query-compatible"
+  },
+  {
+    "sourceUrl": "https://www.guidehanoi.com/blog?keyword=Visite%20Long%20Coc",
+    "path": "/blog?keyword=Visite%20Long%20Coc",
+    "target": "/blog?keyword=Visite%20Long%20Coc",
+    "kind": "query",
+    "inSitemap": false,
+    "sourceStatus": null,
+    "sourceCanonical": null,
+    "strategy": "query-compatible"
+  },
+  {
+    "sourceUrl": "https://www.guidehanoi.com/cai-be-dong-thap",
+    "path": "/cai-be-dong-thap",
+    "target": "/cai-be-dong-thap",
+    "kind": "page",
+    "inSitemap": true,
+    "sourceStatus": 200,
+    "sourceCanonical": "https://www.guidehanoi.com/cai-be-dong-thap",
+    "strategy": "same-path"
+  },
+  {
+    "sourceUrl": "https://www.guidehanoi.com/can-tho",
+    "path": "/can-tho",
+    "target": "/can-tho",
+    "kind": "page",
+    "inSitemap": true,
+    "sourceStatus": 200,
+    "sourceCanonical": "https://www.guidehanoi.com/can-tho",
+    "strategy": "same-path"
+  },
+  {
+    "sourceUrl": "https://www.guidehanoi.com/cao-bang",
+    "path": "/cao-bang",
+    "target": "/cao-bang",
+    "kind": "page",
+    "inSitemap": true,
+    "sourceStatus": 200,
+    "sourceCanonical": "https://www.guidehanoi.com/cao-bang",
+    "strategy": "same-path"
+  },
+  {
+    "sourceUrl": "https://www.guidehanoi.com/cat-ba",
+    "path": "/cat-ba",
+    "target": "/cat-ba",
+    "kind": "page",
+    "inSitemap": true,
+    "sourceStatus": 200,
+    "sourceCanonical": "https://www.guidehanoi.com/cat-ba",
+    "strategy": "same-path"
+  },
+  {
+    "sourceUrl": "https://www.guidehanoi.com/centre-ville-hanoi",
+    "path": "/centre-ville-hanoi",
+    "target": "/centre-ville-hanoi",
+    "kind": "album",
+    "inSitemap": true,
+    "sourceStatus": 200,
+    "sourceCanonical": "https://www.guidehanoi.com/centre-ville-hanoi",
+    "strategy": "same-path"
+  },
+  {
+    "sourceUrl": "https://www.guidehanoi.com/chute-ban-gioc-cao-bang",
+    "path": "/chute-ban-gioc-cao-bang",
+    "target": "/chute-ban-gioc-cao-bang",
+    "kind": "post",
+    "inSitemap": true,
+    "sourceStatus": 200,
+    "sourceCanonical": "https://www.guidehanoi.com/chute-ban-gioc-cao-bang",
+    "strategy": "same-path"
+  },
+  {
+    "sourceUrl": "https://www.guidehanoi.com/chute-d-eau-ha-giang",
+    "path": "/chute-d-eau-ha-giang",
+    "target": "/chute-d-eau-ha-giang",
+    "kind": "album",
+    "inSitemap": true,
+    "sourceStatus": 200,
+    "sourceCanonical": "https://www.guidehanoi.com/chute-d-eau-ha-giang",
+    "strategy": "same-path"
+  },
+  {
+    "sourceUrl": "https://www.guidehanoi.com/circuit-moto-vietnam",
+    "path": "/circuit-moto-vietnam",
+    "target": "/circuit-moto-vietnam",
+    "kind": "page",
+    "inSitemap": true,
+    "sourceStatus": 200,
+    "sourceCanonical": "https://www.guidehanoi.com/circuit-moto-vietnam",
+    "strategy": "same-path"
+  },
+  {
+    "sourceUrl": "https://www.guidehanoi.com/circuit-nord-vietnam",
+    "path": "/circuit-nord-vietnam",
+    "target": "/circuit-nord-vietnam",
+    "kind": "post",
+    "inSitemap": true,
+    "sourceStatus": 200,
+    "sourceCanonical": "https://www.guidehanoi.com/circuit-nord-vietnam",
+    "strategy": "same-path"
+  },
+  {
+    "sourceUrl": "https://www.guidehanoi.com/circuit-tout-terrain-vietnam",
+    "path": "/circuit-tout-terrain-vietnam",
+    "target": "/circuit-tout-terrain-vietnam",
+    "kind": "page",
+    "inSitemap": true,
+    "sourceStatus": 200,
+    "sourceCanonical": "https://www.guidehanoi.com/circuit-tout-terrain-vietnam",
+    "strategy": "same-path"
+  },
+  {
+    "sourceUrl": "https://www.guidehanoi.com/circuit-vtt-vietnam",
+    "path": "/circuit-vtt-vietnam",
+    "target": "/circuit-vtt-vietnam",
+    "kind": "page",
+    "inSitemap": true,
+    "sourceStatus": 200,
+    "sourceCanonical": "https://www.guidehanoi.com/circuit-vtt-vietnam",
+    "strategy": "same-path"
+  },
+  {
+    "sourceUrl": "https://www.guidehanoi.com/circuits-thematiques-au-vietnam",
+    "path": "/circuits-thematiques-au-vietnam",
+    "target": "/circuits-thematiques-au-vietnam",
+    "kind": "page",
+    "inSitemap": true,
+    "sourceStatus": 200,
+    "sourceCanonical": "https://www.guidehanoi.com/circuits-thematiques-au-vietnam",
+    "strategy": "same-path"
+  },
+  {
+    "sourceUrl": "https://www.guidehanoi.com/circuits-vietnam",
+    "path": "/circuits-vietnam",
+    "target": "/circuits-vietnam",
+    "kind": "category",
+    "inSitemap": true,
+    "sourceStatus": 200,
+    "sourceCanonical": "https://www.guidehanoi.com/circuits-vietnam",
+    "strategy": "same-path"
+  },
+  {
+    "sourceUrl": "https://www.guidehanoi.com/circuits-vietnam-par-duree",
+    "path": "/circuits-vietnam-par-duree",
+    "target": "/circuits-vietnam-par-duree",
+    "kind": "page",
+    "inSitemap": true,
+    "sourceStatus": 200,
+    "sourceCanonical": "https://www.guidehanoi.com/circuits-vietnam-par-duree",
+    "strategy": "same-path"
+  },
+  {
+    "sourceUrl": "https://www.guidehanoi.com/circuits-vietnam-par-region",
+    "path": "/circuits-vietnam-par-region",
+    "target": "/circuits-vietnam-par-region",
+    "kind": "page",
+    "inSitemap": true,
+    "sourceStatus": 200,
+    "sourceCanonical": "https://www.guidehanoi.com/circuits-vietnam-par-region",
+    "strategy": "same-path"
+  },
+  {
+    "sourceUrl": "https://www.guidehanoi.com/citadelle-imperiale-hanoi",
+    "path": "/citadelle-imperiale-hanoi",
+    "target": "/citadelle-imperiale-hanoi",
+    "kind": "post",
+    "inSitemap": true,
+    "sourceStatus": 200,
+    "sourceCanonical": "https://www.guidehanoi.com/citadelle-imperiale-hanoi",
+    "strategy": "same-path"
+  },
+  {
+    "sourceUrl": "https://www.guidehanoi.com/complexe-du-mausolee-ho-chi-minh-hanoi",
+    "path": "/complexe-du-mausolee-ho-chi-minh-hanoi",
+    "target": "/complexe-du-mausolee-ho-chi-minh-hanoi",
+    "kind": "post",
+    "inSitemap": true,
+    "sourceStatus": 200,
+    "sourceCanonical": "https://www.guidehanoi.com/complexe-du-mausolee-ho-chi-minh-hanoi",
+    "strategy": "same-path"
+  },
+  {
+    "sourceUrl": "https://www.guidehanoi.com/conseils-voyage",
+    "path": "/conseils-voyage",
+    "target": "/conseils-voyage",
+    "kind": "category",
+    "inSitemap": true,
+    "sourceStatus": 200,
+    "sourceCanonical": "https://www.guidehanoi.com/conseils-voyage",
+    "strategy": "same-path"
+  },
+  {
+    "sourceUrl": "https://www.guidehanoi.com/contact",
+    "path": "/contact",
+    "target": "/contact",
+    "kind": "core",
+    "inSitemap": true,
+    "sourceStatus": 200,
+    "sourceCanonical": "https://www.guidehanoi.com/contact",
+    "strategy": "same-path"
+  },
+  {
+    "sourceUrl": "https://www.guidehanoi.com/coucher-de-soleil-sur-le-lac-quan-son",
+    "path": "/coucher-de-soleil-sur-le-lac-quan-son",
+    "target": "/coucher-de-soleil-sur-le-lac-quan-son",
+    "kind": "page",
+    "inSitemap": true,
+    "sourceStatus": 200,
+    "sourceCanonical": "https://www.guidehanoi.com/coucher-de-soleil-sur-le-lac-quan-son",
+    "strategy": "same-path"
+  },
+  {
+    "sourceUrl": "https://www.guidehanoi.com/croisiere-baie-halong",
+    "path": "/croisiere-baie-halong",
+    "target": "/croisiere-baie-halong",
+    "kind": "core",
+    "inSitemap": false,
+    "sourceStatus": 200,
+    "sourceCanonical": "https://www.guidehanoi.com/",
+    "strategy": "same-path"
+  },
+  {
+    "sourceUrl": "https://www.guidehanoi.com/culture-du-the-vietnam",
+    "path": "/culture-du-the-vietnam",
+    "target": "/culture-du-the-vietnam",
+    "kind": "post",
+    "inSitemap": true,
+    "sourceStatus": 200,
+    "sourceCanonical": "https://www.guidehanoi.com/culture-du-the-vietnam",
+    "strategy": "same-path"
+  },
+  {
+    "sourceUrl": "https://www.guidehanoi.com/da-nang",
+    "path": "/da-nang",
+    "target": "/da-nang",
+    "kind": "page",
+    "inSitemap": true,
+    "sourceStatus": 200,
+    "sourceCanonical": "https://www.guidehanoi.com/da-nang",
+    "strategy": "same-path"
+  },
+  {
+    "sourceUrl": "https://www.guidehanoi.com/da-nang-en-1-jour",
+    "path": "/da-nang-en-1-jour",
+    "target": "/da-nang-en-1-jour",
+    "kind": "post",
+    "inSitemap": true,
+    "sourceStatus": 200,
+    "sourceCanonical": "https://www.guidehanoi.com/da-nang-en-1-jour",
+    "strategy": "same-path"
+  },
+  {
+    "sourceUrl": "https://www.guidehanoi.com/decouvrir-hanoi-a-bord-dun-bus-a-imperiale",
+    "path": "/decouvrir-hanoi-a-bord-dun-bus-a-imperiale",
+    "target": "/decouvrir-hanoi-a-bord-dun-bus-a-imperiale",
+    "kind": "page",
+    "inSitemap": true,
+    "sourceStatus": 200,
+    "sourceCanonical": "https://www.guidehanoi.com/decouvrir-hanoi-a-bord-dun-bus-a-imperiale",
+    "strategy": "same-path"
+  },
+  {
+    "sourceUrl": "https://www.guidehanoi.com/destinations",
+    "path": "/destinations",
+    "target": "/destinations",
+    "kind": "page",
+    "inSitemap": true,
+    "sourceStatus": 200,
+    "sourceCanonical": "https://www.guidehanoi.com/destinations",
+    "strategy": "same-path"
+  },
+  {
+    "sourceUrl": "https://www.guidehanoi.com/dien-bien",
+    "path": "/dien-bien",
+    "target": "/dien-bien",
+    "kind": "page",
+    "inSitemap": true,
+    "sourceStatus": 200,
+    "sourceCanonical": "https://www.guidehanoi.com/dien-bien",
+    "strategy": "same-path"
+  },
+  {
+    "sourceUrl": "https://www.guidehanoi.com/diner-chez-l-habitant-ha-giang",
+    "path": "/diner-chez-l-habitant-ha-giang",
+    "target": "/diner-chez-l-habitant-ha-giang",
+    "kind": "album",
+    "inSitemap": true,
+    "sourceStatus": 200,
+    "sourceCanonical": "https://www.guidehanoi.com/diner-chez-l-habitant-ha-giang",
+    "strategy": "same-path"
+  },
+  {
+    "sourceUrl": "https://www.guidehanoi.com/dong-hoi-quang-tri",
+    "path": "/dong-hoi-quang-tri",
+    "target": "/dong-hoi-quang-tri",
+    "kind": "page",
+    "inSitemap": true,
+    "sourceStatus": 200,
+    "sourceCanonical": "https://www.guidehanoi.com/dong-hoi-quang-tri",
+    "strategy": "same-path"
+  },
+  {
+    "sourceUrl": "https://www.guidehanoi.com/essentiel-du-vietnam",
+    "path": "/essentiel-du-vietnam",
+    "target": "/essentiel-du-vietnam",
+    "kind": "page",
+    "inSitemap": true,
+    "sourceStatus": 200,
+    "sourceCanonical": "https://www.guidehanoi.com/essentiel-du-vietnam",
+    "strategy": "same-path"
+  },
+  {
+    "sourceUrl": "https://www.guidehanoi.com/galeries",
+    "path": "/galeries",
+    "target": "/galeries",
+    "kind": "page",
+    "inSitemap": true,
+    "sourceStatus": 200,
+    "sourceCanonical": "https://www.guidehanoi.com/galeries",
+    "strategy": "same-path"
+  },
+  {
+    "sourceUrl": "https://www.guidehanoi.com/guide-francophone-baie-dhalong",
+    "path": "/guide-francophone-baie-dhalong",
+    "target": "/guide-francophone-baie-dhalong",
+    "kind": "page",
+    "inSitemap": true,
+    "sourceStatus": 200,
+    "sourceCanonical": "https://www.guidehanoi.com/guide-francophone-baie-dhalong",
+    "strategy": "same-path"
+  },
+  {
+    "sourceUrl": "https://www.guidehanoi.com/guide-francophone-da-nang",
+    "path": "/guide-francophone-da-nang",
+    "target": "/guide-francophone-da-nang",
+    "kind": "page",
+    "inSitemap": true,
+    "sourceStatus": 200,
+    "sourceCanonical": "https://www.guidehanoi.com/guide-francophone-da-nang",
+    "strategy": "same-path"
+  },
+  {
+    "sourceUrl": "https://www.guidehanoi.com/guide-francophone-hanoi",
+    "path": "/guide-francophone-hanoi",
+    "target": "/guide-francophone-hanoi",
+    "kind": "page",
+    "inSitemap": true,
+    "sourceStatus": 200,
+    "sourceCanonical": "https://www.guidehanoi.com/guide-francophone-hanoi",
+    "strategy": "same-path"
+  },
+  {
+    "sourceUrl": "https://www.guidehanoi.com/guide-francophone-phu-quoc",
+    "path": "/guide-francophone-phu-quoc",
+    "target": "/guide-francophone-phu-quoc",
+    "kind": "page",
+    "inSitemap": true,
+    "sourceStatus": 200,
+    "sourceCanonical": "https://www.guidehanoi.com/guide-francophone-phu-quoc",
+    "strategy": "same-path"
+  },
+  {
+    "sourceUrl": "https://www.guidehanoi.com/guide-francophone-saigon",
+    "path": "/guide-francophone-saigon",
+    "target": "/guide-francophone-saigon",
+    "kind": "page",
+    "inSitemap": true,
+    "sourceStatus": 200,
+    "sourceCanonical": "https://www.guidehanoi.com/guide-francophone-saigon",
+    "strategy": "same-path"
+  },
+  {
+    "sourceUrl": "https://www.guidehanoi.com/guide-francophone-vietnam",
+    "path": "/guide-francophone-vietnam",
+    "target": "/guide-francophone-vietnam",
+    "kind": "page",
+    "inSitemap": true,
+    "sourceStatus": 200,
+    "sourceCanonical": "https://www.guidehanoi.com/guide-francophone-vietnam",
+    "strategy": "same-path"
+  },
+  {
+    "sourceUrl": "https://www.guidehanoi.com/guide-voyage-baie-d-halong",
+    "path": "/guide-voyage-baie-d-halong",
+    "target": "/guide-voyage-baie-d-halong",
+    "kind": "post",
+    "inSitemap": true,
+    "sourceStatus": 200,
+    "sourceCanonical": "https://www.guidehanoi.com/guide-voyage-baie-d-halong",
+    "strategy": "same-path"
+  },
+  {
+    "sourceUrl": "https://www.guidehanoi.com/guide-voyage-ha-giang",
+    "path": "/guide-voyage-ha-giang",
+    "target": "/guide-voyage-ha-giang",
+    "kind": "post",
+    "inSitemap": true,
+    "sourceStatus": 200,
+    "sourceCanonical": "https://www.guidehanoi.com/guide-voyage-ha-giang",
+    "strategy": "same-path"
+  },
+  {
+    "sourceUrl": "https://www.guidehanoi.com/guide-voyage-hanoi",
+    "path": "/guide-voyage-hanoi",
+    "target": "/guide-voyage-hanoi",
+    "kind": "post",
+    "inSitemap": true,
+    "sourceStatus": 200,
+    "sourceCanonical": "https://www.guidehanoi.com/guide-voyage-hanoi",
+    "strategy": "same-path"
+  },
+  {
+    "sourceUrl": "https://www.guidehanoi.com/guide-voyage-mai-chau",
+    "path": "/guide-voyage-mai-chau",
+    "target": "/guide-voyage-mai-chau",
+    "kind": "post",
+    "inSitemap": true,
+    "sourceStatus": 200,
+    "sourceCanonical": "https://www.guidehanoi.com/guide-voyage-mai-chau",
+    "strategy": "same-path"
+  },
+  {
+    "sourceUrl": "https://www.guidehanoi.com/guide-voyage-moc-chau",
+    "path": "/guide-voyage-moc-chau",
+    "target": "/guide-voyage-moc-chau",
+    "kind": "post",
+    "inSitemap": true,
+    "sourceStatus": 200,
+    "sourceCanonical": "https://www.guidehanoi.com/guide-voyage-moc-chau",
+    "strategy": "same-path"
+  },
+  {
+    "sourceUrl": "https://www.guidehanoi.com/guide-voyage-ninh-binh",
+    "path": "/guide-voyage-ninh-binh",
+    "target": "/guide-voyage-ninh-binh",
+    "kind": "post",
+    "inSitemap": true,
+    "sourceStatus": 200,
+    "sourceCanonical": "https://www.guidehanoi.com/guide-voyage-ninh-binh",
+    "strategy": "same-path"
+  },
+  {
+    "sourceUrl": "https://www.guidehanoi.com/guide-voyage-pu-luong",
+    "path": "/guide-voyage-pu-luong",
+    "target": "/guide-voyage-pu-luong",
+    "kind": "post",
+    "inSitemap": true,
+    "sourceStatus": 200,
+    "sourceCanonical": "https://www.guidehanoi.com/guide-voyage-pu-luong",
+    "strategy": "same-path"
+  },
+  {
+    "sourceUrl": "https://www.guidehanoi.com/ha-giang-loop",
+    "path": "/ha-giang-loop",
+    "target": "/ha-giang-loop",
+    "kind": "page",
+    "inSitemap": true,
+    "sourceStatus": 200,
+    "sourceCanonical": "https://www.guidehanoi.com/ha-giang-loop",
+    "strategy": "same-path"
+  },
+  {
+    "sourceUrl": "https://www.guidehanoi.com/hanoi",
+    "path": "/hanoi",
+    "target": "/hanoi",
+    "kind": "page",
+    "inSitemap": true,
+    "sourceStatus": 200,
+    "sourceCanonical": "https://www.guidehanoi.com/hanoi",
+    "strategy": "same-path"
+  },
+  {
+    "sourceUrl": "https://www.guidehanoi.com/hanoi-en-1-jour",
+    "path": "/hanoi-en-1-jour",
+    "target": "/hanoi-en-1-jour",
+    "kind": "core",
+    "inSitemap": false,
+    "sourceStatus": 200,
+    "sourceCanonical": "https://www.guidehanoi.com/",
+    "strategy": "same-path"
+  },
+  {
+    "sourceUrl": "https://www.guidehanoi.com/histoire-du-the-au-vietnam",
+    "path": "/histoire-du-the-au-vietnam",
+    "target": "/histoire-du-the-au-vietnam",
+    "kind": "post",
+    "inSitemap": true,
+    "sourceStatus": 200,
+    "sourceCanonical": "https://www.guidehanoi.com/histoire-du-the-au-vietnam",
+    "strategy": "same-path"
+  },
+  {
+    "sourceUrl": "https://www.guidehanoi.com/hoi-an",
+    "path": "/hoi-an",
+    "target": "/hoi-an",
+    "kind": "page",
+    "inSitemap": true,
+    "sourceStatus": 200,
+    "sourceCanonical": "https://www.guidehanoi.com/hoi-an",
+    "strategy": "same-path"
+  },
+  {
+    "sourceUrl": "https://www.guidehanoi.com/hue",
+    "path": "/hue",
+    "target": "/hue",
+    "kind": "page",
+    "inSitemap": true,
+    "sourceStatus": 200,
+    "sourceCanonical": "https://www.guidehanoi.com/hue",
+    "strategy": "same-path"
+  },
+  {
+    "sourceUrl": "https://www.guidehanoi.com/incontournables-vietnam",
+    "path": "/incontournables-vietnam",
+    "target": "/incontournables-vietnam",
+    "kind": "category",
+    "inSitemap": true,
+    "sourceStatus": 200,
+    "sourceCanonical": "https://www.guidehanoi.com/incontournables-vietnam",
+    "strategy": "same-path"
+  },
+  {
+    "sourceUrl": "https://www.guidehanoi.com/itineraire-vietnam-2-semaines",
+    "path": "/itineraire-vietnam-2-semaines",
+    "target": "/itineraire-vietnam-2-semaines",
+    "kind": "page",
+    "inSitemap": true,
+    "sourceStatus": 200,
+    "sourceCanonical": "https://www.guidehanoi.com/itineraire-vietnam-2-semaines",
+    "strategy": "same-path"
+  },
+  {
+    "sourceUrl": "https://www.guidehanoi.com/itineraire-vietnam-3-semaines",
+    "path": "/itineraire-vietnam-3-semaines",
+    "target": "/itineraire-vietnam-3-semaines",
+    "kind": "page",
+    "inSitemap": true,
+    "sourceStatus": 200,
+    "sourceCanonical": "https://www.guidehanoi.com/itineraire-vietnam-3-semaines",
+    "strategy": "same-path"
+  },
+  {
+    "sourceUrl": "https://www.guidehanoi.com/itineraire-vietnam-4-semaines",
+    "path": "/itineraire-vietnam-4-semaines",
+    "target": "/itineraire-vietnam-4-semaines",
+    "kind": "page",
+    "inSitemap": true,
+    "sourceStatus": 200,
+    "sourceCanonical": "https://www.guidehanoi.com/itineraire-vietnam-4-semaines",
+    "strategy": "same-path"
+  },
+  {
+    "sourceUrl": "https://www.guidehanoi.com/la-beaute-de-ha-giang-a-travers-lobjectif-des-voyageurs",
+    "path": "/la-beaute-de-ha-giang-a-travers-lobjectif-des-voyageurs",
+    "target": "/la-beaute-de-ha-giang-a-travers-lobjectif-des-voyageurs",
+    "kind": "page",
+    "inSitemap": true,
+    "sourceStatus": 200,
+    "sourceCanonical": "https://www.guidehanoi.com/la-beaute-de-ha-giang-a-travers-lobjectif-des-voyageurs",
+    "strategy": "same-path"
+  },
+  {
+    "sourceUrl": "https://www.guidehanoi.com/lang-son",
+    "path": "/lang-son",
+    "target": "/lang-son",
+    "kind": "page",
+    "inSitemap": true,
+    "sourceStatus": 200,
+    "sourceCanonical": "https://www.guidehanoi.com/lang-son",
+    "strategy": "same-path"
+  },
+  {
+    "sourceUrl": "https://www.guidehanoi.com/le-rythme-de-la-vie-nocturne-a-saigon",
+    "path": "/le-rythme-de-la-vie-nocturne-a-saigon",
+    "target": "/le-rythme-de-la-vie-nocturne-a-saigon",
+    "kind": "page",
+    "inSitemap": true,
+    "sourceStatus": 200,
+    "sourceCanonical": "https://www.guidehanoi.com/le-rythme-de-la-vie-nocturne-a-saigon",
+    "strategy": "same-path"
+  },
+  {
+    "sourceUrl": "https://www.guidehanoi.com/lung-van-le-toit-du-pays-muong",
+    "path": "/lung-van-le-toit-du-pays-muong",
+    "target": "/lung-van-le-toit-du-pays-muong",
+    "kind": "page",
+    "inSitemap": true,
+    "sourceStatus": 200,
+    "sourceCanonical": "https://www.guidehanoi.com/lung-van-le-toit-du-pays-muong",
+    "strategy": "same-path"
+  },
+  {
+    "sourceUrl": "https://www.guidehanoi.com/mai-chau-phu-tho",
+    "path": "/mai-chau-phu-tho",
+    "target": "/mai-chau-phu-tho",
+    "kind": "page",
+    "inSitemap": true,
+    "sourceStatus": 200,
+    "sourceCanonical": "https://www.guidehanoi.com/mai-chau-phu-tho",
+    "strategy": "same-path"
+  },
+  {
+    "sourceUrl": "https://www.guidehanoi.com/moc-chau-son-la",
+    "path": "/moc-chau-son-la",
+    "target": "/moc-chau-son-la",
+    "kind": "page",
+    "inSitemap": true,
+    "sourceStatus": 200,
+    "sourceCanonical": "https://www.guidehanoi.com/moc-chau-son-la",
+    "strategy": "same-path"
+  },
+  {
+    "sourceUrl": "https://www.guidehanoi.com/musee-d-ethnographie-hanoi-guide-voyage-vietnam",
+    "path": "/musee-d-ethnographie-hanoi-guide-voyage-vietnam",
+    "target": "/musee-d-ethnographie-hanoi-guide-voyage-vietnam",
+    "kind": "post",
+    "inSitemap": true,
+    "sourceStatus": 200,
+    "sourceCanonical": "https://www.guidehanoi.com/musee-d-ethnographie-hanoi-guide-voyage-vietnam",
+    "strategy": "same-path"
+  },
+  {
+    "sourceUrl": "https://www.guidehanoi.com/news/index-v3-json?widget_id=16291568&limit=12&page=1",
+    "path": "/news/index-v3-json?widget_id=16291568&limit=12&page=1",
+    "target": "/blog?page=1",
+    "kind": "query",
+    "inSitemap": false,
+    "sourceStatus": null,
+    "sourceCanonical": null,
+    "strategy": "query-compatible"
+  },
+  {
+    "sourceUrl": "https://www.guidehanoi.com/news/index-v3-json?widget_id=16291568&limit=12&page=2",
+    "path": "/news/index-v3-json?widget_id=16291568&limit=12&page=2",
+    "target": "/blog?page=2",
+    "kind": "query",
+    "inSitemap": false,
+    "sourceStatus": null,
+    "sourceCanonical": null,
+    "strategy": "query-compatible"
+  },
+  {
+    "sourceUrl": "https://www.guidehanoi.com/news/index-v3-json?widget_id=16291568&limit=12&page=3",
+    "path": "/news/index-v3-json?widget_id=16291568&limit=12&page=3",
+    "target": "/blog?page=3",
+    "kind": "query",
+    "inSitemap": false,
+    "sourceStatus": null,
+    "sourceCanonical": null,
+    "strategy": "query-compatible"
+  },
+  {
+    "sourceUrl": "https://www.guidehanoi.com/ou-partir-pas-cher-cet-ete",
+    "path": "/ou-partir-pas-cher-cet-ete",
+    "target": "/ou-partir-pas-cher-cet-ete",
+    "kind": "post",
+    "inSitemap": true,
+    "sourceStatus": 200,
+    "sourceCanonical": "https://www.guidehanoi.com/ou-partir-pas-cher-cet-ete",
+    "strategy": "same-path"
+  },
+  {
+    "sourceUrl": "https://www.guidehanoi.com/passage-chi-lang-lang-son",
+    "path": "/passage-chi-lang-lang-son",
+    "target": "/passage-chi-lang-lang-son",
+    "kind": "post",
+    "inSitemap": true,
+    "sourceStatus": 200,
+    "sourceCanonical": "https://www.guidehanoi.com/passage-chi-lang-lang-son",
+    "strategy": "same-path"
+  },
+  {
+    "sourceUrl": "https://www.guidehanoi.com/photo",
+    "path": "/photo",
+    "target": "/photo",
+    "kind": "album",
+    "inSitemap": false,
+    "sourceStatus": 200,
+    "sourceCanonical": "https://www.guidehanoi.com/photo",
+    "strategy": "same-path"
+  },
+  {
+    "sourceUrl": "https://www.guidehanoi.com/photos-clients-avec-jo",
+    "path": "/photos-clients-avec-jo",
+    "target": "/photos-clients-avec-jo",
+    "kind": "album",
+    "inSitemap": true,
+    "sourceStatus": 200,
+    "sourceCanonical": "https://www.guidehanoi.com/photos-clients-avec-jo",
+    "strategy": "same-path"
+  },
+  {
+    "sourceUrl": "https://www.guidehanoi.com/photos-incontournables-vietnam",
+    "path": "/photos-incontournables-vietnam",
+    "target": "/photos-incontournables-vietnam",
+    "kind": "album",
+    "inSitemap": true,
+    "sourceStatus": 200,
+    "sourceCanonical": "https://www.guidehanoi.com/photos-incontournables-vietnam",
+    "strategy": "same-path"
+  },
+  {
+    "sourceUrl": "https://www.guidehanoi.com/prison-hoa-lo-hanoi",
+    "path": "/prison-hoa-lo-hanoi",
+    "target": "/prison-hoa-lo-hanoi",
+    "kind": "post",
+    "inSitemap": true,
+    "sourceStatus": 200,
+    "sourceCanonical": "https://www.guidehanoi.com/prison-hoa-lo-hanoi",
+    "strategy": "same-path"
+  },
+  {
+    "sourceUrl": "https://www.guidehanoi.com/pu-luong",
+    "path": "/pu-luong",
+    "target": "/pu-luong",
+    "kind": "page",
+    "inSitemap": true,
+    "sourceStatus": 200,
+    "sourceCanonical": "https://www.guidehanoi.com/pu-luong",
+    "strategy": "same-path"
+  },
+  {
+    "sourceUrl": "https://www.guidehanoi.com/que-faire-a-hanoi-quand-il-pleut",
+    "path": "/que-faire-a-hanoi-quand-il-pleut",
+    "target": "/que-faire-a-hanoi-quand-il-pleut",
+    "kind": "core",
+    "inSitemap": false,
+    "sourceStatus": 200,
+    "sourceCanonical": "https://www.guidehanoi.com/",
+    "strategy": "same-path"
+  },
+  {
+    "sourceUrl": "https://www.guidehanoi.com/que-faire-a-hanoi-vietnam",
+    "path": "/que-faire-a-hanoi-vietnam",
+    "target": "/que-faire-a-hanoi-vietnam",
+    "kind": "post",
+    "inSitemap": true,
+    "sourceStatus": 200,
+    "sourceCanonical": "https://www.guidehanoi.com/que-faire-a-hanoi-vietnam",
+    "strategy": "same-path"
+  },
+  {
+    "sourceUrl": "https://www.guidehanoi.com/que-faire-au-vietnam",
+    "path": "/que-faire-au-vietnam",
+    "target": "/que-faire-au-vietnam",
+    "kind": "post",
+    "inSitemap": true,
+    "sourceStatus": 200,
+    "sourceCanonical": "https://www.guidehanoi.com/que-faire-au-vietnam",
+    "strategy": "same-path"
+  },
+  {
+    "sourceUrl": "https://www.guidehanoi.com/recherche",
+    "path": "/recherche",
+    "target": "/recherche",
+    "kind": "core",
+    "inSitemap": true,
+    "sourceStatus": 302,
+    "sourceCanonical": null,
+    "strategy": "same-path"
+  },
+  {
+    "sourceUrl": "https://www.guidehanoi.com/rue-du-train-hanoi",
+    "path": "/rue-du-train-hanoi",
+    "target": "/rue-du-train-hanoi",
+    "kind": "album",
+    "inSitemap": true,
+    "sourceStatus": 200,
+    "sourceCanonical": "https://www.guidehanoi.com/rue-du-train-hanoi",
+    "strategy": "same-path"
+  },
+  {
+    "sourceUrl": "https://www.guidehanoi.com/saigon-ho-chi-minh-ville",
+    "path": "/saigon-ho-chi-minh-ville",
+    "target": "/saigon-ho-chi-minh-ville",
+    "kind": "page",
+    "inSitemap": true,
+    "sourceStatus": 200,
+    "sourceCanonical": "https://www.guidehanoi.com/saigon-ho-chi-minh-ville",
+    "strategy": "same-path"
+  },
+  {
+    "sourceUrl": "https://www.guidehanoi.com/services",
+    "path": "/services",
+    "target": "/services",
+    "kind": "page",
+    "inSitemap": true,
+    "sourceStatus": 200,
+    "sourceCanonical": "https://www.guidehanoi.com/services",
+    "strategy": "same-path"
+  },
+  {
+    "sourceUrl": "https://www.guidehanoi.com/tours",
+    "path": "/tours",
+    "target": "/tours",
+    "kind": "page",
+    "inSitemap": true,
+    "sourceStatus": 200,
+    "sourceCanonical": "https://www.guidehanoi.com/tours",
+    "strategy": "same-path"
+  },
+  {
+    "sourceUrl": "https://www.guidehanoi.com/trek-a-sapa",
+    "path": "/trek-a-sapa",
+    "target": "/trek-a-sapa",
+    "kind": "album",
+    "inSitemap": true,
+    "sourceStatus": 200,
+    "sourceCanonical": "https://www.guidehanoi.com/trek-a-sapa",
+    "strategy": "same-path"
+  },
+  {
+    "sourceUrl": "https://www.guidehanoi.com/video",
+    "path": "/video",
+    "target": "/video",
+    "kind": "page",
+    "inSitemap": true,
+    "sourceStatus": 200,
+    "sourceCanonical": "https://www.guidehanoi.com/video",
+    "strategy": "same-path"
+  },
+  {
+    "sourceUrl": "https://www.guidehanoi.com/video-voyage-vietnam",
+    "path": "/video-voyage-vietnam",
+    "target": "/video-voyage-vietnam",
+    "kind": "page",
+    "inSitemap": true,
+    "sourceStatus": 200,
+    "sourceCanonical": "https://www.guidehanoi.com/video-voyage-vietnam",
+    "strategy": "same-path"
+  },
+  {
+    "sourceUrl": "https://www.guidehanoi.com/vietnam-2-semaines",
+    "path": "/vietnam-2-semaines",
+    "target": "/vietnam-2-semaines",
+    "kind": "core",
+    "inSitemap": false,
+    "sourceStatus": 200,
+    "sourceCanonical": "https://www.guidehanoi.com/",
+    "strategy": "same-path"
+  },
+  {
+    "sourceUrl": "https://www.guidehanoi.com/vietnam-3-semainess",
+    "path": "/vietnam-3-semainess",
+    "target": "/vietnam-3-semainess",
+    "kind": "core",
+    "inSitemap": false,
+    "sourceStatus": 200,
+    "sourceCanonical": "https://www.guidehanoi.com/",
+    "strategy": "same-path"
+  },
+  {
+    "sourceUrl": "https://www.guidehanoi.com/vietnam-en-10-jours",
+    "path": "/vietnam-en-10-jours",
+    "target": "/vietnam-en-10-jours",
+    "kind": "core",
+    "inSitemap": false,
+    "sourceStatus": 200,
+    "sourceCanonical": "https://www.guidehanoi.com/",
+    "strategy": "same-path"
+  },
+  {
+    "sourceUrl": "https://www.guidehanoi.com/village-khuoi-ky-cao-bang",
+    "path": "/village-khuoi-ky-cao-bang",
+    "target": "/village-khuoi-ky-cao-bang",
+    "kind": "post",
+    "inSitemap": true,
+    "sourceStatus": 200,
+    "sourceCanonical": "https://www.guidehanoi.com/village-khuoi-ky-cao-bang",
+    "strategy": "same-path"
+  },
+  {
+    "sourceUrl": "https://www.guidehanoi.com/visite-pagode-bich-dong-ninh-binh",
+    "path": "/visite-pagode-bich-dong-ninh-binh",
+    "target": "/visite-pagode-bich-dong-ninh-binh",
+    "kind": "post",
+    "inSitemap": true,
+    "sourceStatus": 200,
+    "sourceCanonical": "https://www.guidehanoi.com/visite-pagode-bich-dong-ninh-binh",
+    "strategy": "same-path"
+  },
+  {
+    "sourceUrl": "https://www.guidehanoi.com/visite-pagode-tran-quoc-hanoi",
+    "path": "/visite-pagode-tran-quoc-hanoi",
+    "target": "/visite-pagode-tran-quoc-hanoi",
+    "kind": "post",
+    "inSitemap": true,
+    "sourceStatus": 200,
+    "sourceCanonical": "https://www.guidehanoi.com/visite-pagode-tran-quoc-hanoi",
+    "strategy": "same-path"
+  },
+  {
+    "sourceUrl": "https://www.guidehanoi.com/visite-rc4-cao-bang",
+    "path": "/visite-rc4-cao-bang",
+    "target": "/visite-rc4-cao-bang",
+    "kind": "post",
+    "inSitemap": true,
+    "sourceStatus": 200,
+    "sourceCanonical": "https://www.guidehanoi.com/visite-rc4-cao-bang",
+    "strategy": "same-path"
+  },
+  {
+    "sourceUrl": "https://www.guidehanoi.com/vol-en-montgolfiere-a-la-hauteur-dun-immeuble-de-six-etages",
+    "path": "/vol-en-montgolfiere-a-la-hauteur-dun-immeuble-de-six-etages",
+    "target": "/vol-en-montgolfiere-a-la-hauteur-dun-immeuble-de-six-etages",
+    "kind": "page",
+    "inSitemap": true,
+    "sourceStatus": 200,
+    "sourceCanonical": "https://www.guidehanoi.com/vol-en-montgolfiere-a-la-hauteur-dun-immeuble-de-six-etages",
+    "strategy": "same-path"
+  },
+  {
+    "sourceUrl": "https://www.guidehanoi.com/vol-pour-le-vietnam",
+    "path": "/vol-pour-le-vietnam",
+    "target": "/vol-pour-le-vietnam",
+    "kind": "post",
+    "inSitemap": true,
+    "sourceStatus": 200,
+    "sourceCanonical": "https://www.guidehanoi.com/vol-pour-le-vietnam",
+    "strategy": "same-path"
+  },
+  {
+    "sourceUrl": "https://www.guidehanoi.com/voyage-2-jours-pu-luong-ninh-binh",
+    "path": "/voyage-2-jours-pu-luong-ninh-binh",
+    "target": "/voyage-2-jours-pu-luong-ninh-binh",
+    "kind": "post",
+    "inSitemap": true,
+    "sourceStatus": 200,
+    "sourceCanonical": "https://www.guidehanoi.com/voyage-2-jours-pu-luong-ninh-binh",
+    "strategy": "same-path"
+  },
+  {
+    "sourceUrl": "https://www.guidehanoi.com/voyage-au-vietnam-authentique",
+    "path": "/voyage-au-vietnam-authentique",
+    "target": "/voyage-au-vietnam-authentique",
+    "kind": "page",
+    "inSitemap": true,
+    "sourceStatus": 200,
+    "sourceCanonical": "https://www.guidehanoi.com/voyage-au-vietnam-authentique",
+    "strategy": "same-path"
+  },
+  {
+    "sourceUrl": "https://www.guidehanoi.com/voyage-culturel-vietnam",
+    "path": "/voyage-culturel-vietnam",
+    "target": "/voyage-culturel-vietnam",
+    "kind": "page",
+    "inSitemap": true,
+    "sourceStatus": 200,
+    "sourceCanonical": "https://www.guidehanoi.com/voyage-culturel-vietnam",
+    "strategy": "same-path"
+  },
+  {
+    "sourceUrl": "https://www.guidehanoi.com/voyage-de-noces-vietnam",
+    "path": "/voyage-de-noces-vietnam",
+    "target": "/voyage-de-noces-vietnam",
+    "kind": "page",
+    "inSitemap": true,
+    "sourceStatus": 200,
+    "sourceCanonical": "https://www.guidehanoi.com/voyage-de-noces-vietnam",
+    "strategy": "same-path"
+  },
+  {
+    "sourceUrl": "https://www.guidehanoi.com/voyage-en-famille-vietnam",
+    "path": "/voyage-en-famille-vietnam",
+    "target": "/voyage-en-famille-vietnam",
+    "kind": "page",
+    "inSitemap": true,
+    "sourceStatus": 200,
+    "sourceCanonical": "https://www.guidehanoi.com/voyage-en-famille-vietnam",
+    "strategy": "same-path"
+  },
+  {
+    "sourceUrl": "https://www.guidehanoi.com/voyage-gastronomique-vietnam",
+    "path": "/voyage-gastronomique-vietnam",
+    "target": "/voyage-gastronomique-vietnam",
+    "kind": "page",
+    "inSitemap": true,
+    "sourceStatus": 200,
+    "sourceCanonical": "https://www.guidehanoi.com/voyage-gastronomique-vietnam",
+    "strategy": "same-path"
+  },
+  {
+    "sourceUrl": "https://www.guidehanoi.com/voyage-hanoi-long-coc-2-jours",
+    "path": "/voyage-hanoi-long-coc-2-jours",
+    "target": "/voyage-hanoi-long-coc-2-jours",
+    "kind": "post",
+    "inSitemap": true,
+    "sourceStatus": 200,
+    "sourceCanonical": "https://www.guidehanoi.com/voyage-hanoi-long-coc-2-jours",
+    "strategy": "same-path"
+  },
+  {
+    "sourceUrl": "https://www.guidehanoi.com/voyage-prive",
+    "path": "/voyage-prive",
+    "target": "/voyage-prive",
+    "kind": "page",
+    "inSitemap": true,
+    "sourceStatus": 200,
+    "sourceCanonical": "https://www.guidehanoi.com/voyage-prive",
+    "strategy": "same-path"
+  },
+  {
+    "sourceUrl": "https://www.guidehanoi.com/voyage-sur-mesure-au-vietnam",
+    "path": "/voyage-sur-mesure-au-vietnam",
+    "target": "/voyage-sur-mesure-au-vietnam",
+    "kind": "page",
+    "inSitemap": true,
+    "sourceStatus": 200,
+    "sourceCanonical": "https://www.guidehanoi.com/voyage-sur-mesure-au-vietnam",
+    "strategy": "same-path"
+  },
+  {
+    "sourceUrl": "https://www.guidehanoi.com?brand-id=62691",
+    "path": "/?brand-id=62691",
+    "target": "/?brand-id=62691",
+    "kind": "query",
+    "inSitemap": false,
+    "sourceStatus": null,
+    "sourceCanonical": null,
+    "strategy": "query-compatible"
+  },
+  {
+    "sourceUrl": "https://www.guidehanoi.com?brand-id=62692",
+    "path": "/?brand-id=62692",
+    "target": "/?brand-id=62692",
+    "kind": "query",
+    "inSitemap": false,
+    "sourceStatus": null,
+    "sourceCanonical": null,
+    "strategy": "query-compatible"
+  },
+  {
+    "sourceUrl": "https://www.guidehanoi.com?brand-id=62693",
+    "path": "/?brand-id=62693",
+    "target": "/?brand-id=62693",
+    "kind": "query",
+    "inSitemap": false,
+    "sourceStatus": null,
+    "sourceCanonical": null,
+    "strategy": "query-compatible"
+  },
+  {
+    "sourceUrl": "https://www.guidehanoi.com?brand-id=62694",
+    "path": "/?brand-id=62694",
+    "target": "/?brand-id=62694",
+    "kind": "query",
+    "inSitemap": false,
+    "sourceStatus": null,
+    "sourceCanonical": null,
+    "strategy": "query-compatible"
+  },
+  {
+    "sourceUrl": "https://www.guidehanoi.com?brand-id=62695",
+    "path": "/?brand-id=62695",
+    "target": "/?brand-id=62695",
+    "kind": "query",
+    "inSitemap": false,
+    "sourceStatus": null,
+    "sourceCanonical": null,
+    "strategy": "query-compatible"
+  },
+  {
+    "sourceUrl": "https://www.guidehanoi.com?brand-id=62696",
+    "path": "/?brand-id=62696",
+    "target": "/?brand-id=62696",
+    "kind": "query",
+    "inSitemap": false,
+    "sourceStatus": null,
+    "sourceCanonical": null,
+    "strategy": "query-compatible"
+  },
+  {
+    "sourceUrl": "https://www.guidehanoi.com?brand-id=62697",
+    "path": "/?brand-id=62697",
+    "target": "/?brand-id=62697",
+    "kind": "query",
+    "inSitemap": false,
+    "sourceStatus": null,
+    "sourceCanonical": null,
+    "strategy": "query-compatible"
+  },
+  {
+    "sourceUrl": "https://www.guidehanoi.com?brand-id=62698",
+    "path": "/?brand-id=62698",
+    "target": "/?brand-id=62698",
+    "kind": "query",
+    "inSitemap": false,
+    "sourceStatus": null,
+    "sourceCanonical": null,
+    "strategy": "query-compatible"
+  },
+  {
+    "sourceUrl": "https://www.guidehanoi.com?brand-id=62699",
+    "path": "/?brand-id=62699",
+    "target": "/?brand-id=62699",
+    "kind": "query",
+    "inSitemap": false,
+    "sourceStatus": null,
+    "sourceCanonical": null,
+    "strategy": "query-compatible"
+  },
+  {
+    "sourceUrl": "https://www.guidehanoi.com?brand-id=62700",
+    "path": "/?brand-id=62700",
+    "target": "/?brand-id=62700",
+    "kind": "query",
+    "inSitemap": false,
+    "sourceStatus": null,
+    "sourceCanonical": null,
+    "strategy": "query-compatible"
+  }
+]

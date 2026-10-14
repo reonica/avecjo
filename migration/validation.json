@@ -1,0 +1,31 @@
+{
+  "checkedAt": "2026-10-13T23:42:29.020Z",
+  "passed": true,
+  "counts": {
+    "htmlFiles": 128,
+    "localReferences": 7769,
+    "imageReferences": 1550,
+    "validFragmentAnchors": 121,
+    "originalPublicPaths": 105,
+    "posts": 28,
+    "articleTextMatches": 28,
+    "headings": 537,
+    "tables": 9,
+    "localImages": 83,
+    "xmlSitemapUrls": 119,
+    "technicalApiPathsExcluded": 1
+  },
+  "sourceLimitations": [
+    {
+      "url": "https://www.guidehanoi.com/recherche",
+      "status": 302,
+      "reason": "Source route requires a search query or redirects without query; preserve search compatibility."
+    },
+    {
+      "url": "https://www.guidehanoi.com/photos-incontournables-vietnam",
+      "reason": "Original gallery has no public photos; no photos invented."
+    }
+  ],
+  "issues": [],
+  "warnings": []
+}

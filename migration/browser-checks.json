@@ -1,0 +1,67 @@
+{
+  "checkedAt": "2026-10-13T23:43:18.670931+00:00",
+  "browser": "Codex in-app browser",
+  "responsive": [
+    {
+      "feedbackCards": 6,
+      "headerTop": 0,
+      "logoHeight": 42,
+      "menuVisible": true,
+      "overflow": false,
+      "topicHeight": 330,
+      "width": 320
+    },
+    {
+      "feedbackCards": 6,
+      "headerTop": 0,
+      "logoHeight": 42,
+      "menuVisible": true,
+      "overflow": false,
+      "topicHeight": 401,
+      "width": 390
+    },
+    {
+      "feedbackCards": 6,
+      "headerTop": 0,
+      "logoHeight": 50,
+      "menuVisible": false,
+      "overflow": false,
+      "topicHeight": 297,
+      "width": 768
+    },
+    {
+      "feedbackCards": 6,
+      "headerTop": 0,
+      "logoHeight": 50,
+      "menuVisible": false,
+      "overflow": false,
+      "topicHeight": 514,
+      "width": 1440
+    }
+  ],
+  "verified": [
+    "Homepage sections: hero, feedback carousel, topics, blog, footer",
+    "No horizontal overflow at 320, 390, 768 and 1440px",
+    "Fixed navbar, mobile menu open/close and Escape",
+    "Feedback carousel next/previous and loaded original photos",
+    "Photo lightbox, next image, Escape and restored keyboard focus",
+    "Blog pagination: 28 posts, 12 per page, second page",
+    "Search with accents, empty search results and category filter",
+    "Legacy /blog?keyword=Que faire à Hanoi gives 7 original tagged posts",
+    "/recherche?keyword=Que faire à Hanoi searches full text",
+    "Article table of contents positions heading 24px below desktop header",
+    "Three category introductions preserve all 18 original internal links",
+    "Contact map displays the original address in Google Maps",
+    "Sitemap displays 118 links, no overflow at 320px",
+    "Website assets and navigation work within a repository subdirectory",
+    "Back-to-top returns to scrollY 0; full footer visible on mobile"
+  ],
+  "notVerifiedLive": [
+    "Netlify deployment and production form submission",
+    "DNS and SSL changeover"
+  ],
+  "notes": [
+    "Form was not submitted; no e-mail or WhatsApp message was sent.",
+    "Original URL and image rewrites are audited statically in validation.json."
+  ]
+}
