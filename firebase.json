@@ -1,0 +1,934 @@
+{
+  "hosting": {
+    "public": ".",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**",
+      "tools/**",
+      "migration/**",
+      "data/**",
+      "*.md",
+      "package*.json",
+      "netlify.toml",
+      "_redirects",
+      "**/__pycache__/**",
+      "**/*.pyc",
+      "**/*.zip",
+      "firebase-debug*.log"
+    ],
+    "cleanUrls": true,
+    "trailingSlash": false,
+    "redirects": [
+      {
+        "source": "/5-jours-au-nord-vietnam",
+        "destination": "/",
+        "type": 301
+      },
+      {
+        "source": "/5-jours-au-nord-vietnam/",
+        "destination": "/",
+        "type": 301
+      },
+      {
+        "source": "/croisiere-baie-halong",
+        "destination": "/",
+        "type": 301
+      },
+      {
+        "source": "/croisiere-baie-halong/",
+        "destination": "/",
+        "type": 301
+      },
+      {
+        "source": "/vietnam-2-semaines",
+        "destination": "/",
+        "type": 301
+      },
+      {
+        "source": "/vietnam-2-semaines/",
+        "destination": "/",
+        "type": 301
+      },
+      {
+        "source": "/hanoi-en-1-jour",
+        "destination": "/",
+        "type": 301
+      },
+      {
+        "source": "/hanoi-en-1-jour/",
+        "destination": "/",
+        "type": 301
+      },
+      {
+        "source": "/que-faire-a-hanoi-quand-il-pleut",
+        "destination": "/",
+        "type": 301
+      },
+      {
+        "source": "/que-faire-a-hanoi-quand-il-pleut/",
+        "destination": "/",
+        "type": 301
+      },
+      {
+        "source": "/vietnam-3-semainess",
+        "destination": "/",
+        "type": 301
+      },
+      {
+        "source": "/vietnam-3-semainess/",
+        "destination": "/",
+        "type": 301
+      },
+      {
+        "source": "/vietnam-en-10-jours",
+        "destination": "/",
+        "type": 301
+      },
+      {
+        "source": "/vietnam-en-10-jours/",
+        "destination": "/",
+        "type": 301
+      }
+    ],
+    "rewrites": [
+      {
+        "source": "/blog",
+        "destination": "/blog/index.html"
+      },
+      {
+        "source": "/recherche",
+        "destination": "/recherche/index.html"
+      },
+      {
+        "source": "/circuits-vietnam",
+        "destination": "/circuits-vietnam/index.html"
+      },
+      {
+        "source": "/conseils-voyage",
+        "destination": "/conseils-voyage/index.html"
+      },
+      {
+        "source": "/incontournables-vietnam",
+        "destination": "/incontournables-vietnam/index.html"
+      },
+      {
+        "source": "/tag/blog-voyage-vietnam",
+        "destination": "/tag/blog-voyage-vietnam/index.html"
+      },
+      {
+        "source": "/tag/carnet-de-voyage-phu-tho",
+        "destination": "/tag/carnet-de-voyage-phu-tho/index.html"
+      },
+      {
+        "source": "/tag/carnet-de-voyage-son-la",
+        "destination": "/tag/carnet-de-voyage-son-la/index.html"
+      },
+      {
+        "source": "/tag/circuit-nord-vietnam",
+        "destination": "/tag/circuit-nord-vietnam/index.html"
+      },
+      {
+        "source": "/tag/circuit-voyage-vietnam",
+        "destination": "/tag/circuit-voyage-vietnam/index.html"
+      },
+      {
+        "source": "/tag/guide-francophone-vietnam",
+        "destination": "/tag/guide-francophone-vietnam/index.html"
+      },
+      {
+        "source": "/tag/que-faire-a-baie-dhalong",
+        "destination": "/tag/que-faire-a-baie-dhalong/index.html"
+      },
+      {
+        "source": "/tag/que-faire-a-cao-bang",
+        "destination": "/tag/que-faire-a-cao-bang/index.html"
+      },
+      {
+        "source": "/tag/que-faire-a-da-nang",
+        "destination": "/tag/que-faire-a-da-nang/index.html"
+      },
+      {
+        "source": "/tag/que-faire-a-ha-giang",
+        "destination": "/tag/que-faire-a-ha-giang/index.html"
+      },
+      {
+        "source": "/tag/que-faire-a-hanoi",
+        "destination": "/tag/que-faire-a-hanoi/index.html"
+      },
+      {
+        "source": "/tag/que-faire-a-lang-son",
+        "destination": "/tag/que-faire-a-lang-son/index.html"
+      },
+      {
+        "source": "/tag/que-faire-a-mai-chau",
+        "destination": "/tag/que-faire-a-mai-chau/index.html"
+      },
+      {
+        "source": "/tag/que-faire-a-moc-chau",
+        "destination": "/tag/que-faire-a-moc-chau/index.html"
+      },
+      {
+        "source": "/tag/que-faire-a-ninh-binh",
+        "destination": "/tag/que-faire-a-ninh-binh/index.html"
+      },
+      {
+        "source": "/tag/que-faire-a-phu-tho",
+        "destination": "/tag/que-faire-a-phu-tho/index.html"
+      },
+      {
+        "source": "/tag/que-faire-a-pu-luong",
+        "destination": "/tag/que-faire-a-pu-luong/index.html"
+      },
+      {
+        "source": "/tag/visite-baie-de-lan-ha",
+        "destination": "/tag/visite-baie-de-lan-ha/index.html"
+      },
+      {
+        "source": "/tag/visite-baie-dhalong",
+        "destination": "/tag/visite-baie-dhalong/index.html"
+      },
+      {
+        "source": "/tag/visite-long-coc",
+        "destination": "/tag/visite-long-coc/index.html"
+      },
+      {
+        "source": "/que-faire-a-hanoi-vietnam",
+        "destination": "/que-faire-a-hanoi-vietnam/index.html"
+      },
+      {
+        "source": "/circuit-nord-vietnam",
+        "destination": "/circuit-nord-vietnam/index.html"
+      },
+      {
+        "source": "/que-faire-au-vietnam",
+        "destination": "/que-faire-au-vietnam/index.html"
+      },
+      {
+        "source": "/ou-partir-pas-cher-cet-ete",
+        "destination": "/ou-partir-pas-cher-cet-ete/index.html"
+      },
+      {
+        "source": "/da-nang-en-1-jour",
+        "destination": "/da-nang-en-1-jour/index.html"
+      },
+      {
+        "source": "/guide-voyage-moc-chau",
+        "destination": "/guide-voyage-moc-chau/index.html"
+      },
+      {
+        "source": "/citadelle-imperiale-hanoi",
+        "destination": "/citadelle-imperiale-hanoi/index.html"
+      },
+      {
+        "source": "/prison-hoa-lo-hanoi",
+        "destination": "/prison-hoa-lo-hanoi/index.html"
+      },
+      {
+        "source": "/visite-pagode-tran-quoc-hanoi",
+        "destination": "/visite-pagode-tran-quoc-hanoi/index.html"
+      },
+      {
+        "source": "/guide-voyage-ha-giang",
+        "destination": "/guide-voyage-ha-giang/index.html"
+      },
+      {
+        "source": "/histoire-du-the-au-vietnam",
+        "destination": "/histoire-du-the-au-vietnam/index.html"
+      },
+      {
+        "source": "/complexe-du-mausolee-ho-chi-minh-hanoi",
+        "destination": "/complexe-du-mausolee-ho-chi-minh-hanoi/index.html"
+      },
+      {
+        "source": "/musee-d-ethnographie-hanoi-guide-voyage-vietnam",
+        "destination": "/musee-d-ethnographie-hanoi-guide-voyage-vietnam/index.html"
+      },
+      {
+        "source": "/vol-pour-le-vietnam",
+        "destination": "/vol-pour-le-vietnam/index.html"
+      },
+      {
+        "source": "/culture-du-the-vietnam",
+        "destination": "/culture-du-the-vietnam/index.html"
+      },
+      {
+        "source": "/voyage-hanoi-long-coc-2-jours",
+        "destination": "/voyage-hanoi-long-coc-2-jours/index.html"
+      },
+      {
+        "source": "/visite-pagode-bich-dong-ninh-binh",
+        "destination": "/visite-pagode-bich-dong-ninh-binh/index.html"
+      },
+      {
+        "source": "/visite-rc4-cao-bang",
+        "destination": "/visite-rc4-cao-bang/index.html"
+      },
+      {
+        "source": "/4-jours-visite-cao-bang-lang-son",
+        "destination": "/4-jours-visite-cao-bang-lang-son/index.html"
+      },
+      {
+        "source": "/voyage-2-jours-pu-luong-ninh-binh",
+        "destination": "/voyage-2-jours-pu-luong-ninh-binh/index.html"
+      },
+      {
+        "source": "/passage-chi-lang-lang-son",
+        "destination": "/passage-chi-lang-lang-son/index.html"
+      },
+      {
+        "source": "/guide-voyage-pu-luong",
+        "destination": "/guide-voyage-pu-luong/index.html"
+      },
+      {
+        "source": "/guide-voyage-mai-chau",
+        "destination": "/guide-voyage-mai-chau/index.html"
+      },
+      {
+        "source": "/chute-ban-gioc-cao-bang",
+        "destination": "/chute-ban-gioc-cao-bang/index.html"
+      },
+      {
+        "source": "/village-khuoi-ky-cao-bang",
+        "destination": "/village-khuoi-ky-cao-bang/index.html"
+      },
+      {
+        "source": "/guide-voyage-ninh-binh",
+        "destination": "/guide-voyage-ninh-binh/index.html"
+      },
+      {
+        "source": "/guide-voyage-baie-d-halong",
+        "destination": "/guide-voyage-baie-d-halong/index.html"
+      },
+      {
+        "source": "/guide-voyage-hanoi",
+        "destination": "/guide-voyage-hanoi/index.html"
+      },
+      {
+        "source": "/aeroport-de-hanoi",
+        "destination": "/aeroport-de-hanoi/index.html"
+      },
+      {
+        "source": "/centre-ville-hanoi",
+        "destination": "/centre-ville-hanoi/index.html"
+      },
+      {
+        "source": "/chute-d-eau-ha-giang",
+        "destination": "/chute-d-eau-ha-giang/index.html"
+      },
+      {
+        "source": "/diner-chez-l-habitant-ha-giang",
+        "destination": "/diner-chez-l-habitant-ha-giang/index.html"
+      },
+      {
+        "source": "/photo",
+        "destination": "/photo/index.html"
+      },
+      {
+        "source": "/photos-clients-avec-jo",
+        "destination": "/photos-clients-avec-jo/index.html"
+      },
+      {
+        "source": "/photos-incontournables-vietnam",
+        "destination": "/photos-incontournables-vietnam/index.html"
+      },
+      {
+        "source": "/rue-du-train-hanoi",
+        "destination": "/rue-du-train-hanoi/index.html"
+      },
+      {
+        "source": "/trek-a-sapa",
+        "destination": "/trek-a-sapa/index.html"
+      },
+      {
+        "source": "/ba-be-thai-nguyen",
+        "destination": "/ba-be-thai-nguyen/index.html"
+      },
+      {
+        "source": "/baie-d-halong",
+        "destination": "/baie-d-halong/index.html"
+      },
+      {
+        "source": "/baie-de-lan-ha",
+        "destination": "/baie-de-lan-ha/index.html"
+      },
+      {
+        "source": "/cai-be-dong-thap",
+        "destination": "/cai-be-dong-thap/index.html"
+      },
+      {
+        "source": "/can-tho",
+        "destination": "/can-tho/index.html"
+      },
+      {
+        "source": "/cao-bang",
+        "destination": "/cao-bang/index.html"
+      },
+      {
+        "source": "/cat-ba",
+        "destination": "/cat-ba/index.html"
+      },
+      {
+        "source": "/circuit-moto-vietnam",
+        "destination": "/circuit-moto-vietnam/index.html"
+      },
+      {
+        "source": "/circuit-tout-terrain-vietnam",
+        "destination": "/circuit-tout-terrain-vietnam/index.html"
+      },
+      {
+        "source": "/circuit-vtt-vietnam",
+        "destination": "/circuit-vtt-vietnam/index.html"
+      },
+      {
+        "source": "/circuits-thematiques-au-vietnam",
+        "destination": "/circuits-thematiques-au-vietnam/index.html"
+      },
+      {
+        "source": "/circuits-vietnam-par-duree",
+        "destination": "/circuits-vietnam-par-duree/index.html"
+      },
+      {
+        "source": "/circuits-vietnam-par-region",
+        "destination": "/circuits-vietnam-par-region/index.html"
+      },
+      {
+        "source": "/coucher-de-soleil-sur-le-lac-quan-son",
+        "destination": "/coucher-de-soleil-sur-le-lac-quan-son/index.html"
+      },
+      {
+        "source": "/da-nang",
+        "destination": "/da-nang/index.html"
+      },
+      {
+        "source": "/decouvrir-hanoi-a-bord-dun-bus-a-imperiale",
+        "destination": "/decouvrir-hanoi-a-bord-dun-bus-a-imperiale/index.html"
+      },
+      {
+        "source": "/destinations",
+        "destination": "/destinations/index.html"
+      },
+      {
+        "source": "/dien-bien",
+        "destination": "/dien-bien/index.html"
+      },
+      {
+        "source": "/dong-hoi-quang-tri",
+        "destination": "/dong-hoi-quang-tri/index.html"
+      },
+      {
+        "source": "/essentiel-du-vietnam",
+        "destination": "/essentiel-du-vietnam/index.html"
+      },
+      {
+        "source": "/galeries",
+        "destination": "/galeries/index.html"
+      },
+      {
+        "source": "/guide-francophone-baie-dhalong",
+        "destination": "/guide-francophone-baie-dhalong/index.html"
+      },
+      {
+        "source": "/guide-francophone-da-nang",
+        "destination": "/guide-francophone-da-nang/index.html"
+      },
+      {
+        "source": "/guide-francophone-hanoi",
+        "destination": "/guide-francophone-hanoi/index.html"
+      },
+      {
+        "source": "/guide-francophone-phu-quoc",
+        "destination": "/guide-francophone-phu-quoc/index.html"
+      },
+      {
+        "source": "/guide-francophone-saigon",
+        "destination": "/guide-francophone-saigon/index.html"
+      },
+      {
+        "source": "/guide-francophone-vietnam",
+        "destination": "/guide-francophone-vietnam/index.html"
+      },
+      {
+        "source": "/ha-giang-loop",
+        "destination": "/ha-giang-loop/index.html"
+      },
+      {
+        "source": "/hanoi",
+        "destination": "/hanoi/index.html"
+      },
+      {
+        "source": "/hoi-an",
+        "destination": "/hoi-an/index.html"
+      },
+      {
+        "source": "/hue",
+        "destination": "/hue/index.html"
+      },
+      {
+        "source": "/itineraire-vietnam-2-semaines",
+        "destination": "/itineraire-vietnam-2-semaines/index.html"
+      },
+      {
+        "source": "/itineraire-vietnam-3-semaines",
+        "destination": "/itineraire-vietnam-3-semaines/index.html"
+      },
+      {
+        "source": "/itineraire-vietnam-4-semaines",
+        "destination": "/itineraire-vietnam-4-semaines/index.html"
+      },
+      {
+        "source": "/la-beaute-de-ha-giang-a-travers-lobjectif-des-voyageurs",
+        "destination": "/la-beaute-de-ha-giang-a-travers-lobjectif-des-voyageurs/index.html"
+      },
+      {
+        "source": "/lang-son",
+        "destination": "/lang-son/index.html"
+      },
+      {
+        "source": "/le-rythme-de-la-vie-nocturne-a-saigon",
+        "destination": "/le-rythme-de-la-vie-nocturne-a-saigon/index.html"
+      },
+      {
+        "source": "/lung-van-le-toit-du-pays-muong",
+        "destination": "/lung-van-le-toit-du-pays-muong/index.html"
+      },
+      {
+        "source": "/mai-chau-phu-tho",
+        "destination": "/mai-chau-phu-tho/index.html"
+      },
+      {
+        "source": "/moc-chau-son-la",
+        "destination": "/moc-chau-son-la/index.html"
+      },
+      {
+        "source": "/pu-luong",
+        "destination": "/pu-luong/index.html"
+      },
+      {
+        "source": "/saigon-ho-chi-minh-ville",
+        "destination": "/saigon-ho-chi-minh-ville/index.html"
+      },
+      {
+        "source": "/services",
+        "destination": "/services/index.html"
+      },
+      {
+        "source": "/tours",
+        "destination": "/tours/index.html"
+      },
+      {
+        "source": "/video",
+        "destination": "/video/index.html"
+      },
+      {
+        "source": "/video-voyage-vietnam",
+        "destination": "/video-voyage-vietnam/index.html"
+      },
+      {
+        "source": "/vol-en-montgolfiere-a-la-hauteur-dun-immeuble-de-six-etages",
+        "destination": "/vol-en-montgolfiere-a-la-hauteur-dun-immeuble-de-six-etages/index.html"
+      },
+      {
+        "source": "/voyage-au-vietnam-authentique",
+        "destination": "/voyage-au-vietnam-authentique/index.html"
+      },
+      {
+        "source": "/voyage-culturel-vietnam",
+        "destination": "/voyage-culturel-vietnam/index.html"
+      },
+      {
+        "source": "/voyage-de-noces-vietnam",
+        "destination": "/voyage-de-noces-vietnam/index.html"
+      },
+      {
+        "source": "/voyage-en-famille-vietnam",
+        "destination": "/voyage-en-famille-vietnam/index.html"
+      },
+      {
+        "source": "/voyage-gastronomique-vietnam",
+        "destination": "/voyage-gastronomique-vietnam/index.html"
+      },
+      {
+        "source": "/voyage-prive",
+        "destination": "/voyage-prive/index.html"
+      },
+      {
+        "source": "/voyage-sur-mesure-au-vietnam",
+        "destination": "/voyage-sur-mesure-au-vietnam/index.html"
+      },
+      {
+        "source": "/contact",
+        "destination": "/contact/index.html"
+      },
+      {
+        "source": "/merci",
+        "destination": "/merci/index.html"
+      },
+      {
+        "source": "/sitemap",
+        "destination": "/sitemap/index.html"
+      },
+      {
+        "source": "/datafiles/88364/upload/files/avec-jo/logo-Avec-JO.png",
+        "destination": "/assets/images/logo-avec-jo-25741c9ba0.png"
+      },
+      {
+        "source": "/datafiles/88364/upload/images/14776241477406_thung-lung-tinh-yeu-500x500.jpg",
+        "destination": "/assets/images/14776241477406-thung-lung-tinh-yeu-500x500-e9e94ebca7.jpg"
+      },
+      {
+        "source": "/datafiles/88364/upload/images/14776244832083_sss.jpg",
+        "destination": "/assets/images/14776244832083-sss-a2ed18adb9.jpg"
+      },
+      {
+        "source": "/datafiles/88364/upload/images/banner-jo/1440-810-12-Hanoi-Vietnam.jpg",
+        "destination": "/assets/images/1440-810-12-hanoi-vietnam-be057816ee.jpg"
+      },
+      {
+        "source": "/datafiles/88364/upload/images/banner-jo/1440-810-2-Hanoi-Vietnam.jpg",
+        "destination": "/assets/images/1440-810-2-hanoi-vietnam-dc5ed9d5e5.jpg"
+      },
+      {
+        "source": "/datafiles/88364/upload/images/banner-jo/1440-810-3-cantho-vietnam.jpg",
+        "destination": "/assets/images/1440-810-3-cantho-vietnam-7db9210d05.jpg"
+      },
+      {
+        "source": "/datafiles/88364/upload/images/banner-jo/logo-partner/bw-FS_FS-logo.png",
+        "destination": "/assets/images/bw-fs-fs-logo-3f5697000f.png"
+      },
+      {
+        "source": "/datafiles/88364/upload/images/banner-jo/logo-partner/bw-alda-hub.png",
+        "destination": "/assets/images/bw-alda-hub-573d4516ff.png"
+      },
+      {
+        "source": "/datafiles/88364/upload/images/banner-jo/logo-partner/bw-avecjo.png",
+        "destination": "/assets/images/bw-avecjo-f995e69d74.png"
+      },
+      {
+        "source": "/datafiles/88364/upload/images/banner-jo/logo-partner/bw-lazi.png",
+        "destination": "/assets/images/bw-lazi-3e409cdd14.png"
+      },
+      {
+        "source": "/datafiles/88364/upload/images/banner-jo/logo-partner/bw-seo-nomie.png",
+        "destination": "/assets/images/bw-seo-nomie-74c317d853.png"
+      },
+      {
+        "source": "/datafiles/88364/upload/images/banner/2.jpg",
+        "destination": "/assets/images/2-c7f7974abd.jpg"
+      },
+      {
+        "source": "/datafiles/88364/upload/images/banner/900-508-1-avatar-tour-total.jpg",
+        "destination": "/assets/images/900-508-1-avatar-tour-total-12eb3c5f89.jpg"
+      },
+      {
+        "source": "/datafiles/88364/upload/images/banner/900-508-2-avatar-tour-total.jpg",
+        "destination": "/assets/images/900-508-2-avatar-tour-total-0c2c9684a9.jpg"
+      },
+      {
+        "source": "/datafiles/88364/upload/images/banner/900-508-3-avatar-cruise-total.jpg",
+        "destination": "/assets/images/900-508-3-avatar-cruise-total-f653e5fd56.jpg"
+      },
+      {
+        "source": "/datafiles/88364/upload/images/client-avec-jo/Centre-ville-hanoi.jpeg",
+        "destination": "/assets/images/centre-ville-hanoi-44d5c1279a.jpeg"
+      },
+      {
+        "source": "/datafiles/88364/upload/images/client-avec-jo/Chutes-d-eau-hagiang.jpeg",
+        "destination": "/assets/images/chutes-d-eau-hagiang-1675b09ba0.jpeg"
+      },
+      {
+        "source": "/datafiles/88364/upload/images/client-avec-jo/Diner-chez-l-habitant.jpeg",
+        "destination": "/assets/images/diner-chez-l-habitant-8a183a5b80.jpeg"
+      },
+      {
+        "source": "/datafiles/88364/upload/images/client-avec-jo/Jo-a%CC%80-bord.jpg",
+        "destination": "/assets/images/jo-a-bord-8a49eba9ee.jpg"
+      },
+      {
+        "source": "/datafiles/88364/upload/images/client-avec-jo/Rue-du-train-hanoi.jpeg",
+        "destination": "/assets/images/rue-du-train-hanoi-d2e5c887a5.jpeg"
+      },
+      {
+        "source": "/datafiles/88364/upload/images/client-avec-jo/Voyage-de-the%CC%81-vietnam.jpeg",
+        "destination": "/assets/images/voyage-de-the-vietnam-b764ae49c3.jpeg"
+      },
+      {
+        "source": "/datafiles/88364/upload/images/client-avec-jo/Voyage-sapa.jpeg",
+        "destination": "/assets/images/voyage-sapa-665606c495.jpeg"
+      },
+      {
+        "source": "/datafiles/88364/upload/images/client-avec-jo/l-aeroport-dhanoi.jpeg",
+        "destination": "/assets/images/l-aeroport-dhanoi-76ebf02394.jpeg"
+      },
+      {
+        "source": "/datafiles/88364/upload/images/dichvu/dv3-1.jpg",
+        "destination": "/assets/images/dv3-1-3f23cb4ae8.jpg"
+      },
+      {
+        "source": "/datafiles/88364/upload/images/slider_1.jpg",
+        "destination": "/assets/images/slider-1-11fd0e3df5.jpg"
+      },
+      {
+        "source": "/datafiles/88364/upload/images/tour%20mi%E1%BB%81n%20b%E1%BA%AFc/2-Fansipan_1%2816%29.jpg",
+        "destination": "/assets/images/2-fansipan-1-16-86fcac653b.jpg"
+      },
+      {
+        "source": "/datafiles/88364/upload/images/tour%20mi%E1%BB%81n%20b%E1%BA%AFc/570f2a15-ecbc-48ff-9618-d9e78a409044_ninh-binh-1-220023.jpg",
+        "destination": "/assets/images/570f2a15-ecbc-48ff-9618-d9e78a409044-ninh-binh-1-220023-5eedfa76c9.jpg"
+      },
+      {
+        "source": "/datafiles/88364/upload/images/tour%20mi%E1%BB%81n%20b%E1%BA%AFc/Khu%20du%20l%E1%BB%8Bch%20N%C3%BAi%20H%C3%A0m%20R%E1%BB%93ng3%2820%29.jpg",
+        "destination": "/assets/images/khu-du-lich-nui-ham-rong3-20-03b78b8e69.jpg"
+      },
+      {
+        "source": "/datafiles/88364/upload/images/tour%20mi%E1%BB%81n%20b%E1%BA%AFc/L%C4%83ng_Ch%E1%BB%A7_t%E1%BB%8Bch_H%E1%BB%93_Ch%C3%AD_Minh%2821%29.jpg",
+        "destination": "/assets/images/lang-chu-tich-ho-chi-minh-21-d7e2e5d15f.jpg"
+      },
+      {
+        "source": "/datafiles/88364/upload/images/tour%20mi%E1%BB%81n%20b%E1%BA%AFc/bieu%20dien%20ca%20heo%20o%20ha%20long%20bay%2818%29.jpg",
+        "destination": "/assets/images/bieu-dien-ca-heo-o-ha-long-bay-18-3ed722855c.jpg"
+      },
+      {
+        "source": "/datafiles/88364/upload/images/tour%20mi%E1%BB%81n%20b%E1%BA%AFc/chua-bai-dinh-fiditour%286%29.jpg",
+        "destination": "/assets/images/chua-bai-dinh-fiditour-6-c7fa952ad5.jpg"
+      },
+      {
+        "source": "/datafiles/88364/upload/images/tour%20mi%E1%BB%81n%20b%E1%BA%AFc/dac-san-ha-noi%2820%29.jpg",
+        "destination": "/assets/images/dac-san-ha-noi-20-617d4a3161.jpg"
+      },
+      {
+        "source": "/datafiles/88364/upload/images/tour%20mi%E1%BB%81n%20b%E1%BA%AFc/du-lich-ninh-binh.jpg",
+        "destination": "/assets/images/du-lich-ninh-binh-10e854368e.jpg"
+      },
+      {
+        "source": "/datafiles/88364/upload/images/tour%20mi%E1%BB%81n%20b%E1%BA%AFc/ha-long%20%287%29.jpg",
+        "destination": "/assets/images/ha-long-7-71c21f9e83.jpg"
+      },
+      {
+        "source": "/datafiles/88364/upload/images/tour%20mi%E1%BB%81n%20b%E1%BA%AFc/ninh%20binh%20%284%29.jpg",
+        "destination": "/assets/images/ninh-binh-4-aa09badcd9.jpg"
+      },
+      {
+        "source": "/datafiles/88364/upload/images/tour%20mi%E1%BB%81n%20b%E1%BA%AFc/tam-coc-bich-dong033.jpg",
+        "destination": "/assets/images/tam-coc-bich-dong033-6fd93beab9.jpg"
+      },
+      {
+        "source": "/datafiles/88364/upload/images/tour%20mi%E1%BB%81n%20b%E1%BA%AFc/thumbnail-du-lich-ninh-binh-trang-an-bai-dinh-hoa-lu-tam-coc-1521705003.jpg",
+        "destination": "/assets/images/thumbnail-du-lich-ninh-binh-trang-an-bai-dinh-hoa-lu-tam-coc-1521705003-2738209284.jpg"
+      },
+      {
+        "source": "/datafiles/88364/upload/images/tour%20mien%20trung/Ng%C5%A9%20H%C3%A0nh%20S%C6%A1n2%289%29.jpg",
+        "destination": "/assets/images/ngu-hanh-son2-9-90627190cd.jpg"
+      },
+      {
+        "source": "/datafiles/88364/upload/images/tour%20mien%20trung/ba-na-hills%2820%29.jpg",
+        "destination": "/assets/images/ba-na-hills-20-0a2c184c44.jpg"
+      },
+      {
+        "source": "/datafiles/88364/upload/images/tour%20mien%20trung/cao%20lau_resize%289%29.jpg",
+        "destination": "/assets/images/cao-lau-resize-9-993e600681.jpg"
+      },
+      {
+        "source": "/datafiles/88364/upload/images/tour%20mien%20trung/long-den-hoi-an-%283%29.jpg",
+        "destination": "/assets/images/long-den-hoi-an-3-119f422b97.jpg"
+      },
+      {
+        "source": "/datafiles/88364/upload/images/tour%20trong%20nuoc/CD08_1.jpg",
+        "destination": "/assets/images/cd08-1-1727ea98bb.jpg"
+      },
+      {
+        "source": "/datafiles/88364/upload/images/tour%20trong%20nuoc/at_ha-noi--ninh-binh-bai-dinh-tam-coc--ha-long--yen-tu_5f82f3205f930048fc1a87425ede5ff2.jpg",
+        "destination": "/assets/images/at-ha-noi-ninh-binh-bai-dinh-tam-coc-ha-long-yen-tu-5f82f3205f930048fc1a87425ede5ff2-ef8c358792.jpg"
+      },
+      {
+        "source": "/datafiles/88364/upload/images/tour%20trong%20nuoc/nha%20trang/du-lich-nha-trang-17_0.jpg",
+        "destination": "/assets/images/du-lich-nha-trang-17-0-988665729a.jpg"
+      },
+      {
+        "source": "/datafiles/88364/upload/images/tour%20trong%20nuoc/ph%C3%BA%20qu%E1%BB%91c/bai-sao-phu-quoc.jpg",
+        "destination": "/assets/images/bai-sao-phu-quoc-d2109fab38.jpg"
+      },
+      {
+        "source": "/datafiles/88364/upload/images/video/vd1-1.jpg",
+        "destination": "/assets/images/vd1-1-8a4ac01f80.jpg"
+      },
+      {
+        "source": "/datafiles/88364/upload/images/video/vd2-1.jpg",
+        "destination": "/assets/images/vd2-1-0e9aa02e38.jpg"
+      },
+      {
+        "source": "/datafiles/88364/upload/images/video/vd3.jpg",
+        "destination": "/assets/images/vd3-4a860615b3.jpg"
+      },
+      {
+        "source": "/datafiles/88364/upload/images/video/vd4.jpg",
+        "destination": "/assets/images/vd4-edea95fcb3.jpg"
+      },
+      {
+        "source": "/datafiles/88364/upload/images/video/vd5.jpg",
+        "destination": "/assets/images/vd5-8a83b1a041.jpg"
+      },
+      {
+        "source": "/datafiles/88364/upload/images/video/vd6.png",
+        "destination": "/assets/images/vd6-171111cbae.png"
+      },
+      {
+        "source": "/datafiles/88364/upload/images/vietnam/1440-ban-gioc.jpg",
+        "destination": "/assets/images/1440-ban-gioc-bcc7718da5.jpg"
+      },
+      {
+        "source": "/datafiles/88364/upload/images/vietnam/Circuit-nord-vietnam.jpg",
+        "destination": "/assets/images/circuit-nord-vietnam-bb59842fff.jpg"
+      },
+      {
+        "source": "/datafiles/88364/upload/images/vietnam/Culture-du-the%CC%81-vietnam.jpg",
+        "destination": "/assets/images/culture-du-the-vietnam-d27cc6548b.jpg"
+      },
+      {
+        "source": "/datafiles/88364/upload/images/vietnam/Que-faire-au-vietnam.jpg",
+        "destination": "/assets/images/que-faire-au-vietnam-65c46d0bee.jpg"
+      },
+      {
+        "source": "/datafiles/88364/upload/images/vietnam/The%CC%81-glace%CC%81.jpg",
+        "destination": "/assets/images/the-glace-070078af2d.jpg"
+      },
+      {
+        "source": "/datafiles/88364/upload/images/vietnam/The-vietnam.jpg",
+        "destination": "/assets/images/the-vietnam-b17c88c4ee.jpg"
+      },
+      {
+        "source": "/datafiles/88364/upload/images/vietnam/Vietnam-ou-partir-pas-cher-cet-ete.jpg",
+        "destination": "/assets/images/vietnam-ou-partir-pas-cher-cet-ete-a2d58de020.jpg"
+      },
+      {
+        "source": "/datafiles/88364/upload/images/vietnam/Vol-pour-le-vietnam.jpg",
+        "destination": "/assets/images/vol-pour-le-vietnam-f4b4763d60.jpg"
+      },
+      {
+        "source": "/datafiles/88364/upload/images/vietnam/baie-d-halong/1440-810-45-halong-vietnam.jpg",
+        "destination": "/assets/images/1440-810-45-halong-vietnam-e939a1f63f.jpg"
+      },
+      {
+        "source": "/datafiles/88364/upload/images/vietnam/cao-bang/11-4-jours-cao-bang-lang-son.jpg",
+        "destination": "/assets/images/11-4-jours-cao-bang-lang-son-889c0f8ac7.jpg"
+      },
+      {
+        "source": "/datafiles/88364/upload/images/vietnam/cao-bang/11-RC4.jpg",
+        "destination": "/assets/images/11-rc4-0fadb83c5d.jpg"
+      },
+      {
+        "source": "/datafiles/88364/upload/images/vietnam/cao-bang/11-khuoi-ky.jpg",
+        "destination": "/assets/images/11-khuoi-ky-e75976326f.jpg"
+      },
+      {
+        "source": "/datafiles/88364/upload/images/vietnam/da-nang/49-da-nang-en-1-jour.jpg",
+        "destination": "/assets/images/49-da-nang-en-1-jour-9f47252b49.jpg"
+      },
+      {
+        "source": "/datafiles/88364/upload/images/vietnam/da-nang/musee-sculpture-cham-da-nang.jpeg",
+        "destination": "/assets/images/musee-sculpture-cham-da-nang-a275102bd2.jpeg"
+      },
+      {
+        "source": "/datafiles/88364/upload/images/vietnam/ha-giang/22-guide-voyage-ha-giang.jpg",
+        "destination": "/assets/images/22-guide-voyage-ha-giang-931bad12b6.jpg"
+      },
+      {
+        "source": "/datafiles/88364/upload/images/vietnam/hanoi/1440-1-pagode-tran-quoc.jpg",
+        "destination": "/assets/images/1440-1-pagode-tran-quoc-7d4bb08179.jpg"
+      },
+      {
+        "source": "/datafiles/88364/upload/images/vietnam/hanoi/1440-4-Citadelle-impe%CC%81riale-Thang-Long.jpg",
+        "destination": "/assets/images/1440-4-citadelle-imperiale-thang-long-b0102e2047.jpg"
+      },
+      {
+        "source": "/datafiles/88364/upload/images/vietnam/hanoi/1440-810-3-Hanoi-Vietnam.jpg",
+        "destination": "/assets/images/1440-810-3-hanoi-vietnam-6530651e7b.jpg"
+      },
+      {
+        "source": "/datafiles/88364/upload/images/vietnam/hanoi/29-guide-voyage-hanoi.jpg",
+        "destination": "/assets/images/29-guide-voyage-hanoi-59abc8cd3e.jpg"
+      },
+      {
+        "source": "/datafiles/88364/upload/images/vietnam/hanoi/29-prison-hoa-lo-hanoi.jpg",
+        "destination": "/assets/images/29-prison-hoa-lo-hanoi-153853a2b7.jpg"
+      },
+      {
+        "source": "/datafiles/88364/upload/images/vietnam/hanoi/29-que-faire-a-hanoi.jpg",
+        "destination": "/assets/images/29-que-faire-a-hanoi-036c4cf549.jpg"
+      },
+      {
+        "source": "/datafiles/88364/upload/images/vietnam/hanoi/Museo-Etnografico-del-Vietnam-Cosa-fare-a-Hanoi.jpg",
+        "destination": "/assets/images/museo-etnografico-del-vietnam-cosa-fare-a-hanoi-e31cc9627d.jpg"
+      },
+      {
+        "source": "/datafiles/88364/upload/images/vietnam/lang-son/12-passage-chi-lang.jpg",
+        "destination": "/assets/images/12-passage-chi-lang-c6f13c697d.jpg"
+      },
+      {
+        "source": "/datafiles/88364/upload/images/vietnam/mai-chau/19-guide-voyage-mai-chau.jpg",
+        "destination": "/assets/images/19-guide-voyage-mai-chau-d743b2761b.jpg"
+      },
+      {
+        "source": "/datafiles/88364/upload/images/vietnam/moc-chau/26-guide-voyage-moc-chau.png",
+        "destination": "/assets/images/26-guide-voyage-moc-chau-0d092a10f7.png"
+      },
+      {
+        "source": "/datafiles/88364/upload/images/vietnam/ninh-binh/1440-810-10-Thungnham-ninh-binh-vietnam.jpg",
+        "destination": "/assets/images/1440-810-10-thungnham-ninh-binh-vietnam-a43fc213bf.jpg"
+      },
+      {
+        "source": "/datafiles/88364/upload/images/vietnam/ninh-binh/35-bich-dong.jpg",
+        "destination": "/assets/images/35-bich-dong-5814276acf.jpg"
+      },
+      {
+        "source": "/datafiles/88364/upload/images/vietnam/phu-tho/19-hanoi-long-coc-2-jours.jpg",
+        "destination": "/assets/images/19-hanoi-long-coc-2-jours-d5f0c5d091.jpg"
+      },
+      {
+        "source": "/datafiles/88364/upload/images/vietnam/pu-luong/36-guide-voyage-puluong.jpg",
+        "destination": "/assets/images/36-guide-voyage-puluong-2e1227fec1.jpg"
+      },
+      {
+        "source": "/datafiles/88364/upload/images/vietnam/pu-luong/36-voyage-pu-luong-ninh-binh.jpg",
+        "destination": "/assets/images/36-voyage-pu-luong-ninh-binh-8d5b4f4eb9.jpg"
+      },
+      {
+        "source": "/datafiles/88364/upload/images/vietnam/saigon/Jo-a-saigon.jpeg",
+        "destination": "/assets/images/jo-a-saigon-c419f680f5.jpeg"
+      }
+    ],
+    "headers": [
+      {
+        "source": "**",
+        "headers": [
+          {
+            "key": "X-Content-Type-Options",
+            "value": "nosniff"
+          },
+          {
+            "key": "Referrer-Policy",
+            "value": "strict-origin-when-cross-origin"
+          }
+        ]
+      },
+      {
+        "source": "/assets/**",
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "public, max-age=2592000"
+          }
+        ]
+      },
+      {
+        "source": "**/*.@(js|css)",
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "public, max-age=0, must-revalidate"
+          }
+        ]
+      }
+    ]
+  }
+}

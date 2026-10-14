@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-10-13T23:42:29.020Z",
+  "checkedAt": "2026-10-14T14:37:16.353Z",
   "passed": true,
   "counts": {
     "htmlFiles": 128,
@@ -13,7 +13,9 @@
     "tables": 9,
     "localImages": 83,
     "xmlSitemapUrls": 119,
-    "technicalApiPathsExcluded": 1
+    "technicalApiPathsExcluded": 1,
+    "firebaseRewrites": 201,
+    "firebaseRedirects": 14
   },
   "sourceLimitations": [
     {

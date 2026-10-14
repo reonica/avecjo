@@ -413,27 +413,13 @@
     const form = $("[data-contact-form]");
     if (!form) return;
     const status = $("#form-status");
-    const host = window.location.hostname.toLowerCase();
-    const localAddress = /^(127\.|10\.|192\.168\.|172\.(1[6-9]|2\d|3[01])\.)/.test(host);
-    const preview = window.location.protocol === "file:" || !host || host === "localhost" ||
-      host.endsWith(".localhost") || localAddress || host === "::1" || host === "[::1]" || host.endsWith(".github.io");
     if (status) {
       status.setAttribute("role", "status");
       status.setAttribute("aria-live", "polite");
-      if (preview) {
-        status.hidden = false;
-        status.textContent = "En prévisualisation, ce formulaire prépare un e-mail à envoyer avec votre messagerie.";
-      }
+      status.hidden = false;
+      status.textContent = "Ce formulaire prépare un e-mail. Vous l’enverrez ensuite depuis votre messagerie.";
     }
     form.addEventListener("submit", (event) => {
-      if (!preview) {
-        // Netlify receives the ordinary static HTML POST, including the form-name and honeypot fields.
-        if (status) {
-          status.hidden = false;
-          status.textContent = "Envoi de votre message…";
-        }
-        return;
-      }
       event.preventDefault();
       if (!form.reportValidity()) return;
       const values = new FormData(form);

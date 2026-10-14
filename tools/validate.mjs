@@ -91,9 +91,26 @@ for(const c of content.categories){
 }
 if(!fs.readFileSync(path.join(root,'404.html'),'utf8').includes('<base href="/">'))issues.push({problem:'404 needs a root base for nested unknown URLs'});
 
+const hosting=JSON.parse(fs.readFileSync(path.join(root,'firebase.json'),'utf8')).hosting;
+if(hosting.public!=='.' || hosting.trailingSlash!==false || hosting.cleanUrls!==true)issues.push({problem:'Firebase URL format does not match the original site'});
+if(hosting.rewrites.some(r=>r.source==='**' || r.source==='/**'))issues.push({problem:'Firebase catch-all would hide missing pages'});
+for(const rule of hosting.rewrites)if(!targetFile(rule.destination))issues.push({url:rule.source,problem:'Firebase rewrite destination missing'});
+const buildManifest=JSON.parse(fs.readFileSync(path.join(root,'migration/build-manifest.json'),'utf8'));
+for(const route of buildManifest.routes.filter(r=>r!=='/'))if(!hosting.rewrites.some(r=>r.source===route && r.destination===route+'/index.html'))issues.push({url:route,problem:'Firebase page rewrite missing'});
+for(const [source,target] of Object.entries(content.migration.aliases || {})){
+  const oldPath=new URL(source).pathname.replace(/\/$/,'');
+  const destination=new URL(target).pathname;
+  for(const route of [oldPath,oldPath+'/'])if(!hosting.redirects.some(r=>r.source===route && r.destination===destination && r.type===301))issues.push({url:route,problem:'Firebase original redirect missing'});
+}
+for(const [source,target] of Object.entries(content.migration.assetAliases || {})){
+  const oldPath=source.startsWith('http')?new URL(source).pathname:source;
+  const destination='/'+target.replace(/^\//,'');
+  if(!hosting.rewrites.some(r=>r.source===oldPath && r.destination===destination))issues.push({url:oldPath,problem:'Firebase original image rewrite missing'});
+}
+
 const report={
   checkedAt:new Date().toISOString(),passed:issues.length===0,
-  counts:{htmlFiles:htmlFiles.length,localReferences:links,imageReferences:images,validFragmentAnchors:anchors,originalPublicPaths:publicPaths.length,posts:content.posts.length,articleTextMatches,headings,tables,localImages:new Set(Object.values(content.assets)).size,xmlSitemapUrls:sitemapUrls.length,technicalApiPathsExcluded:endpointPaths.length},
+  counts:{htmlFiles:htmlFiles.length,localReferences:links,imageReferences:images,validFragmentAnchors:anchors,originalPublicPaths:publicPaths.length,posts:content.posts.length,articleTextMatches,headings,tables,localImages:new Set(Object.values(content.assets)).size,xmlSitemapUrls:sitemapUrls.length,technicalApiPathsExcluded:endpointPaths.length,firebaseRewrites:hosting.rewrites.length,firebaseRedirects:hosting.redirects.length},
   sourceLimitations:content.migration.sourceLimitations,issues,warnings,
 };
 fs.writeFileSync(path.join(root,'migration/validation.json'),JSON.stringify(report,null,2)+'\n');
