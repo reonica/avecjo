@@ -1,5 +1,7 @@
 # Guidehanoi · Avec Jo
 
+**SEO:** les contenus et métadonnées des pages d’accompagnement sont centralisés dans `data/seo.json`. Voir [SEO.md](SEO.md) pour la carte des mots-clés, les URL et les vérifications avant publication.
+
 **Bản Firebase:** làm theo [README-FIREBASE.md](README-FIREBASE.md). `firebase.json` đã giữ các URL và alias ảnh gốc. Form Contact chuẩn bị e-mail để khách tự gửi bằng ứng dụng mail, dùng được trên Firebase và các host tĩnh. Phần hướng dẫn Netlify bên dưới là tài liệu của bản xuất ban đầu; không dùng Netlify Forms cho bản Firebase.
 
 Bộ website HTML/CSS/JavaScript hoàn chỉnh, có thể upload trực tiếp lên GitHub và deploy qua Netlify. Không cần cài Node.js, npm hoặc chạy build để sử dụng bộ file đã xuất này.

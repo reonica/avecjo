@@ -85,7 +85,7 @@ node tools/build.mjs
 node tools/validate.mjs
 ```
 
-`firebase.json` giữ 14 redirect cho 7 URL cũ và 201 rewrite cho trang/ảnh. `trailingSlash: false` giữ định dạng không có dấu `/` cuối như URL cũ. Trang lỗi dùng `404.html`, không bị chuyển thành Home.
+`firebase.json` giữ 14 redirect cho 7 URL cũ và 204 rewrite cho trang/ảnh. `trailingSlash: false` giữ định dạng không có dấu `/` cuối như URL cũ. Trang lỗi dùng `404.html`, không bị chuyển thành Home.
 
 ## Tài liệu chính thức
 

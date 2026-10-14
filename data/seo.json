@@ -1,0 +1,556 @@
+{
+  "updatedOn": "2026-10-14",
+  "businessDescription": "Avec Jo : Joseph, guide francophone au Vietnam basé à Hanoï. Préparation de visites culturelles et de voyages sur mesure dans le nord du Vietnam, à convenir selon vos dates et vos envies.",
+  "areas": [
+    "Vietnam",
+    "Hanoï",
+    "Ninh Binh",
+    "Tam Coc",
+    "Mai Chau",
+    "Pu Luong",
+    "Ha Giang",
+    "Cao Bang",
+    "Nord Vietnam"
+  ],
+  "home": {
+    "title": "Guide francophone Vietnam & Hanoï — Joseph | Avec Jo",
+    "description": "Préparez votre voyage avec Joseph, guide francophone au Vietnam : Hanoï, Ninh Binh, Tam Coc, Mai Chau, Pu Luong, Ha Giang et Cao Bang."
+  },
+  "keywordMap": [
+    {
+      "keyword": "guide francophone vietnam",
+      "slug": "",
+      "supportingPage": "guide-francophone-vietnam"
+    },
+    {
+      "keyword": "guide francophone hanoi",
+      "slug": "guide-francophone-hanoi"
+    },
+    {
+      "keyword": "guide francophone ninh binh",
+      "slug": "guide-francophone-ninh-binh"
+    },
+    {
+      "keyword": "guide francophone tam coc",
+      "slug": "guide-francophone-tam-coc"
+    },
+    {
+      "keyword": "guide francophone mai chau",
+      "slug": "mai-chau-phu-tho"
+    },
+    {
+      "keyword": "guide francophone pu luong",
+      "slug": "pu-luong"
+    },
+    {
+      "keyword": "guide francophone ha giang",
+      "slug": "ha-giang-loop"
+    },
+    {
+      "keyword": "guide francophone cao bang",
+      "slug": "cao-bang"
+    },
+    {
+      "keyword": "guide francophone nord vietnam",
+      "slug": "guide-francophone-nord-vietnam"
+    }
+  ],
+  "articleServices": {
+    "que-faire-a-hanoi-vietnam": [
+      "guide-francophone-hanoi"
+    ],
+    "guide-voyage-hanoi": [
+      "guide-francophone-hanoi"
+    ],
+    "citadelle-imperiale-hanoi": [
+      "guide-francophone-hanoi"
+    ],
+    "prison-hoa-lo-hanoi": [
+      "guide-francophone-hanoi"
+    ],
+    "visite-pagode-tran-quoc-hanoi": [
+      "guide-francophone-hanoi"
+    ],
+    "complexe-du-mausolee-ho-chi-minh-hanoi": [
+      "guide-francophone-hanoi"
+    ],
+    "musee-d-ethnographie-hanoi-guide-voyage-vietnam": [
+      "guide-francophone-hanoi"
+    ],
+    "guide-voyage-ninh-binh": [
+      "guide-francophone-ninh-binh"
+    ],
+    "visite-pagode-bich-dong-ninh-binh": [
+      "guide-francophone-tam-coc"
+    ],
+    "guide-voyage-mai-chau": [
+      "mai-chau-phu-tho"
+    ],
+    "guide-voyage-pu-luong": [
+      "pu-luong"
+    ],
+    "voyage-2-jours-pu-luong-ninh-binh": [
+      "pu-luong",
+      "guide-francophone-ninh-binh"
+    ],
+    "guide-voyage-ha-giang": [
+      "ha-giang-loop"
+    ],
+    "chute-ban-gioc-cao-bang": [
+      "cao-bang"
+    ],
+    "village-khuoi-ky-cao-bang": [
+      "cao-bang"
+    ],
+    "visite-rc4-cao-bang": [
+      "cao-bang"
+    ],
+    "4-jours-visite-cao-bang-lang-son": [
+      "cao-bang"
+    ],
+    "circuit-nord-vietnam": [
+      "guide-francophone-nord-vietnam"
+    ],
+    "passage-chi-lang-lang-son": [
+      "guide-francophone-nord-vietnam"
+    ]
+  },
+  "guides": [
+    {
+      "slug": "guide-francophone-vietnam",
+      "label": "Vietnam",
+      "area": "Vietnam",
+      "title": "Guide francophone au Vietnam : préparer votre voyage avec Joseph",
+      "seoTitle": "Guide francophone Vietnam — Voyage avec Joseph | Avec Jo",
+      "description": "Choisissez un accompagnement francophone au Vietnam avec Joseph : visites culturelles, préparation d’itinéraire et voyage sur mesure. Contact direct Avec Jo.",
+      "coverPost": "circuit-nord-vietnam",
+      "lead": "Vous cherchez un guide francophone au Vietnam ? Joseph, Avec Jo, est basé à Hanoï. Présentez-lui votre projet pour définir les visites, le rythme du voyage et les conditions d’accompagnement adaptées à votre séjour.",
+      "sections": [
+        {
+          "heading": "Quel accompagnement souhaitez-vous ?",
+          "text": "Une visite de Hanoï, une escapade dans les rizières ou un parcours de plusieurs étapes ne se préparent pas de la même manière. Précisez si vous souhaitez être accompagné pendant tout le séjour ou uniquement sur certaines journées.",
+          "items": [
+            "Visites culturelles et découverte des quartiers à Hanoï.",
+            "Rencontres et étapes rurales à Mai Chau et Pu Luong.",
+            "Préparation d’un itinéraire dans le nord, avec Ninh Binh, Ha Giang ou Cao Bang selon vos envies."
+          ]
+        },
+        {
+          "heading": "Préparer votre demande à Joseph",
+          "text": "Indiquez vos dates, le nombre de voyageurs, votre lieu d’arrivée et les destinations envisagées. Mentionnez aussi votre rythme de marche, vos attentes et les prestations pour lesquelles vous souhaitez un devis. Joseph pourra vous répondre sur les possibilités d’accompagnement et les éléments à organiser."
+        },
+        {
+          "heading": "Lire les guides avant de choisir",
+          "text": "Le carnet de Jo rassemble des articles sur les lieux à découvrir et des récits de voyage. Utilisez-les pour comparer les destinations, puis échangez avec Joseph sur un parcours qui tient compte de vos priorités."
+        }
+      ],
+      "faq": [
+        {
+          "question": "Comment contacter un guide francophone au Vietnam ?",
+          "answer": "Vous pouvez écrire directement à Joseph sur WhatsApp ou par e-mail. Le formulaire Contact prépare un e-mail que vous envoyez ensuite depuis votre messagerie. L’accompagnement et ses conditions sont à confirmer lors de cet échange."
+        },
+        {
+          "question": "Que faut-il vérifier dans un devis ?",
+          "answer": "Demandez quelles journées comprennent le guide et si le transport, les entrées, les repas ou les hébergements sont inclus. Un devis adapté à vos dates permet de comparer les prestations sur une base claire."
+        }
+      ],
+      "relatedPosts": [
+        "circuit-nord-vietnam",
+        "que-faire-au-vietnam",
+        "guide-voyage-hanoi"
+      ]
+    },
+    {
+      "slug": "guide-francophone-hanoi",
+      "label": "Hanoï",
+      "area": "Hanoï",
+      "title": "Guide francophone à Hanoï : découvrir la ville avec Joseph",
+      "seoTitle": "Guide francophone Hanoi — Visites avec Joseph | Avec Jo",
+      "description": "Préparez une visite de Hanoï avec un guide francophone : Vieux Quartier, patrimoine, musées et cuisine locale. Échangez directement avec Joseph, Avec Jo.",
+      "coverPost": "guide-voyage-hanoi",
+      "lead": "Un guide francophone à Hanoï permet de relier les monuments, les quartiers et la vie quotidienne. Avec Jo vous propose de préparer une découverte de la capitale en français, selon le temps dont vous disposez et vos centres d’intérêt.",
+      "sections": [
+        {
+          "heading": "Choisir votre fil conducteur à Hanoï",
+          "text": "Pour une première découverte, le Vieux Quartier et les abords du lac Hoan Kiem constituent un point de départ. Une journée centrée sur le patrimoine pourra privilégier la citadelle impériale, la prison Hoa Lo ou le complexe de Ho Chi Minh. Les musées et la pagode Trấn Quốc offrent d’autres lectures de la capitale.",
+          "items": [
+            "Histoire et patrimoine : choisir quelques sites pour prendre le temps de les comprendre.",
+            "Vie locale : se promener dans les quartiers et observer leurs activités.",
+            "Culture et cuisine : préciser vos envies de découvertes et vos préférences alimentaires."
+          ]
+        },
+        {
+          "heading": "Organiser une visite à votre rythme",
+          "text": "Indiquez votre hôtel ou votre point de départ, les sites déjà visités et la durée disponible. Les trajets, pauses et visites se combinent ensuite selon vos priorités. Les horaires d’ouverture et les possibilités du jour sont à vérifier lors de la préparation."
+        },
+        {
+          "heading": "Hanoï comme départ d’un voyage dans le nord",
+          "text": "La découverte de Hanoï peut ouvrir un séjour comprenant Ninh Binh, Mai Chau ou Pu Luong. Pour un parcours plus long, consultez également la page consacrée à l’accompagnement dans le nord du Vietnam."
+        }
+      ],
+      "faq": [
+        {
+          "question": "Peut-on préparer une visite privée de Hanoï en français ?",
+          "answer": "Présentez à Joseph vos dates, votre groupe et les thèmes qui vous intéressent. Il pourra préciser les possibilités, le rendez-vous et les conditions d’une visite en français."
+        },
+        {
+          "question": "Comment choisir entre plusieurs musées et monuments ?",
+          "answer": "Commencez par votre intérêt principal : histoire, patrimoine religieux ou diversité culturelle. Les articles du carnet consacrés à la citadelle, Hoa Lo, Trấn Quốc et au musée d’ethnographie vous aident à choisir avant de construire la journée."
+        },
+        {
+          "question": "Faut-il indiquer des contraintes de mobilité ou d’alimentation ?",
+          "answer": "Oui. Mentionnez le rythme de marche souhaité, les besoins de pauses et les préférences alimentaires lors du premier échange. Ces informations aident à préparer un parcours qui convient à votre groupe."
+        }
+      ],
+      "relatedPosts": [
+        "que-faire-a-hanoi-vietnam",
+        "guide-voyage-hanoi",
+        "citadelle-imperiale-hanoi",
+        "prison-hoa-lo-hanoi"
+      ]
+    },
+    {
+      "slug": "guide-francophone-ninh-binh",
+      "label": "Ninh Binh",
+      "area": "Ninh Binh",
+      "title": "Guide francophone à Ninh Binh : choisir vos visites",
+      "seoTitle": "Guide francophone Ninh Binh — Visites avec Jo",
+      "description": "Préparez Ninh Binh avec un guide francophone : comparez Tam Coc, Trang An, Bich Dong et les étapes culturelles. Contactez Joseph pour votre projet de voyage.",
+      "coverPost": "guide-voyage-ninh-binh",
+      "lead": "Vous recherchez un guide francophone à Ninh Binh ? Cette page vous aide à préparer un parcours entre paysages karstiques, promenades en barque et patrimoine. Joseph peut échanger avec vous sur les visites à privilégier selon votre temps et vos envies.",
+      "sections": [
+        {
+          "heading": "Ninh Binh : un territoire, plusieurs visites",
+          "text": "Ninh Binh ne se résume pas à une seule promenade. Tam Coc, Trang An, la pagode Bich Dong et les lieux historiques de Hoa Lu répondent à des envies différentes. Choisissez une découverte des paysages, un parcours culturel ou une combinaison des deux, plutôt que d’accumuler les étapes."
+        },
+        {
+          "heading": "Comparer Tam Coc et les autres étapes",
+          "text": "Si votre séjour se concentre sur Tam Coc et Bich Dong, la page dédiée à Tam Coc entre davantage dans le détail de cette étape. Pour explorer l’ensemble de Ninh Binh, le guide de voyage du carnet offre une vue plus large des sites et de l’organisation du séjour."
+        },
+        {
+          "heading": "Préparer les déplacements et le rythme",
+          "text": "Indiquez si vous partez de Hanoï ou dormez déjà sur place. Précisez la durée disponible, l’intérêt pour les promenades en barque et votre aisance à marcher. Les choix de transport, les visites et les prestations incluses seront à préciser dans votre demande."
+        }
+      ],
+      "faq": [
+        {
+          "question": "Quelle différence entre Ninh Binh et Tam Coc ?",
+          "answer": "Ninh Binh désigne la destination plus large. Tam Coc est une étape de ce territoire. Un séjour à Ninh Binh peut associer Tam Coc à d’autres sites, tandis qu’une journée centrée sur Tam Coc reste plus locale."
+        },
+        {
+          "question": "Peut-on prévoir Ninh Binh depuis Hanoï ?",
+          "answer": "Oui, c’est une combinaison présentée dans le carnet de Jo. Pour préparer votre demande, précisez si vous souhaitez revenir à Hanoï ou poursuivre le voyage ailleurs, ainsi que les sites que vous voulez découvrir."
+        },
+        {
+          "question": "Le guide, la barque et le transport sont-ils compris ensemble ?",
+          "answer": "Cela dépend des prestations convenues. Demandez un détail du devis séparant l’accompagnement, les trajets et les visites, notamment les éventuelles promenades en barque et les entrées."
+        }
+      ],
+      "relatedPosts": [
+        "guide-voyage-ninh-binh",
+        "visite-pagode-bich-dong-ninh-binh",
+        "voyage-2-jours-pu-luong-ninh-binh"
+      ]
+    },
+    {
+      "slug": "guide-francophone-tam-coc",
+      "label": "Tam Coc",
+      "area": "Tam Coc",
+      "title": "Guide francophone à Tam Coc : barque, villages et Bich Dong",
+      "seoTitle": "Guide francophone Tam Coc — Découverte avec Jo",
+      "description": "Préparez une découverte de Tam Coc en français : promenade en barque, villages et pagode Bich Dong. Définissez les visites et le rythme avec Joseph.",
+      "coverPost": "visite-pagode-bich-dong-ninh-binh",
+      "lead": "Un guide francophone à Tam Coc peut vous aider à donner un fil conducteur à cette étape de Ninh Binh. La promenade en barque et la pagode Bich Dong se découvrent différemment ; préparez les visites qui vous intéressent avant de définir votre journée avec Joseph.",
+      "sections": [
+        {
+          "heading": "Une étape centrée sur Tam Coc",
+          "text": "La rivière Ngo Dong, les reliefs calcaires et les chemins autour des villages donnent à Tam Coc son caractère. Choisissez si vous souhaitez surtout profiter de la promenade en barque, comprendre les paysages agricoles ou consacrer davantage de temps à Bich Dong."
+        },
+        {
+          "heading": "Préparer la visite de Bich Dong",
+          "text": "Le carnet de Jo consacre un article complet à cette pagode. Consultez-le pour comprendre le site et préparer vos questions. Indiquez votre aisance avec les marches et la durée que vous voulez consacrer à la découverte du patrimoine religieux."
+        },
+        {
+          "heading": "Rester à Tam Coc ou élargir à Ninh Binh ?",
+          "text": "Si votre hébergement est à Tam Coc, une découverte locale peut réduire les trajets. Si vous souhaitez ajouter Trang An ou Hoa Lu, présentez l’ensemble de votre projet sur la base d’un séjour à Ninh Binh. Cette distinction aide à construire une journée réaliste."
+        }
+      ],
+      "faq": [
+        {
+          "question": "Pourquoi une page dédiée à Tam Coc ?",
+          "answer": "Cette page se concentre sur l’étape locale : promenade en barque, villages et Bich Dong. La page Ninh Binh couvre un choix de visites plus large, notamment pour un itinéraire comprenant plusieurs sites."
+        },
+        {
+          "question": "Faut-il réserver deux promenades en barque dans la même journée ?",
+          "answer": "Présentez d’abord ce que vous voulez découvrir et le temps disponible. Comparer les visites de Tam Coc et Trang An permet de décider lesquelles correspondent à vos envies, sans multiplier les étapes par défaut."
+        },
+        {
+          "question": "Comment préparer un accompagnement en français à Tam Coc ?",
+          "answer": "Envoyez vos dates, votre hébergement ou point de départ, le nombre de voyageurs et les visites souhaitées. Joseph pourra préciser les possibilités d’accompagnement et les prestations à prévoir."
+        }
+      ],
+      "relatedPosts": [
+        "visite-pagode-bich-dong-ninh-binh",
+        "guide-voyage-ninh-binh"
+      ]
+    },
+    {
+      "slug": "mai-chau-phu-tho",
+      "label": "Mai Chau",
+      "area": "Mai Chau",
+      "title": "Guide francophone à Mai Chau : villages et vie rurale",
+      "seoTitle": "Guide francophone Mai Chau — Villages avec Jo",
+      "description": "Préparez Mai Chau avec un guide francophone : villages, rizières, maisons sur pilotis et séjour rural. Échangez avec Joseph sur votre rythme et votre itinéraire.",
+      "coverPost": "guide-voyage-mai-chau",
+      "lead": "Vous cherchez un guide francophone à Mai Chau pour découvrir la vallée et ses villages ? Préparez avec Joseph un séjour qui laisse du temps aux promenades, aux paysages de rizières et à la découverte de la vie rurale.",
+      "sections": [
+        {
+          "heading": "Découvrir les villages sans multiplier les étapes",
+          "text": "Le guide de voyage Mai Chau du carnet présente la vallée, ses maisons sur pilotis et ses traditions. Choisissez ce qui vous intéresse le plus : promenades dans les villages, paysages agricoles ou découverte de l’artisanat. Un accompagnement en français facilite les échanges et la compréhension du contexte local."
+        },
+        {
+          "heading": "Choisir entre promenade et séjour plus actif",
+          "text": "Précisez votre rythme de marche et votre préférence pour une découverte tranquille ou des activités plus soutenues. Si vous envisagez du vélo, mentionnez votre aisance et celle des autres voyageurs. Les activités et les conditions d’accueil seront à convenir avant le séjour."
+        },
+        {
+          "heading": "Combiner Mai Chau et Pu Luong",
+          "text": "Le carnet présente Mai Chau et Pu Luong comme deux étapes rurales différentes : la vallée de Mai Chau et les reliefs plus marqués de Pu Luong. Consultez les deux guides pour décider si vous souhaitez les associer et combien de temps vous pouvez consacrer aux déplacements."
+        }
+      ],
+      "faq": [
+        {
+          "question": "Que préciser pour préparer Mai Chau en français ?",
+          "answer": "Indiquez vos dates, le nombre de voyageurs, le départ envisagé et le type de séjour souhaité. Ajoutez vos préférences d’hébergement et votre rythme de marche afin de définir les visites et les prestations."
+        },
+        {
+          "question": "Mai Chau et Pu Luong offrent-ils la même découverte ?",
+          "answer": "Les deux étapes permettent de découvrir la vie rurale, mais leurs paysages et leurs reliefs diffèrent. Les guides du carnet aident à comparer la vallée de Mai Chau et les rizières en terrasses de Pu Luong avant de choisir un parcours."
+        },
+        {
+          "question": "Les rencontres chez l’habitant sont-elles systématiques ?",
+          "answer": "Elles dépendent du programme convenu et des possibilités d’accueil. Mentionnez votre intérêt lors de la préparation ; demandez ce qui est effectivement prévu dans le séjour."
+        }
+      ],
+      "relatedPosts": [
+        "guide-voyage-mai-chau",
+        "guide-voyage-pu-luong",
+        "circuit-nord-vietnam"
+      ]
+    },
+    {
+      "slug": "pu-luong",
+      "label": "Pu Luong",
+      "area": "Pu Luong",
+      "title": "Guide francophone à Pu Luong : rizières et promenades",
+      "seoTitle": "Guide francophone Pu Luong — Séjour avec Jo",
+      "description": "Préparez un séjour à Pu Luong avec un guide francophone : rizières, villages et promenades adaptées à votre rythme. Contact direct avec Joseph, Avec Jo.",
+      "coverPost": "guide-voyage-pu-luong",
+      "lead": "Un guide francophone à Pu Luong peut vous aider à préparer les promenades entre rizières et villages. Présentez à Joseph votre rythme de marche et vos envies pour choisir un parcours adapté à cette étape rurale du nord du Vietnam.",
+      "sections": [
+        {
+          "heading": "Choisir une promenade adaptée au relief",
+          "text": "Pu Luong présente un relief plus marqué que la vallée de Mai Chau. La durée de marche, les dénivelés et le temps consacré aux pauses comptent donc dans le choix du parcours. Précisez ces éléments au lieu de demander simplement une journée de randonnée."
+        },
+        {
+          "heading": "Laisser du temps aux villages et aux rizières",
+          "text": "Le carnet de Jo présente les paysages agricoles, les villages et les possibilités de séjour à Pu Luong. Pour préparer votre visite, choisissez si vous privilégiez les promenades, les rencontres ou un rythme plus calme autour de votre hébergement."
+        },
+        {
+          "heading": "Associer Pu Luong à une autre étape",
+          "text": "Mai Chau et Ninh Binh font partie des combinaisons présentées dans le carnet. Le récit du voyage Pu Luong–Ninh Binh de Catherine offre un exemple concret. Votre durée de séjour et vos priorités permettent ensuite de décider si cette combinaison vous convient."
+        }
+      ],
+      "faq": [
+        {
+          "question": "Faut-il être un grand randonneur pour découvrir Pu Luong ?",
+          "answer": "Le choix du parcours fait la différence. Indiquez votre rythme, votre expérience de marche et les besoins de pauses ; demandez les distances et dénivelés envisagés avant de confirmer le programme."
+        },
+        {
+          "question": "Comment choisir un séjour entre Pu Luong et Mai Chau ?",
+          "answer": "Comparez les paysages, le relief et le temps de trajet avec vos envies. Les articles du carnet sur ces deux étapes permettent de préparer un échange plus précis avec Joseph."
+        },
+        {
+          "question": "Comment demander un guide francophone à Pu Luong ?",
+          "answer": "Écrivez à Joseph avec vos dates, votre groupe, votre hébergement si vous l’avez déjà choisi et les activités souhaitées. Les possibilités d’accompagnement et les prestations sont à confirmer lors de l’échange."
+        }
+      ],
+      "relatedPosts": [
+        "guide-voyage-pu-luong",
+        "voyage-2-jours-pu-luong-ninh-binh",
+        "guide-voyage-mai-chau"
+      ]
+    },
+    {
+      "slug": "ha-giang-loop",
+      "label": "Ha Giang",
+      "area": "Ha Giang",
+      "title": "Guide francophone à Ha Giang : préparer la boucle",
+      "seoTitle": "Guide francophone Ha Giang — Boucle avec Jo",
+      "description": "Préparez Ha Giang avec un guide francophone : comparez les étapes de la boucle, les modes de transport et le rythme du séjour. Contactez Joseph, Avec Jo.",
+      "coverPost": "guide-voyage-ha-giang",
+      "lead": "Vous cherchez un guide francophone à Ha Giang ? Avant de choisir la boucle, précisez le temps disponible, le moyen de transport souhaité et les rencontres qui vous intéressent. Joseph peut échanger avec vous sur un projet adapté à votre groupe.",
+      "sections": [
+        {
+          "heading": "Donner un fil conducteur à la boucle de Ha Giang",
+          "text": "Le guide du carnet présente notamment Quan Ba, Dong Van, le col Ma Pi Leng et différentes possibilités de parcours. Choisissez si vous voulez surtout profiter des routes panoramiques, découvrir les villages ou prévoir davantage de temps à certaines étapes."
+        },
+        {
+          "heading": "Choisir le transport avant de détailler le programme",
+          "text": "Le carnet compare la moto, l’accompagnement par un conducteur et la voiture. Distinguez bien le rôle du guide francophone de celui du conducteur : demandez quelles personnes vous accompagnent, dans quelle langue et quelles prestations sont incluses."
+        },
+        {
+          "heading": "Préparer vos journées et vos nuits",
+          "text": "Précisez le nombre de jours disponibles, le point de départ et votre aisance avec de longs déplacements. Les arrêts, les hébergements et les visites doivent tenir compte de votre rythme. Les photos de voyageurs à Ha Giang dans la galerie complètent les articles du carnet."
+        }
+      ],
+      "faq": [
+        {
+          "question": "Un guide francophone est-il aussi le conducteur ?",
+          "answer": "Ce sont deux fonctions différentes. Lors de votre demande, précisez le transport envisagé et demandez qui conduit, qui accompagne les visites en français et comment se répartissent les prestations."
+        },
+        {
+          "question": "Peut-on préparer Ha Giang sans conduire une moto ?",
+          "answer": "Le guide de voyage du carnet présente plusieurs façons de parcourir Ha Giang, dont la voiture ou l’accompagnement par un conducteur. Comparez ces options avec vos attentes avant de demander un programme détaillé."
+        },
+        {
+          "question": "Que demander avant de confirmer un séjour à Ha Giang ?",
+          "answer": "Vérifiez le parcours, le rythme quotidien, les nuits, le transport et les journées d’accompagnement en français. Présentez vos dates et votre groupe à Joseph pour préciser les possibilités et les conditions."
+        }
+      ],
+      "relatedPosts": [
+        "guide-voyage-ha-giang",
+        "circuit-nord-vietnam"
+      ]
+    },
+    {
+      "slug": "cao-bang",
+      "label": "Cao Bang",
+      "area": "Cao Bang",
+      "title": "Guide francophone à Cao Bang : paysages et histoire",
+      "seoTitle": "Guide francophone Cao Bang — Voyage avec Jo",
+      "description": "Préparez Cao Bang avec un guide francophone : Ban Gioc, Khuoi Ky, histoire de la RC4 et parcours vers Lang Son. Échangez directement avec Joseph.",
+      "coverPost": "chute-ban-gioc-cao-bang",
+      "lead": "Un guide francophone à Cao Bang peut donner du sens à un parcours entre paysages, villages et histoire. Présentez à Joseph vos envies de découverte pour préparer les étapes de Cao Bang et, si vous le souhaitez, une continuation vers Lang Son.",
+      "sections": [
+        {
+          "heading": "Choisir vos visites autour de Ban Gioc",
+          "text": "Le carnet consacre des articles aux chutes de Ban Gioc et au village de Khuoi Ky. Ils permettent de préparer une découverte qui associe les paysages et le patrimoine des villages, en tenant compte du temps nécessaire pour les trajets."
+        },
+        {
+          "heading": "Comprendre l’histoire de la RC4",
+          "text": "Les lieux liés à la RC4 et au passage de Chi Lang apportent un autre regard sur le nord-est. Si l’histoire vous intéresse, précisez-le dès votre demande afin de définir les sites et le temps à consacrer aux explications."
+        },
+        {
+          "heading": "Préparer un parcours Cao Bang–Lang Son",
+          "text": "Le récit de quatre jours à Cao Bang et Lang Son fournit un exemple d’enchaînement d’étapes. Utilisez ce récit comme point de départ, puis comparez le parcours à votre durée de séjour, à vos centres d’intérêt et au rythme de déplacement souhaité."
+        }
+      ],
+      "faq": [
+        {
+          "question": "Peut-on associer Ban Gioc et les villages de Cao Bang ?",
+          "answer": "Les articles du carnet présentent ces découvertes comme des étapes d’un parcours à Cao Bang. Indiquez les sites qui vous intéressent pour préparer les trajets, le temps de visite et les journées d’accompagnement."
+        },
+        {
+          "question": "Un parcours à Cao Bang peut-il inclure l’histoire de la RC4 ?",
+          "answer": "Oui, ce thème est traité dans le carnet de Jo. Précisez votre intérêt pour l’histoire afin de choisir les lieux pertinents et de prévoir suffisamment de temps pour les découvrir."
+        },
+        {
+          "question": "Comment demander un accompagnement en français à Cao Bang ?",
+          "answer": "Envoyez à Joseph vos dates, votre point de départ, le nombre de voyageurs et les sites envisagés. Demandez les prestations et les conditions d’accompagnement, notamment si vous poursuivez vers Lang Son."
+        }
+      ],
+      "relatedPosts": [
+        "chute-ban-gioc-cao-bang",
+        "village-khuoi-ky-cao-bang",
+        "visite-rc4-cao-bang",
+        "4-jours-visite-cao-bang-lang-son"
+      ]
+    },
+    {
+      "slug": "guide-francophone-nord-vietnam",
+      "label": "Nord Vietnam",
+      "area": "Nord Vietnam",
+      "title": "Guide francophone dans le nord du Vietnam : construire votre parcours",
+      "seoTitle": "Guide francophone Nord Vietnam — Circuit avec Jo",
+      "description": "Choisissez vos étapes dans le nord du Vietnam avec Joseph : Hanoï, Ninh Binh, Mai Chau, Pu Luong, Ha Giang ou Cao Bang. Préparez un parcours en français.",
+      "coverPost": "circuit-nord-vietnam",
+      "lead": "Vous recherchez un guide francophone dans le nord du Vietnam ? Le choix des étapes compte autant que leur nombre. Avec Joseph, partez de vos envies, de votre durée de séjour et de votre rythme pour préparer un parcours cohérent depuis Hanoï.",
+      "sections": [
+        {
+          "heading": "Choisir les étapes selon vos envies",
+          "text": "Hanoï apporte une découverte urbaine et culturelle. Ninh Binh et Tam Coc permettent d’associer paysages calcaires et patrimoine. Mai Chau et Pu Luong mettent davantage l’accent sur la vie rurale. Ha Giang et Cao Bang ouvrent des parcours où les trajets de montagne prennent une place plus importante.",
+          "items": [
+            "Culture et première découverte : Hanoï et Ninh Binh.",
+            "Villages et promenades rurales : Mai Chau et Pu Luong.",
+            "Routes panoramiques et nord-est : Ha Giang ou Cao Bang, selon le temps disponible."
+          ]
+        },
+        {
+          "heading": "Utiliser les circuits du carnet comme base de discussion",
+          "text": "L’article sur les circuits du nord présente des itinéraires de huit, dix et quinze jours. Ce sont des idées de parcours à comparer avec vos propres priorités, et non un programme à appliquer automatiquement. Précisez les lieux que vous souhaitez vraiment découvrir et ceux que vous avez déjà visités."
+        },
+        {
+          "heading": "Définir l’accompagnement et les prestations",
+          "text": "Demandez si vous souhaitez un guide pendant tout le séjour ou seulement sur certaines étapes. Faites préciser les journées en français, les trajets, les hébergements et les visites incluses dans le devis. Pour les longs parcours, laissez de la place aux pauses et aux rencontres."
+        }
+      ],
+      "faq": [
+        {
+          "question": "Faut-il visiter toutes les destinations du nord dans un seul voyage ?",
+          "answer": "La durée disponible et le rythme souhaité déterminent le parcours. Choisissez d’abord les expériences qui vous intéressent, puis comparez les trajets et les étapes avec les circuits du carnet de Jo."
+        },
+        {
+          "question": "Quelle différence entre un guide à Hanoï et un accompagnement dans le nord ?",
+          "answer": "Une visite à Hanoï se prépare autour d’un point de départ, de sites et d’une durée dans la ville. Un parcours dans le nord demande aussi de définir les déplacements entre étapes, les nuits et les journées effectivement accompagnées en français."
+        },
+        {
+          "question": "Comment préparer un devis pour le nord du Vietnam ?",
+          "answer": "Envoyez vos dates, le nombre de voyageurs, votre arrivée et votre départ, les étapes souhaitées et vos préférences de rythme. Joseph pourra préciser les possibilités d’accompagnement et les prestations à organiser."
+        }
+      ],
+      "relatedPosts": [
+        "circuit-nord-vietnam",
+        "4-jours-visite-cao-bang-lang-son",
+        "voyage-2-jours-pu-luong-ninh-binh"
+      ]
+    }
+  ],
+  "postMeta": {
+    "guide-voyage-hanoi": {
+      "title": "Guide voyage Hanoï : visites, cuisine et conseils | Avec Jo",
+      "description": "Découvrez Hanoï avec le carnet de Jo : Vieux Quartier, patrimoine, street food et conseils pour préparer votre séjour dans la capitale vietnamienne."
+    },
+    "guide-voyage-ninh-binh": {
+      "title": "Guide voyage Ninh Binh : Tam Coc et Trang An | Avec Jo",
+      "description": "Préparez Ninh Binh : Tam Coc, Trang An, patrimoine et organisation du séjour. Un guide de voyage du carnet de Jo pour choisir vos visites."
+    },
+    "guide-voyage-mai-chau": {
+      "title": "Guide voyage Mai Chau : villages et rizières | Avec Jo",
+      "description": "Découvrez la vallée de Mai Chau : villages, maisons sur pilotis, rizières et conseils de séjour. Préparez vos étapes avec le carnet de Jo."
+    },
+    "guide-voyage-pu-luong": {
+      "title": "Guide voyage Pu Luong : villages et promenades | Avec Jo",
+      "description": "Préparez Pu Luong : rizières en terrasses, villages, promenades et idées de séjour. Consultez le carnet de Jo pour construire votre parcours."
+    },
+    "guide-voyage-ha-giang": {
+      "title": "Guide voyage Ha Giang : boucle et transport | Avec Jo",
+      "description": "Préparez la boucle de Ha Giang : étapes, modes de transport et organisation du séjour. Comparez les possibilités avec le guide du carnet de Jo."
+    },
+    "circuit-nord-vietnam": {
+      "title": "Circuits nord Vietnam : 8, 10 ou 15 jours | Avec Jo",
+      "description": "Comparez des circuits de 8, 10 et 15 jours dans le nord du Vietnam : Hanoï, villages, rizières et montagnes. Idées de parcours du carnet de Jo."
+    },
+    "chute-ban-gioc-cao-bang": {
+      "title": "Chutes de Ban Gioc à Cao Bang : visite | Avec Jo",
+      "description": "Préparez la visite des chutes de Ban Gioc à Cao Bang. Le carnet de Jo présente cette étape paysagère et des idées pour votre parcours dans le nord-est."
+    },
+    "village-khuoi-ky-cao-bang": {
+      "title": "Village de Khuoi Ky à Cao Bang : découverte | Avec Jo",
+      "description": "Découvrez le village de Khuoi Ky à Cao Bang, ses maisons en pierre et son patrimoine. Un article du carnet de Jo pour préparer votre visite."
+    },
+    "visite-pagode-bich-dong-ninh-binh": {
+      "title": "Pagode Bich Dong à Tam Coc : préparer la visite | Avec Jo",
+      "description": "Découvrez la pagode Bich Dong à Ninh Binh : patrimoine, architecture et préparation de la visite. Une étape à associer à votre séjour à Tam Coc."
+    }
+  }
+}

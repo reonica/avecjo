@@ -361,10 +361,6 @@
         "destination": "/can-tho/index.html"
       },
       {
-        "source": "/cao-bang",
-        "destination": "/cao-bang/index.html"
-      },
-      {
         "source": "/cat-ba",
         "destination": "/cat-ba/index.html"
       },
@@ -433,24 +429,12 @@
         "destination": "/guide-francophone-da-nang/index.html"
       },
       {
-        "source": "/guide-francophone-hanoi",
-        "destination": "/guide-francophone-hanoi/index.html"
-      },
-      {
         "source": "/guide-francophone-phu-quoc",
         "destination": "/guide-francophone-phu-quoc/index.html"
       },
       {
         "source": "/guide-francophone-saigon",
         "destination": "/guide-francophone-saigon/index.html"
-      },
-      {
-        "source": "/guide-francophone-vietnam",
-        "destination": "/guide-francophone-vietnam/index.html"
-      },
-      {
-        "source": "/ha-giang-loop",
-        "destination": "/ha-giang-loop/index.html"
       },
       {
         "source": "/hanoi",
@@ -493,24 +477,12 @@
         "destination": "/lung-van-le-toit-du-pays-muong/index.html"
       },
       {
-        "source": "/mai-chau-phu-tho",
-        "destination": "/mai-chau-phu-tho/index.html"
-      },
-      {
         "source": "/moc-chau-son-la",
         "destination": "/moc-chau-son-la/index.html"
       },
       {
-        "source": "/pu-luong",
-        "destination": "/pu-luong/index.html"
-      },
-      {
         "source": "/saigon-ho-chi-minh-ville",
         "destination": "/saigon-ho-chi-minh-ville/index.html"
-      },
-      {
-        "source": "/services",
-        "destination": "/services/index.html"
       },
       {
         "source": "/tours",
@@ -555,6 +527,46 @@
       {
         "source": "/voyage-sur-mesure-au-vietnam",
         "destination": "/voyage-sur-mesure-au-vietnam/index.html"
+      },
+      {
+        "source": "/guide-francophone-vietnam",
+        "destination": "/guide-francophone-vietnam/index.html"
+      },
+      {
+        "source": "/guide-francophone-hanoi",
+        "destination": "/guide-francophone-hanoi/index.html"
+      },
+      {
+        "source": "/guide-francophone-ninh-binh",
+        "destination": "/guide-francophone-ninh-binh/index.html"
+      },
+      {
+        "source": "/guide-francophone-tam-coc",
+        "destination": "/guide-francophone-tam-coc/index.html"
+      },
+      {
+        "source": "/mai-chau-phu-tho",
+        "destination": "/mai-chau-phu-tho/index.html"
+      },
+      {
+        "source": "/pu-luong",
+        "destination": "/pu-luong/index.html"
+      },
+      {
+        "source": "/ha-giang-loop",
+        "destination": "/ha-giang-loop/index.html"
+      },
+      {
+        "source": "/cao-bang",
+        "destination": "/cao-bang/index.html"
+      },
+      {
+        "source": "/guide-francophone-nord-vietnam",
+        "destination": "/guide-francophone-nord-vietnam/index.html"
+      },
+      {
+        "source": "/services",
+        "destination": "/services/index.html"
       },
       {
         "source": "/contact",
