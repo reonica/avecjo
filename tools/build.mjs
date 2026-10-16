@@ -4,9 +4,10 @@ import crypto from 'node:crypto';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { structuredData } from './seo.mjs';
+import { loadContent } from './content.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
-const data = JSON.parse(fs.readFileSync(path.join(root, 'data/content.json'), 'utf8'));
+const data = loadContent(root);
 const { site, posts, categories, albums, pages } = data;
 const seo = JSON.parse(fs.readFileSync(path.join(root,'data/seo.json'),'utf8'));
 const guides = new Map(seo.guides.map(g=>[g.slug,g]));
@@ -96,7 +97,7 @@ function save(slug, title, description, content, opts={}) {
 
 function card(p, slug, opts={}) {
   const c=cat(p.category);
-  const description=seo.postMeta?.[p.slug]?.description || p.description;
+  const description=p.description;
   const searchAttributes=opts.searchable?` data-category="${esc(p.category || '')}" data-tags="${esc(JSON.stringify(p.tags || []))}" data-search="${esc([p.title,p.description,...(p.tags||[]),text(p.html)].join(' '))}"`:'';
   return `<article class="post-card"${searchAttributes}><a href="${rel(slug,p.slug)}">${image(p,slug,'loading="lazy" decoding="async"')}<p class="eyebrow">${esc(c?.title || 'Le carnet de Jo')}</p><h2>${esc(p.title)}</h2></a>${description?`<p>${esc(limit(description))}</p>`:''}${arrowLink(slug,p.slug,'Lire l’article','coral')}</article>`;
 }
@@ -139,8 +140,7 @@ function archive(slug, title, description, opts={}) {
 }
 
 function article(p) {
-  const metadata=seo.postMeta?.[p.slug];
-  const description=metadata?.description || p.description;
+  const description=p.description;
   let body=localizeHtml(p.html,p.slug);
   const used=new Set();
   body=body.replace(/<h([23])([^>]*)>([\s\S]*?)<\/h\1>/gi,(m,level,attributes,title)=>{
@@ -154,7 +154,7 @@ function article(p) {
   const serviceBox=`<aside class="article-service-box" aria-label="Préparer votre visite avec Jo"><h2>Préparez votre visite avec Jo</h2><p>Vous souhaitez être accompagné en français ? Découvrez les possibilités de visite et échangez avec Joseph sur votre projet.</p><ul>${serviceLinks.map(g=>`<li><a href="${rel(p.slug,g.slug)}">${esc(g.title)}</a></li>`).join('')}</ul></aside>`;
   const schema={'@context':'https://schema.org','@type':'BlogPosting',headline:p.title,description,image:absolute(p.image),url:absolute(p.slug),mainEntityOfPage:absolute(p.slug),inLanguage:'fr',publisher:{'@type':'Organization',name:'Avec Jo',logo:{'@type':'ImageObject',url:absolute(site.logo)}}};
   if(p.date) schema.datePublished=p.date;if(p.dateModified) schema.dateModified=p.dateModified;
-  save(p.slug,metadata?.title || p.seoTitle || p.title,description,`<header class="article-hero container">${crumb(p.slug,[{slug:'blog',title:'Blog'},{title:p.title}])}<p class="eyebrow"><a href="${rel(p.slug,p.category)}">${esc(cat(p.category)?.title || 'Le carnet de Jo')}</a></p><h1>${esc(p.title)}</h1><p class="article-byline">Publié par <a href="${rel(p.slug,'guide-francophone-vietnam')}">Avec Jo</a></p>${date?`<p class="post-meta"><time datetime="${esc(p.date)}">${esc(date)}</time></p>`:''}${image(p,p.slug,'class="article-cover" fetchpriority="high"')}</header>
+  save(p.slug,p.seoTitle || p.title,description,`<header class="article-hero container">${crumb(p.slug,[{slug:'blog',title:'Blog'},{title:p.title}])}<p class="eyebrow"><a href="${rel(p.slug,p.category)}">${esc(cat(p.category)?.title || 'Le carnet de Jo')}</a></p><h1>${esc(p.title)}</h1><p class="article-byline">Publié par <a href="${rel(p.slug,'guide-francophone-vietnam')}">Avec Jo</a></p>${date?`<p class="post-meta"><time datetime="${esc(p.date)}">${esc(date)}</time></p>`:''}${image(p,p.slug,'class="article-cover" fetchpriority="high"')}</header>
     <div class="article-layout container"><aside class="article-toc" aria-label="Sommaire de l’article"><h2>Au sommaire</h2><div data-toc></div><a class="button button-primary" href="${rel(p.slug,'contact')}">Un voyage avec Jo ? ${icon('arrow')}</a></aside><div><article class="article-content">${body}</article>${serviceBox}${p.tags?.length?`<nav class="article-tags" aria-label="Sujets de l’article">${p.tags.map(t=>`<a href="${esc(rel(p.slug,`blog?keyword=${encodeURIComponent(t)}`))}">${esc(t)}</a>`).join('')}</nav>`:''}<div class="article-share"><button type="button" class="button button-secondary" data-copy-link>Copier le lien de l’article</button><span class="sr-only" data-copy-status role="status"></span></div></div></div>
     ${related.length?`<section class="section related-posts"><div class="container"><div class="section-heading"><h2>Continuez votre découverte</h2></div><div class="post-grid">${related.map(q=>card(q,p.slug)).join('')}</div></div></section>`:''}`,{active:'blog',article:true,image:p.image,schema,lastmod:(p.dateModified||p.date||'').slice(0,10),className:'page-article'});
 }
@@ -257,18 +257,21 @@ fs.writeFileSync(path.join(root,'_redirects'),`# Preserve each original extensio
 const firebaseConfig={
   hosting:{
     public:'.',
-    ignore:['firebase.json','**/.*','**/node_modules/**','tools/**','migration/**','data/**','*.md','package*.json','netlify.toml','_redirects','**/__pycache__/**','**/*.pyc','**/*.zip','firebase-debug*.log'],
+    ignore:['firebase.json','**/.*','**/node_modules/**','tools/**','migration/**','data/**','content/**','docs/**','tests/**','*.md','package*.json','netlify.toml','_redirects','**/__pycache__/**','**/*.pyc','**/*.zip','firebase-debug*.log'],
     cleanUrls:true,
     trailingSlash:false,
     redirects:aliasRows.map(row=>{const [source,destination]=row.split(' ');return {source,destination,type:301};}),
     rewrites:[
+      {source:'/admin',destination:'/admin/index.html'},
       ...[...generated.keys()].filter(Boolean).map(s=>({source:`/${s}`,destination:`/${s}/index.html`})),
       ...assetAliases.map(([old,target])=>({source:old.startsWith('http')?new URL(old).pathname:old,destination:`/${String(target).replace(/^\//,'')}`}))
     ],
     headers:[
       {source:'**',headers:[{key:'X-Content-Type-Options',value:'nosniff'},{key:'Referrer-Policy',value:'strict-origin-when-cross-origin'}]},
       {source:'/assets/**',headers:[{key:'Cache-Control',value:'public, max-age=2592000'}]},
-      {source:'**/*.@(js|css)',headers:[{key:'Cache-Control',value:'public, max-age=0, must-revalidate'}]}
+      {source:'**/*.@(js|css)',headers:[{key:'Cache-Control',value:'public, max-age=0, must-revalidate'}]},
+      ...['/admin','/admin/**'].map(source=>({source,headers:[{key:'Cache-Control',value:'no-store'},{key:'X-Robots-Tag',value:'noindex, nofollow'},{key:'Cross-Origin-Opener-Policy',value:'same-origin-allow-popups'}]})),
+      {source:'/admin/vendor/**',headers:[{key:'Cache-Control',value:'public, max-age=31536000, immutable'}]}
     ]
   }
 };

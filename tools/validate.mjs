@@ -2,13 +2,14 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { loadContent } from './content.mjs';
 
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
-const content=JSON.parse(fs.readFileSync(path.join(root,'data/content.json'),'utf8'));
+const content=loadContent(root);
 const issues=[];
 const warnings=[];
 const walk=dir=>fs.readdirSync(dir,{withFileTypes:true}).flatMap(e=>{
-  if(['node_modules','.git','.github','tools','migration'].includes(e.name))return [];
+  if(['node_modules','.git','.github','tools','migration','admin','content','docs','tests'].includes(e.name))return [];
   const f=path.join(dir,e.name);return e.isDirectory()?walk(f):[f];
 });
 const files=walk(root);

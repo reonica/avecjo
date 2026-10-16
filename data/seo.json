@@ -514,43 +514,5 @@
         "voyage-2-jours-pu-luong-ninh-binh"
       ]
     }
-  ],
-  "postMeta": {
-    "guide-voyage-hanoi": {
-      "title": "Guide voyage Hanoï : visites, cuisine et conseils | Avec Jo",
-      "description": "Découvrez Hanoï avec le carnet de Jo : Vieux Quartier, patrimoine, street food et conseils pour préparer votre séjour dans la capitale vietnamienne."
-    },
-    "guide-voyage-ninh-binh": {
-      "title": "Guide voyage Ninh Binh : Tam Coc et Trang An | Avec Jo",
-      "description": "Préparez Ninh Binh : Tam Coc, Trang An, patrimoine et organisation du séjour. Un guide de voyage du carnet de Jo pour choisir vos visites."
-    },
-    "guide-voyage-mai-chau": {
-      "title": "Guide voyage Mai Chau : villages et rizières | Avec Jo",
-      "description": "Découvrez la vallée de Mai Chau : villages, maisons sur pilotis, rizières et conseils de séjour. Préparez vos étapes avec le carnet de Jo."
-    },
-    "guide-voyage-pu-luong": {
-      "title": "Guide voyage Pu Luong : villages et promenades | Avec Jo",
-      "description": "Préparez Pu Luong : rizières en terrasses, villages, promenades et idées de séjour. Consultez le carnet de Jo pour construire votre parcours."
-    },
-    "guide-voyage-ha-giang": {
-      "title": "Guide voyage Ha Giang : boucle et transport | Avec Jo",
-      "description": "Préparez la boucle de Ha Giang : étapes, modes de transport et organisation du séjour. Comparez les possibilités avec le guide du carnet de Jo."
-    },
-    "circuit-nord-vietnam": {
-      "title": "Circuits nord Vietnam : 8, 10 ou 15 jours | Avec Jo",
-      "description": "Comparez des circuits de 8, 10 et 15 jours dans le nord du Vietnam : Hanoï, villages, rizières et montagnes. Idées de parcours du carnet de Jo."
-    },
-    "chute-ban-gioc-cao-bang": {
-      "title": "Chutes de Ban Gioc à Cao Bang : visite | Avec Jo",
-      "description": "Préparez la visite des chutes de Ban Gioc à Cao Bang. Le carnet de Jo présente cette étape paysagère et des idées pour votre parcours dans le nord-est."
-    },
-    "village-khuoi-ky-cao-bang": {
-      "title": "Village de Khuoi Ky à Cao Bang : découverte | Avec Jo",
-      "description": "Découvrez le village de Khuoi Ky à Cao Bang, ses maisons en pierre et son patrimoine. Un article du carnet de Jo pour préparer votre visite."
-    },
-    "visite-pagode-bich-dong-ninh-binh": {
-      "title": "Pagode Bich Dong à Tam Coc : préparer la visite | Avec Jo",
-      "description": "Découvrez la pagode Bich Dong à Ninh Binh : patrimoine, architecture et préparation de la visite. Une étape à associer à votre séjour à Tam Coc."
-    }
-  }
+  ]
 }

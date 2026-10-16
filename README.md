@@ -1,3 +1,7 @@
+# CMS Firebase Spark
+
+CMS và chỉnh trực tiếp GitHub cùng dùng `content/posts/<slug>.json`. Hướng dẫn bật đăng nhập GitHub, phân quyền người soạn và duyệt bài: [docs/CMS-FIREBASE.md](docs/CMS-FIREBASE.md). Nội dung mỗi bài không còn được sửa trong `data/content.json`; dùng file JSON tương ứng trong `content/posts/`.
+
 # Guidehanoi · Avec Jo
 
 **SEO:** les contenus et métadonnées des pages d’accompagnement sont centralisés dans `data/seo.json`. Voir [SEO.md](SEO.md) pour la carte des mots-clés, les URL et les vérifications avant publication.
@@ -52,7 +56,8 @@ Khi xem thử trên máy hoặc GitHub Pages, form chuẩn bị một e-mail đ�
 | Thư mục tên bài/album | `index.html` của từng URL gốc |
 | `tag/` | Trang tag tĩnh |
 | `assets/images/`, `assets/fonts/` | Ảnh và font local, gồm giấy phép font |
-| `data/content.json` | Nguồn nội dung đầy đủ để cập nhật và tạo lại HTML |
+| `content/posts/*.json` | Nội dung và SEO từng bài; sửa bằng CMS hoặc GitHub |
+| `data/content.json` | Thông tin site, category, album và trang dịch vụ |
 | `tools/build.mjs` | Tạo lại các trang, sitemap, RSS và redirect từ dữ liệu |
 | `tools/validate.mjs` | Kiểm tra link local, ảnh, URL gốc và nguyên văn từng bài |
 | `migration/` | Báo cáo đối chiếu và kiểm tra migration |
@@ -69,7 +74,7 @@ Mở `http://127.0.0.1:8080`. Server local có thể thêm dấu `/` cuối URL 
 
 ## Cập nhật bài, ảnh và thông tin
 
-Nếu chỉ sửa một bài trực tiếp, chỉnh file `ten-bai/index.html`. Để cập nhật đồng bộ cả archive, tag, Sitemap và RSS, sửa `data/content.json` rồi chạy (cần Node.js 20+; không cần npm install):
+Để sửa bài trực tiếp và cập nhật đồng bộ archive, tag, Sitemap và RSS, sửa file bài tương ứng trong `content/posts/` (thông tin site/album vẫn ở `data/content.json`) rồi chạy (cần Node.js 20+; không cần npm install):
 
 ```sh
 node tools/build.mjs
@@ -77,7 +82,7 @@ node tools/validate.mjs
 ```
 
 - Sửa điện thoại, e-mail, địa chỉ, logo hoặc hero trong `site`.
-- Thêm bài vào `posts`, giữ `slug` của bài đã xuất bản. `html` chứa nội dung HTML, `category` là slug category, `tags` là mảng tên tag.
+- Thêm bài bằng CMS hoặc tạo `content/posts/<slug>.json`, giữ `slug` của bài đã xuất bản. `html` chứa nội dung HTML, `category` là slug category, `tags` là mảng tên tag.
 - Thêm ảnh vào `assets/images/`, rồi dùng đường dẫn `assets/images/ten-anh.jpg` trong dữ liệu. Trong HTML nội dung bài, có thể dùng `/assets/images/ten-anh.jpg`; bộ build chuyển sang đường dẫn relative theo trang.
 - Thêm album feedback trong `albums` với `kind: "album"`, `slug`, `title`, `image` và `images: [{src, alt, caption}]`. Để đưa album vào carousel trang chủ, sửa `feedbackOrder` trong `tools/build.mjs`.
 - Push các file thay đổi lên GitHub; Netlify deploy lại từ repository.
