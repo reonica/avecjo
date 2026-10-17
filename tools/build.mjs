@@ -250,10 +250,17 @@ fs.writeFileSync(path.join(root,'sitemap.xml'),`<?xml version="1.0" encoding="UT
 fs.writeFileSync(path.join(root,'robots.txt'),`User-agent: *\nAllow: /\nSitemap: ${domain}/sitemap.xml\n`);
 fs.writeFileSync(path.join(root,'rss.xml'),`<?xml version="1.0" encoding="UTF-8"?>\n<rss version="2.0"><channel><title>Le carnet de Jo</title><link>${domain}/blog</link><description>${esc(site.description)}</description><language>fr</language>${posts.map(p=>`<item><title>${esc(p.title)}</title><link>${absolute(p.slug)}</link><guid isPermaLink="true">${absolute(p.slug)}</guid><description>${esc(p.description)}</description>${p.date?`<pubDate>${new Date(p.date).toUTCString()}</pubDate>`:''}</item>`).join('')}</channel></rss>\n`);
 const assetAliases=Object.entries(data.migration.assetAliases || {});
-// Hosting matches decoded request paths; retain the encoded form for compatibility.
+// Hosting matches decoded paths; exact regexes preserve literal parentheses and dots.
 const firebaseAssetRewrites=assetAliases.flatMap(([old,target])=>{
   const originalPath=old.startsWith('http')?new URL(old).pathname:old;
-  return [...new Set([originalPath,decodeURI(originalPath)])].map(source=>({source,destination:`/${String(target).replace(/^\//,'')}`}));
+  const decodedPath=decodeURI(originalPath);
+  const destination=`/${String(target).replace(/^\//,'')}`;
+  const rules=[{source:originalPath,destination}];
+  if(decodedPath!==originalPath){
+    const literalPath=decodedPath.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');
+    rules.push({regex:`^${literalPath}$`,destination});
+  }
+  return rules;
 });
 const rewrites=[...generated.keys()].filter(Boolean).map(s=>`/${s} /${s}/index.html 200!`);
 fs.writeFileSync(path.join(root,'_redirects'),`# Preserve each original extensionless URL, query strings, and original image URLs.\n${aliasRows.join('\n')}\n${rewrites.join('\n')}\n${assetAliases.map(([old,target])=>`${old.startsWith('http')?new URL(old).pathname:old} /${String(target).replace(/^\//,'')} 200!`).join('\n')}\n`);

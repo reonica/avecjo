@@ -664,7 +664,7 @@
         "destination": "/assets/images/jo-a-bord-8a49eba9ee.jpg"
       },
       {
-        "source": "/datafiles/88364/upload/images/client-avec-jo/Jo-à-bord.jpg",
+        "regex": "^/datafiles/88364/upload/images/client-avec-jo/Jo-à-bord\\.jpg$",
         "destination": "/assets/images/jo-a-bord-8a49eba9ee.jpg"
       },
       {
@@ -676,7 +676,7 @@
         "destination": "/assets/images/voyage-de-the-vietnam-b764ae49c3.jpeg"
       },
       {
-        "source": "/datafiles/88364/upload/images/client-avec-jo/Voyage-de-thé-vietnam.jpeg",
+        "regex": "^/datafiles/88364/upload/images/client-avec-jo/Voyage-de-thé-vietnam\\.jpeg$",
         "destination": "/assets/images/voyage-de-the-vietnam-b764ae49c3.jpeg"
       },
       {
@@ -700,7 +700,7 @@
         "destination": "/assets/images/2-fansipan-1-16-86fcac653b.jpg"
       },
       {
-        "source": "/datafiles/88364/upload/images/tour miền bắc/2-Fansipan_1(16).jpg",
+        "regex": "^/datafiles/88364/upload/images/tour miền bắc/2-Fansipan_1\\(16\\)\\.jpg$",
         "destination": "/assets/images/2-fansipan-1-16-86fcac653b.jpg"
       },
       {
@@ -708,7 +708,7 @@
         "destination": "/assets/images/570f2a15-ecbc-48ff-9618-d9e78a409044-ninh-binh-1-220023-5eedfa76c9.jpg"
       },
       {
-        "source": "/datafiles/88364/upload/images/tour miền bắc/570f2a15-ecbc-48ff-9618-d9e78a409044_ninh-binh-1-220023.jpg",
+        "regex": "^/datafiles/88364/upload/images/tour miền bắc/570f2a15-ecbc-48ff-9618-d9e78a409044_ninh-binh-1-220023\\.jpg$",
         "destination": "/assets/images/570f2a15-ecbc-48ff-9618-d9e78a409044-ninh-binh-1-220023-5eedfa76c9.jpg"
       },
       {
@@ -716,7 +716,7 @@
         "destination": "/assets/images/khu-du-lich-nui-ham-rong3-20-03b78b8e69.jpg"
       },
       {
-        "source": "/datafiles/88364/upload/images/tour miền bắc/Khu du lịch Núi Hàm Rồng3(20).jpg",
+        "regex": "^/datafiles/88364/upload/images/tour miền bắc/Khu du lịch Núi Hàm Rồng3\\(20\\)\\.jpg$",
         "destination": "/assets/images/khu-du-lich-nui-ham-rong3-20-03b78b8e69.jpg"
       },
       {
@@ -724,7 +724,7 @@
         "destination": "/assets/images/lang-chu-tich-ho-chi-minh-21-d7e2e5d15f.jpg"
       },
       {
-        "source": "/datafiles/88364/upload/images/tour miền bắc/Lăng_Chủ_tịch_Hồ_Chí_Minh(21).jpg",
+        "regex": "^/datafiles/88364/upload/images/tour miền bắc/Lăng_Chủ_tịch_Hồ_Chí_Minh\\(21\\)\\.jpg$",
         "destination": "/assets/images/lang-chu-tich-ho-chi-minh-21-d7e2e5d15f.jpg"
       },
       {
@@ -732,7 +732,7 @@
         "destination": "/assets/images/bieu-dien-ca-heo-o-ha-long-bay-18-3ed722855c.jpg"
       },
       {
-        "source": "/datafiles/88364/upload/images/tour miền bắc/bieu dien ca heo o ha long bay(18).jpg",
+        "regex": "^/datafiles/88364/upload/images/tour miền bắc/bieu dien ca heo o ha long bay\\(18\\)\\.jpg$",
         "destination": "/assets/images/bieu-dien-ca-heo-o-ha-long-bay-18-3ed722855c.jpg"
       },
       {
@@ -740,7 +740,7 @@
         "destination": "/assets/images/chua-bai-dinh-fiditour-6-c7fa952ad5.jpg"
       },
       {
-        "source": "/datafiles/88364/upload/images/tour miền bắc/chua-bai-dinh-fiditour(6).jpg",
+        "regex": "^/datafiles/88364/upload/images/tour miền bắc/chua-bai-dinh-fiditour\\(6\\)\\.jpg$",
         "destination": "/assets/images/chua-bai-dinh-fiditour-6-c7fa952ad5.jpg"
       },
       {
@@ -748,7 +748,7 @@
         "destination": "/assets/images/dac-san-ha-noi-20-617d4a3161.jpg"
       },
       {
-        "source": "/datafiles/88364/upload/images/tour miền bắc/dac-san-ha-noi(20).jpg",
+        "regex": "^/datafiles/88364/upload/images/tour miền bắc/dac-san-ha-noi\\(20\\)\\.jpg$",
         "destination": "/assets/images/dac-san-ha-noi-20-617d4a3161.jpg"
       },
       {
@@ -756,7 +756,7 @@
         "destination": "/assets/images/du-lich-ninh-binh-10e854368e.jpg"
       },
       {
-        "source": "/datafiles/88364/upload/images/tour miền bắc/du-lich-ninh-binh.jpg",
+        "regex": "^/datafiles/88364/upload/images/tour miền bắc/du-lich-ninh-binh\\.jpg$",
         "destination": "/assets/images/du-lich-ninh-binh-10e854368e.jpg"
       },
       {
@@ -764,7 +764,7 @@
         "destination": "/assets/images/ha-long-7-71c21f9e83.jpg"
       },
       {
-        "source": "/datafiles/88364/upload/images/tour miền bắc/ha-long (7).jpg",
+        "regex": "^/datafiles/88364/upload/images/tour miền bắc/ha-long \\(7\\)\\.jpg$",
         "destination": "/assets/images/ha-long-7-71c21f9e83.jpg"
       },
       {
@@ -772,7 +772,7 @@
         "destination": "/assets/images/ninh-binh-4-aa09badcd9.jpg"
       },
       {
-        "source": "/datafiles/88364/upload/images/tour miền bắc/ninh binh (4).jpg",
+        "regex": "^/datafiles/88364/upload/images/tour miền bắc/ninh binh \\(4\\)\\.jpg$",
         "destination": "/assets/images/ninh-binh-4-aa09badcd9.jpg"
       },
       {
@@ -780,7 +780,7 @@
         "destination": "/assets/images/tam-coc-bich-dong033-6fd93beab9.jpg"
       },
       {
-        "source": "/datafiles/88364/upload/images/tour miền bắc/tam-coc-bich-dong033.jpg",
+        "regex": "^/datafiles/88364/upload/images/tour miền bắc/tam-coc-bich-dong033\\.jpg$",
         "destination": "/assets/images/tam-coc-bich-dong033-6fd93beab9.jpg"
       },
       {
@@ -788,7 +788,7 @@
         "destination": "/assets/images/thumbnail-du-lich-ninh-binh-trang-an-bai-dinh-hoa-lu-tam-coc-1521705003-2738209284.jpg"
       },
       {
-        "source": "/datafiles/88364/upload/images/tour miền bắc/thumbnail-du-lich-ninh-binh-trang-an-bai-dinh-hoa-lu-tam-coc-1521705003.jpg",
+        "regex": "^/datafiles/88364/upload/images/tour miền bắc/thumbnail-du-lich-ninh-binh-trang-an-bai-dinh-hoa-lu-tam-coc-1521705003\\.jpg$",
         "destination": "/assets/images/thumbnail-du-lich-ninh-binh-trang-an-bai-dinh-hoa-lu-tam-coc-1521705003-2738209284.jpg"
       },
       {
@@ -796,7 +796,7 @@
         "destination": "/assets/images/ngu-hanh-son2-9-90627190cd.jpg"
       },
       {
-        "source": "/datafiles/88364/upload/images/tour mien trung/Ngũ Hành Sơn2(9).jpg",
+        "regex": "^/datafiles/88364/upload/images/tour mien trung/Ngũ Hành Sơn2\\(9\\)\\.jpg$",
         "destination": "/assets/images/ngu-hanh-son2-9-90627190cd.jpg"
       },
       {
@@ -804,7 +804,7 @@
         "destination": "/assets/images/ba-na-hills-20-0a2c184c44.jpg"
       },
       {
-        "source": "/datafiles/88364/upload/images/tour mien trung/ba-na-hills(20).jpg",
+        "regex": "^/datafiles/88364/upload/images/tour mien trung/ba-na-hills\\(20\\)\\.jpg$",
         "destination": "/assets/images/ba-na-hills-20-0a2c184c44.jpg"
       },
       {
@@ -812,7 +812,7 @@
         "destination": "/assets/images/cao-lau-resize-9-993e600681.jpg"
       },
       {
-        "source": "/datafiles/88364/upload/images/tour mien trung/cao lau_resize(9).jpg",
+        "regex": "^/datafiles/88364/upload/images/tour mien trung/cao lau_resize\\(9\\)\\.jpg$",
         "destination": "/assets/images/cao-lau-resize-9-993e600681.jpg"
       },
       {
@@ -820,7 +820,7 @@
         "destination": "/assets/images/long-den-hoi-an-3-119f422b97.jpg"
       },
       {
-        "source": "/datafiles/88364/upload/images/tour mien trung/long-den-hoi-an-(3).jpg",
+        "regex": "^/datafiles/88364/upload/images/tour mien trung/long-den-hoi-an-\\(3\\)\\.jpg$",
         "destination": "/assets/images/long-den-hoi-an-3-119f422b97.jpg"
       },
       {
@@ -828,7 +828,7 @@
         "destination": "/assets/images/cd08-1-1727ea98bb.jpg"
       },
       {
-        "source": "/datafiles/88364/upload/images/tour trong nuoc/CD08_1.jpg",
+        "regex": "^/datafiles/88364/upload/images/tour trong nuoc/CD08_1\\.jpg$",
         "destination": "/assets/images/cd08-1-1727ea98bb.jpg"
       },
       {
@@ -836,7 +836,7 @@
         "destination": "/assets/images/at-ha-noi-ninh-binh-bai-dinh-tam-coc-ha-long-yen-tu-5f82f3205f930048fc1a87425ede5ff2-ef8c358792.jpg"
       },
       {
-        "source": "/datafiles/88364/upload/images/tour trong nuoc/at_ha-noi--ninh-binh-bai-dinh-tam-coc--ha-long--yen-tu_5f82f3205f930048fc1a87425ede5ff2.jpg",
+        "regex": "^/datafiles/88364/upload/images/tour trong nuoc/at_ha-noi--ninh-binh-bai-dinh-tam-coc--ha-long--yen-tu_5f82f3205f930048fc1a87425ede5ff2\\.jpg$",
         "destination": "/assets/images/at-ha-noi-ninh-binh-bai-dinh-tam-coc-ha-long-yen-tu-5f82f3205f930048fc1a87425ede5ff2-ef8c358792.jpg"
       },
       {
@@ -844,7 +844,7 @@
         "destination": "/assets/images/du-lich-nha-trang-17-0-988665729a.jpg"
       },
       {
-        "source": "/datafiles/88364/upload/images/tour trong nuoc/nha trang/du-lich-nha-trang-17_0.jpg",
+        "regex": "^/datafiles/88364/upload/images/tour trong nuoc/nha trang/du-lich-nha-trang-17_0\\.jpg$",
         "destination": "/assets/images/du-lich-nha-trang-17-0-988665729a.jpg"
       },
       {
@@ -852,7 +852,7 @@
         "destination": "/assets/images/bai-sao-phu-quoc-d2109fab38.jpg"
       },
       {
-        "source": "/datafiles/88364/upload/images/tour trong nuoc/phú quốc/bai-sao-phu-quoc.jpg",
+        "regex": "^/datafiles/88364/upload/images/tour trong nuoc/phú quốc/bai-sao-phu-quoc\\.jpg$",
         "destination": "/assets/images/bai-sao-phu-quoc-d2109fab38.jpg"
       },
       {
@@ -892,7 +892,7 @@
         "destination": "/assets/images/culture-du-the-vietnam-d27cc6548b.jpg"
       },
       {
-        "source": "/datafiles/88364/upload/images/vietnam/Culture-du-thé-vietnam.jpg",
+        "regex": "^/datafiles/88364/upload/images/vietnam/Culture-du-thé-vietnam\\.jpg$",
         "destination": "/assets/images/culture-du-the-vietnam-d27cc6548b.jpg"
       },
       {
@@ -904,7 +904,7 @@
         "destination": "/assets/images/the-glace-070078af2d.jpg"
       },
       {
-        "source": "/datafiles/88364/upload/images/vietnam/Thé-glacé.jpg",
+        "regex": "^/datafiles/88364/upload/images/vietnam/Thé-glacé\\.jpg$",
         "destination": "/assets/images/the-glace-070078af2d.jpg"
       },
       {
@@ -956,7 +956,7 @@
         "destination": "/assets/images/1440-4-citadelle-imperiale-thang-long-b0102e2047.jpg"
       },
       {
-        "source": "/datafiles/88364/upload/images/vietnam/hanoi/1440-4-Citadelle-impériale-Thang-Long.jpg",
+        "regex": "^/datafiles/88364/upload/images/vietnam/hanoi/1440-4-Citadelle-impériale-Thang-Long\\.jpg$",
         "destination": "/assets/images/1440-4-citadelle-imperiale-thang-long-b0102e2047.jpg"
       },
       {

@@ -108,7 +108,11 @@ for(const [source,target] of Object.entries(content.migration.assetAliases || {}
   const destination='/'+target.replace(/^\//,'');
   if(!hosting.rewrites.some(r=>r.source===oldPath && r.destination===destination))issues.push({url:oldPath,problem:'Firebase original image rewrite missing'});
   const decodedPath=decodeURI(oldPath);
-  if(!hosting.rewrites.some(r=>r.source===decodedPath && r.destination===destination))issues.push({url:oldPath,problem:'Firebase decoded image rewrite missing'});
+  if(decodedPath!==oldPath){
+    const decodedRule=hosting.rewrites.find(r=>r.regex && new RegExp(r.regex,'u').test(decodedPath));
+    if(decodedRule?.destination!==destination)issues.push({url:oldPath,problem:'Firebase exact decoded image rewrite missing'});
+    if(decodedRule && /[()]/.test(decodedPath) && new RegExp(decodedRule.regex,'u').test(decodedPath.replace(/[()]/g,'')))issues.push({url:oldPath,problem:'Firebase image rewrite treats parentheses as a pattern instead of literal characters'});
+  }
 }
 
 const report={
