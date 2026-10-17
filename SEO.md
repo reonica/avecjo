@@ -1,6 +1,6 @@
 # SEO et contenu lisible par les moteurs de recherche et les assistants IA
 
-Mise à jour : 14 octobre 2026. Domaine canonique conservé : `https://www.guidehanoi.com`.
+Mise à jour : 16 octobre 2026. Domaine canonique conservé : `https://www.guidehanoi.com`.
 
 ## Pages principales
 
@@ -31,9 +31,9 @@ Le hero et le footer utilisent les ancres demandées vers `https://guidehanoi.co
 
 Les 28 corps d’articles, leurs 537 titres et leurs 9 tableaux restent identiques à la migration. Les titres SEO et descriptions de neuf articles sont corrigés séparément, sans réécrire leurs textes. Des liens de contexte relient les articles aux pages d’accompagnement.
 
-Les anciennes pages qui n’avaient pas de corps de contenu et ne constituent pas des pages de navigation sont conservées, mais portent `noindex,follow`. Il en va de même pour la recherche, l’album vide et la page de confirmation. Cette mesure évite de proposer aux moteurs des pages de destination presque vides. Elles restent accessibles aux visiteurs et dans le plan HTML du site. Avant de décider de réindexer une ancienne page, lui ajouter un contenu utile et propre à son sujet.
+À la demande du propriétaire, toutes les pages publiques générées autorisent désormais l’indexation avec `index,follow`, y compris les anciennes pages sans corps de contenu, la recherche, l’album vide et la page de confirmation. Le générateur ne les exclut plus automatiquement à cause d’un contenu vide. Les pages d’administration, la réponse 404 et les fichiers techniques de redirection conservent `noindex`.
 
-La galerie `/photos-clients-avec-jo` reste accessible et indique `/photo` comme canonique, car les deux pages présentent les mêmes albums. Le sitemap XML contient uniquement les pages canoniques destinées à l’indexation : 89 URL à cette mise à jour. Le plan HTML conserve les liens vers les autres pages.
+La galerie historique `/photos-clients-avec-jo` retrouve sa propre URL canonique. Les 123 pages publiques ont chacune une URL canonique et figurent dans le sitemap XML, qui conserve le domaine `https://www.guidehanoi.com`. Autoriser l’indexation ne garantit pas que les moteurs indexeront chaque page.
 
 Les archives de catégories et de tags contiennent dès le HTML initial uniquement leurs articles pertinents. Les URL historiques `blog?keyword=...` restent fonctionnelles. Les cartes d’articles associés n’embarquent plus le texte intégral de chaque article dans leurs attributs de recherche. CSS et JavaScript ont un identifiant de version pour éviter de conserver un ancien asset après déploiement.
 
