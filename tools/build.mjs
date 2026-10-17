@@ -250,6 +250,11 @@ fs.writeFileSync(path.join(root,'sitemap.xml'),`<?xml version="1.0" encoding="UT
 fs.writeFileSync(path.join(root,'robots.txt'),`User-agent: *\nAllow: /\nSitemap: ${domain}/sitemap.xml\n`);
 fs.writeFileSync(path.join(root,'rss.xml'),`<?xml version="1.0" encoding="UTF-8"?>\n<rss version="2.0"><channel><title>Le carnet de Jo</title><link>${domain}/blog</link><description>${esc(site.description)}</description><language>fr</language>${posts.map(p=>`<item><title>${esc(p.title)}</title><link>${absolute(p.slug)}</link><guid isPermaLink="true">${absolute(p.slug)}</guid><description>${esc(p.description)}</description>${p.date?`<pubDate>${new Date(p.date).toUTCString()}</pubDate>`:''}</item>`).join('')}</channel></rss>\n`);
 const assetAliases=Object.entries(data.migration.assetAliases || {});
+// Hosting matches decoded request paths; retain the encoded form for compatibility.
+const firebaseAssetRewrites=assetAliases.flatMap(([old,target])=>{
+  const originalPath=old.startsWith('http')?new URL(old).pathname:old;
+  return [...new Set([originalPath,decodeURI(originalPath)])].map(source=>({source,destination:`/${String(target).replace(/^\//,'')}`}));
+});
 const rewrites=[...generated.keys()].filter(Boolean).map(s=>`/${s} /${s}/index.html 200!`);
 fs.writeFileSync(path.join(root,'_redirects'),`# Preserve each original extensionless URL, query strings, and original image URLs.\n${aliasRows.join('\n')}\n${rewrites.join('\n')}\n${assetAliases.map(([old,target])=>`${old.startsWith('http')?new URL(old).pathname:old} /${String(target).replace(/^\//,'')} 200!`).join('\n')}\n`);
 // Firebase Hosting uses its own routing configuration; Netlify files are ignored on deploy.
@@ -263,7 +268,7 @@ const firebaseConfig={
     rewrites:[
       {source:'/admin',destination:'/admin/index.html'},
       ...[...generated.keys()].filter(Boolean).map(s=>({source:`/${s}`,destination:`/${s}/index.html`})),
-      ...assetAliases.map(([old,target])=>({source:old.startsWith('http')?new URL(old).pathname:old,destination:`/${String(target).replace(/^\//,'')}`}))
+      ...firebaseAssetRewrites
     ],
     headers:[
       {source:'**',headers:[{key:'X-Content-Type-Options',value:'nosniff'},{key:'Referrer-Policy',value:'strict-origin-when-cross-origin'}]},

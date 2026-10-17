@@ -107,6 +107,8 @@ for(const [source,target] of Object.entries(content.migration.assetAliases || {}
   const oldPath=source.startsWith('http')?new URL(source).pathname:source;
   const destination='/'+target.replace(/^\//,'');
   if(!hosting.rewrites.some(r=>r.source===oldPath && r.destination===destination))issues.push({url:oldPath,problem:'Firebase original image rewrite missing'});
+  const decodedPath=decodeURI(oldPath);
+  if(!hosting.rewrites.some(r=>r.source===decodedPath && r.destination===destination))issues.push({url:oldPath,problem:'Firebase decoded image rewrite missing'});
 }
 
 const report={
