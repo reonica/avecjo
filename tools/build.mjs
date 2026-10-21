@@ -5,6 +5,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { structuredData } from './seo.mjs';
 import { loadContent } from './content.mjs';
+import { buildGlossary } from './glossary.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const data = loadContent(root);
@@ -58,17 +59,17 @@ function header(slug, active) {
   const nav = (target, label) => `<a href="${rel(slug, target)}"${active === target ? ' aria-current="page"' : ''}>${label}</a>`;
   return `<header class="site-header"><div class="header-inner container">
     <button class="mobile-menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-navigation" aria-label="Ouvrir le menu">${icon('menu')}</button>
-    <nav class="desktop-nav header-left" aria-label="Navigation principale">${nav('', 'Accueil')}${nav('blog', 'Blog')}</nav>
+    <nav class="desktop-nav header-left" aria-label="Navigation principale">${nav('', 'Accueil')}${nav('blog', 'Blog')}${nav('gfv', 'Glossaire')}</nav>
     <a class="brand" href="${rel(slug)}" aria-label="Avec Jo — Accueil">${image({image: site.logo, imageAlt: 'Avec Jo'}, slug, 'width="50" height="50"')}</a>
     <nav class="desktop-nav header-right" aria-label="Photos et contact">${nav('photo', 'Photos')}${nav('contact', 'Contact')}<a class="button button-primary" href="${rel(slug, 'contact')}">Parlons de votre voyage</a></nav>
     <a class="mobile-contact" href="${rel(slug, 'contact')}" aria-label="Contacter Joseph">${icon('phone')}</a>
-  </div><nav class="mobile-nav" id="mobile-navigation" aria-label="Navigation mobile" hidden>${nav('', 'Accueil')}${nav('blog', 'Blog')}${nav('photo', 'Photos')}${nav('contact', 'Contact')}${categories.map(c => nav(c.slug, c.title)).join('')}<a class="button button-primary" href="${rel(slug, 'contact')}">Préparer mon voyage ${icon('arrow')}</a></nav></header>`;
+  </div><nav class="mobile-nav" id="mobile-navigation" aria-label="Navigation mobile" hidden>${nav('', 'Accueil')}${nav('blog', 'Blog')}${nav('gfv', 'Glossaire')}${nav('photo', 'Photos')}${nav('contact', 'Contact')}${categories.map(c => nav(c.slug, c.title)).join('')}<a class="button button-primary" href="${rel(slug, 'contact')}">Préparer mon voyage ${icon('arrow')}</a></nav></header>`;
 }
 
 function footer(slug) {
   return `<footer class="site-footer"><div class="container"><div class="footer-grid">
     <div class="footer-brand"><a href="${rel(slug)}" aria-label="Avec Jo — Accueil">${image({image:site.logo,imageAlt:'Avec Jo'},slug,'width="80" height="80" loading="lazy"')}</a><div><strong>Avec Jo</strong><p><a href="https://guidehanoi.com/">guide francophone nord vietnam</a></p></div></div>
-    <div class="footer-column"><h2>Explorer</h2><ul>${[['','Accueil'],['blog','Blog'],['photo','Photos'],['contact','Contact'],['guide-francophone-nord-vietnam','Voyager avec Jo'],['sitemap','Sitemap']].map(([p,l])=>`<li><a href="${rel(slug,p)}">${l}</a></li>`).join('')}</ul></div>
+    <div class="footer-column"><h2>Explorer</h2><ul>${[['','Accueil'],['blog','Blog'],['gfv','Glossaire franco-vietnamien'],['photo','Photos'],['contact','Contact'],['guide-francophone-nord-vietnam','Voyager avec Jo'],['sitemap','Sitemap']].map(([p,l])=>`<li><a href="${rel(slug,p)}">${l}</a></li>`).join('')}</ul></div>
     <div class="footer-column"><h2>Le carnet de Jo</h2><ul>${['circuits-vietnam','incontournables-vietnam','conseils-voyage'].map(s=>`<li><a href="${rel(slug,s)}">${esc(cat(s)?.title || s)}</a></li>`).join('')}</ul></div>
     <div class="footer-column"><h2>Parlons de votre voyage</h2><ul><li><a href="mailto:${esc(site.email)}">${icon('mail')}${esc(site.email)}</a></li><li><a href="tel:${esc(site.phone)}">${icon('phone')}${phoneDisplay}</a></li><li><a href="https://www.google.com/maps/search/?api=1&amp;query=${encodeURIComponent(site.address)}" target="_blank" rel="noopener">${icon('pin')}${esc(site.address)}</a></li><li><a href="${esc(site.whatsapp)}" target="_blank" rel="noopener">${icon('whatsapp')}Écrire sur WhatsApp</a></li></ul></div>
   </div><div class="footer-bottom"><span>© ${pageDate.slice(0,4)} Avec Jo · Guidehanoi.com</span><a href="${rel(slug,'sitemap.xml')}">Sitemap XML</a><a href="${esc(site.social.instagram)}" target="_blank" rel="noopener">Instagram</a><a href="${esc(site.social.facebook)}" target="_blank" rel="noopener">Facebook</a><a href="${esc(site.social.youtube)}" target="_blank" rel="noopener">YouTube</a></div></div></footer>
@@ -222,7 +223,7 @@ function servicesPage() {
 function sitemapPage() {
   const slug='sitemap';
   const group=(title,items)=>`<section><h2>${title}</h2><ul>${items.map(x=>`<li><a href="${rel(slug,x.slug)}">${esc(x.title)}</a></li>`).join('')}</ul></section>`;
-  save(slug,'Sitemap — Toutes les pages du site Avec Jo','Retrouvez toutes les pages, articles, sujets et photos du site Avec Jo.',`<div class="container"><header class="page-heading">${crumb(slug,[{title:'Sitemap'}])}<h1>Le plan du site.</h1><p>Retrouvez toutes les pages et les articles d’Avec Jo.</p></header><div class="sitemap-grid">${group('Explorer',[{slug:'',title:'Accueil'},{slug:'blog',title:'Blog'},{slug:'contact',title:'Contact'},{slug:'photo',title:'Photos'},...categories])}${group('Le carnet de Jo',posts)}${group('Photos & albums',albums)}${group('Accompagnement en français',seo.guides)}${group('Tous les sujets',tags.map(t=>({slug:`tag/${tagSlugs.get(t)}`,title:t})))}${group('Autres pages',pages.filter(p=>!guides.has(p.slug)).map(p=>({...p,title:p.seoTitle || p.title})))}</div><p>${arrowLink(slug,'sitemap.xml','Consulter le sitemap XML')}</p></div>`,{className:'page-sitemap'});
+  save(slug,'Sitemap — Toutes les pages du site Avec Jo','Retrouvez toutes les pages, articles, sujets et photos du site Avec Jo.',`<div class="container"><header class="page-heading">${crumb(slug,[{title:'Sitemap'}])}<h1>Le plan du site.</h1><p>Retrouvez toutes les pages et les articles d’Avec Jo.</p></header><div class="sitemap-grid">${group('Explorer',[{slug:'',title:'Accueil'},{slug:'blog',title:'Blog'},{slug:'gfv',title:'Glossaire franco-vietnamien'},{slug:'contact',title:'Contact'},{slug:'photo',title:'Photos'},...categories])}${group('Le carnet de Jo',posts)}${group('Photos & albums',albums)}${group('Accompagnement en français',seo.guides)}${group('Tous les sujets',tags.map(t=>({slug:`tag/${tagSlugs.get(t)}`,title:t})))}${group('Autres pages',pages.filter(p=>!guides.has(p.slug)).map(p=>({...p,title:p.seoTitle || p.title})))}</div><p>${arrowLink(slug,'sitemap.xml','Consulter le sitemap XML')}</p></div>`,{className:'page-sitemap'});
 }
 
 home();
@@ -230,7 +231,7 @@ archive('blog','Le Vietnam, de l’intérieur.','Découvrez le carnet de Jo : it
 archive('recherche','Rechercher dans le carnet de Jo','Retrouvez un lieu, un conseil ou une idée de voyage parmi les articles d’Avec Jo.');
 categories.forEach(c=>archive(c.slug,c.title,c.description,{category:c.slug,cover:c.image,descriptionHtml:c.descriptionHtml}));
 tags.forEach(t=>archive(`tag/${tagSlugs.get(t)}`,t,`Les articles liés au sujet « ${t} ».`,{tag:t}));
-posts.forEach(article);albums.forEach(gallery);pages.filter(p=>!guides.has(p.slug)&&p.slug!=='services').forEach(legacy);seo.guides.forEach(guidePage);servicesPage();contact();sitemapPage();
+posts.forEach(article);albums.forEach(gallery);pages.filter(p=>!guides.has(p.slug)&&p.slug!=='services').forEach(legacy);seo.guides.forEach(guidePage);servicesPage();contact();buildGlossary({save,rel,esc});sitemapPage();
 
 const aliasRows=[];
 for(const [source,target] of Object.entries(data.migration.aliases || {})) {
