@@ -2,7 +2,7 @@
 const plain = value => String(value ?? '').replace(/<[^>]*>/g,' ').replace(/&amp;/g,'&').replace(/&#39;/g,"'").replace(/&quot;/g,'"').replace(/&nbsp;/g,' ').replace(/\s+/g,' ').trim();
 const fullUrl = (domain,slug='') => `${domain}/${slug.replace(/^\/+/, '')}`;
 
-export function structuredData({site,domain,slug,title,description,content,socialImage,schema,seo,canonical}) {
+export function structuredData({site,domain,slug,title,description,content,socialImage,schema,seo,canonical,lastmod}) {
   const pageUrl=canonical || fullUrl(domain,slug);
   const agencyId=`${domain}/#avec-jo`, personId=`${domain}/#joseph`, websiteId=`${domain}/#website`, pageId=`${pageUrl}#webpage`;
   const graph=[
@@ -11,6 +11,7 @@ export function structuredData({site,domain,slug,title,description,content,socia
     {'@type':'WebSite','@id':websiteId,url:fullUrl(domain),name:site.name,inLanguage:'fr',publisher:{'@id':agencyId}},
     {'@type':slug==='contact'?'ContactPage':slug==='blog'||slug==='services'||slug==='circuits'||slug.startsWith('tag/')?'CollectionPage':'WebPage','@id':pageId,url:pageUrl,name:title,description,inLanguage:'fr',isPartOf:{'@id':websiteId},about:{'@id':agencyId},primaryImageOfPage:{'@type':'ImageObject',url:socialImage}}
   ];
+  if ((slug==='circuits' || slug.startsWith('circuits/')) && lastmod) graph[3].dateModified=lastmod;
   const breadcrumbHtml=content.match(/<nav class="breadcrumbs"[^>]*>([\s\S]*?)<\/nav>/)?.[1];
   if(breadcrumbHtml){
     const items=[...breadcrumbHtml.matchAll(/<li>([\s\S]*?)<\/li>/g)].map((m,i)=>{
@@ -23,7 +24,7 @@ export function structuredData({site,domain,slug,title,description,content,socia
     const article={...schema,'@id':`${pageUrl}#article`,author:{'@id':agencyId},publisher:{'@id':agencyId},mainEntityOfPage:{'@id':pageId}};
     delete article['@context'];graph.push(article);graph[3].mainEntity={'@id':article['@id']};
   } else if(schema?.['@type']==='Service') {
-    const service={...schema,'@id':`${pageUrl}#service`,url:pageUrl,provider:{'@id':agencyId}};
+    const service={...schema,'@id':`${pageUrl}#service`,url:pageUrl,provider:{'@id':agencyId},mainEntityOfPage:{'@id':pageId}};
     delete service['@context'];graph.push(service);graph[3].mainEntity={'@id':service['@id']};
   } else if(schema?.['@type']==='ItemList') {
     const list={...schema,'@id':`${pageUrl}#circuits`,itemListElement:schema.itemListElement.map(item=>({...item,url:fullUrl(domain,item.url)}))};

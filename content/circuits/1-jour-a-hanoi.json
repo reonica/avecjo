@@ -1,10 +1,10 @@
 {
   "slug": "circuits/1-jour-a-hanoi",
   "title": "Une journée à Hanoi",
-  "seoTitle": "Hanoi en 1 jour : visite privée avec un guide francophone — Avec Jo",
-  "description": "Découvrez Hanoi en une journée avec un guide francophone privé : rue du Train, Temple de la Littérature, Vieux Quartier et café à l’œuf.",
-  "updatedOn": "2026-10-21",
-  "intro": "Découvrez Hanoi au fil d’une journée, entre lieux d’histoire, ruelles animées et saveurs locales. Avec votre guide francophone privé, vous passez de la rue du Train au Temple de la Littérature, avant de terminer autour d’un café à l’œuf.",
+  "seoTitle": "Hanoi en 1 jour avec un guide francophone — Avec Jo",
+  "description": "Visitez Hanoi en 1 jour avec un guide francophone privé : rue du Train, Temple de la Littérature et Vieux Quartier. Départ de votre hôtel à 08h30.",
+  "updatedOn": "2026-10-22",
+  "intro": "Découvrez Hanoi en une journée avec un guide francophone privé, entre lieux d’histoire, ruelles animées et saveurs locales. De la rue du Train au Temple de la Littérature, le parcours se poursuit vers Ba Đình et le Vieux Quartier avant une pause autour d’un café à l’œuf.",
   "metadata": [
     "1 journée",
     "08h30–16h30",
@@ -102,6 +102,12 @@
         "À 08h30, votre guide vous retrouve à votre hôtel dans le Vieux Quartier. La balade commence à pied vers la rue du Train, à Phùng Hưng, où vous aurez peut-être la chance de voir passer le train.",
         "À 09h30, prenez place dans un cyclo-pousse pour découvrir les rues animées de Hanoi. La visite se poursuit à 10h30 au Temple de la Littérature, un lieu consacré au savoir et à l’éducation.",
         "À 12h30, une pause dans un restaurant local permet de découvrir les saveurs hanoïennes, comme le bún chả ou le phở."
+      ],
+      "highlights": [
+        "Vieux Quartier",
+        "rue du Train",
+        "Phùng Hưng",
+        "Temple de la Littérature"
       ]
     },
     {
@@ -109,6 +115,12 @@
       "paragraphs": [
         "À 13h30, direction la place Ba Đình et le complexe du mausolée de Hô Chi Minh. À 15h00, vous retrouvez les ruelles du Vieux Quartier et ses 36 corporations, jusqu’à la cathédrale Saint-Joseph.",
         "À 16h00, la journée se termine autour d’un café à l’œuf, une spécialité onctueuse de Hanoi."
+      ],
+      "highlights": [
+        "place Ba Đình",
+        "complexe du mausolée de Hô Chi Minh",
+        "Vieux Quartier",
+        "cathédrale Saint-Joseph"
       ]
     }
   ],
@@ -134,5 +146,6 @@
       "license": "CC BY-SA 2.0",
       "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/"
     }
-  }
+  },
+  "guidePage": "guide-francophone-hanoi"
 }

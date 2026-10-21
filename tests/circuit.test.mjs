@@ -19,6 +19,16 @@ const rel = (from, target = '') => `${from ? '../'.repeat(from.split('/').filter
 const main = html => html.match(/<main\b[^>]*>([\s\S]*?)<\/main>/)?.[1] ?? '';
 const plain = html => html.replace(/<[^>]+>/g, ' ').replace(/&(?:nbsp|amp|apos|quot|#39);/g, ' ').normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/\s+/g, ' ').trim().toLowerCase();
 const attr = (tag, name) => tag.match(new RegExp(`\\b${name}="([^"]*)"`))?.[1];
+const textContent = html => html.replace(/<[^>]*>/g, '').replace(/&(?:amp|quot|apos|lt|gt|nbsp|#\d+|#x[\da-f]+);/gi, entity => {
+  const named = {'&amp;': '&', '&quot;': '"', '&apos;': "'", '&lt;': '<', '&gt;': '>', '&nbsp;': ' '};
+  return named[entity.toLowerCase()] ?? String.fromCodePoint(Number.parseInt(entity.slice(entity[2].toLowerCase() === 'x' ? 3 : 2, -1), entity[2].toLowerCase() === 'x' ? 16 : 10));
+});
+const meta = (html, name) => [...html.matchAll(/<meta\b[^>]*>/g)].map(match => match[0]).filter(tag => attr(tag, 'name') === name || attr(tag, 'property') === name).map(tag => textContent(attr(tag, 'content') ?? ''));
+const graph = html => [...html.matchAll(/<script\b[^>]*type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/g)].flatMap(match => {
+  const value = JSON.parse(match[1]);
+  return value['@graph'] ?? [value];
+});
+const contextualLinks = (html, route) => [...main(html).replace(/<nav\b[^>]*>[\s\S]*?<\/nav>/g, '').matchAll(/<a\b[^>]*href="([^"]+)"/g)].map(match => new URL(textContent(match[1]), `https://test.example/${route}/`).pathname.replace(/\/$/, ''));
 const headings = html => [...html.matchAll(/<h[1-6]\b[^>]*>([\s\S]*?)<\/h[1-6]>/g)];
 function afterHeading(html, label) {
   const all = headings(html);
@@ -118,6 +128,111 @@ test('the hub aggregates additional JSON sources without requiring hard-coded to
     }
   } finally {
     fs.rmSync(fixtureRoot, {recursive: true, force: true});
+  }
+});
+
+test('Hanoi circuit search metadata is distinct, descriptive and consistent with the visible introduction', () => {
+  const sources = circuitSources();
+  const pages = [hubSlug, ...sources.map(source => source.slug)].map(route => ({route, html: read(`${route}/index.html`)}));
+  const titles = [];
+  const descriptions = [];
+  const domain = JSON.parse(read('data/content.json')).site.domain.replace(/\/$/, '');
+  for (const {route, html} of pages) {
+    const titleMatches = [...html.matchAll(/<title>([\s\S]*?)<\/title>/g)].map(match => textContent(match[1]));
+    assert.equal(titleMatches.length, 1, `Each route has one search title: ${route}`);
+    const [title] = titleMatches;
+    const descriptionMatches = meta(html, 'description');
+    assert.equal(descriptionMatches.length, 1, `Each route has one search description: ${route}`);
+    const [description] = descriptionMatches;
+    for (const copy of [title, description]) {
+      assert.match(plain(copy), /guide francophone/, `Explain the guide service in search copy: ${route}`);
+      assert.match(plain(copy), /hanoi/, `Locate the service in search copy: ${route}`);
+    }
+    assert.deepEqual(meta(html, 'og:title'), [title], `Social and search titles disagree: ${route}`);
+    assert.deepEqual(meta(html, 'og:description'), [description], `Social and search summaries disagree: ${route}`);
+    assert.deepEqual(meta(html, 'og:url'), [`${domain}/${route}`], `Share the canonical route: ${route}`);
+    assert.deepEqual(meta(html, 'robots'), ['index,follow']);
+    assert.equal([...main(html).matchAll(/<h1\b/g)].length, 1, `Keep a single visible page heading: ${route}`);
+    const introduction = main(html).match(/<header\b[^>]*>([\s\S]*?)<\/header>/)?.[1] ?? '';
+    assert.match(plain(introduction), /guide francophone/, `The visible introduction must explain the service: ${route}`);
+    assert.match(plain(introduction), /hanoi/, `The visible introduction must identify Hanoi: ${route}`);
+    titles.push(title);
+    descriptions.push(description);
+  }
+  assert.equal(new Set(titles).size, pages.length, 'Hub and tour pages must have distinct search titles');
+  assert.equal(new Set(descriptions).size, pages.length, 'Hub and tour pages must have distinct summaries');
+  for (const source of sources) {
+    const html = page(source.slug);
+    assert.deepEqual(meta(html, 'description'), [source.description], `Use the source tour summary: ${source.slug}`);
+    assert.equal(textContent(html.match(/<title>([\s\S]*?)<\/title>/)?.[1] ?? ''), source.seoTitle);
+  }
+});
+
+test('Hanoi guide and circuit pages have useful contextual links beyond shared navigation', () => {
+  const sources = circuitSources();
+  const pillar = 'guide-francophone-hanoi';
+  assert.ok(contextualLinks(hub(), hubSlug).includes(`/${pillar}`), 'The catalogue must link to the existing Hanoi guide service');
+  const pillarLinks = contextualLinks(read(`${pillar}/index.html`), pillar);
+  assert.ok(pillarLinks.includes(`/${hubSlug}`), 'The Hanoi guide page must introduce the catalogue');
+  for (const source of sources) {
+    assert.ok(pillarLinks.includes(`/${source.slug}`), `The Hanoi guide page must help readers reach the programme: ${source.slug}`);
+    const links = contextualLinks(page(source.slug), source.slug);
+    assert.ok(links.includes(`/${pillar}`), `The programme must identify its Hanoi guide context: ${source.slug}`);
+    for (const alternative of sources.filter(other => other.slug !== source.slug)) {
+      assert.ok(links.includes(`/${alternative.slug}`), `Readers should be able to compare the other Hanoi duration: ${source.slug} -> ${alternative.slug}`);
+    }
+  }
+});
+
+test('tour structured data identifies the visible service and its existing provider without invented commercial claims', () => {
+  for (const source of circuitSources()) {
+    const nodes = graph(page(source.slug));
+    const webpage = nodes.find(node => [node['@type']].flat().includes('WebPage'));
+    assert.ok(webpage, `Missing tour WebPage: ${source.slug}`);
+    const service = nodes.find(node => node['@id'] === webpage.mainEntity?.['@id']);
+    assert.equal(service?.['@type'], 'Service', `The tour page must identify its guide service: ${source.slug}`);
+    assert.equal(service.name, source.title);
+    assert.equal(service.description, source.description);
+    assert.equal(new URL(service.url).pathname, `/${source.slug}`);
+    assert.match(plain(service.serviceType), /guide francophone/);
+    assert.match(plain(service.areaServed?.name ?? ''), /hanoi/);
+    const provider = nodes.find(node => node['@id'] === service.provider?.['@id']);
+    assert.ok(provider && [provider['@type']].flat().some(type => ['TravelAgency', 'Organization', 'Person'].includes(type)), `Reuse the site's identified provider: ${source.slug}`);
+    assert.equal(provider.name, 'Avec Jo');
+    const breadcrumb = nodes.find(node => node['@id'] === webpage.breadcrumb?.['@id']);
+    assert.equal(breadcrumb?.['@type'], 'BreadcrumbList');
+    assert.ok(breadcrumb.itemListElement.some(item => new URL(item.item).pathname === '/circuits'), `Structured breadcrumbs must include the catalogue: ${source.slug}`);
+    const inspect = value => {
+      if (!value || typeof value !== 'object') return;
+      for (const [key, item] of Object.entries(value)) {
+        assert.ok(!/^(?:offers|price|priceCurrency|lowPrice|highPrice|aggregateRating|review|ratingValue|reviewCount)$/i.test(key), `Do not invent tour prices or reviews: ${key}`);
+        if (key === '@type') assert.ok(![item].flat().some(type => /^(?:Offer|AggregateOffer|Review|AggregateRating)$/.test(type)));
+        inspect(item);
+      }
+    };
+    inspect(service);
+  }
+});
+
+test('programme landmark names use semantic emphasis while preserving every source paragraph and the five approved sections', () => {
+  for (const source of circuitSources()) {
+    const body = main(page(source.slug));
+    assert.deepEqual([...body.matchAll(/<section\b[^>]*id="([^"]+)"/g)].map(match => match[1]), ['programme', 'inclus', 'non-inclus', 'conseils', 'reservation'], 'Keep the five owner-approved content sections');
+    const programme = body.match(/<section\b[^>]*id="programme"[^>]*>([\s\S]*?)<\/section>/)?.[1] ?? '';
+    assert.ok(programme, `Missing programme: ${source.slug}`);
+    const paragraphs = [...programme.matchAll(/<p\b[^>]*>([\s\S]*?)<\/p>/g)].map(match => textContent(match[1]));
+    const emphasized = [...programme.matchAll(/<strong\b[^>]*>([\s\S]*?)<\/strong>/g)].map(match => textContent(match[1]));
+    for (const section of source.programme) {
+      assert.ok(Array.isArray(section.highlights) && section.highlights.length, `Declare the actual programme landmarks: ${source.slug} / ${section.title}`);
+      for (const paragraph of section.paragraphs) {
+        assert.ok(paragraphs.includes(paragraph), `Formatting must preserve the original programme text: ${paragraph}`);
+      }
+      for (const place of section.highlights) {
+        assert.ok(section.paragraphs.some(paragraph => paragraph.includes(place)), `A highlight must name an actual place in its section: ${place}`);
+        assert.ok(emphasized.includes(place), `Render the attraction name in semantic strong text: ${place}`);
+      }
+    }
+    assert.ok(paragraphs.includes(source.ending), 'Preserve the original end-of-tour information');
   }
 });
 

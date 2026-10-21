@@ -2,10 +2,10 @@
   "slug": "circuits/une-demi-journee-a-hanoi",
   "title": "Une demi-journée à Hanoi",
   "breadcrumbTitle": "Une demi-journée à Hanoi",
-  "seoTitle": "Hanoi en une demi-journée : balade privée dans le Vieux Quartier — Avec Jo",
-  "description": "Explorez le Vieux Quartier de Hanoi avec un guide francophone privé : marché de Đồng Xuân, ancienne maison de Mã Mây, dessert local et café hanoïen.",
-  "updatedOn": "2026-10-21",
-  "intro": "Prenez le temps de découvrir le Vieux Quartier de Hanoi à pied, avec votre guide francophone privé. Entre ruelles animées, marché de Đồng Xuân et ancienne maison de Mã Mây, cette balade se termine par une pause gourmande autour d’un dessert local et d’un café typique de Hanoi.",
+  "seoTitle": "Hanoi en demi-journée avec un guide francophone — Avec Jo",
+  "description": "Explorez le Vieux Quartier avec un guide francophone à Hanoi : Đồng Xuân, maison de Mã Mây, dessert et café. Visite privée de 9h à 13h ou de 14h à 18h.",
+  "updatedOn": "2026-10-22",
+  "intro": "Explorez le Vieux Quartier de Hanoi à pied avec un guide francophone privé, de 09h00 à 13h00 ou de 14h00 à 18h00. La balade relie le marché de Đồng Xuân et l’ancienne maison de Mã Mây, avant une pause autour d’un dessert local et d’un café typique de Hanoi.",
   "metadata": [
     "Une demi-journée",
     "09h00–13h00 ou 14h00–18h00",
@@ -44,6 +44,10 @@
       "paragraphs": [
         "Votre guide vous retrouve à votre hôtel dans le Vieux Quartier, à 09h00 ou à 14h00 selon le créneau choisi. Vous partez à pied à la découverte des rues commerçantes et de la vie quotidienne du quartier.",
         "La balade vous mène au marché de Đồng Xuân. Au fil des étals, prenez le temps d’observer les échanges, les produits et l’animation de ce marché hanoïen."
+      ],
+      "highlights": [
+        "Vieux Quartier",
+        "marché de Đồng Xuân"
       ]
     },
     {
@@ -51,6 +55,9 @@
       "paragraphs": [
         "Vous poursuivez avec la visite de l’ancienne maison du 87 Mã Mây, une occasion de découvrir l’habitat traditionnel du Vieux Quartier et une autre facette de la vie hanoïenne.",
         "Pour terminer la visite, installez-vous autour d’un dessert local et d’un café typique de Hanoi. Une dernière pause pour savourer la ville et échanger avec votre guide."
+      ],
+      "highlights": [
+        "ancienne maison du 87 Mã Mây"
       ]
     }
   ],
@@ -132,5 +139,6 @@
       "text": "L’itinéraire peut être adapté en cas de conditions météorologiques exceptionnelles.",
       "open": true
     }
-  ]
+  ],
+  "guidePage": "guide-francophone-hanoi"
 }

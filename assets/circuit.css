@@ -45,6 +45,29 @@
   line-height: 1.75;
 }
 
+.page-circuit .circuit-guide {
+  margin: 0 0 16px;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.page-circuit .circuit-guide a,
+.page-circuit .circuit-related a,
+.page-circuits .circuits-intro > p a {
+  color: var(--navy-dark);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.page-circuit .circuit-programme strong {
+  font-weight: 600;
+}
+
+.page-circuit .circuit-content .circuit-related {
+  margin-top: 20px;
+  font-size: 15px;
+}
+
 .page-circuit .circuit-meta,
 .page-circuit .circuit-meta ul {
   display: flex;

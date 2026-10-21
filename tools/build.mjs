@@ -6,12 +6,13 @@ import { fileURLToPath } from 'node:url';
 import { structuredData } from './seo.mjs';
 import { loadContent } from './content.mjs';
 import { buildGlossary } from './glossary.mjs';
-import { buildCircuits } from './circuits.mjs';
+import { buildCircuits, loadCircuits } from './circuits.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const data = loadContent(root);
 const { site, posts, categories, albums, pages } = data;
 const seo = JSON.parse(fs.readFileSync(path.join(root,'data/seo.json'),'utf8'));
+const circuitSources = loadCircuits(root);
 const guides = new Map(seo.guides.map(g=>[g.slug,g]));
 const domain = site.domain.replace(/\/$/, '');
 const esc = value => String(value ?? '').replace(/[&<>"']/g, x => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[x]));
@@ -81,7 +82,7 @@ function layout(slug, title, description, content, options = {}) {
   const canonical = options.canonical || absolute(slug);
   const socialImage = absolute(options.image || site.hero);
   const metaDescription = limit(description || site.description,170);
-  const json = JSON.stringify(structuredData({site,domain,slug,title,description:metaDescription,content,socialImage,schema:options.schema,seo,canonical})).replace(/</g, '\\u003c');
+  const json = JSON.stringify(structuredData({site,domain,slug,title,description:metaDescription,content,socialImage,schema:options.schema,seo,canonical,lastmod:options.lastmod})).replace(/</g, '\\u003c');
   return `<!doctype html>
 <html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="google-site-verification" content="EG0k_SSw6viD3gRz9u1X2a4xlwSmV0OzG6IynJLq-pU"><meta name="msvalidate.01" content="27875A8864644FC1CCFED6E968BE47A0"><meta name="theme-color" content="#305977"><meta name="color-scheme" content="light"><title>${esc(title)}</title><meta name="description" content="${esc(metaDescription)}"><link rel="canonical" href="${esc(canonical)}"><meta name="robots" content="${options.noindex ? 'noindex,follow' : 'index,follow'}"><meta property="og:type" content="${options.article?'article':'website'}"><meta property="og:title" content="${esc(title)}"><meta property="og:description" content="${esc(metaDescription)}"><meta property="og:url" content="${esc(canonical)}"><meta property="og:image" content="${esc(socialImage)}"><meta property="og:locale" content="fr_FR"><meta property="og:site_name" content="Avec Jo"><meta name="twitter:card" content="summary_large_image"><link rel="icon" href="${esc(rel(slug,site.logo))}" type="image/png"><link rel="stylesheet" href="${rel(slug,'style.css')}?v=${styleVersion}"><link rel="alternate" type="application/rss+xml" title="Le carnet de Jo" href="${rel(slug,'rss.xml')}"><script type="application/ld+json">${json}</script><script src="${rel(slug,'script.js')}?v=${scriptVersion}" defer></script></head>
 <body class="${esc(options.className || '')}"><a class="skip-link" href="#main-content">Aller au contenu</a>${header(slug,options.active ?? slug)}<main id="main-content" class="site-main">${content}</main>${footer(slug)}</body></html>\n`.replace('</head>', `${(options.styles || []).map(file => `<link rel="stylesheet" href="${esc(rel(slug,file))}?v=${assetVersion(file)}">`).join('')}</head>`);
@@ -195,6 +196,8 @@ function legacy(p) {
 
 function guidePage(g) {
   const slug=g.slug;
+  const matchingCircuits=circuitSources.filter(circuit=>circuit.guidePage===slug);
+  const circuitSection=matchingCircuits.length?`<section><h2>Une journée ou une demi-journée à Hanoi ?</h2><p>Comparez les <a href="${rel(slug,'circuits')}">circuits privés à Hanoi avec un guide francophone</a>, puis consultez les visites et les prestations de chaque programme.</p><ul>${matchingCircuits.map(circuit=>`<li><a href="${rel(slug,circuit.slug)}">${esc(circuit.title)}</a> : ${esc(circuit.metadata[1])}.</li>`).join('')}</ul></section>`:'';
   const cover=bySlug.get(g.coverPost);
   const articles=g.relatedPosts.map(s=>bySlug.get(s)).filter(Boolean);
   const connections={
@@ -210,10 +213,10 @@ function guidePage(g) {
   const breadcrumbs=slug==='guide-francophone-vietnam'?[{title:'Voyager avec Jo'}]:[{slug:'guide-francophone-vietnam',title:'Voyager avec Jo'},{title:g.label}];
   save(slug,g.seoTitle,g.description,`<div class="container"><header class="page-heading">${crumb(slug,breadcrumbs)}<p class="eyebrow">Avec Jo · Accompagnement en français</p><h1>${esc(g.title)}</h1><p>${esc(g.lead)}</p></header>${image({image:cover.image,imageAlt:`${g.label} — photo du carnet de Jo`},slug,'class="archive-cover" fetchpriority="high"')}
     <div class="guide-layout"><div class="guide-content article-content">${g.sections.map(s=>`<section><h2>${esc(s.heading)}</h2><p>${esc(s.text)}</p>${s.items?`<ul>${s.items.map(item=>`<li>${esc(item)}</li>`).join('')}</ul>`:''}</section>`).join('')}
-    <section class="guide-faq" aria-labelledby="questions-frequentes"><h2 id="questions-frequentes">Vos questions avant de partir</h2>${g.faq.map(f=>`<details><summary>${esc(f.question)}</summary><p>${esc(f.answer)}</p></details>`).join('')}</section>
+    ${circuitSection}<section class="guide-faq" aria-labelledby="questions-frequentes"><h2 id="questions-frequentes">Vos questions avant de partir</h2>${g.faq.map(f=>`<details><summary>${esc(f.question)}</summary><p>${esc(f.answer)}</p></details>`).join('')}</section>
     <section><h2>Pour poursuivre votre voyage</h2><nav class="guide-destination-links" aria-label="Autres étapes avec un guide francophone">${otherGuides.map(q=>`<a href="${rel(slug,q.slug)}">${esc(q.label)}</a>`).join('')}</nav></section></div>
     <aside class="guide-contact" aria-labelledby="guide-contact-title"><p class="eyebrow">Votre interlocuteur</p><h2 id="guide-contact-title">Joseph, Avec Jo</h2><p>Guide francophone au Vietnam, basé à Hanoï. Échangez sur vos dates, votre groupe et les visites souhaitées. Les possibilités d’accompagnement et les conditions sont à confirmer ensemble.</p><a class="button button-primary" href="${rel(slug,'contact')}">Préparer mon voyage ${icon('arrow')}</a><a class="text-link" href="${esc(site.whatsapp)}" target="_blank" rel="noopener">Écrire sur WhatsApp ${icon('arrow')}</a><a href="mailto:${esc(site.email)}">${esc(site.email)}</a><a href="tel:${esc(site.phone)}">${phoneDisplay}</a><p class="guide-address">${esc(site.address)}</p></aside></div>
-    <section class="section"><div class="section-heading"><h2>Dans le carnet de Jo</h2>${arrowLink(slug,'blog','Tous les articles')}</div><div class="post-grid">${articles.map(p=>card(p,slug)).join('')}</div></section></div>`,{active:'guides',image:cover.image,schema:{'@type':'Service',name:g.title,description:g.description,serviceType:'Accompagnement touristique en français',areaServed:{'@type':'Place',name:g.area}},lastmod:seo.updatedOn,className:'page-guide'});
+    <section class="section"><div class="section-heading"><h2>Dans le carnet de Jo</h2>${arrowLink(slug,'blog','Tous les articles')}</div><div class="post-grid">${articles.map(p=>card(p,slug)).join('')}</div></section></div>`,{active:'guides',image:cover.image,schema:{'@type':'Service',name:g.title,description:g.description,serviceType:'Accompagnement touristique en français',areaServed:{'@type':'Place',name:g.area}},lastmod:g.updatedOn || seo.updatedOn,className:'page-guide'});
 }
 
 function servicesPage() {
@@ -232,7 +235,7 @@ archive('blog','Le Vietnam, de l’intérieur.','Découvrez le carnet de Jo : it
 archive('recherche','Rechercher dans le carnet de Jo','Retrouvez un lieu, un conseil ou une idée de voyage parmi les articles d’Avec Jo.');
 categories.forEach(c=>archive(c.slug,c.title,c.description,{category:c.slug,cover:c.image,descriptionHtml:c.descriptionHtml}));
 tags.forEach(t=>archive(`tag/${tagSlugs.get(t)}`,t,`Les articles liés au sujet « ${t} ».`,{tag:t}));
-posts.forEach(article);albums.forEach(gallery);pages.filter(p=>!guides.has(p.slug)&&p.slug!=='services').forEach(legacy);seo.guides.forEach(guidePage);servicesPage();contact();buildGlossary({save,rel,esc});buildCircuits({root,save,rel,esc});sitemapPage();
+posts.forEach(article);albums.forEach(gallery);pages.filter(p=>!guides.has(p.slug)&&p.slug!=='services').forEach(legacy);seo.guides.forEach(guidePage);servicesPage();contact();buildGlossary({save,rel,esc});buildCircuits({root,save,rel,esc,circuits:circuitSources});sitemapPage();
 
 const aliasRows=[];
 for(const [source,target] of Object.entries(data.migration.aliases || {})) {
