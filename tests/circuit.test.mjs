@@ -176,13 +176,16 @@ test('programme navigation and reservation disclosures work as native HTML contr
   assert.doesNotMatch(body, /\bonclick\s*=/i);
 });
 
-test('public tour content excludes prices, private booking data and unresolved refund promises', () => {
-  assert.match(plain(main(page())), /conditions d[’']annulation et de remboursement.*avant la confirmation de votre reservation/);
+test('public tour content preserves the approved 30-day deposit policy without prices or private data', () => {
+  const cancellation = plain(main(page()));
+  assert.match(cancellation, /plus de 30 jours avant la visite, l[’']acompte est integralement rembourse/);
+  assert.match(cancellation, /a 30 jours ou moins, l[’']acompte n[’']est pas remboursable/);
+  assert.doesNotMatch(cancellation, /conditions d[’']annulation et de remboursement.*avant la confirmation/);
   for (const html of [page(), hub()]) {
     const text = plain(main(html));
     assert.doesNotMatch(text, /€|\$|\b(?:eur|usd)\b|\d[\d., ]*\s*(?:vnd|dongs?)\b/);
     assert.doesNotMatch(html, /Ludovic|Salom[eé]|Coisne|260809LD|260809|09\/08\/2026|2026-08-09|26\/10\/2026/i);
-    assert.doesNotMatch(text, /\b\d+\s*%|non remboursable|\b(?:14|15|29|30) jours?\b/, 'Do not publish unresolved deposit or cancellation rules');
+    assert.doesNotMatch(text, /\b\d+\s*%|\b(?:14|15|29) jours?\b/, 'Do not restore the old conflicting cancellation schedule or a deposit percentage');
     for (const [, json] of html.matchAll(/<script\b[^>]*type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/g)) {
       const inspect = value => {
         if (!value || typeof value !== 'object') return;

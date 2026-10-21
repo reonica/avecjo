@@ -63,7 +63,7 @@
   ],
   "booking": [
     {"title": "Confirmation", "text": "Un acompte confirme votre réservation. Le solde est réglé le jour de la visite.", "open": true},
-    {"title": "Annulation et remboursement", "text": "Les conditions d’annulation et de remboursement vous sont précisées avant la confirmation de votre réservation.", "open": false},
+    {"title": "Annulation et remboursement", "text": "Pour une annulation plus de 30 jours avant la visite, l’acompte est intégralement remboursé. Pour une annulation à 30 jours ou moins, l’acompte n’est pas remboursable.", "open": false},
     {"title": "Météo", "text": "L’itinéraire peut être adapté en cas de conditions météorologiques exceptionnelles.", "open": true}
   ]
 }

@@ -22,9 +22,9 @@ Circuit content is separated from the renderer in structured JSON, ready for a f
 
 There is currently no circuit editor in the admin interface. Its existing article module remains unchanged. A future CMS module should edit these circuit JSON sources and run the shared build so the hub, detail pages, Hosting routes and sitemaps stay consistent. Do not treat circuits as blog articles or edit their generated HTML through the article editor.
 
-## Reservation terms awaiting clarification
+## Reservation terms
 
-The original confirmation contradicts itself about cancellation refunds and a non-refundable deposit; it also omits the exact 14-day boundary. The owner will clarify these rules. Until then, do not publish a cancellation-day schedule, deposit percentage, non-refundable-deposit promise or monetary amount. The page states only that cancellation and refund conditions are supplied before reservation confirmation. This is an honest public statement, not a promise of a specific refund policy.
+The owner clarified the cancellation policy on 21 October 2026: cancellation more than 30 days before the visit receives a full refund of the advance/deposit; at 30 days or less, the advance/deposit is not refunded. The public French wording explicitly covers the 30-day boundary and refers to the deposit, not the whole tour price. It replaces the contradictory schedule in the original booking confirmation. No deposit percentage or tour price is published.
 
 ## Build and update
 
