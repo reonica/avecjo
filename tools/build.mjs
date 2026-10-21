@@ -64,7 +64,7 @@ function header(slug, active) {
     <a class="brand" href="${rel(slug)}" aria-label="Avec Jo — Accueil">${image({image: site.logo, imageAlt: 'Avec Jo'}, slug, 'width="50" height="50"')}</a>
     <nav class="desktop-nav header-right" aria-label="Photos et contact">${nav('photo', 'Photos')}${nav('contact', 'Contact')}<a class="button button-primary" href="${rel(slug, 'contact')}">Parlons de votre voyage</a></nav>
     <a class="mobile-contact" href="${rel(slug, 'contact')}" aria-label="Contacter Joseph">${icon('phone')}</a>
-  </div><nav class="mobile-nav" id="mobile-navigation" aria-label="Navigation mobile" hidden>${nav('', 'Accueil')}${nav('circuits', 'Circuits')}${nav('blog', 'Blog')}${nav('gfv', 'Glossaire')}${nav('photo', 'Photos')}${nav('contact', 'Contact')}${categories.map(c => nav(c.slug, c.title)).join('')}<a class="button button-primary" href="${rel(slug, 'contact')}">Préparer mon voyage ${icon('arrow')}</a></nav></header>`;
+  </div><nav class="mobile-nav" id="mobile-navigation" aria-label="Navigation mobile" hidden>${nav('', 'Accueil')}${nav('circuits', 'Circuits')}${nav('blog', 'Blog')}${nav('gfv', 'Glossaire')}${nav('photo', 'Photos')}${nav('contact', 'Contact')}<a class="button button-primary" href="${rel(slug, 'contact')}">Préparer mon voyage ${icon('arrow')}</a></nav></header>`;
 }
 
 function footer(slug) {

@@ -189,26 +189,26 @@
   margin-bottom: 0;
 }
 
-.page-circuit .circuit-afternoon {
+.page-circuit .circuit-programme-illustrated {
   display: grid;
   grid-template-columns: minmax(0, 1fr) 260px;
   gap: 20px 32px;
   align-items: start;
 }
 
-.page-circuit .circuit-afternoon > p {
+.page-circuit .circuit-programme-illustrated > p {
   grid-column: 1;
   margin: 0;
 }
 
-.page-circuit .circuit-coffee {
+.page-circuit .circuit-programme-photo {
   grid-column: 2;
   grid-row: 1 / span 2;
   min-width: 0;
   margin: 0;
 }
 
-.page-circuit .circuit-coffee img {
+.page-circuit .circuit-programme-photo img {
   width: 100%;
   height: auto;
   aspect-ratio: 16 / 10;
@@ -216,7 +216,7 @@
   object-fit: cover;
 }
 
-.page-circuit .circuit-coffee figcaption {
+.page-circuit .circuit-programme-photo figcaption {
   margin-top: 7px;
   color: var(--muted);
   font-size: 12px;
@@ -225,7 +225,7 @@
   overflow-wrap: anywhere;
 }
 
-.page-circuit .circuit-coffee figcaption a {
+.page-circuit .circuit-programme-photo figcaption a {
   color: inherit;
   text-decoration: underline;
 }
@@ -361,14 +361,6 @@
 }
 
 @media (max-width: 760px) {
-  /* Keep the reading column clear; contact remains in the shared header and footer. */
-  .page-circuit .whatsapp-float,
-  .page-circuit #back-to-top,
-  .page-circuits .whatsapp-float,
-  .page-circuits #back-to-top {
-    display: none;
-  }
-
   .page-circuit .circuit-intro.container,
   .page-circuit .circuit-content.container,
   .page-circuit .circuit-hero figcaption {
@@ -446,12 +438,12 @@
     font-size: 16px;
   }
 
-  .page-circuit .circuit-afternoon {
+  .page-circuit .circuit-programme-illustrated {
     grid-template-columns: minmax(0, 1fr);
     gap: 20px;
   }
 
-  .page-circuit .circuit-coffee {
+  .page-circuit .circuit-programme-photo {
     grid-column: 1;
     grid-row: auto;
     width: min(100%, 460px);

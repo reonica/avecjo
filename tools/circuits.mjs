@@ -12,7 +12,7 @@ export function buildCircuits({ save, rel, esc, root = defaultRoot }) {
     if (!/^circuits\/[a-z0-9]+(?:-[a-z0-9]+)*$/.test(circuit.slug) || `${circuit.slug.split('/')[1]}.json` !== file) {
       throw new Error(`Invalid circuit slug: ${file}`);
     }
-    for (const photo of [circuit.hero, circuit.coffee]) {
+    for (const photo of [circuit.hero, circuit.programmePhoto]) {
       for (const source of [photo, ...photo.variants]) {
         if (!/^assets\/images\/[a-zA-Z0-9_-]+\.(?:jpg|jpeg|webp|avif)$/.test(source.src) || !fs.existsSync(path.join(root, source.src))) {
           throw new Error(`Missing circuit image: ${source.src}`);
@@ -40,19 +40,19 @@ export function buildCircuits({ save, rel, esc, root = defaultRoot }) {
     const paragraphs = items => items.map(paragraph => `<p>${esc(paragraph)}</p>`).join('\n');
     const list = items => items.map(item => `<li>${esc(item)}</li>`).join('');
     const sections = [['programme', 'Programme'], ['inclus', 'Inclus'], ['non-inclus', 'Non inclus'], ['conseils', 'Conseils pratiques'], ['reservation', 'Réservation']];
+    const programme = circuit.programme.map((section, index) => `<h3>${esc(section.title)}</h3>${index === circuit.programme.length - 1 ? `<div class="circuit-programme-illustrated">${paragraphs(section.paragraphs)}<figure class="circuit-programme-photo">${photo(circuit.programmePhoto)}<figcaption>${credit(circuit.programmePhoto)}</figcaption></figure></div>` : paragraphs(section.paragraphs)}`).join('\n');
     const body = `
       <header class="circuit-intro container">
-        <nav class="breadcrumbs" aria-label="Fil d’Ariane"><ol><li><a href="${asset('')}">Accueil</a></li><li aria-hidden="true">/</li><li><a href="${asset('circuits')}">Circuits</a></li><li aria-hidden="true">/</li><li><span aria-current="page">1 jour à Hanoi</span></li></ol></nav>
+        <nav class="breadcrumbs" aria-label="Fil d’Ariane"><ol><li><a href="${asset('')}">Accueil</a></li><li aria-hidden="true">/</li><li><a href="${asset('circuits')}">Circuits</a></li><li aria-hidden="true">/</li><li><span aria-current="page">${esc(circuit.breadcrumbTitle || circuit.title)}</span></li></ol></nav>
         <p class="eyebrow">Circuit privé · Hanoi</p><h1>${esc(circuit.title)}</h1>
         <p class="circuit-lead">${esc(circuit.intro)}</p>
-        <ul class="circuit-meta" aria-label="La journée en bref">${list(circuit.metadata)}</ul>
+        <ul class="circuit-meta" aria-label="La visite en bref">${list(circuit.metadata)}</ul>
       </header>
       <figure class="circuit-hero">${photo(circuit.hero, true)}<figcaption class="container">${credit(circuit.hero)}</figcaption></figure>
       <nav class="circuit-tabs" aria-label="Dans ce programme"><div class="container"><ul>${sections.map(([id, title]) => `<li><a href="#${id}">${title}</a></li>`).join('')}</ul></div></nav>
       <div class="circuit-content container">
         <section id="programme" class="circuit-programme" aria-labelledby="programme-title"><h2 id="programme-title">Votre programme</h2>
-          <h3>Le matin</h3>${paragraphs(circuit.morning)}
-          <h3>L’après-midi</h3><div class="circuit-afternoon">${paragraphs(circuit.afternoon)}<figure class="circuit-coffee">${photo(circuit.coffee)}<figcaption>${credit(circuit.coffee)}</figcaption></figure></div>
+          ${programme}
           <p class="circuit-ending">${esc(circuit.ending)}</p>
         </section>
         <div class="circuit-services">

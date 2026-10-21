@@ -736,6 +736,10 @@
         "destination": "/circuits/1-jour-a-hanoi/index.html"
       },
       {
+        "source": "/circuits/une-demi-journee-a-hanoi",
+        "destination": "/circuits/une-demi-journee-a-hanoi/index.html"
+      },
+      {
         "source": "/sitemap",
         "destination": "/sitemap/index.html"
       },

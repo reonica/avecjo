@@ -63,5 +63,77 @@
     "modifications": "Published Flickr/Commons thumbnails only; no local image editing.",
     "note": "Flickr publishes this endpoint as 640px; local decoded image is actually 639 x 427. Use 639w if using precise srcset width descriptors.",
     "ai_generated": false
+  },
+  {
+    "title": "Dong Xuan Market market in the Hanoi old quarter",
+    "subject": "Genuine daylight exterior of Đồng Xuân Market in Hanoi; cream facade, street and passing vehicles.",
+    "author": "shankar s.",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Dong_Xuan_Market_market_in_the_Hanoi_old_quarter_(30645886763).jpg",
+    "original_source_url": "https://www.flickr.com/photos/77742560@N06/30645886763/",
+    "photograph_date": "2016-11-01 (Commons supplied date); camera EXIF: 2016-10-28 11:10",
+    "retrieved_on": "2026-10-21",
+    "license": "CC BY 2.0",
+    "license_url": "https://creativecommons.org/licenses/by/2.0/",
+    "attribution_fr": "Photo : shankar s., CC BY 2.0, via Wikimedia Commons.",
+    "modifications": "Published Wikimedia/Flickr thumbnails only; no local image editing.",
+    "variants": [
+      {
+        "file": "assets/images/hanoi-dong-xuan-market-1280.jpg",
+        "bytes": 328800,
+        "width": 1280,
+        "height": 960,
+        "download_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Dong_Xuan_Market_market_in_the_Hanoi_old_quarter_%2830645886763%29.jpg/1280px-Dong_Xuan_Market_market_in_the_Hanoi_old_quarter_%2830645886763%29.jpg",
+        "sha256": "cbe8a752e2e389408c079211fda769f47cbe0ca10a7897fb6a5ba3298271de4f"
+      },
+      {
+        "file": "assets/images/hanoi-dong-xuan-market-960.jpg",
+        "bytes": 196831,
+        "width": 960,
+        "height": 720,
+        "download_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Dong_Xuan_Market_market_in_the_Hanoi_old_quarter_%2830645886763%29.jpg/960px-Dong_Xuan_Market_market_in_the_Hanoi_old_quarter_%2830645886763%29.jpg",
+        "sha256": "8ee30072338c98baeb93a9f6768d3138a010cd4a587438f26814f6e554270482"
+      },
+      {
+        "file": "assets/images/hanoi-dong-xuan-market-640.jpg",
+        "bytes": 107321,
+        "width": 640,
+        "height": 480,
+        "download_url": "https://live.staticflickr.com/5471/30645886763_af847d382e_z.jpg",
+        "sha256": "aa8fd51c0b1da6b15715ff64482da7ac4fb828c99c61b593632e8d37c5e41329"
+      }
+    ],
+    "ai_generated": false
+  },
+  {
+    "title": "Maison longue traditionnelle (4)",
+    "subject": "Genuine upper gallery and courtyard of the heritage house at 87 Mã Mây, Hanoi.",
+    "author": "Guerinf",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Maison_longue_traditionnelle_(4).jpg",
+    "original_source_url": "https://commons.wikimedia.org/wiki/User:Guerinf",
+    "photograph_date": "2016-05-02",
+    "retrieved_on": "2026-10-21",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "attribution_fr": "Photo : Guerinf, CC BY-SA 4.0, via Wikimedia Commons.",
+    "modifications": "Published Wikimedia thumbnails only; no local image editing.",
+    "variants": [
+      {
+        "file": "assets/images/hanoi-ma-may-house-960.jpg",
+        "bytes": 194694,
+        "width": 960,
+        "height": 720,
+        "download_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3c/Maison_longue_traditionnelle_%284%29.jpg/960px-Maison_longue_traditionnelle_%284%29.jpg",
+        "sha256": "a7bfca9a24f0662fedabcb218847d1ab0870241870f093d0e4f9e29850f79296"
+      },
+      {
+        "file": "assets/images/hanoi-ma-may-house-330.jpg",
+        "bytes": 31816,
+        "width": 330,
+        "height": 247,
+        "download_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3c/Maison_longue_traditionnelle_%284%29.jpg/330px-Maison_longue_traditionnelle_%284%29.jpg",
+        "sha256": "c6180501f1bf8ede2dba9b843780609cb774f04c9152c3d0ad254ddf30ade54e"
+      }
+    ],
+    "ai_generated": false
   }
 ]

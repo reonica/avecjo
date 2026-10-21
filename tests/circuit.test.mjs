@@ -9,8 +9,9 @@ import {buildCircuits} from '../tools/circuits.mjs';
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const hubSlug = 'circuits';
 const slug = 'circuits/1-jour-a-hanoi';
+const halfDaySlug = 'circuits/une-demi-journee-a-hanoi';
 const read = file => fs.readFileSync(path.join(root, file), 'utf8');
-const page = () => read(`${slug}/index.html`);
+const page = (route = slug) => read(`${route}/index.html`);
 const hub = () => read(`${hubSlug}/index.html`);
 const circuitSources = () => fs.readdirSync(path.join(root, 'content/circuits')).filter(file => file.endsWith('.json')).sort().map(file => JSON.parse(read(`content/circuits/${file}`)));
 const esc = value => String(value ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;'}[c]));
@@ -29,15 +30,21 @@ function afterHeading(html, label) {
 test('circuit generation preserves hub and tour routes with Hosting/SEO registration after rebuilds', async () => {
   const emitted = [];
   await buildCircuits({root, rel, esc, save: (...args) => emitted.push(args)});
-  const matches = emitted.filter(args => args[0] === slug);
-  assert.equal(matches.length, 1, 'The circuit builder must emit the route exactly once');
-  assert.ok(matches[0][3].includes('programme'));
+  const sources = circuitSources();
+  for (const expected of [slug, halfDaySlug]) {
+    assert.ok(sources.some(source => source.slug === expected), `Keep the owner-approved Hanoi tour: ${expected}`);
+  }
+  for (const source of sources) {
+    const matches = emitted.filter(args => args[0] === source.slug);
+    assert.equal(matches.length, 1, `Emit the circuit route exactly once: ${source.slug}`);
+    assert.ok(matches[0][3].includes('programme'));
+  }
   assert.deepEqual(emitted.map(args => args[0]).sort(), [hubSlug, ...circuitSources().map(circuit => circuit.slug)].sort(), 'Generate only the hub and actual JSON tours');
   assert.match(read('tools/build.mjs'), /buildCircuits\(\s*\{/, 'The main rebuild must invoke the circuit builder');
 
   const domain = JSON.parse(read('data/content.json')).site.domain.replace(/\/$/, '');
   const sitemapLinks = [...read('sitemap/index.html').matchAll(/<a\b[^>]*href="([^"]+)"/g)].map(match => new URL(match[1], `${domain}/sitemap/`).pathname.replace(/\/$/, ''));
-  for (const target of [hubSlug, slug]) {
+  for (const target of [hubSlug, ...sources.map(source => source.slug)]) {
     const url = `/${target}`;
     const html = read(`${target}/index.html`);
     assert.ok(html.includes(emitted.find(args => args[0] === target)[3]), `Generated HTML is stale: ${url}`);
@@ -67,13 +74,17 @@ test('the Circuits hub lists only source tours and stays discoverable from share
     assert.ok(heroPaths.includes(new URL(attr(photo, 'src'), base).pathname), 'The card must use a real source photograph or its responsive variant');
   }
   assert.match(html, /href="[^"\n]*assets\/circuit\.css\?v=/);
-  for (const file of ['index.html', 'blog/index.html', 'gfv/index.html', `${slug}/index.html`]) {
+  for (const file of ['index.html', 'blog/index.html', 'gfv/index.html', ...sources.map(source => `${source.slug}/index.html`)]) {
     const header = read(file).match(/<header class="site-header">([\s\S]*?)<\/header>/)?.[1] ?? '';
     const basePath = file === 'index.html' ? '/' : `/${path.dirname(file)}/`;
     assert.ok([...header.matchAll(/<a\b[^>]*href="([^"]+)"[^>]*>Circuits<\/a>/g)].some(match => new URL(match[1], `https://test.example${basePath}`).pathname.replace(/\/$/, '') === '/circuits'), `Shared navigation cannot reach the hub: ${file}`);
   }
-  const breadcrumb = main(page()).match(/<nav class="breadcrumbs"[^>]*>([\s\S]*?)<\/nav>/)?.[1] ?? '';
-  assert.ok([...breadcrumb.matchAll(/href="([^"]+)"/g)].some(match => new URL(match[1], 'https://test.example/circuits/1-jour-a-hanoi/').pathname.replace(/\/$/, '') === '/circuits'));
+  for (const source of sources) {
+    const breadcrumb = main(page(source.slug)).match(/<nav class="breadcrumbs"[^>]*>([\s\S]*?)<\/nav>/)?.[1] ?? '';
+    assert.ok([...breadcrumb.matchAll(/href="([^"]+)"/g)].some(match => new URL(match[1], `https://test.example/${source.slug}/`).pathname.replace(/\/$/, '') === '/circuits'));
+    const current = breadcrumb.match(/<span\b[^>]*aria-current="page"[^>]*>([\s\S]*?)<\/span>/)?.[1];
+    assert.equal(plain(current ?? ''), plain(source.breadcrumbTitle), `Use the current tour's own breadcrumb: ${source.slug}`);
+  }
   const json = [...html.matchAll(/<script\b[^>]*type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/g)].map(match => JSON.parse(match[1]));
   const nodes = json.flatMap(value => value['@graph'] ?? [value]);
   const collection = nodes.find(value => [value['@type']].flat().includes('CollectionPage'));
@@ -87,20 +98,21 @@ test('the Circuits hub lists only source tours and stays discoverable from share
 test('the hub aggregates additional JSON sources without requiring hard-coded tour cards', async () => {
   const fixtureRoot = fs.mkdtempSync(path.join(os.tmpdir(), 'avecjo-circuits-'));
   try {
-    const source = JSON.parse(read('content/circuits/1-jour-a-hanoi.json'));
-    const second = {...source, slug: 'circuits/itineraire-test', title: 'Un itinéraire de test'};
+    const sources = circuitSources();
+    const fixture = {...sources[0], slug: 'circuits/itineraire-test', title: 'Un itinéraire de test', breadcrumbTitle: 'Itinéraire de test'};
+    const all = [...sources, fixture];
     fs.mkdirSync(path.join(fixtureRoot, 'content/circuits'), {recursive: true});
     fs.symlinkSync(path.join(root, 'assets'), path.join(fixtureRoot, 'assets'), 'dir');
-    for (const circuit of [source, second]) {
+    for (const circuit of all) {
       fs.writeFileSync(path.join(fixtureRoot, 'content', `${circuit.slug}.json`), JSON.stringify(circuit));
     }
     const emitted = [];
     await buildCircuits({root: fixtureRoot, rel, esc, save: (...args) => emitted.push(args)});
-    assert.deepEqual(emitted.map(args => args[0]).sort(), [hubSlug, source.slug, second.slug].sort());
+    assert.deepEqual(emitted.map(args => args[0]).sort(), [hubSlug, ...all.map(source => source.slug)].sort());
     const body = emitted.find(args => args[0] === hubSlug)[3];
     const cards = [...body.matchAll(/<article\b[^>]*>([\s\S]*?)<\/article>/g)];
-    assert.equal(cards.length, 2);
-    for (const circuit of [source, second]) {
+    assert.equal(cards.length, all.length);
+    for (const circuit of all) {
       assert.ok(body.includes(esc(circuit.title)), circuit.slug);
       assert.ok(body.includes(`href="${rel(hubSlug, circuit.slug)}"`), circuit.slug);
     }
@@ -131,57 +143,105 @@ test('the tour preserves its seven programme times and the original service boun
   assert.doesNotMatch(text, /musee des femmes|pagode au pilier unique/);
 });
 
-test('the circuit has two local body photographs and uses the shared Avec Jo shell', () => {
-  const html = page();
-  const body = main(html);
-  const photos = [...body.matchAll(/<img\b[^>]*>/g)].map(match => match[0]);
-  assert.equal(photos.length, 2, 'Count programme photographs without shared header/footer logos');
-  for (const photo of photos) {
-    const source = attr(photo, 'src');
-    assert.ok(source && !/^(?:https?:|data:|\/\/)/i.test(source), 'Programme photographs must be local');
-    assert.doesNotMatch(source, /imagegen|dall[-_]?e|ai[-_]?generated|openai/i, 'Do not substitute generated pictures for real tour photographs');
-    assert.ok(attr(photo, 'alt')?.trim(), 'Programme photographs need meaningful alternative text');
-    const localPath = path.resolve(root, slug, source.split('?')[0]);
-    assert.ok(fs.existsSync(localPath), `Missing programme photograph: ${source}`);
+test('both tours use two distinct real local photographs and the shared Avec Jo shell', () => {
+  const allPhotoPaths = [];
+  for (const source of circuitSources()) {
+    const html = page(source.slug);
+    const body = main(html);
+    const photos = [...body.matchAll(/<img\b[^>]*>/g)].map(match => match[0]);
+    assert.equal(photos.length, 2, `Count programme photographs without shared header/footer logos: ${source.slug}`);
+    for (const photo of photos) {
+      const src = attr(photo, 'src');
+      assert.ok(src && !/^(?:https?:|data:|\/\/)/i.test(src), 'Programme photographs must be local');
+      assert.doesNotMatch(src, /imagegen|dall[-_]?e|ai[-_]?generated|openai/i, 'Do not substitute generated pictures for real tour photographs');
+      assert.ok(attr(photo, 'alt')?.trim(), 'Programme photographs need meaningful alternative text');
+      const localPath = path.resolve(root, source.slug, src.split('?')[0]);
+      assert.ok(fs.existsSync(localPath), `Missing programme photograph: ${src}`);
+      allPhotoPaths.push(localPath);
+    }
+    for (const photo of [source.hero, source.programmePhoto]) {
+      assert.match(photo.credit.source, /^https:\/\//, 'Keep the real photographs’ source attribution');
+      assert.ok(photo.credit.author && photo.credit.license && photo.credit.licenseUrl);
+      assert.ok(body.includes(esc(photo.credit.source)), 'Render the source attribution beside the photograph');
+    }
+    for (const marker of ['class="site-header"', 'class="site-footer"', 'class="skip-link"', 'id="main-content"', 'id="mobile-navigation"', 'class="whatsapp-float"', 'id="back-to-top"']) {
+      assert.ok(html.includes(marker), `Missing shared shell: ${marker} in ${source.slug}`);
+    }
+    assert.match(html, /href="[^"\n]*style\.css\?v=/);
+    assert.match(html, /href="[^"\n]*assets\/circuit\.css\?v=/);
   }
-  const source = JSON.parse(read('content/circuits/1-jour-a-hanoi.json'));
-  for (const photo of [source.hero, source.coffee]) {
-    assert.match(photo.credit.source, /^https:\/\/commons\.wikimedia\.org\/wiki\/File:/, 'Keep the current real photographs’ source attribution');
-    assert.ok(photo.credit.author && photo.credit.license && photo.credit.licenseUrl);
-  }
-  for (const marker of ['class="site-header"', 'class="site-footer"', 'class="skip-link"', 'id="main-content"', 'id="mobile-navigation"']) {
-    assert.ok(html.includes(marker), `Missing shared shell: ${marker}`);
-  }
-  assert.match(html, /href="[^"\n]*style\.css\?v=/);
-  assert.match(html, /href="[^"\n]*assets\/circuit\.css\?v=/);
+  assert.equal(new Set(allPhotoPaths).size, allPhotoPaths.length, 'The half-day tour must use different photographs from the full-day tour');
   for (const file of ['index.html', 'blog/index.html', 'gfv/index.html']) {
     assert.ok(!read(file).includes('assets/circuit.css'), `Circuit styles leaked into ${file}`);
   }
 });
 
+test('mobile navigation keeps the Circuits hub and shared contact controls without the three category links', () => {
+  for (const route of ['', 'blog', hubSlug, ...circuitSources().map(source => source.slug)]) {
+    const html = read(route ? `${route}/index.html` : 'index.html');
+    const menu = html.match(/<nav\b[^>]*id="mobile-navigation"[^>]*>([\s\S]*?)<\/nav>/)?.[1];
+    assert.ok(menu, `Missing mobile menu: ${route || '/'}`);
+    const links = [...menu.matchAll(/<a\b[^>]*href="([^"]+)"/g)].map(match => new URL(match[1], `https://test.example/${route ? `${route}/` : ''}`).pathname.replace(/\/$/, ''));
+    assert.ok(links.includes('/circuits'), 'Keep the main Circuits menu item');
+    for (const category of ['circuits-vietnam', 'conseils-voyage', 'incontournables-vietnam']) {
+      assert.ok(!links.includes(`/${category}`), `Remove the category from the mobile menu: ${category}`);
+    }
+    assert.match(html, /<a\b[^>]*class="whatsapp-float"[^>]*href="https:\/\/wa\.me\//);
+    assert.match(html, /<button\b[^>]*id="back-to-top"[^>]*type="button"/);
+  }
+});
+
+test('the half-day programme covers the supplied visits and both four-hour departure windows', () => {
+  const source = circuitSources().find(source => source.slug === halfDaySlug);
+  assert.ok(source);
+  const body = main(page(halfDaySlug));
+  const text = plain(body);
+  for (const stop of [/vieux quartier/, /(?:đong|dong) xuan/, /ma may/, /dessert/, /cafe/]) {
+    assert.match(text, stop, `Missing half-day visit: ${stop}`);
+  }
+  for (const window of ['09h00–13h00', '14h00–18h00']) {
+    assert.ok(text.includes(window), `Missing selectable half-day window: ${window}`);
+  }
+  const fullDay = circuitSources().find(source => source.slug === slug);
+  assert.deepEqual(source.booking, fullDay.booking, 'The new tour keeps the same confirmed reservation terms');
+  assert.match(plain(source.metadata.join(' ')), /hotel dans le vieux quartier/);
+  assert.match(plain(source.tips.find(tip => tip.title === 'Rendez-vous')?.text ?? ''), /hotel dans le vieux quartier/);
+});
+
+test('the full-day tour consistently starts from the hotel in the Old Quarter', () => {
+  const source = circuitSources().find(source => source.slug === slug);
+  assert.match(plain(source.metadata.join(' ')), /depart de votre hotel dans le vieux quartier/);
+  assert.match(plain(source.programme.flatMap(section => section.paragraphs).join(' ')), /hotel dans le vieux quartier/);
+  assert.match(plain(source.tips.find(tip => tip.title === 'Rendez-vous')?.text ?? ''), /hotel dans le vieux quartier/);
+});
+
 test('programme navigation and reservation disclosures work as native HTML controls', () => {
-  const html = page();
-  const body = main(html);
-  const ids = [...html.matchAll(/\bid="([^"]+)"/g)].map(match => match[1]);
-  assert.equal(new Set(ids).size, ids.length, 'Duplicate IDs break native anchor targets');
-  assert.match(body, /<a\b[^>]*href="#programme"/);
-  for (const [, target] of html.matchAll(/<a\b[^>]*href="#([^"]+)"/g)) {
-    assert.ok(ids.includes(target), `Broken native anchor: #${target}`);
+  for (const source of circuitSources()) {
+    const html = page(source.slug);
+    const body = main(html);
+    const ids = [...html.matchAll(/\bid="([^"]+)"/g)].map(match => match[1]);
+    assert.equal(new Set(ids).size, ids.length, 'Duplicate IDs break native anchor targets');
+    assert.match(body, /<a\b[^>]*href="#programme"/);
+    for (const [, target] of html.matchAll(/<a\b[^>]*href="#([^"]+)"/g)) {
+      assert.ok(ids.includes(target), `Broken native anchor: #${target}`);
+    }
+    assert.ok(ids.includes('reservation'));
+    const disclosures = [...body.matchAll(/<details\b[^>]*>([\s\S]*?)<\/details>/g)].map(match => match[1]);
+    for (const label of ['confirmation', 'annulation et remboursement', 'meteo']) {
+      assert.ok(disclosures.some(detail => plain(detail.match(/<summary\b[^>]*>([\s\S]*?)<\/summary>/)?.[1] ?? '') === label), `Missing native reservation disclosure: ${label}`);
+    }
+    assert.doesNotMatch(body, /\bonclick\s*=/i);
   }
-  assert.ok(ids.includes('reservation'));
-  const disclosures = [...body.matchAll(/<details\b[^>]*>([\s\S]*?)<\/details>/g)].map(match => match[1]);
-  for (const label of ['confirmation', 'annulation et remboursement', 'meteo']) {
-    assert.ok(disclosures.some(detail => plain(detail.match(/<summary\b[^>]*>([\s\S]*?)<\/summary>/)?.[1] ?? '') === label), `Missing native reservation disclosure: ${label}`);
-  }
-  assert.doesNotMatch(body, /\bonclick\s*=/i);
 });
 
 test('public tour content preserves the approved 30-day deposit policy without prices or private data', () => {
-  const cancellation = plain(main(page()));
-  assert.match(cancellation, /plus de 30 jours avant la visite, l[’']acompte est integralement rembourse/);
-  assert.match(cancellation, /a 30 jours ou moins, l[’']acompte n[’']est pas remboursable/);
-  assert.doesNotMatch(cancellation, /conditions d[’']annulation et de remboursement.*avant la confirmation/);
-  for (const html of [page(), hub()]) {
+  for (const source of circuitSources()) {
+    const cancellation = plain(main(page(source.slug)));
+    assert.match(cancellation, /plus de 30 jours avant la visite, l[’']acompte est integralement rembourse/);
+    assert.match(cancellation, /a 30 jours ou moins, l[’']acompte n[’']est pas remboursable/);
+    assert.doesNotMatch(cancellation, /conditions d[’']annulation et de remboursement.*avant la confirmation/);
+  }
+  for (const html of [...circuitSources().map(source => page(source.slug)), hub()]) {
     const text = plain(main(html));
     assert.doesNotMatch(text, /€|\$|\b(?:eur|usd)\b|\d[\d., ]*\s*(?:vnd|dongs?)\b/);
     assert.doesNotMatch(html, /Ludovic|Salom[eé]|Coisne|260809LD|260809|09\/08\/2026|2026-08-09|26\/10\/2026/i);

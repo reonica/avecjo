@@ -1,0 +1,136 @@
+{
+  "slug": "circuits/une-demi-journee-a-hanoi",
+  "title": "Une demi-journée à Hanoi",
+  "breadcrumbTitle": "Une demi-journée à Hanoi",
+  "seoTitle": "Hanoi en une demi-journée : balade privée dans le Vieux Quartier — Avec Jo",
+  "description": "Explorez le Vieux Quartier de Hanoi avec un guide francophone privé : marché de Đồng Xuân, ancienne maison de Mã Mây, dessert local et café hanoïen.",
+  "updatedOn": "2026-10-21",
+  "intro": "Prenez le temps de découvrir le Vieux Quartier de Hanoi à pied, avec votre guide francophone privé. Entre ruelles animées, marché de Đồng Xuân et ancienne maison de Mã Mây, cette balade se termine par une pause gourmande autour d’un dessert local et d’un café typique de Hanoi.",
+  "metadata": [
+    "Une demi-journée",
+    "09h00–13h00 ou 14h00–18h00",
+    "Départ de votre hôtel dans le Vieux Quartier"
+  ],
+  "hero": {
+    "src": "assets/images/hanoi-dong-xuan-market-1280.jpg",
+    "alt": "La façade du marché Đồng Xuân et la vie de rue dans le Vieux Quartier de Hanoi",
+    "width": 1280,
+    "height": 960,
+    "sizes": "100vw",
+    "variants": [
+      {
+        "src": "assets/images/hanoi-dong-xuan-market-640.jpg",
+        "width": 640
+      },
+      {
+        "src": "assets/images/hanoi-dong-xuan-market-960.jpg",
+        "width": 960
+      },
+      {
+        "src": "assets/images/hanoi-dong-xuan-market-1280.jpg",
+        "width": 1280
+      }
+    ],
+    "credit": {
+      "author": "shankar s.",
+      "source": "https://commons.wikimedia.org/wiki/File:Dong_Xuan_Market_market_in_the_Hanoi_old_quarter_(30645886763).jpg",
+      "license": "CC BY 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/2.0/"
+    }
+  },
+  "programme": [
+    {
+      "title": "Au fil des ruelles du Vieux Quartier",
+      "paragraphs": [
+        "Votre guide vous retrouve à votre hôtel dans le Vieux Quartier, à 09h00 ou à 14h00 selon le créneau choisi. Vous partez à pied à la découverte des rues commerçantes et de la vie quotidienne du quartier.",
+        "La balade vous mène au marché de Đồng Xuân. Au fil des étals, prenez le temps d’observer les échanges, les produits et l’animation de ce marché hanoïen."
+      ]
+    },
+    {
+      "title": "Une maison ancienne et une pause gourmande",
+      "paragraphs": [
+        "Vous poursuivez avec la visite de l’ancienne maison du 87 Mã Mây, une occasion de découvrir l’habitat traditionnel du Vieux Quartier et une autre facette de la vie hanoïenne.",
+        "Pour terminer la visite, installez-vous autour d’un dessert local et d’un café typique de Hanoi. Une dernière pause pour savourer la ville et échanger avec votre guide."
+      ]
+    }
+  ],
+  "programmePhoto": {
+    "src": "assets/images/hanoi-ma-may-house-960.jpg",
+    "alt": "La galerie en bois et la cour intérieure de la maison ancienne du 87 Mã Mây à Hanoi",
+    "width": 960,
+    "height": 720,
+    "sizes": "(max-width: 359px) calc(100vw - 32px), (max-width: 500px) calc(100vw - 40px), (max-width: 760px) 460px, 260px",
+    "variants": [
+      {
+        "src": "assets/images/hanoi-ma-may-house-330.jpg",
+        "width": 330
+      },
+      {
+        "src": "assets/images/hanoi-ma-may-house-960.jpg",
+        "width": 960
+      }
+    ],
+    "credit": {
+      "author": "Guerinf",
+      "source": "https://commons.wikimedia.org/wiki/File:Maison_longue_traditionnelle_(4).jpg",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+    }
+  },
+  "ending": "Fin de la visite vers 13h00 pour le départ du matin, ou vers 18h00 pour le départ de l’après-midi.",
+  "included": [
+    "Un guide francophone privé",
+    "Un dessert local",
+    "Un café typique de Hanoi"
+  ],
+  "excluded": [
+    "Les billets d’entrée",
+    "Les trajets en Grab ou en taxi",
+    "Les activités supplémentaires, comme le cyclo-pousse ou le spectacle de marionnettes sur l’eau",
+    "Les repas au restaurant",
+    "Les éventuels frais de paiement"
+  ],
+  "tips": [
+    {
+      "title": "Rendez-vous",
+      "text": "À votre hôtel dans le Vieux Quartier, à 09h00 ou à 14h00 selon le créneau choisi. L’heure est confirmée la veille."
+    },
+    {
+      "title": "Tenue",
+      "text": "Privilégiez des chaussures confortables pour la balade à pied."
+    },
+    {
+      "title": "À emporter",
+      "text": "Chapeau, lunettes, crème solaire et eau."
+    },
+    {
+      "title": "Sur place",
+      "text": "Prévoyez des dongs vietnamiens pour vos dépenses."
+    },
+    {
+      "title": "Applications utiles",
+      "text": "Grab, Google Maps et Google Translate."
+    },
+    {
+      "title": "Pourboire",
+      "text": "Facultatif, à votre discrétion."
+    }
+  ],
+  "booking": [
+    {
+      "title": "Confirmation",
+      "text": "Un acompte confirme votre réservation. Le solde est réglé le jour de la visite.",
+      "open": true
+    },
+    {
+      "title": "Annulation et remboursement",
+      "text": "Pour une annulation plus de 30 jours avant la visite, l’acompte est intégralement remboursé. Pour une annulation à 30 jours ou moins, l’acompte n’est pas remboursable.",
+      "open": false
+    },
+    {
+      "title": "Météo",
+      "text": "L’itinéraire peut être adapté en cas de conditions météorologiques exceptionnelles.",
+      "open": true
+    }
+  ]
+}
