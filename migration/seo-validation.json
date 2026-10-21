@@ -1,9 +1,9 @@
 {
-  "checkedAt": "2026-10-17T15:59:31.724Z",
+  "checkedAt": "2026-10-21T11:33:46.790Z",
   "passed": true,
   "counts": {
-    "structuredGraphs": 123,
-    "indexablePages": 123,
+    "structuredGraphs": 159,
+    "indexablePages": 159,
     "guidePages": 9,
     "keywordTargets": 9
   },

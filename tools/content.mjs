@@ -2,7 +2,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 
 const slugPattern = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
-const reserved = new Set(['admin', 'assets', 'content', 'data', 'tools', 'migration', 'blog', 'contact', 'photo', 'recherche', 'merci', 'sitemap', 'index', '404']);
+const reserved = new Set(['admin', 'assets', 'content', 'data', 'tools', 'migration', 'blog', 'gfv', 'contact', 'photo', 'recherche', 'merci', 'sitemap', 'index', '404']);
 
 export function validatePost(post, filename, data) {
   if (!slugPattern.test(post.slug || '') || reserved.has(post.slug)) throw new Error(`Invalid article slug: ${filename}`);
