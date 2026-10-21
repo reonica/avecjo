@@ -1,6 +1,6 @@
 {
-  "builtAt": "2026-10-21T11:33:46.135Z",
-  "pages": 159,
+  "builtAt": "2026-10-21T15:54:39.212Z",
+  "pages": 161,
   "posts": 28,
   "tags": 20,
   "aliases": 7,
@@ -164,6 +164,8 @@
     "/gfv/page/34",
     "/gfv/page/35",
     "/gfv/page/36",
+    "/circuits",
+    "/circuits/1-jour-a-hanoi",
     "/sitemap"
   ]
 }

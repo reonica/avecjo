@@ -36,7 +36,7 @@ test('new CMS article is loaded, ordered first and preserves HTML/tags used by t
 });
 
 test('article input cannot overwrite admin, traverse directories or use another page URL', () => {
-  for (const slug of ['../admin', 'admin', '/blog', 'a/b', 'contact', 'gfv', data.categories[0].slug]) {
+  for (const slug of ['../admin', 'admin', '/blog', 'a/b', 'contact', 'gfv', 'circuits', data.categories[0].slug]) {
     assert.throws(() => validatePost({...sample, slug}, `${slug}.json`, data));
   }
   assert.throws(() => validatePost(sample, 'renamed.json', data), /filename/);

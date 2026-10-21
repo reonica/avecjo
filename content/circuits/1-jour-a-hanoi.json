@@ -1,0 +1,69 @@
+{
+  "slug": "circuits/1-jour-a-hanoi",
+  "title": "Une journée à Hanoi",
+  "seoTitle": "Hanoi en 1 jour : visite privée avec un guide francophone — Avec Jo",
+  "description": "Découvrez Hanoi en une journée avec un guide francophone privé : rue du Train, Temple de la Littérature, Vieux Quartier et café à l’œuf.",
+  "updatedOn": "2026-10-21",
+  "intro": "Découvrez Hanoi au fil d’une journée, entre lieux d’histoire, ruelles animées et saveurs locales. Avec votre guide francophone privé, vous passez de la rue du Train au Temple de la Littérature, avant de terminer autour d’un café à l’œuf.",
+  "metadata": ["1 journée", "08h30–16h30", "Départ de votre hôtel"],
+  "hero": {
+    "src": "assets/images/hanoi-train-street-1280.jpg",
+    "alt": "La rue du Train à Hanoi, entre maisons, petits cafés et végétation",
+    "width": 1280,
+    "height": 854,
+    "sizes": "100vw",
+    "variants": [
+      {"src": "assets/images/hanoi-train-street-640.jpg", "width": 640},
+      {"src": "assets/images/hanoi-train-street-960.jpg", "width": 960},
+      {"src": "assets/images/hanoi-train-street-1280.jpg", "width": 1280}
+    ],
+    "credit": {
+      "author": "Rod Waddington",
+      "source": "https://commons.wikimedia.org/wiki/File:City_Tracks_(46513681164).jpg",
+      "license": "CC BY-SA 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/"
+    }
+  },
+  "morning": [
+    "À 08h30, votre guide vous retrouve à votre hôtel. La balade commence à pied vers la rue du Train, à Phùng Hưng, où vous aurez peut-être la chance de voir passer le train.",
+    "À 09h30, prenez place dans un cyclo-pousse pour découvrir les rues animées de Hanoi. La visite se poursuit à 10h30 au Temple de la Littérature, un lieu consacré au savoir et à l’éducation.",
+    "À 12h30, une pause dans un restaurant local permet de découvrir les saveurs hanoïennes, comme le bún chả ou le phở."
+  ],
+  "afternoon": [
+    "À 13h30, direction la place Ba Đình et le complexe du mausolée de Hô Chi Minh. À 15h00, vous retrouvez les ruelles du Vieux Quartier et ses 36 corporations, jusqu’à la cathédrale Saint-Joseph.",
+    "À 16h00, la journée se termine autour d’un café à l’œuf, une spécialité onctueuse de Hanoi."
+  ],
+  "coffee": {
+    "src": "assets/images/hanoi-egg-coffee-960.jpg",
+    "alt": "Trois tasses de café à l’œuf sur une table dans un café de Hanoi",
+    "width": 960,
+    "height": 641,
+    "sizes": "(max-width: 359px) calc(100vw - 32px), (max-width: 500px) calc(100vw - 40px), (max-width: 760px) 460px, 260px",
+    "variants": [
+      {"src": "assets/images/hanoi-egg-coffee-640.jpg", "width": 639},
+      {"src": "assets/images/hanoi-egg-coffee-960.jpg", "width": 960}
+    ],
+    "credit": {
+      "author": "mmmmngai@rogers.com",
+      "source": "https://commons.wikimedia.org/wiki/File:Vietnam-Hanoi-Egg_coffee-P1280590.jpg",
+      "license": "CC BY-SA 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/"
+    }
+  },
+  "ending": "Fin de la visite vers 16h00–16h30.",
+  "included": ["Un guide francophone privé", "Une dégustation de street food", "Une boisson"],
+  "excluded": ["Les billets d’entrée", "Les trajets en Grab ou en taxi", "La balade en cyclo-pousse", "Le spectacle de marionnettes sur l’eau", "Le déjeuner au restaurant", "Les éventuels frais de paiement"],
+  "tips": [
+    {"title": "Rendez-vous", "text": "À votre hôtel à 08h30. L’heure est confirmée la veille."},
+    {"title": "Tenue", "text": "Épaules et genoux couverts dans les lieux religieux."},
+    {"title": "À emporter", "text": "Chapeau, lunettes, crème solaire et eau."},
+    {"title": "Sur place", "text": "Prévoyez des dongs vietnamiens pour vos dépenses."},
+    {"title": "Applications utiles", "text": "Grab, Google Maps et Google Translate."},
+    {"title": "Pourboire", "text": "Facultatif, à votre discrétion."}
+  ],
+  "booking": [
+    {"title": "Confirmation", "text": "Un acompte confirme votre réservation. Le solde est réglé le jour de la visite.", "open": true},
+    {"title": "Annulation et remboursement", "text": "Les conditions d’annulation et de remboursement vous sont précisées avant la confirmation de votre réservation.", "open": false},
+    {"title": "Météo", "text": "L’itinéraire peut être adapté en cas de conditions météorologiques exceptionnelles.", "open": true}
+  ]
+}

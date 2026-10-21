@@ -728,6 +728,14 @@
         "destination": "/gfv/page/36/index.html"
       },
       {
+        "source": "/circuits",
+        "destination": "/circuits/index.html"
+      },
+      {
+        "source": "/circuits/1-jour-a-hanoi",
+        "destination": "/circuits/1-jour-a-hanoi/index.html"
+      },
+      {
         "source": "/sitemap",
         "destination": "/sitemap/index.html"
       },

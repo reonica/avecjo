@@ -1,0 +1,67 @@
+[
+  {
+    "title": "City Tracks",
+    "subject": "Genuine daytime Hanoi Train Street; railway tracks between homes and cafes with greenery. No train visible.",
+    "author": "Rod Waddington",
+    "source_url": "https://commons.wikimedia.org/wiki/File:City_Tracks_(46513681164).jpg",
+    "original_source_url": "https://www.flickr.com/photos/64607715@N05/46513681164",
+    "original_download_url": "https://upload.wikimedia.org/wikipedia/commons/6/60/City_Tracks_%2846513681164%29.jpg",
+    "license": "CC BY-SA 2.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/2.0/",
+    "attribution_fr": "Photo : « City Tracks », Rod Waddington, CC BY-SA 2.0, via Wikimedia Commons.",
+    "modifications": "Published Wikimedia thumbnails only; no local image editing.",
+    "variants": [
+      {
+        "file": "assets/images/hanoi-train-street-1280.jpg",
+        "bytes": 462403,
+        "width": 1280,
+        "height": 854,
+        "download_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/City_Tracks_%2846513681164%29.jpg/1280px-City_Tracks_%2846513681164%29.jpg"
+      },
+      {
+        "file": "assets/images/hanoi-train-street-960.jpg",
+        "bytes": 280453,
+        "width": 960,
+        "height": 641,
+        "download_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/City_Tracks_%2846513681164%29.jpg/960px-City_Tracks_%2846513681164%29.jpg"
+      },
+      {
+        "file": "assets/images/hanoi-train-street-640.jpg",
+        "bytes": 136943,
+        "width": 640,
+        "height": 427,
+        "download_url": "https://live.staticflickr.com/7868/46513681164_90acdf3b9f_z.jpg"
+      }
+    ],
+    "note": "Wikimedia rejects arbitrary 640,768,1440 widths. Genuine published 640,800,1600 Flickr image endpoints used for lightweight responsive variants; Commons1280/960 retained.",
+    "ai_generated": false
+  },
+  {
+    "subject": "Three cups of genuine Hanoi egg coffee",
+    "author": "mmmmngai@rogers.com",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Vietnam-Hanoi-Egg_coffee-P1280590.jpg",
+    "original_source_url": "https://www.flickr.com/photos/12720221@N08/38602439180/",
+    "license": "CC BY-SA 2.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/2.0/",
+    "attribution_fr": "Photo : mmmmngai@rogers.com, CC BY-SA 2.0, via Wikimedia Commons.",
+    "variants": [
+      {
+        "file": "assets/images/hanoi-egg-coffee-640.jpg",
+        "width": 639,
+        "height": 427,
+        "bytes": 85791,
+        "download_url": "https://live.staticflickr.com/4630/38602439180_dc50821550_z.jpg"
+      },
+      {
+        "file": "assets/images/hanoi-egg-coffee-960.jpg",
+        "width": 960,
+        "height": 641,
+        "bytes": 140809,
+        "download_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Vietnam-Hanoi-Egg_coffee-P1280590.jpg/960px-Vietnam-Hanoi-Egg_coffee-P1280590.jpg"
+      }
+    ],
+    "modifications": "Published Flickr/Commons thumbnails only; no local image editing.",
+    "note": "Flickr publishes this endpoint as 640px; local decoded image is actually 639 x 427. Use 639w if using precise srcset width descriptors.",
+    "ai_generated": false
+  }
+]

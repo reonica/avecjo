@@ -6,6 +6,7 @@ import { fileURLToPath } from 'node:url';
 import { structuredData } from './seo.mjs';
 import { loadContent } from './content.mjs';
 import { buildGlossary } from './glossary.mjs';
+import { buildCircuits } from './circuits.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const data = loadContent(root);
@@ -59,17 +60,17 @@ function header(slug, active) {
   const nav = (target, label) => `<a href="${rel(slug, target)}"${active === target ? ' aria-current="page"' : ''}>${label}</a>`;
   return `<header class="site-header"><div class="header-inner container">
     <button class="mobile-menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-navigation" aria-label="Ouvrir le menu">${icon('menu')}</button>
-    <nav class="desktop-nav header-left" aria-label="Navigation principale">${nav('', 'Accueil')}${nav('blog', 'Blog')}${nav('gfv', 'Glossaire')}</nav>
+    <nav class="desktop-nav header-left" aria-label="Navigation principale">${nav('', 'Accueil')}${nav('circuits', 'Circuits')}${nav('blog', 'Blog')}${nav('gfv', 'Glossaire')}</nav>
     <a class="brand" href="${rel(slug)}" aria-label="Avec Jo — Accueil">${image({image: site.logo, imageAlt: 'Avec Jo'}, slug, 'width="50" height="50"')}</a>
     <nav class="desktop-nav header-right" aria-label="Photos et contact">${nav('photo', 'Photos')}${nav('contact', 'Contact')}<a class="button button-primary" href="${rel(slug, 'contact')}">Parlons de votre voyage</a></nav>
     <a class="mobile-contact" href="${rel(slug, 'contact')}" aria-label="Contacter Joseph">${icon('phone')}</a>
-  </div><nav class="mobile-nav" id="mobile-navigation" aria-label="Navigation mobile" hidden>${nav('', 'Accueil')}${nav('blog', 'Blog')}${nav('gfv', 'Glossaire')}${nav('photo', 'Photos')}${nav('contact', 'Contact')}${categories.map(c => nav(c.slug, c.title)).join('')}<a class="button button-primary" href="${rel(slug, 'contact')}">Préparer mon voyage ${icon('arrow')}</a></nav></header>`;
+  </div><nav class="mobile-nav" id="mobile-navigation" aria-label="Navigation mobile" hidden>${nav('', 'Accueil')}${nav('circuits', 'Circuits')}${nav('blog', 'Blog')}${nav('gfv', 'Glossaire')}${nav('photo', 'Photos')}${nav('contact', 'Contact')}${categories.map(c => nav(c.slug, c.title)).join('')}<a class="button button-primary" href="${rel(slug, 'contact')}">Préparer mon voyage ${icon('arrow')}</a></nav></header>`;
 }
 
 function footer(slug) {
   return `<footer class="site-footer"><div class="container"><div class="footer-grid">
     <div class="footer-brand"><a href="${rel(slug)}" aria-label="Avec Jo — Accueil">${image({image:site.logo,imageAlt:'Avec Jo'},slug,'width="80" height="80" loading="lazy"')}</a><div><strong>Avec Jo</strong><p><a href="https://guidehanoi.com/">guide francophone nord vietnam</a></p></div></div>
-    <div class="footer-column"><h2>Explorer</h2><ul>${[['','Accueil'],['blog','Blog'],['gfv','Glossaire franco-vietnamien'],['photo','Photos'],['contact','Contact'],['guide-francophone-nord-vietnam','Voyager avec Jo'],['sitemap','Sitemap']].map(([p,l])=>`<li><a href="${rel(slug,p)}">${l}</a></li>`).join('')}</ul></div>
+    <div class="footer-column"><h2>Explorer</h2><ul>${[['','Accueil'],['circuits','Circuits'],['blog','Blog'],['gfv','Glossaire franco-vietnamien'],['photo','Photos'],['contact','Contact'],['guide-francophone-nord-vietnam','Voyager avec Jo'],['sitemap','Sitemap']].map(([p,l])=>`<li><a href="${rel(slug,p)}">${l}</a></li>`).join('')}</ul></div>
     <div class="footer-column"><h2>Le carnet de Jo</h2><ul>${['circuits-vietnam','incontournables-vietnam','conseils-voyage'].map(s=>`<li><a href="${rel(slug,s)}">${esc(cat(s)?.title || s)}</a></li>`).join('')}</ul></div>
     <div class="footer-column"><h2>Parlons de votre voyage</h2><ul><li><a href="mailto:${esc(site.email)}">${icon('mail')}${esc(site.email)}</a></li><li><a href="tel:${esc(site.phone)}">${icon('phone')}${phoneDisplay}</a></li><li><a href="https://www.google.com/maps/search/?api=1&amp;query=${encodeURIComponent(site.address)}" target="_blank" rel="noopener">${icon('pin')}${esc(site.address)}</a></li><li><a href="${esc(site.whatsapp)}" target="_blank" rel="noopener">${icon('whatsapp')}Écrire sur WhatsApp</a></li></ul></div>
   </div><div class="footer-bottom"><span>© ${pageDate.slice(0,4)} Avec Jo · Guidehanoi.com</span><a href="${rel(slug,'sitemap.xml')}">Sitemap XML</a><a href="${esc(site.social.instagram)}" target="_blank" rel="noopener">Instagram</a><a href="${esc(site.social.facebook)}" target="_blank" rel="noopener">Facebook</a><a href="${esc(site.social.youtube)}" target="_blank" rel="noopener">YouTube</a></div></div></footer>
@@ -83,7 +84,7 @@ function layout(slug, title, description, content, options = {}) {
   const json = JSON.stringify(structuredData({site,domain,slug,title,description:metaDescription,content,socialImage,schema:options.schema,seo,canonical})).replace(/</g, '\\u003c');
   return `<!doctype html>
 <html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="google-site-verification" content="EG0k_SSw6viD3gRz9u1X2a4xlwSmV0OzG6IynJLq-pU"><meta name="msvalidate.01" content="27875A8864644FC1CCFED6E968BE47A0"><meta name="theme-color" content="#305977"><meta name="color-scheme" content="light"><title>${esc(title)}</title><meta name="description" content="${esc(metaDescription)}"><link rel="canonical" href="${esc(canonical)}"><meta name="robots" content="${options.noindex ? 'noindex,follow' : 'index,follow'}"><meta property="og:type" content="${options.article?'article':'website'}"><meta property="og:title" content="${esc(title)}"><meta property="og:description" content="${esc(metaDescription)}"><meta property="og:url" content="${esc(canonical)}"><meta property="og:image" content="${esc(socialImage)}"><meta property="og:locale" content="fr_FR"><meta property="og:site_name" content="Avec Jo"><meta name="twitter:card" content="summary_large_image"><link rel="icon" href="${esc(rel(slug,site.logo))}" type="image/png"><link rel="stylesheet" href="${rel(slug,'style.css')}?v=${styleVersion}"><link rel="alternate" type="application/rss+xml" title="Le carnet de Jo" href="${rel(slug,'rss.xml')}"><script type="application/ld+json">${json}</script><script src="${rel(slug,'script.js')}?v=${scriptVersion}" defer></script></head>
-<body class="${esc(options.className || '')}"><a class="skip-link" href="#main-content">Aller au contenu</a>${header(slug,options.active ?? slug)}<main id="main-content" class="site-main">${content}</main>${footer(slug)}</body></html>\n`;
+<body class="${esc(options.className || '')}"><a class="skip-link" href="#main-content">Aller au contenu</a>${header(slug,options.active ?? slug)}<main id="main-content" class="site-main">${content}</main>${footer(slug)}</body></html>\n`.replace('</head>', `${(options.styles || []).map(file => `<link rel="stylesheet" href="${esc(rel(slug,file))}?v=${assetVersion(file)}">`).join('')}</head>`);
 }
 
 function save(slug, title, description, content, opts={}) {
@@ -223,7 +224,7 @@ function servicesPage() {
 function sitemapPage() {
   const slug='sitemap';
   const group=(title,items)=>`<section><h2>${title}</h2><ul>${items.map(x=>`<li><a href="${rel(slug,x.slug)}">${esc(x.title)}</a></li>`).join('')}</ul></section>`;
-  save(slug,'Sitemap — Toutes les pages du site Avec Jo','Retrouvez toutes les pages, articles, sujets et photos du site Avec Jo.',`<div class="container"><header class="page-heading">${crumb(slug,[{title:'Sitemap'}])}<h1>Le plan du site.</h1><p>Retrouvez toutes les pages et les articles d’Avec Jo.</p></header><div class="sitemap-grid">${group('Explorer',[{slug:'',title:'Accueil'},{slug:'blog',title:'Blog'},{slug:'gfv',title:'Glossaire franco-vietnamien'},{slug:'contact',title:'Contact'},{slug:'photo',title:'Photos'},...categories])}${group('Le carnet de Jo',posts)}${group('Photos & albums',albums)}${group('Accompagnement en français',seo.guides)}${group('Tous les sujets',tags.map(t=>({slug:`tag/${tagSlugs.get(t)}`,title:t})))}${group('Autres pages',pages.filter(p=>!guides.has(p.slug)).map(p=>({...p,title:p.seoTitle || p.title})))}</div><p>${arrowLink(slug,'sitemap.xml','Consulter le sitemap XML')}</p></div>`,{className:'page-sitemap'});
+  save(slug,'Sitemap — Toutes les pages du site Avec Jo','Retrouvez toutes les pages, articles, sujets et photos du site Avec Jo.',`<div class="container"><header class="page-heading">${crumb(slug,[{title:'Sitemap'}])}<h1>Le plan du site.</h1><p>Retrouvez toutes les pages et les articles d’Avec Jo.</p></header><div class="sitemap-grid">${group('Explorer',[{slug:'',title:'Accueil'},{slug:'circuits',title:'Circuits'},{slug:'blog',title:'Blog'},{slug:'gfv',title:'Glossaire franco-vietnamien'},{slug:'contact',title:'Contact'},{slug:'photo',title:'Photos'},...categories])}${group('Circuits avec Jo',[...generated].filter(([route])=>route.startsWith('circuits/')).map(([route,page])=>({slug:route,title:page.title.replace(/ — Avec Jo$/, '')})))}${group('Le carnet de Jo',posts)}${group('Photos & albums',albums)}${group('Accompagnement en français',seo.guides)}${group('Tous les sujets',tags.map(t=>({slug:`tag/${tagSlugs.get(t)}`,title:t})))}${group('Autres pages',pages.filter(p=>!guides.has(p.slug)).map(p=>({...p,title:p.seoTitle || p.title})))}</div><p>${arrowLink(slug,'sitemap.xml','Consulter le sitemap XML')}</p></div>`,{className:'page-sitemap'});
 }
 
 home();
@@ -231,7 +232,7 @@ archive('blog','Le Vietnam, de l’intérieur.','Découvrez le carnet de Jo : it
 archive('recherche','Rechercher dans le carnet de Jo','Retrouvez un lieu, un conseil ou une idée de voyage parmi les articles d’Avec Jo.');
 categories.forEach(c=>archive(c.slug,c.title,c.description,{category:c.slug,cover:c.image,descriptionHtml:c.descriptionHtml}));
 tags.forEach(t=>archive(`tag/${tagSlugs.get(t)}`,t,`Les articles liés au sujet « ${t} ».`,{tag:t}));
-posts.forEach(article);albums.forEach(gallery);pages.filter(p=>!guides.has(p.slug)&&p.slug!=='services').forEach(legacy);seo.guides.forEach(guidePage);servicesPage();contact();buildGlossary({save,rel,esc});sitemapPage();
+posts.forEach(article);albums.forEach(gallery);pages.filter(p=>!guides.has(p.slug)&&p.slug!=='services').forEach(legacy);seo.guides.forEach(guidePage);servicesPage();contact();buildGlossary({save,rel,esc});buildCircuits({root,save,rel,esc});sitemapPage();
 
 const aliasRows=[];
 for(const [source,target] of Object.entries(data.migration.aliases || {})) {

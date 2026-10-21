@@ -1,20 +1,20 @@
 {
-  "checkedAt": "2026-10-21T11:33:46.750Z",
+  "checkedAt": "2026-10-21T15:54:39.886Z",
   "passed": true,
   "counts": {
-    "htmlFiles": 167,
-    "localReferences": 8541,
-    "imageReferences": 1069,
-    "validFragmentAnchors": 160,
+    "htmlFiles": 169,
+    "localReferences": 9117,
+    "imageReferences": 1076,
+    "validFragmentAnchors": 167,
     "originalPublicPaths": 105,
     "posts": 28,
     "articleTextMatches": 28,
     "headings": 537,
     "tables": 9,
     "localImages": 83,
-    "xmlSitemapUrls": 159,
+    "xmlSitemapUrls": 161,
     "technicalApiPathsExcluded": 1,
-    "firebaseRewrites": 266,
+    "firebaseRewrites": 268,
     "firebaseRedirects": 14
   },
   "sourceLimitations": [

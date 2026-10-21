@@ -1,0 +1,748 @@
+/* Tour pages share the site's navigation, footer and self-hosted typefaces. */
+.page-circuit .site-main {
+  color: #424a4d;
+  background: var(--white);
+  font-size: 17px;
+  line-height: 1.75;
+}
+
+.page-circuit .circuit-intro.container,
+.page-circuit .circuit-content.container {
+  width: min(840px, calc(100% - 80px));
+}
+
+.page-circuit .circuit-intro {
+  padding-block: 30px 28px;
+}
+
+.page-circuit .circuit-intro .breadcrumbs {
+  margin-bottom: 24px;
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.page-circuit .circuit-intro .eyebrow {
+  margin-bottom: 12px;
+  color: var(--accent-ink);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: .055em;
+}
+
+.page-circuit .circuit-intro h1 {
+  margin: 0 0 14px;
+  font-size: 48px;
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: -.025em;
+  text-wrap: balance;
+}
+
+.page-circuit .circuit-lead {
+  max-width: 800px;
+  margin: 0 0 16px;
+  font-size: 17px;
+  line-height: 1.75;
+}
+
+.page-circuit .circuit-meta,
+.page-circuit .circuit-meta ul {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 6px 22px;
+  margin: 0;
+  padding: 0;
+  color: var(--muted);
+  list-style: none;
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+.page-circuit .circuit-meta li {
+  position: relative;
+}
+
+.page-circuit .circuit-meta li + li::before {
+  position: absolute;
+  left: -13px;
+  color: #98a1a6;
+  content: "\00b7";
+}
+
+.page-circuit .circuit-hero {
+  width: 100%;
+  margin: 0;
+  background: var(--white);
+}
+
+.page-circuit .circuit-hero picture {
+  display: block;
+}
+
+.page-circuit .circuit-hero img {
+  width: 100%;
+  height: auto;
+  min-height: 240px;
+  max-height: 440px;
+  aspect-ratio: 16 / 5;
+  object-fit: cover;
+  object-position: center 54%;
+  background: var(--cream);
+}
+
+.page-circuit .circuit-hero figcaption {
+  width: min(840px, calc(100% - 80px));
+  margin: 8px auto;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.5;
+  text-align: left;
+  overflow-wrap: anywhere;
+}
+
+.page-circuit .circuit-hero figcaption a {
+  color: inherit;
+  text-decoration: underline;
+}
+
+.page-circuit .circuit-tabs {
+  position: sticky;
+  z-index: 80;
+  top: var(--header-height);
+  border-bottom: 1px solid var(--line);
+  background: var(--white);
+}
+
+.page-circuit .circuit-tabs ul {
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  gap: 8px 28px;
+  width: max-content;
+  min-width: 100%;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.page-circuit .circuit-tabs a {
+  display: flex;
+  min-height: 54px;
+  align-items: center;
+  padding: 10px 2px 8px;
+  border-bottom: 2px solid transparent;
+  color: var(--navy-dark);
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.5;
+  white-space: nowrap;
+  text-decoration: none;
+}
+
+.page-circuit .circuit-tabs a:hover,
+.page-circuit .circuit-tabs a:focus-visible,
+.page-circuit .circuit-tabs a[aria-current="location"] {
+  border-bottom-color: var(--coral);
+}
+
+.page-circuit .circuit-tabs a:focus-visible {
+  outline-offset: -5px;
+}
+
+.page-circuit .circuit-content {
+  padding-block: 40px 64px;
+  overflow-wrap: break-word;
+}
+
+.page-circuit .circuit-content section[id] {
+  scroll-margin-top: 56px;
+}
+
+.page-circuit .circuit-content h2 {
+  margin: 0 0 24px;
+  font-size: 28px;
+  font-weight: 400;
+  line-height: 1.25;
+  letter-spacing: -.018em;
+}
+
+.page-circuit .circuit-content h3 {
+  margin: 30px 0 10px;
+  color: var(--navy-dark);
+  font-family: var(--sans);
+  font-size: 17px;
+  font-weight: 600;
+  line-height: 1.5;
+  letter-spacing: 0;
+}
+
+.page-circuit .circuit-content h2 + h3 {
+  margin-top: 0;
+}
+
+.page-circuit .circuit-content p {
+  margin: 0 0 20px;
+}
+
+.page-circuit .circuit-content p:last-child {
+  margin-bottom: 0;
+}
+
+.page-circuit .circuit-afternoon {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 260px;
+  gap: 20px 32px;
+  align-items: start;
+}
+
+.page-circuit .circuit-afternoon > p {
+  grid-column: 1;
+  margin: 0;
+}
+
+.page-circuit .circuit-coffee {
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  min-width: 0;
+  margin: 0;
+}
+
+.page-circuit .circuit-coffee img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 10;
+  border-radius: 4px;
+  object-fit: cover;
+}
+
+.page-circuit .circuit-coffee figcaption {
+  margin-top: 7px;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.5;
+  text-align: left;
+  overflow-wrap: anywhere;
+}
+
+.page-circuit .circuit-coffee figcaption a {
+  color: inherit;
+  text-decoration: underline;
+}
+
+.page-circuit .circuit-content .circuit-ending {
+  margin-top: 20px;
+  color: var(--muted);
+  font-size: 15px;
+  font-style: italic;
+}
+
+.page-circuit .circuit-services {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 36px 64px;
+  margin-top: 48px;
+}
+
+.page-circuit .circuit-services h2 {
+  margin-bottom: 20px;
+}
+
+.page-circuit .circuit-inclusions,
+.page-circuit .circuit-exclusions {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+  padding-left: 23px;
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+.page-circuit .circuit-inclusions {
+  list-style-type: "\2713\0020\0020";
+}
+
+.page-circuit .circuit-exclusions {
+  list-style-type: "\2013\0020\0020";
+}
+
+.page-circuit .circuit-inclusions li::marker {
+  color: var(--navy);
+}
+
+.page-circuit .circuit-exclusions li::marker {
+  color: var(--muted);
+}
+
+.page-circuit #conseils,
+.page-circuit .circuit-booking {
+  margin-top: 48px;
+}
+
+.page-circuit .circuit-tips {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px 48px;
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+.page-circuit .circuit-tips > div {
+  min-width: 0;
+}
+
+.page-circuit .circuit-tips dt {
+  margin-bottom: 3px;
+  color: var(--navy-dark);
+  font-weight: 600;
+}
+
+.page-circuit .circuit-tips dd {
+  margin: 0;
+}
+
+.page-circuit .circuit-tips a,
+.page-circuit .circuit-booking p a {
+  text-decoration: underline;
+  overflow-wrap: anywhere;
+}
+
+.page-circuit .circuit-booking h2 {
+  margin-bottom: 16px;
+}
+
+.page-circuit .circuit-booking details {
+  border-top: 1px solid var(--line);
+  font-size: 15px;
+  line-height: 1.75;
+}
+
+.page-circuit .circuit-booking details:last-child {
+  border-bottom: 1px solid var(--line);
+}
+
+.page-circuit .circuit-booking summary {
+  display: flex;
+  min-height: 52px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding-block: 12px;
+  color: var(--navy-dark);
+  font-weight: 500;
+  line-height: 1.6;
+  list-style: none;
+  cursor: pointer;
+}
+
+.page-circuit .circuit-booking summary::-webkit-details-marker {
+  display: none;
+}
+
+.page-circuit .circuit-booking summary::after {
+  flex: 0 0 16px;
+  color: var(--muted);
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 1;
+  text-align: center;
+  content: "+";
+}
+
+.page-circuit .circuit-booking details[open] > summary::after {
+  content: "\2212";
+}
+
+.page-circuit .circuit-booking details > p {
+  max-width: 760px;
+  margin: 0 0 20px;
+  padding-right: 28px;
+}
+
+@media (max-width: 760px) {
+  /* Keep the reading column clear; contact remains in the shared header and footer. */
+  .page-circuit .whatsapp-float,
+  .page-circuit #back-to-top,
+  .page-circuits .whatsapp-float,
+  .page-circuits #back-to-top {
+    display: none;
+  }
+
+  .page-circuit .circuit-intro.container,
+  .page-circuit .circuit-content.container,
+  .page-circuit .circuit-hero figcaption {
+    width: calc(100% - 40px);
+  }
+
+  .page-circuit .circuit-intro {
+    padding-block: 24px;
+  }
+
+  .page-circuit .circuit-intro .breadcrumbs {
+    margin-bottom: 20px;
+    font-size: 11px;
+  }
+
+  .page-circuit .circuit-intro h1 {
+    margin-bottom: 14px;
+    font-size: 36px;
+    line-height: 1.15;
+  }
+
+  .page-circuit .circuit-lead {
+    font-size: 16px;
+    line-height: 1.75;
+  }
+
+  .page-circuit .circuit-meta,
+  .page-circuit .circuit-meta ul {
+    font-size: 12px;
+  }
+
+  .page-circuit .circuit-hero img {
+    min-height: 0;
+    max-height: 320px;
+    aspect-ratio: 16 / 9;
+  }
+
+  .page-circuit .circuit-tabs {
+    position: static;
+  }
+
+  .page-circuit .circuit-tabs > .container {
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scrollbar-width: thin;
+  }
+
+  .page-circuit .circuit-tabs ul {
+    justify-content: flex-start;
+    gap: 24px;
+  }
+
+  .page-circuit .circuit-tabs a {
+    min-height: 48px;
+    padding-block: 10px 8px;
+    font-size: 12px;
+  }
+
+  .page-circuit .circuit-content {
+    padding-block: 32px 48px;
+    font-size: 16px;
+  }
+
+  .page-circuit .circuit-content section[id] {
+    scroll-margin-top: 0;
+  }
+
+  .page-circuit .circuit-content h2 {
+    margin-bottom: 20px;
+    font-size: 27px;
+  }
+
+  .page-circuit .circuit-content h3 {
+    margin-top: 28px;
+    font-size: 16px;
+  }
+
+  .page-circuit .circuit-afternoon {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 20px;
+  }
+
+  .page-circuit .circuit-coffee {
+    grid-column: 1;
+    grid-row: auto;
+    width: min(100%, 460px);
+    margin-top: 4px;
+  }
+
+  .page-circuit .circuit-services {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 32px;
+    margin-top: 36px;
+  }
+
+  .page-circuit .circuit-inclusions,
+  .page-circuit .circuit-exclusions {
+    gap: 9px;
+    font-size: 16px;
+  }
+
+  .page-circuit #conseils,
+  .page-circuit .circuit-booking {
+    margin-top: 36px;
+  }
+
+  .page-circuit .circuit-tips {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 18px;
+  }
+
+  .page-circuit .circuit-booking summary {
+    min-height: 52px;
+    gap: 16px;
+  }
+
+  .page-circuit .circuit-booking details > p {
+    padding-right: 0;
+  }
+}
+
+@media (max-width: 359px) {
+  .page-circuit .circuit-intro.container,
+  .page-circuit .circuit-content.container,
+  .page-circuit .circuit-hero figcaption {
+    width: calc(100% - 32px);
+  }
+
+  .page-circuit .circuit-intro h1 {
+    font-size: 32px;
+  }
+
+  .page-circuit .circuit-content h2 {
+    font-size: 25px;
+  }
+
+  .page-circuit .circuit-meta,
+  .page-circuit .circuit-meta ul {
+    column-gap: 18px;
+  }
+
+  .page-circuit .circuit-meta li + li::before {
+    left: -11px;
+  }
+}
+
+@media print {
+  .page-circuit .circuit-intro.container,
+  .page-circuit .circuit-content.container {
+    width: 100%;
+  }
+
+  .page-circuit .circuit-intro {
+    padding-top: 0;
+  }
+
+  .page-circuit .circuit-tabs {
+    display: none;
+  }
+
+  .page-circuit .circuit-content {
+    padding-block: 24px 0;
+    font-size: 11pt;
+  }
+
+  .page-circuit .circuit-hero img {
+    min-height: 0;
+    max-height: 180px;
+  }
+
+  .page-circuit .circuit-services,
+  .page-circuit .circuit-tips {
+    break-inside: avoid;
+  }
+}
+
+/* The circuits index lists only programmes supplied by Jo. */
+.page-circuits .site-main {
+  color: #424a4d;
+  background: var(--white);
+  font-size: 17px;
+  line-height: 1.75;
+}
+
+.page-circuits .circuits-intro.container,
+.page-circuits .circuits-list.container {
+  width: min(1040px, calc(100% - 80px));
+}
+
+.page-circuits .circuits-intro {
+  padding-block: 32px 40px;
+}
+
+.page-circuits .circuits-intro .breadcrumbs {
+  margin-bottom: 28px;
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.page-circuits .circuits-intro h1 {
+  margin-bottom: 16px;
+  font-size: 48px;
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: -.025em;
+  text-wrap: balance;
+}
+
+.page-circuits .circuits-intro > p {
+  max-width: 760px;
+  margin: 0;
+  font-size: 17px;
+  line-height: 1.75;
+}
+
+.page-circuits .circuits-intro > .eyebrow {
+  margin-bottom: 12px;
+  color: var(--accent-ink);
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+.page-circuits .circuits-list {
+  display: grid;
+  gap: 36px;
+  padding-bottom: 72px;
+}
+
+.page-circuits .circuit-card {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
+  align-items: center;
+  gap: 40px;
+  min-width: 0;
+}
+
+.page-circuits .circuit-card + .circuit-card {
+  padding-top: 36px;
+  border-top: 1px solid var(--line);
+}
+
+.page-circuits .circuit-card-photo {
+  display: block;
+  min-width: 0;
+  align-self: start;
+}
+
+.page-circuits .circuit-card-photo img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 3 / 2;
+  border-radius: 4px;
+  object-fit: cover;
+  object-position: center;
+  background: var(--cream);
+}
+
+.page-circuits .circuit-card-copy {
+  min-width: 0;
+  overflow-wrap: break-word;
+}
+
+.page-circuits .circuit-card-copy .eyebrow {
+  margin: 0 0 10px;
+  color: var(--accent-ink);
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: .055em;
+}
+
+.page-circuits .circuit-card-copy h2 {
+  margin: 0 0 14px;
+  font-size: 34px;
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: -.018em;
+}
+
+.page-circuits .circuit-card-copy h2 a {
+  color: inherit;
+}
+
+.page-circuits .circuit-card-copy > p:not(.eyebrow) {
+  margin: 0 0 12px;
+  font-size: 16px;
+  line-height: 1.75;
+}
+
+.page-circuits .circuit-card-copy .text-link {
+  min-height: 44px;
+  padding-block: 10px;
+  color: var(--navy);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.6;
+}
+
+.page-circuits .circuit-card figcaption,
+.page-circuits .circuit-card-credit {
+  margin: 8px 0 0;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.5;
+  text-align: left;
+  overflow-wrap: anywhere;
+}
+
+.page-circuits .circuit-card figcaption a,
+.page-circuits .circuit-card-credit a {
+  color: inherit;
+  text-decoration: underline;
+}
+
+@media (max-width: 760px) {
+  .page-circuits .circuits-intro.container,
+  .page-circuits .circuits-list.container {
+    width: calc(100% - 40px);
+  }
+
+  .page-circuits .circuits-intro {
+    padding-block: 24px 30px;
+  }
+
+  .page-circuits .circuits-intro .breadcrumbs {
+    margin-bottom: 24px;
+    font-size: 11px;
+  }
+
+  .page-circuits .circuits-intro h1 {
+    font-size: 36px;
+    line-height: 1.15;
+  }
+
+  .page-circuits .circuits-intro > p {
+    font-size: 16px;
+  }
+
+  .page-circuits .circuits-list {
+    gap: 30px;
+    padding-bottom: 48px;
+  }
+
+  .page-circuits .circuit-card {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 22px;
+  }
+
+  .page-circuits .circuit-card + .circuit-card {
+    padding-top: 30px;
+  }
+
+  .page-circuits .circuit-card-photo img {
+    aspect-ratio: 16 / 9;
+  }
+
+  .page-circuits .circuit-card-copy h2 {
+    margin-bottom: 12px;
+    font-size: 30px;
+  }
+}
+
+@media (max-width: 359px) {
+  .page-circuits .circuits-intro.container,
+  .page-circuits .circuits-list.container {
+    width: calc(100% - 32px);
+  }
+
+  .page-circuits .circuits-intro h1 {
+    font-size: 32px;
+  }
+
+  .page-circuits .circuit-card-copy h2 {
+    font-size: 28px;
+  }
+}
