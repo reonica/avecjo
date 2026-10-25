@@ -60,7 +60,7 @@ export function buildGlossary({ save, rel, esc }) {
         <div data-gfv-static><p class="gf-static-count">${words.length} mots · Page ${page} / ${total}</p><noscript><p>Parcourez le glossaire avec les liens de pagination. Activez JavaScript pour rechercher, filtrer et enregistrer vos mots.</p></noscript><div class="gf-static-grid">${words.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE).map(card).join('')}</div>${pager(slug, page)}</div>
         <p class="gf-source">Un lexique français–vietnamien pour le voyage, la culture et la vie quotidienne.</p>
       </div><script src="${esc(asset(slug, 'assets/gfv.js'))}" defer></script>`;
-    save(slug, title, description, content, { active: 'gfv', className: 'glossary-page', styles: ['assets/gfv.css'] });
+    save(slug, title, description, content, { active: 'gfv', className: 'glossary-page', styles: ['assets/gfv.css'], inlineStyles: true });
   }
   return { entries: words.length, pages: total, pageSize: PAGE_SIZE };
 }

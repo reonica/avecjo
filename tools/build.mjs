@@ -37,7 +37,7 @@ const icons = {
   search: '<circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/>',
   whatsapp: '<path d="M20.3 3.7A10 10 0 0 0 3.5 15.4L2 22l6.7-1.5A10 10 0 0 0 20.3 3.7Z"/><path d="M8 7.5c-.7 0-1.5 1.3-1.5 2.2 0 2.7 3.4 6.2 6.6 7 .9.2 2.5-.7 2.7-1.5.2-.8.1-.9-.4-1.1l-2-1-.8.9c-.4.3-2.9-1.8-2.7-2.2l.6-1-1.1-2.7c-.2-.5-.5-.6-1.4-.6Z"/>',
 };
-const icon = name => `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${icons[name] || icons.arrow}</svg>`;
+const icon = name => `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${icons[name] || icons.arrow}</svg>`;
 const rel = (slug, destination = '') => `${slug ? '../'.repeat(slug.split('/').filter(Boolean).length) : './'}${String(destination).replace(/^\/+/, '')}`;
 const absolute = p => `${domain}/${String(p).replace(/^\/+/, '')}`;
 const image = (p, slug, opts = '') => p ? `<img src="${esc(rel(slug, p.image || p.src || p))}" alt="${esc(p.imageAlt || p.alt || p.title || '')}" ${opts}>` : '';
@@ -83,9 +83,19 @@ function layout(slug, title, description, content, options = {}) {
   const socialImage = absolute(options.image || site.hero);
   const metaDescription = limit(description || site.description,170);
   const json = JSON.stringify(structuredData({site,domain,slug,title,description:metaDescription,content,socialImage,schema:options.schema,seo,canonical,lastmod:options.lastmod})).replace(/</g, '\\u003c');
+  const stylesheet = file => `<link rel="stylesheet" href="${esc(rel(slug,file))}?v=${file === 'style.css' ? styleVersion : assetVersion(file)}">`;
+  const styleFiles = ['style.css', ...(options.styles || [])];
+  // GFV must be styled before its first paint, even when external CSS is slow.
+  // Keep font loading separate: an @import would delay the embedded rules too.
+  const styles = options.inlineStyles
+    ? stylesheet('assets/fonts/fonts.css') + styleFiles.map(file => {
+      const css = fs.readFileSync(path.join(root,file),'utf8').replace(/^@import url\("\.\/assets\/fonts\/fonts\.css"\);\s*/, '');
+      return `<style data-source="${esc(rel(slug,file))}?v=${assetVersion(file)}">${css}</style>`;
+    }).join('')
+    : styleFiles.map(stylesheet).join('');
   return `<!doctype html>
-<html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="google-site-verification" content="EG0k_SSw6viD3gRz9u1X2a4xlwSmV0OzG6IynJLq-pU"><meta name="msvalidate.01" content="27875A8864644FC1CCFED6E968BE47A0"><meta name="theme-color" content="#305977"><meta name="color-scheme" content="light"><title>${esc(title)}</title><meta name="description" content="${esc(metaDescription)}"><link rel="canonical" href="${esc(canonical)}"><meta name="robots" content="${options.noindex ? 'noindex,follow' : 'index,follow'}"><meta property="og:type" content="${options.article?'article':'website'}"><meta property="og:title" content="${esc(title)}"><meta property="og:description" content="${esc(metaDescription)}"><meta property="og:url" content="${esc(canonical)}"><meta property="og:image" content="${esc(socialImage)}"><meta property="og:locale" content="fr_FR"><meta property="og:site_name" content="Avec Jo"><meta name="twitter:card" content="summary_large_image"><link rel="icon" href="${esc(rel(slug,site.logo))}" type="image/png"><link rel="stylesheet" href="${rel(slug,'style.css')}?v=${styleVersion}"><link rel="alternate" type="application/rss+xml" title="Le carnet de Jo" href="${rel(slug,'rss.xml')}"><script type="application/ld+json">${json}</script><script src="${rel(slug,'script.js')}?v=${scriptVersion}" defer></script></head>
-<body class="${esc(options.className || '')}"><a class="skip-link" href="#main-content">Aller au contenu</a>${header(slug,options.active ?? slug)}<main id="main-content" class="site-main">${content}</main>${footer(slug)}</body></html>\n`.replace('</head>', `${(options.styles || []).map(file => `<link rel="stylesheet" href="${esc(rel(slug,file))}?v=${assetVersion(file)}">`).join('')}</head>`);
+<html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="google-site-verification" content="EG0k_SSw6viD3gRz9u1X2a4xlwSmV0OzG6IynJLq-pU"><meta name="msvalidate.01" content="27875A8864644FC1CCFED6E968BE47A0"><meta name="theme-color" content="#305977"><meta name="color-scheme" content="light"><title>${esc(title)}</title><meta name="description" content="${esc(metaDescription)}"><link rel="canonical" href="${esc(canonical)}"><meta name="robots" content="${options.noindex ? 'noindex,follow' : 'index,follow'}"><meta property="og:type" content="${options.article?'article':'website'}"><meta property="og:title" content="${esc(title)}"><meta property="og:description" content="${esc(metaDescription)}"><meta property="og:url" content="${esc(canonical)}"><meta property="og:image" content="${esc(socialImage)}"><meta property="og:locale" content="fr_FR"><meta property="og:site_name" content="Avec Jo"><meta name="twitter:card" content="summary_large_image"><link rel="icon" href="${esc(rel(slug,site.logo))}" type="image/png">${styles}<link rel="alternate" type="application/rss+xml" title="Le carnet de Jo" href="${rel(slug,'rss.xml')}"><script type="application/ld+json">${json}</script><script src="${rel(slug,'script.js')}?v=${scriptVersion}" defer></script></head>
+<body class="${esc(options.className || '')}"><a class="skip-link" href="#main-content">Aller au contenu</a>${header(slug,options.active ?? slug)}<main id="main-content" class="site-main">${content}</main>${footer(slug)}</body></html>\n`;
 }
 
 function save(slug, title, description, content, opts={}) {
@@ -286,6 +296,7 @@ const firebaseConfig={
       {source:'**',headers:[{key:'X-Content-Type-Options',value:'nosniff'},{key:'Referrer-Policy',value:'strict-origin-when-cross-origin'}]},
       {source:'/assets/**',headers:[{key:'Cache-Control',value:'public, max-age=2592000'}]},
       {source:'**/*.@(js|css)',headers:[{key:'Cache-Control',value:'public, max-age=0, must-revalidate'}]},
+      ...['/gfv','/gfv/**'].map(source=>({source,headers:[{key:'Cache-Control',value:'no-cache, max-age=0, must-revalidate'}]})),
       ...['/admin','/admin/**'].map(source=>({source,headers:[{key:'Cache-Control',value:'no-store'},{key:'X-Robots-Tag',value:'noindex, nofollow'},{key:'Cross-Origin-Opener-Policy',value:'same-origin-allow-popups'}]})),
       {source:'/admin/vendor/**',headers:[{key:'Cache-Control',value:'public, max-age=31536000, immutable'}]}
     ]
