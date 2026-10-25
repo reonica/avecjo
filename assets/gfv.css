@@ -5,6 +5,8 @@
 .gf-app .gf-intro-vi { margin:16px 0 10px; color:var(--accent-ink); font-size:15px; font-weight:500; }
 .gf-app .gf-load-status:empty { display:none; }
 .gf-app .gf-load-status { margin-bottom:22px; color:var(--gf-muted); font-size:14px; }
+.gfv-loading .gf-app [data-gfv-static] { display:none; }
+.gfv-loading .gf-app .gf-load-status { display:flex; align-items:center; justify-content:center; min-height:clamp(280px,45vh,440px); text-align:center; }
 .gf-app .gf-toolbar { display:grid; grid-template-columns:minmax(0,1.16fr) minmax(0,1fr); gap:12px 24px; border-block:1px solid var(--gf-line); padding:22px 0; margin:0 0 30px; }
 .gf-app .gf-search-label { grid-column:1; display:block; font-size:12px; font-weight:600; color:var(--gf-muted); }
 .gf-app .gf-search-wrap { position:relative; grid-column:1; display:flex; align-items:center; background:var(--gf-paper); border:1px solid var(--gf-line); border-radius:var(--radius); padding:0 14px; min-width:0; min-height:50px; }

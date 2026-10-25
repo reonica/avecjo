@@ -417,6 +417,7 @@
     render('replace');
     fallback.hidden = true;
     app.hidden = false;
+    document.documentElement.classList.remove('gfv-loading');
     loadStatus.textContent = '';
   }
   loadStatus.textContent = 'Chargement de la recherche et des filtres…';
@@ -428,6 +429,7 @@
     }).catch(() => {
       if (app) app.remove();
       fallback.hidden = false;
+      document.documentElement.classList.remove('gfv-loading');
       loadStatus.textContent = 'La recherche n’a pas pu être chargée. Vous pouvez lire les mots et parcourir les pages ci-dessous. Actualisez la page pour réessayer.';
     });
 })();

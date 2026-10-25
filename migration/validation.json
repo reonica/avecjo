@@ -1,9 +1,9 @@
 {
-  "checkedAt": "2026-10-21T17:09:39.690Z",
+  "checkedAt": "2026-10-25T12:38:43.623Z",
   "passed": true,
   "counts": {
     "htmlFiles": 170,
-    "localReferences": 8690,
+    "localReferences": 8364,
     "imageReferences": 1081,
     "validFragmentAnchors": 173,
     "originalPublicPaths": 105,
