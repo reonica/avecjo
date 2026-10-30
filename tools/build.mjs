@@ -9,6 +9,18 @@ import { buildGlossary } from './glossary.mjs';
 import { buildCircuits, loadCircuits } from './circuits.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
+const output = path.join(root, 'dist');
+fs.rmSync(output, {recursive:true, force:true});
+fs.mkdirSync(output, {recursive:true});
+fs.cpSync(path.join(root,'web'),output,{recursive:true});
+// The main site's :root remains the single source of brand colors and fonts.
+const brandTokens=fs.readFileSync(path.join(root,'web/style.css'),'utf8').match(/:root\s*\{[\s\S]*?\}/)?.[0];
+if(!brandTokens)throw new Error('Main website brand tokens are missing.');
+fs.writeFileSync(path.join(output,'assets/brand.css'),brandTokens+'\n');
+fs.cpSync(path.join(root,'cms'),path.join(output,'backend'),{recursive:true});
+fs.mkdirSync(path.join(output,'backend/api'),{recursive:true});
+fs.copyFileSync(path.join(root,'server/api.php'),path.join(output,'backend/api/index.php'));
+fs.copyFileSync(path.join(root,'server/store.php'),path.join(output,'backend/api/store.php'));
 const data = loadContent(root);
 const { site, posts, categories, albums, pages } = data;
 const seo = JSON.parse(fs.readFileSync(path.join(root,'data/seo.json'),'utf8'));
@@ -21,12 +33,13 @@ const slugify = value => String(value).normalize('NFD').replace(/[\u0300-\u036f]
 const limit = (value, max = 170) => value.length > max ? value.slice(0, max).replace(/\s\S*$/, '') + '…' : value;
 const bySlug = new Map([...posts, ...categories, ...albums, ...pages].map(p => [p.slug, p]));
 const cat = slug => categories.find(c => c.slug === slug);
-const tags = [...new Set(posts.flatMap(p => p.tags || []))].sort((a, b) => a.localeCompare(b, 'fr'));
+const tagMetadata = new Map((data.tagMetadata||[]).map(t=>[t.title,t]));
+const tags = [...new Set([...posts.flatMap(p => p.tags || []),...tagMetadata.keys()])].sort((a, b) => a.localeCompare(b, 'fr'));
 const tagSlugs = new Map(tags.map(t => [t, slugify(t)]));
 const generated = new Map();
 const pageDate = new Date(data.migration.crawledAt).toISOString().slice(0, 10);
 const phoneDisplay = '+84 916 882 795';
-const assetVersion = filename => crypto.createHash('sha256').update(fs.readFileSync(path.join(root,filename))).digest('hex').slice(0,12);
+const assetVersion = filename => crypto.createHash('sha256').update(fs.readFileSync(path.join(root,'web',filename))).digest('hex').slice(0,12);
 const styleVersion=assetVersion('style.css'), scriptVersion=assetVersion('script.js');
 const icons = {
   arrow: '<path d="M4 12h16M14 6l6 6-6 6"/>', left: '<path d="m14 6-6 6 6 6"/>', right: '<path d="m10 6 6 6-6 6"/>',
@@ -79,7 +92,13 @@ function footer(slug) {
 }
 
 function layout(slug, title, description, content, options = {}) {
-  const canonical = options.canonical || absolute(slug);
+  const extra = data.pageSettings?.[slug] || {};
+  if(extra.description)description=extra.description;
+  title = extra.seoTitle || title; description = extra.description || description;
+  options.noindex = extra.noindex ?? options.noindex;
+  const faq = (data.faqs || []).filter(f=>f.page === slug && f.published !== false);
+  if(faq.length) content += `<section class="container section article-content"><h2>Questions fréquentes</h2>${faq.map(f=>`<details><summary>${esc(f.question)}</summary><p>${esc(f.answer)}</p></details>`).join('')}</section>`;
+  const canonical = extra.canonical || options.canonical || absolute(slug);
   const socialImage = absolute(options.image || site.hero);
   const metaDescription = limit(description || site.description,170);
   const json = JSON.stringify(structuredData({site,domain,slug,title,description:metaDescription,content,socialImage,schema:options.schema,seo,canonical,lastmod:options.lastmod})).replace(/</g, '\\u003c');
@@ -89,7 +108,7 @@ function layout(slug, title, description, content, options = {}) {
   // Keep font loading separate: an @import would delay the embedded rules too.
   const styles = options.inlineStyles
     ? stylesheet('assets/fonts/fonts.css') + styleFiles.map(file => {
-      const css = fs.readFileSync(path.join(root,file),'utf8').replace(/^@import url\("\.\/assets\/fonts\/fonts\.css"\);\s*/, '');
+      const css = fs.readFileSync(path.join(root,'web',file),'utf8').replace(/^@import url\("\.\/assets\/fonts\/fonts\.css"\);\s*/, '');
       return `<style data-source="${esc(rel(slug,file))}?v=${assetVersion(file)}">${css}</style>`;
     }).join('')
     : styleFiles.map(stylesheet).join('');
@@ -100,12 +119,12 @@ function layout(slug, title, description, content, options = {}) {
 
 function save(slug, title, description, content, opts={}) {
   const html=layout(slug,title,description,content,opts);
-  const dir=path.join(root,slug);fs.mkdirSync(dir,{recursive:true});fs.writeFileSync(path.join(dir,'index.html'),html);
+  const dir=path.join(output,slug);fs.mkdirSync(dir,{recursive:true});fs.writeFileSync(path.join(dir,'index.html'),html);
   if(slug && !slug.includes('/')) {
-    const oldFlatCopy=path.join(root,`${slug}.html`);
+    const oldFlatCopy=path.join(output,`${slug}.html`);
     if(fs.existsSync(oldFlatCopy)) fs.unlinkSync(oldFlatCopy);
   }
-  generated.set(slug,{title,url:absolute(slug),noindex:!!opts.noindex,excludeFromSitemap:!!opts.excludeFromSitemap,lastmod:opts.lastmod || ''});
+  generated.set(slug,{title,url:data.pageSettings?.[slug]?.canonical || absolute(slug),noindex:!!(data.pageSettings?.[slug]?.noindex ?? opts.noindex),excludeFromSitemap:!!opts.excludeFromSitemap || !!(data.pageSettings?.[slug]?.canonical && data.pageSettings[slug].canonical!==absolute(slug)),lastmod:opts.lastmod || ''});
 }
 
 function card(p, slug, opts={}) {
@@ -190,7 +209,7 @@ function contact() {
   const slug='contact';
   const query=encodeURIComponent(site.address);
   save(slug,'Contact — Avec Jo, guide francophone au Vietnam','Contactez Joseph pour préparer votre voyage au Vietnam : WhatsApp, e-mail et formulaire de contact.',`<div class="container"><header class="page-heading">${crumb(slug,[{title:'Contact'}])}<h1>Parlons de votre voyage.</h1><p>Joseph, votre guide francophone au Vietnam.</p></header><div class="contact-grid"><div class="contact-details"><div class="contact-map"><iframe title="Localisation d’Avec Jo : ${esc(site.address)}" src="https://www.google.com/maps?q=${query}&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe></div>${`<a class="text-link coral" href="https://www.google.com/maps/search/?api=1&amp;query=${query}" target="_blank" rel="noopener">Ouvrir la carte ${icon('arrow')}</a>`}<ul><li><a href="mailto:${esc(site.email)}" class="contact-line">${icon('mail')}${esc(site.email)}</a></li><li><a href="tel:${esc(site.phone)}" class="contact-line">${icon('phone')}${phoneDisplay}</a></li><li class="contact-line">${icon('pin')}${esc(site.address)}</li></ul><a class="button button-primary" href="${esc(site.whatsapp)}" target="_blank" rel="noopener">${icon('whatsapp')}Écrire sur WhatsApp ${icon('arrow')}</a></div>
-    <form class="contact-form" name="contact" method="POST" action="mailto:${esc(site.email)}" enctype="text/plain" data-contact-form data-email="${esc(site.email)}"><p><label for="contact-name">Votre nom <span aria-hidden="true">*</span></label><input id="contact-name" name="name" autocomplete="name" placeholder="Votre nom" required maxlength="120"></p><p><label for="contact-email">Votre e-mail <span aria-hidden="true">*</span></label><input id="contact-email" name="email" type="email" autocomplete="email" placeholder="votre@email.com" required maxlength="200"></p><p><label for="contact-phone">Téléphone (facultatif)</label><input id="contact-phone" name="phone" type="tel" autocomplete="tel" placeholder="+33…" maxlength="60"></p><p><label for="contact-message">Votre projet de voyage <span aria-hidden="true">*</span></label><textarea id="contact-message" name="message" placeholder="Parlez-nous de votre projet : dates, nombre de personnes, vos envies…" required minlength="10" maxlength="10000" rows="7"></textarea></p><button class="button button-primary" type="submit">Préparer mon e-mail ${icon('arrow')}</button><p class="form-note">Votre nom et votre e-mail permettent à Joseph de vous répondre au sujet de votre voyage.</p><div id="form-status" role="status" aria-live="polite" hidden></div></form></div></div>`,{active:'contact',className:'page-contact'});
+    <form class="contact-form" name="contact" method="POST" action="#form-status" data-contact-form data-email="${esc(site.email)}"><p><label for="contact-name">Votre nom <span aria-hidden="true">*</span></label><input id="contact-name" name="name" autocomplete="name" placeholder="Votre nom" required maxlength="120"></p><p><label for="contact-email">Votre e-mail <span aria-hidden="true">*</span></label><input id="contact-email" name="email" type="email" autocomplete="email" placeholder="votre@email.com" required maxlength="200"></p><p><label for="contact-phone">Téléphone (facultatif)</label><input id="contact-phone" name="phone" type="tel" autocomplete="tel" placeholder="+33…" maxlength="60"></p><p><label for="contact-message">Votre projet de voyage <span aria-hidden="true">*</span></label><textarea id="contact-message" name="message" placeholder="Parlez-nous de votre projet : dates, nombre de personnes, vos envies…" required minlength="10" maxlength="10000" rows="7"></textarea></p><p class="form-trap" aria-hidden="true"><label>Site web<input name="website" tabindex="-1" autocomplete="off"></label></p><p><label><input name="consent" type="checkbox" required> J’accepte que Joseph utilise ces informations pour répondre à ma demande.</label></p><button class="button button-primary" type="submit">Envoyer ma demande ${icon('arrow')}</button><p class="form-note">Votre nom et votre e-mail permettent à Joseph de vous répondre au sujet de votre voyage.</p><div id="form-status" role="status" aria-live="polite" hidden></div></form></div></div>`,{active:'contact',className:'page-contact'});
   save('merci','Merci de votre intérêt — Avec Jo','Préparez votre message à Joseph depuis la page Contact.',`<section class="error-page container"><p class="eyebrow">Votre projet de voyage</p><h1>Merci de votre intérêt.</h1><p>Pour contacter Joseph, préparez votre e-mail depuis la page Contact, puis envoyez-le avec votre messagerie.</p><p>${arrowLink('merci','contact','Contacter Joseph')}</p><a class="button button-primary" href="${rel('merci')}">Revenir à l’accueil ${icon('arrow')}</a></section>`,{active:'contact'});
 }
 
@@ -244,8 +263,8 @@ home();
 archive('blog','Le Vietnam, de l’intérieur.','Découvrez le carnet de Jo : itinéraires, découvertes et conseils d’un guide francophone au Vietnam.');
 archive('recherche','Rechercher dans le carnet de Jo','Retrouvez un lieu, un conseil ou une idée de voyage parmi les articles d’Avec Jo.');
 categories.forEach(c=>archive(c.slug,c.title,c.description,{category:c.slug,cover:c.image,descriptionHtml:c.descriptionHtml}));
-tags.forEach(t=>archive(`tag/${tagSlugs.get(t)}`,t,`Les articles liés au sujet « ${t} ».`,{tag:t}));
-posts.forEach(article);albums.forEach(gallery);pages.filter(p=>!guides.has(p.slug)&&p.slug!=='services').forEach(legacy);seo.guides.forEach(guidePage);servicesPage();contact();buildGlossary({save,rel,esc});buildCircuits({root,save,rel,esc,circuits:circuitSources});sitemapPage();
+tags.forEach(t=>archive(`tag/${tagSlugs.get(t)}`,t,tagMetadata.get(t)?.description || `Les articles liés au sujet « ${t} ».`,{tag:t}));
+posts.forEach(article);(data.landingPages||[]).forEach(p=>save(p.slug,p.seoTitle||p.title,p.description,`<div class="container"><header class="page-heading"><h1>${esc(p.title)}</h1><p>${esc(p.description)}</p></header><article class="article-content">${p.html}</article></div>`,{noindex:p.noindex}));albums.forEach(gallery);pages.filter(p=>!guides.has(p.slug)&&p.slug!=='services').forEach(legacy);seo.guides.forEach(guidePage);servicesPage();contact();buildGlossary({save,rel,esc});buildCircuits({root,save,rel,esc,circuits:circuitSources});sitemapPage();
 
 const aliasRows=[];
 for(const [source,target] of Object.entries(data.migration.aliases || {})) {
@@ -253,17 +272,17 @@ for(const [source,target] of Object.entries(data.migration.aliases || {})) {
   const dest=new URL(target).pathname.replace(/^\/+|\/+$/g,'');
   const href=rel(slug,dest);
   const html=`<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Avec Jo</title><link rel="canonical" href="${absolute(dest)}"><meta http-equiv="refresh" content="0;url=${esc(href)}"><meta name="robots" content="noindex,follow"></head><body><a href="${esc(href)}">Continuer vers Avec Jo</a></body></html>\n`;
-  fs.mkdirSync(path.join(root,slug),{recursive:true});fs.writeFileSync(path.join(root,slug,'index.html'),html);
-  const oldFlatAlias=path.join(root,`${slug}.html`);if(fs.existsSync(oldFlatAlias))fs.unlinkSync(oldFlatAlias);
+  fs.mkdirSync(path.join(output,slug),{recursive:true});fs.writeFileSync(path.join(output,slug,'index.html'),html);
+  const oldFlatAlias=path.join(output,`${slug}.html`);if(fs.existsSync(oldFlatAlias))fs.unlinkSync(oldFlatAlias);
   aliasRows.push(`/${slug} /${dest} 301!`,`/${slug}/ /${dest} 301!`);
 }
 
 const errorHtml=layout('', 'Page introuvable — Avec Jo','Cette page n’a pas été trouvée.',`<section class="error-page container"><p class="error-code">404</p><h1>Une autre découverte vous attend.</h1><p>Cette page n’a pas été trouvée. Explorez le carnet de Jo ou contactez Joseph pour préparer votre voyage.</p><a class="button button-primary" href="./">Revenir à l’accueil ${icon('arrow')}</a></section>`,{noindex:true});
-fs.writeFileSync(path.join(root,'404.html'),errorHtml.replace('<head>','<head><base href="/">'));
+fs.writeFileSync(path.join(output,'404.html'),errorHtml.replace('<head>','<head><base href="/">'));
 const sitemapEntries=[...generated.values()].filter(x=>!x.noindex&&!x.excludeFromSitemap).map(x=>`  <url><loc>${esc(x.url)}</loc>${x.lastmod?`<lastmod>${x.lastmod}</lastmod>`:''}</url>`);
-fs.writeFileSync(path.join(root,'sitemap.xml'),`<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${sitemapEntries.join('\n')}\n</urlset>\n`);
-fs.writeFileSync(path.join(root,'robots.txt'),`User-agent: *\nAllow: /\nSitemap: ${domain}/sitemap.xml\n`);
-fs.writeFileSync(path.join(root,'rss.xml'),`<?xml version="1.0" encoding="UTF-8"?>\n<rss version="2.0"><channel><title>Le carnet de Jo</title><link>${domain}/blog</link><description>${esc(site.description)}</description><language>fr</language>${posts.map(p=>`<item><title>${esc(p.title)}</title><link>${absolute(p.slug)}</link><guid isPermaLink="true">${absolute(p.slug)}</guid><description>${esc(p.description)}</description>${p.date?`<pubDate>${new Date(p.date).toUTCString()}</pubDate>`:''}</item>`).join('')}</channel></rss>\n`);
+fs.writeFileSync(path.join(output,'sitemap.xml'),`<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${sitemapEntries.join('\n')}\n</urlset>\n`);
+fs.writeFileSync(path.join(output,'robots.txt'),`User-agent: *\nAllow: /\nDisallow: /backend\nDisallow: /admin\nSitemap: ${domain}/sitemap.xml\n`);
+fs.writeFileSync(path.join(output,'rss.xml'),`<?xml version="1.0" encoding="UTF-8"?>\n<rss version="2.0"><channel><title>Le carnet de Jo</title><link>${domain}/blog</link><description>${esc(site.description)}</description><language>fr</language>${posts.map(p=>`<item><title>${esc(p.title)}</title><link>${absolute(p.slug)}</link><guid isPermaLink="true">${absolute(p.slug)}</guid><description>${esc(p.description)}</description>${p.date?`<pubDate>${new Date(p.date).toUTCString()}</pubDate>`:''}</item>`).join('')}</channel></rss>\n`);
 const assetAliases=Object.entries(data.migration.assetAliases || {});
 // Hosting matches decoded paths; exact regexes preserve literal parentheses and dots.
 const firebaseAssetRewrites=assetAliases.flatMap(([old,target])=>{
@@ -278,17 +297,19 @@ const firebaseAssetRewrites=assetAliases.flatMap(([old,target])=>{
   return rules;
 });
 const rewrites=[...generated.keys()].filter(Boolean).map(s=>`/${s} /${s}/index.html 200!`);
-fs.writeFileSync(path.join(root,'_redirects'),`# Preserve each original extensionless URL, query strings, and original image URLs.\n${aliasRows.join('\n')}\n${rewrites.join('\n')}\n${assetAliases.map(([old,target])=>`${old.startsWith('http')?new URL(old).pathname:old} /${String(target).replace(/^\//,'')} 200!`).join('\n')}\n`);
+fs.writeFileSync(path.join(output,'_redirects'),`# Preserve each original extensionless URL, query strings, and original image URLs.\n${aliasRows.join('\n')}\n${rewrites.join('\n')}\n${assetAliases.map(([old,target])=>`${old.startsWith('http')?new URL(old).pathname:old} /${String(target).replace(/^\//,'')} 200!`).join('\n')}\n`);
 // Firebase Hosting uses its own routing configuration; Netlify files are ignored on deploy.
 const firebaseConfig={
   hosting:{
-    public:'.',
-    ignore:['firebase.json','**/.*','**/node_modules/**','tools/**','migration/**','data/**','content/**','docs/**','tests/**','*.md','package*.json','netlify.toml','_redirects','**/__pycache__/**','**/*.pyc','**/*.zip','firebase-debug*.log'],
+    target:'main',
+    public:'dist',
+    predeploy:['npm run build'],
+    ignore:['firebase.json','**/*.php','**/.*','**/node_modules/**','tools/**','migration/**','data/**','content/**','docs/**','tests/**','*.md','package*.json','netlify.toml','_redirects','**/__pycache__/**','**/*.pyc','**/*.zip','firebase-debug*.log'],
     cleanUrls:true,
     trailingSlash:false,
-    redirects:aliasRows.map(row=>{const [source,destination]=row.split(' ');return {source,destination,type:301};}),
+    redirects:[{source:'/admin',destination:'/backend',type:301},{source:'/admin/**',destination:'/backend',type:301},...aliasRows.map(row=>{const [source,destination]=row.split(' ');return {source,destination,type:301};})],
     rewrites:[
-      {source:'/admin',destination:'/admin/index.html'},
+      {source:'/backend',destination:'/backend/index.html'},
       ...[...generated.keys()].filter(Boolean).map(s=>({source:`/${s}`,destination:`/${s}/index.html`})),
       ...firebaseAssetRewrites
     ],
@@ -297,12 +318,18 @@ const firebaseConfig={
       {source:'/assets/**',headers:[{key:'Cache-Control',value:'public, max-age=2592000'}]},
       {source:'**/*.@(js|css)',headers:[{key:'Cache-Control',value:'public, max-age=0, must-revalidate'}]},
       ...['/gfv','/gfv/**'].map(source=>({source,headers:[{key:'Cache-Control',value:'no-cache, max-age=0, must-revalidate'}]})),
-      ...['/admin','/admin/**'].map(source=>({source,headers:[{key:'Cache-Control',value:'no-store'},{key:'X-Robots-Tag',value:'noindex, nofollow'},{key:'Cross-Origin-Opener-Policy',value:'same-origin-allow-popups'}]})),
-      {source:'/admin/vendor/**',headers:[{key:'Cache-Control',value:'public, max-age=31536000, immutable'}]}
+      ...['/backend','/backend/**'].map(source=>({source,headers:[{key:'Cache-Control',value:'no-store'},{key:'X-Robots-Tag',value:'noindex, nofollow'},{key:'Cross-Origin-Opener-Policy',value:'same-origin-allow-popups'}]})),
+      {source:'/backend/vendor/**',headers:[{key:'Cache-Control',value:'public, max-age=31536000, immutable'}]}
     ]
   }
 };
 fs.writeFileSync(path.join(root,'firebase.json'),JSON.stringify(firebaseConfig,null,2)+'\n');
-fs.writeFileSync(path.join(root,'data/search-index.json'),JSON.stringify(posts.map(p=>({slug:p.slug,title:p.title,description:p.description,category:p.category,tags:p.tags})),null,2)+'\n');
+fs.mkdirSync(path.join(output,'data'),{recursive:true});
+fs.writeFileSync(path.join(output,'data/search-index.json'),JSON.stringify(posts.map(p=>({slug:p.slug,title:p.title,description:p.description,category:p.category,tags:p.tags})),null,2)+'\n');
 fs.writeFileSync(path.join(root,'migration/build-manifest.json'),JSON.stringify({builtAt:new Date().toISOString(),pages:generated.size,posts:posts.length,tags:tags.length,aliases:aliasRows.length/2,assetAliases:assetAliases.length,routes:[...generated.keys()].map(s=>'/'+s)},null,2)+'\n');
+fs.writeFileSync(path.join(output,'llms.txt'),`# Avec Jo\n\n${JSON.parse(fs.readFileSync(path.join(root,'data/aio.json'),'utf8')).intro}\n\n${[...generated].filter(([s,p])=>!p.noindex&&s!=='recherche').map(([s,p])=>`- [${p.title}](${absolute(s)})`).join('\n')}\n`);
 console.log(`Built ${generated.size} pages, ${posts.length} complete posts, ${tags.length} tag pages, ${aliasRows.length/2} original redirects, ${assetAliases.length} image aliases.`);
+
+const regexEscape = s => s.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');
+const apache = ['Options -Indexes','DirectoryIndex index.html','<IfModule mod_rewrite.c>','RewriteEngine On','RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]','RewriteRule ^admin(?:/.*)?$ /backend [R=301,L]',...firebaseConfig.hosting.redirects.filter(r=>!r.source.startsWith('/admin')).map(r=>`RewriteRule ^${regexEscape(r.source.replace(/^\//,''))}$ ${r.destination} [R=301,L]`),...firebaseConfig.hosting.rewrites.filter(r=>r.source).map(r=>`RewriteRule ^${regexEscape(r.source.replace(/^\//,''))}/?$ ${r.destination.replace(/^\//,'')} [L]`),'</IfModule>','<IfModule mod_headers.c>','Header always set X-Content-Type-Options "nosniff"','Header always set Referrer-Policy "strict-origin-when-cross-origin"','SetEnvIf Request_URI "^/backend" cms_private','Header always set X-Robots-Tag "noindex, nofollow" env=cms_private','Header always set Cache-Control "no-store" env=cms_private','</IfModule>'];
+fs.writeFileSync(path.join(output,'.htaccess'),apache.join('\n')+'\n');

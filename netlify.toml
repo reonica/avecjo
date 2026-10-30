@@ -1,5 +1,5 @@
 [build]
-  publish = "."
+  publish = "dist"
   command = "npm run build"
 
 [build.processing.html]
@@ -17,4 +17,4 @@
     Referrer-Policy = "strict-origin-when-cross-origin"
 
 # URL rewrites and the original image paths are generated in _redirects.
-# Enable Netlify Forms detection in the site's dashboard before deployment.
+# PHP/MySQL runs on PA; this static host only serves the frontend.

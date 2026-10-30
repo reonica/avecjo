@@ -5,3 +5,8 @@ node_modules/
 firebase-debug*.log
 *.local.json
 .DS_Store
+dist/
+releases/
+avecjo-config.php
+.cms-backups/
+avecjo-data/

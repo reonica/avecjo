@@ -5,8 +5,8 @@ import path from 'node:path';
 import {fileURLToPath} from 'node:url';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
-const words = JSON.parse(fs.readFileSync(path.join(root, 'assets/data/glossary.json'), 'utf8'));
-const read = file => fs.readFileSync(path.join(root, file), 'utf8');
+const words = JSON.parse(fs.readFileSync(path.join(root, 'web/assets/data/glossary.json'), 'utf8'));
+const read = file => fs.readFileSync(path.join(root, /^(tools\/|content\/|data\/content\.json|migration\/|firebase\.json)/.test(file)?file:'dist/'+file), 'utf8');
 const manifest = JSON.parse(read('migration/build-manifest.json'));
 const routes = manifest.routes.filter(route => /^\/gfv(?:\/page\/\d+)?$/.test(route));
 const escape = value => String(value ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;'}[c]));
@@ -56,7 +56,7 @@ test('interactive glossary assets are fingerprinted and its public data is deplo
   const html = read('gfv/index.html');
   for (const file of ['gfv.css', 'gfv.js', 'data/glossary.json']) {
     assert.ok(html.includes(`assets/${file}?v=`), `Unversioned glossary asset: ${file}`);
-    assert.ok(fs.existsSync(path.join(root, 'assets', file)), file);
+    assert.ok(fs.existsSync(path.join(root, 'web/assets', file)), file);
   }
   const hosting = JSON.parse(read('firebase.json')).hosting;
   assert.ok(!hosting.ignore.includes('assets/**'));

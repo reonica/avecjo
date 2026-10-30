@@ -29,7 +29,7 @@ export function loadCircuits(root = defaultRoot) {
     }
     for (const photo of [circuit.hero, circuit.programmePhoto]) {
       for (const source of [photo, ...photo.variants]) {
-        if (!/^assets\/images\/[a-zA-Z0-9_-]+\.(?:jpg|jpeg|webp|avif)$/.test(source.src) || !fs.existsSync(path.join(root, source.src))) {
+        if (!/^assets\/images\/[a-zA-Z0-9_-]+\.(?:jpg|jpeg|webp|avif)$/.test(source.src) || !fs.existsSync(path.join(root, fs.existsSync(path.join(root,'web'))?'web':'', source.src))) {
           throw new Error(`Missing circuit image: ${source.src}`);
         }
       }

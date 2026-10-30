@@ -1,5 +1,14 @@
 {
   "projects": {
     "default": "avec-jo"
+  },
+  "targets": {
+    "avec-jo": {
+      "hosting": {
+        "main": [
+          "avec-jo"
+        ]
+      }
+    }
   }
 }

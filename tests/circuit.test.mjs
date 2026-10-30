@@ -10,7 +10,7 @@ const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const hubSlug = 'circuits';
 const slug = 'circuits/1-jour-a-hanoi';
 const halfDaySlug = 'circuits/une-demi-journee-a-hanoi';
-const read = file => fs.readFileSync(path.join(root, file), 'utf8');
+const read = file => fs.readFileSync(path.join(root, /^(tools\/|content\/|data\/content\.json|migration\/|firebase\.json)/.test(file)?file:'dist/'+file), 'utf8');
 const page = (route = slug) => read(`${route}/index.html`);
 const hub = () => read(`${hubSlug}/index.html`);
 const circuitSources = () => fs.readdirSync(path.join(root, 'content/circuits')).filter(file => file.endsWith('.json')).sort().map(file => JSON.parse(read(`content/circuits/${file}`)));
@@ -112,7 +112,7 @@ test('the hub aggregates additional JSON sources without requiring hard-coded to
     const fixture = {...sources[0], slug: 'circuits/itineraire-test', title: 'Un itinéraire de test', breadcrumbTitle: 'Itinéraire de test'};
     const all = [...sources, fixture];
     fs.mkdirSync(path.join(fixtureRoot, 'content/circuits'), {recursive: true});
-    fs.symlinkSync(path.join(root, 'assets'), path.join(fixtureRoot, 'assets'), 'dir');
+    fs.symlinkSync(path.join(root, 'web/assets'), path.join(fixtureRoot, 'assets'), 'dir');
     for (const circuit of all) {
       fs.writeFileSync(path.join(fixtureRoot, 'content', `${circuit.slug}.json`), JSON.stringify(circuit));
     }
@@ -270,7 +270,7 @@ test('both tours use two distinct real local photographs and the shared Avec Jo 
       assert.ok(src && !/^(?:https?:|data:|\/\/)/i.test(src), 'Programme photographs must be local');
       assert.doesNotMatch(src, /imagegen|dall[-_]?e|ai[-_]?generated|openai/i, 'Do not substitute generated pictures for real tour photographs');
       assert.ok(attr(photo, 'alt')?.trim(), 'Programme photographs need meaningful alternative text');
-      const localPath = path.resolve(root, source.slug, src.split('?')[0]);
+      const localPath = path.resolve(root, 'dist', source.slug, src.split('?')[0]);
       assert.ok(fs.existsSync(localPath), `Missing programme photograph: ${src}`);
       allPhotoPaths.push(localPath);
     }

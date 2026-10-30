@@ -1,98 +1,66 @@
-# CMS Firebase Spark
+# Avec Jo
 
-CMS và chỉnh trực tiếp GitHub cùng dùng `content/posts/<slug>.json`. Hướng dẫn bật đăng nhập GitHub, phân quyền người soạn và duyệt bài: [docs/CMS-FIREBASE.md](docs/CMS-FIREBASE.md). Nội dung mỗi bài không còn được sửa trong `data/content.json`; dùng file JSON tương ứng trong `content/posts/`.
+Một repo cho website công khai, CMS riêng tại `/backend` và API PHP. CMS lưu nội dung bằng file trên hosting; MySQL chỉ dành cho dữ liệu liên hệ khách hàng.
 
-# Guidehanoi · Avec Jo
+```text
+web/        CSS, JS, ảnh và runtime-config.json
+cms/        Giao diện đăng nhập và quản trị admin/mod
+content/    Nội dung JSON dùng để build HTML
+server/     API PHP, kho file riêng, installer, schema liên hệ tùy chọn
+data/       Cấu hình nội dung nền, SEO và AIO
+tools/      Build, đồng bộ, kiểm tra và đóng gói/deploy
+tests/      Kiểm thử nội dung và build
+docs/       Hướng dẫn vận hành
+dist/       Tự sinh khi build; chỉ thư mục này đưa lên web
+```
 
-**SEO:** les contenus et métadonnées des pages d’accompagnement sont centralisés dans `data/seo.json`. Voir [SEO.md](SEO.md) pour la carte des mots-clés, les URL et les vérifications avant publication.
+## Chạy local
 
-**Bản Firebase:** làm theo [README-FIREBASE.md](README-FIREBASE.md). `firebase.json` đã giữ các URL và alias ảnh gốc. Form Contact chuẩn bị e-mail để khách tự gửi bằng ứng dụng mail, dùng được trên Firebase và các host tĩnh. Phần hướng dẫn Netlify bên dưới là tài liệu của bản xuất ban đầu; không dùng Netlify Forms cho bản Firebase.
+```sh
+npm run build
+npm run check
+npm run dev
+```
 
-Bộ website HTML/CSS/JavaScript hoàn chỉnh, có thể upload trực tiếp lên GitHub và deploy qua Netlify. Không cần cài Node.js, npm hoặc chạy build để sử dụng bộ file đã xuất này.
+Mở `http://127.0.0.1:8787/backend`. Bản thường luôn yêu cầu đăng nhập trước khi hiển thị dashboard hoặc module. `?demo=1` **chỉ hoạt động trên localhost** để xem dữ liệu minh họa. Production không có đường tắt demo hoặc file seed/danh sách nội dung quản trị công khai. Build không cần `npm install`.
 
-## Upload lên GitHub và Netlify
+## Nơi lưu dữ liệu
 
-1. Giải nén `guidehanoi-github-netlify.zip`.
-2. Đưa **toàn bộ nội dung bên trong** vào gốc repository GitHub, để `index.html`, `style.css`, `script.js`, `netlify.toml` và `_redirects` nằm ngay ở gốc. Giữ nguyên các thư mục và các file bắt đầu bằng dấu chấm.
-3. Trong Netlify, chọn **Add new project → Import an existing project → GitHub**, rồi chọn repository.
-4. Cấu hình **Base directory: trống**, **Build command: trống**, **Publish directory: `.`**. `netlify.toml` đã có cấu hình này.
-5. Deploy và mở URL Netlify để kiểm tra trước khi đổi DNS.
-6. Trong quản lý domain của Netlify, thêm **www.guidehanoi.com** và **guidehanoi.com**. Dùng `www.guidehanoi.com` làm primary domain để khớp canonical của website hiện tại. Thiết lập DNS theo hướng dẫn Netlify và chờ HTTPS hoạt động.
-
-Nếu upload bằng giao diện GitHub, chia các thư mục thành từng đợt nếu gặp giới hạn số file; dùng GitHub Desktop để đẩy toàn bộ một lần thuận tiện hơn. Không upload riêng file ZIP làm website: cần upload các file đã giải nén.
-
-## Nội dung và đường dẫn được giữ
-
-- 28/28 bài blog: nguyên văn nội dung, 537 heading, 9 bảng, ngày bài và tag gốc.
-- 83/83 ảnh public được tham chiếu từ nội dung/site hiện tại, tải về `assets/images/`. Ảnh trong bộ file là ảnh gốc từ guidehanoi.com, không dùng ảnh mockup do AI tạo.
-- Ba category gốc, 6 album feedback, các gallery và các trang cũ xuất hiện trong sitemap hiện tại.
-- 105 đường dẫn public đã phát hiện được bảo toàn, bao gồm 7 URL mà site gốc chuyển về trang chủ.
-- URL tag cũ dạng `/blog?keyword=...` và tìm kiếm `/recherche?keyword=...` hoạt động. Có thêm 20 trang tag tĩnh trong `/tag/`.
-- `_redirects` giữ URL dạng `/ten-bai` không cần đổi thành `/ten-bai/`, giữ query, và phục vụ các đường dẫn ảnh `/datafiles/...` cũ qua ảnh local tương ứng.
-- `/sitemap` là trang Sitemap cho người đọc; `sitemap.xml` là sitemap XML cho công cụ tìm kiếm. Có `robots.txt`, RSS, canonical và metadata chia sẻ.
-
-Các trang legacy nhiều trang vốn chưa có phần nội dung chi tiết trên site gốc. Bộ mới giữ tên, ảnh, liên kết và nội dung thực có, không viết thêm bài giả. Gallery `/photos-incontournables-vietnam` trên site gốc chưa có ảnh; bộ mới cũng giữ trạng thái này. Các video YouTube gốc được giữ dưới dạng nhúng, cần Internet để phát.
-
-Chi tiết đối chiếu URL/ảnh/nội dung nằm trong `migration/`. API kỹ thuật cũ `/news/index-v3-json` của hệ thống hosting cũ không phải trang public và không cần cho website mới: blog dùng dữ liệu đã xuất trong HTML.
-
-## Form Contact
-
-Form đã chuẩn bị cho **Netlify Forms**, với tên `contact`, honeypot và trang cảm ơn `/merci`.
-
-1. Vào Netlify **Forms → Form detection → Enable form detection** nếu chưa bật.
-2. Deploy lại để Netlify nhận diện form.
-3. Cấu hình thông báo nhận form về `goavecjo@gmail.com` trong dashboard Netlify nếu muốn được báo qua e-mail.
-4. Gửi một form thử trên URL Netlify và kiểm tra mục Forms trước khi chuyển domain.
-
-Khi xem thử trên máy hoặc GitHub Pages, form chuẩn bị một e-mail để bạn tự gửi bằng ứng dụng mail. Nó không báo đã gửi nếu chưa thực sự gửi. WhatsApp, email và bản đồ luôn có liên kết trực tiếp.
-
-## File chính
-
-| File/thư mục | Công dụng |
+| Loại | Lưu ở đâu |
 | --- | --- |
-| `index.html` | Trang chủ đã duyệt phương án 03 |
-| `style.css`, `script.js` | Giao diện responsive và chức năng tương tác |
-| `blog/`, `contact/`, `photo/`, `sitemap/` | Các trang chính |
-| Thư mục tên bài/album | `index.html` của từng URL gốc |
-| `tag/` | Trang tag tĩnh |
-| `assets/images/`, `assets/fonts/` | Ảnh và font local, gồm giấy phép font |
-| `content/posts/*.json` | Nội dung và SEO từng bài; sửa bằng CMS hoặc GitHub |
-| `data/content.json` | Thông tin site, category, album và trang dịch vụ |
-| `tools/build.mjs` | Tạo lại các trang, sitemap, RSS và redirect từ dữ liệu |
-| `tools/validate.mjs` | Kiểm tra link local, ảnh, URL gốc và nguyên văn từng bài |
-| `migration/` | Báo cáo đối chiếu và kiểm tra migration |
+| Bài viết, trang, landing, FAQ, tag/cate, SEO/AIO | File JSON riêng trên hosting, có bản nháp và bản đã duyệt |
+| Ảnh | File ảnh trong `assets/images/` |
+| Tài khoản admin/mod, password hash, quyền, phiên đăng nhập | Kho file riêng **ngoài document root** |
+| Form khách, email, điện thoại, ghi chú chăm sóc | MySQL, chỉ khi bật module liên hệ |
 
-## Mở thử trên máy
+Kho file dùng khóa để tuần tự hóa cập nhật và ghi qua file tạm/rename. Giữ một bản backup riêng của trạng thái trước đó. Kho này không nằm trong `dist/`, không đi cùng bản deploy và không đưa vào Git.
 
-Chạy trong thư mục website:
+## Tài khoản và quyền
 
-```sh
-python3 -m http.server 8080
-```
+Admin toàn quyền; mod mặc định biên tập và quản lý ảnh, có thể được cấp thêm từng quyền duyệt, SEO hoặc dữ liệu khách. ID hoặc email/Gmail + mật khẩu CMS dùng để đăng nhập; không dùng GitHub hoặc mật khẩu Google. Tài khoản được tạo bằng API sau khi đã có máy chủ PHP, **không cần MySQL**.
 
-Mở `http://127.0.0.1:8080`. Server local có thể thêm dấu `/` cuối URL thư mục; trên Netlify, `_redirects` giữ các URL gốc không có dấu `/` cuối. Không chạy server công khai nếu chỉ cần xem thử trên máy.
+API kiểm tra phiên và quyền trước khi trả dashboard, danh sách nội dung, tài khoản hoặc export. Đổi quyền, khóa hoặc đặt lại mật khẩu sẽ thu hồi phiên. Mật khẩu được băm, token phiên chỉ lưu dạng hash tại máy chủ và hết hạn sau 8 giờ.
 
-## Cập nhật bài, ảnh và thông tin
+## Lưu và xuất bản
 
-Để sửa bài trực tiếp và cập nhật đồng bộ archive, tag, Sitemap và RSS, sửa file bài tương ứng trong `content/posts/` (thông tin site/album vẫn ở `data/content.json`) rồi chạy (cần Node.js 20+; không cần npm install):
+Chỉnh sửa/lưu nháp từ CMS ghi trực tiếp vào kho file hosting. Duyệt bài giữ một bản riêng để đồng bộ về source. Để tạo lại HTML công khai, sitemap và SEO:
 
 ```sh
-node tools/build.mjs
-node tools/validate.mjs
+npm run cms:sync
+npm run build
+npm run check
 ```
 
-- Sửa điện thoại, e-mail, địa chỉ, logo hoặc hero trong `site`.
-- Thêm bài bằng CMS hoặc tạo `content/posts/<slug>.json`, giữ `slug` của bài đã xuất bản. `html` chứa nội dung HTML, `category` là slug category, `tags` là mảng tên tag.
-- Thêm ảnh vào `assets/images/`, rồi dùng đường dẫn `assets/images/ten-anh.jpg` trong dữ liệu. Trong HTML nội dung bài, có thể dùng `/assets/images/ten-anh.jpg`; bộ build chuyển sang đường dẫn relative theo trang.
-- Thêm album feedback trong `albums` với `kind: "album"`, `slug`, `title`, `image` và `images: [{src, alt, caption}]`. Để đưa album vào carousel trang chủ, sửa `feedbackOrder` trong `tools/build.mjs`.
-- Push các file thay đổi lên GitHub; Netlify deploy lại từ repository.
+Sau đó deploy `dist/` lên PA hoặc Firebase. Việc lưu/duyệt không tự chạy Node build trên hosting. Sync chỉ lấy nội dung đã duyệt và ảnh, không lấy tài khoản hoặc dữ liệu khách. Source trước đồng bộ được giữ trong `.cms-backups/` (gitignored).
 
-Không chạy lại `tools/crawl.py` sau khi đổi domain, vì lúc đó guidehanoi.com sẽ trỏ vào bộ website mới. Script crawl dùng để lưu vết migration, không cần khi vận hành.
+## Hosting
 
-## GitHub Pages (tùy chọn)
+- Web: https://avec-jo.web.app
+- CMS: https://avec-jo.web.app/backend
+- Firebase Hosting hiện tại phục vụ file đã deploy; muốn đăng nhập thật hoặc ghi nội dung cần API trên máy chủ PHP, ví dụ PA. Không thể ghi trực tiếp vào bản Firebase Hosting từ trình duyệt nếu chưa có backend.
+- Khi có PA, cài CMS/file storage trước, để trống MySQL và tắt nhận form trực tuyến. Bổ sung MySQL sau mà không ảnh hưởng các module nội dung.
+- Xem [docs/DEPLOY-PA.md](docs/DEPLOY-PA.md). `npm run package:pa` tạo gói đầy đủ gồm `public_html/`, `private-setup/`, `source/` và hướng dẫn [bàn giao PA](docs/PA-HANDOFF.md). API trong bản upload PA được cấu hình theo cùng origin của domain thử.
+- PHP bị loại khỏi upload Firebase; dữ liệu seed ban đầu chỉ có trong `private-setup/`, không được phục vụ trên web.
+- Canonical tiếp tục dùng `https://www.guidehanoi.com` theo cấu hình hiện có.
 
-Có thể dùng GitHub Pages để xem bản tĩnh: vào **Settings → Pages → Deploy from a branch → main / root**. Các trang dùng đường dẫn relative nên hoạt động ở `/ten-repo/`; form Contact dùng e-mail ở môi trường này. Nếu cần trang 404 ở GitHub Pages dạng project, đổi `<base href="/">` trong `404.html` thành `<base href="/ten-repo/">`. Các rewrite giữ URL và alias ảnh cũ dành cho Netlify, nên việc chuyển domain thật nên dùng Netlify như kế hoạch.
-
-## Nguồn và giấy phép
-
-Nội dung, logo, ảnh và video được chuyển từ website guidehanoi.com của bạn. Newsreader và Inter được lưu local cùng giấy phép OFL tại `assets/fonts/`. Giao diện được viết mới theo thiết kế đã duyệt; không sao chép nội dung, logo hoặc ảnh của byNativ/Evaneos.
+Giữ URL lịch sử hoặc thiết lập redirect trước khi xóa trang. `migration/` giữ dữ liệu đối chiếu và không thuộc deploy.

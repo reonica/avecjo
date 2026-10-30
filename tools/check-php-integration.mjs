@@ -1,0 +1,60 @@
+/** Exercise the real API with private file storage and no MySQL configuration. */
+import fs from 'node:fs';
+import path from 'node:path';
+import assert from 'node:assert/strict';
+import {fileURLToPath,pathToFileURL} from 'node:url';
+const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
+const base=process.env.PHP_WASM_ROOT;
+if(!base){console.error('Set PHP_WASM_ROOT to a temporary installation of @php-wasm/node and @php-wasm/universal.');process.exit(1);}
+const {PHP}=await import(pathToFileURL(path.join(base,'@php-wasm/universal/index.js')));
+const {loadNodeRuntime}=await import(pathToFileURL(path.join(base,'@php-wasm/node/index.js')));
+const php=new PHP(await loadNodeRuntime('8.3',{emscriptenOptions:{processId:process.pid}}));
+let checks=0;
+const literal=value=>`json_decode(base64_decode('${Buffer.from(JSON.stringify(value)).toString('base64')}'),true)`;
+const check=(condition,name)=>{assert.ok(condition,name);checks++;console.log('PASS',name);};
+try{
+ php.mkdir('/public/backend/api');php.mkdir('/private');
+ for(const file of ['api.php','store.php'])php.writeFile('/public/backend/api/'+(file==='api.php'?'index.php':file),fs.readFileSync(path.join(root,'server',file)));
+ php.writeFile('/private/config.php',`<?php return ['cmsDataDir'=>'/private/cms','appKey'=>str_repeat('a',64),'allowedOrigins'=>['https://avec-jo.web.app'],'dsn'=>''];`);
+ const post={slug:'hanoi-test',title:'Hanoi test',seoTitle:'Hanoi test SEO',description:'A useful travel description',image:'assets/images/test.jpg',imageAlt:'Hanoi',category:'travel',tags:['Hanoi'],html:'<h2>Bonjour</h2><p>Travel together.</p>'};
+ const category={slug:'travel',title:'Travel',description:'Travel articles'};
+ const initial=[{kind:'posts',id:'hanoi-test',data:post},{kind:'categories',id:'travel',data:category}];
+ const init=await php.run({code:`<?php require '/public/backend/api/store.php';$store=new FlatFileStore('/private/cms','/public',true);$store->update(static function(array &$state){$state['users'][1]=['id'=>1,'username'=>'admin','email'=>'admin@example.com','display_name'=>'Admin','role'=>'admin','permissions'=>[],'password_hash'=>password_hash('temporary-admin-password',PASSWORD_DEFAULT),'enabled'=>true,'is_primary'=>true,'created_at'=>gmdate('c')];foreach(${literal(initial)} as $item)$state['documents'][$item['kind'].'/'.$item['id']]=$item+['state'=>'approved','approved_data'=>$item['data'],'revision'=>1,'deleted'=>false,'updated_at'=>gmdate('c')];});echo 'ready';`});
+ check(init.text==='ready'&&!init.errors,'private file store initializes without a database');
+ const call=async(route,{method='GET',data,token,query={}}={})=>{
+  const server={REQUEST_METHOD:method,CONTENT_TYPE:'application/json',REMOTE_ADDR:'127.0.0.1',...(token?{HTTP_AUTHORIZATION:'Bearer '+token}:{})};
+  const response=await php.run({code:`<?php putenv('AVECJO_CONFIG=/private/config.php');http_response_code(200);$_SERVER=${literal(server)};$_GET=${literal({route,...query})};require '/public/backend/api/index.php';`,method,body:data?new TextEncoder().encode(JSON.stringify(data)):undefined});
+  assert.equal(response.errors,'',route+' PHP error');let body;try{body=JSON.parse(response.text);}catch{throw new Error(route+' returned invalid JSON: '+response.text);}return {status:response.httpStatusCode,body};
+ };
+ for(const route of ['overview','content','admins','export'])check((await call(route,{query:{kind:'posts'}})).status===401,route+' requires authentication');
+ const health=await call('health');check(health.body.storage==='files'&&health.body.contactsConfigured===false,'health separates file CMS from optional contacts database');
+ check((await call('auth/login',{method:'POST',data:{identifier:'admin',password:'incorrect-password'}})).status===401,'wrong password cannot log in');
+ const auth=await call('auth/login',{method:'POST',data:{identifier:'admin',password:'temporary-admin-password'}});check(auth.status===200&&!('password_hash' in auth.body.user),'admin ID login works without MySQL and hides password hashes');const admin=auth.body.token;
+ const overview=await call('overview',{token:admin});check(overview.status===200&&overview.body.posts.length===1&&overview.body.contactsConfigured===false,'authenticated dashboard loads without MySQL');
+ check((await call('content',{token:admin,query:{kind:'posts'}})).body.items.length===1,'article listing reads hosting files');
+ const edited={...post,title:'Approved title'};
+ let result=await call('content/posts/hanoi-test',{method:'PATCH',token:admin,data:{data:edited,state:'approved',revision:1}});check(result.status===200&&result.body.revision===2,'admin saves approved content directly to files');
+ result=await call('content/posts/hanoi-test',{method:'PATCH',token:admin,data:{data:{...edited,title:'Private draft title'},state:'draft',revision:2}});check(result.status===200&&result.body.revision===3,'draft saves independently from the approved version');
+ check((await call('content/posts/hanoi-test',{method:'PATCH',token:admin,data:{data:edited,state:'approved',revision:1}})).status===409,'stale revisions cannot overwrite a newer edit');
+ const exported=await call('export',{token:admin});check(exported.body.documents.find(d=>d.kind==='posts').data.title==='Approved title','export includes the approved article and keeps the draft private');
+ check(!('users' in exported.body)&&!('sessions' in exported.body)&&!('leads' in exported.body),'content export excludes accounts, sessions and customer data');
+ const modInput={username:'mod-test',email:'mod@example.com',display_name:'Mod',password:'temporary-mod-password',role:'mod',permissions:['content.write','media.write']};
+ check((await call('admins',{method:'POST',token:admin,data:modInput})).status===201,'admin can create mod accounts in private files');
+ const modAuth=await call('auth/login',{method:'POST',data:{identifier:'mod@example.com',password:'temporary-mod-password'}});check(modAuth.status===200&&modAuth.body.user.role==='mod','mod email login works without MySQL');const mod=modAuth.body.token;
+ check((await call('content/posts/hanoi-test',{method:'PATCH',token:mod,data:{data:{...edited,title:'Mod revision'},state:'review',revision:3}})).status===200,'mod can edit and submit content for review');
+ check((await call('content/posts/hanoi-test',{method:'PATCH',token:mod,data:{data:edited,state:'approved',revision:4}})).status===403,'mod cannot approve without permission');
+ for(const route of ['admins','export','leads'])check((await call(route,{token:mod})).status===403,'mod cannot access '+route+' without permission');
+ check((await call('admins/2',{method:'PATCH',token:mod,data:{role:'admin',enabled:true,permissions:[]}})).status===403,'mod cannot promote itself');
+ check((await call('admins/1',{method:'PATCH',token:admin,data:{role:'mod',enabled:true,permissions:[]}})).status===403,'primary admin cannot be demoted');
+ check((await call('admins/2',{method:'PATCH',token:admin,data:{role:'mod',enabled:false,permissions:['content.write']}})).status===200,'admin can disable a mod');
+ check((await call('auth/me',{token:mod})).status===401,'disabled mod sessions are revoked immediately');
+ const contacts=await call('stats',{token:admin});check(contacts.status===200&&contacts.body.stats===null&&contacts.body.contactsConfigured===false,'missing customer database does not break the dashboard');
+ const lead=await call('leads',{method:'POST',data:{name:'Test visitor',email:'visitor@example.com',phone:'',message:'Temporary test customer request.',source:'/contact',consent:true,website:'',requestId:'11111111-1111-4111-8111-111111111111'}});
+ check(lead.status===503,'contact submission never reports success without MySQL');
+ check(!php.readFileAsText('/private/cms/state.json').includes('visitor@example.com'),'customer form data is not silently stored in CMS files');
+ const raw=php.readFileAsText('/private/cms/state.json');check(!raw.includes('temporary-admin-password')&&!raw.includes('temporary-mod-password'),'private account files contain hashes rather than plaintext passwords');
+ check(php.fileExists('/private/cms/state.backup.json'),'atomic updates retain a bounded private backup');
+ const safety=await php.run({code:`<?php require '/public/backend/api/store.php';try{new FlatFileStore('/public/private-state','/public',true);echo 'BAD';}catch(Throwable $e){echo 'blocked';}`});check(safety.text==='blocked','private state cannot be placed under the document root');
+ check((await call('auth/logout',{method:'POST',token:admin})).status===200&&(await call('overview',{token:admin})).status===401,'logout revokes access to the dashboard');
+ console.log(`${checks}/${checks} PHP integration checks passed with no MySQL configuration.`);
+}finally{php.exit();}

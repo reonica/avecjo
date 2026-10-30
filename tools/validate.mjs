@@ -4,12 +4,13 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { loadContent } from './content.mjs';
 
-const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
-const content=loadContent(root);
+const sourceRoot=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
+const root=path.join(sourceRoot,'dist');
+const content=loadContent(sourceRoot);
 const issues=[];
 const warnings=[];
 const walk=dir=>fs.readdirSync(dir,{withFileTypes:true}).flatMap(e=>{
-  if(['node_modules','.git','.github','tools','migration','admin','content','docs','tests'].includes(e.name))return [];
+  if(['node_modules','.git','.github','tools','migration','admin','backend','content','docs','tests'].includes(e.name))return [];
   const f=path.join(dir,e.name);return e.isDirectory()?walk(f):[f];
 });
 const files=walk(root);
@@ -67,7 +68,7 @@ for(const p of content.posts){
   if(/<img[^>]+src=["']https?:\/\//.test(body))issues.push({url:p.url,problem:'Article image still remote'});
 }
 
-const manifest=JSON.parse(fs.readFileSync(path.join(root,'migration/url-manifest.json'),'utf8'));
+const manifest=JSON.parse(fs.readFileSync(path.join(sourceRoot,'migration/url-manifest.json'),'utf8'));
 const uniqueOriginalPaths=[...new Set(manifest.map(x=>new URL(x.sourceUrl).pathname))];
 const endpointPaths=uniqueOriginalPaths.filter(p=>p.startsWith('/news/'));
 const publicPaths=uniqueOriginalPaths.filter(p=>!p.startsWith('/news/'));
@@ -92,11 +93,11 @@ for(const c of content.categories){
 }
 if(!fs.readFileSync(path.join(root,'404.html'),'utf8').includes('<base href="/">'))issues.push({problem:'404 needs a root base for nested unknown URLs'});
 
-const hosting=JSON.parse(fs.readFileSync(path.join(root,'firebase.json'),'utf8')).hosting;
-if(hosting.public!=='.' || hosting.trailingSlash!==false || hosting.cleanUrls!==true)issues.push({problem:'Firebase URL format does not match the original site'});
+const hosting=JSON.parse(fs.readFileSync(path.join(sourceRoot,'firebase.json'),'utf8')).hosting;
+if(hosting.public!=='dist' || hosting.trailingSlash!==false || hosting.cleanUrls!==true)issues.push({problem:'Firebase URL format does not match the original site'});
 if(hosting.rewrites.some(r=>r.source==='**' || r.source==='/**'))issues.push({problem:'Firebase catch-all would hide missing pages'});
 for(const rule of hosting.rewrites)if(!targetFile(rule.destination))issues.push({url:rule.source,problem:'Firebase rewrite destination missing'});
-const buildManifest=JSON.parse(fs.readFileSync(path.join(root,'migration/build-manifest.json'),'utf8'));
+const buildManifest=JSON.parse(fs.readFileSync(path.join(sourceRoot,'migration/build-manifest.json'),'utf8'));
 for(const route of buildManifest.routes.filter(r=>r!=='/'))if(!hosting.rewrites.some(r=>r.source===route && r.destination===route+'/index.html'))issues.push({url:route,problem:'Firebase page rewrite missing'});
 for(const [source,target] of Object.entries(content.migration.aliases || {})){
   const oldPath=new URL(source).pathname.replace(/\/$/,'');
@@ -120,6 +121,6 @@ const report={
   counts:{htmlFiles:htmlFiles.length,localReferences:links,imageReferences:images,validFragmentAnchors:anchors,originalPublicPaths:publicPaths.length,posts:content.posts.length,articleTextMatches,headings,tables,localImages:new Set(Object.values(content.assets)).size,xmlSitemapUrls:sitemapUrls.length,technicalApiPathsExcluded:endpointPaths.length,firebaseRewrites:hosting.rewrites.length,firebaseRedirects:hosting.redirects.length},
   sourceLimitations:content.migration.sourceLimitations,issues,warnings,
 };
-fs.writeFileSync(path.join(root,'migration/validation.json'),JSON.stringify(report,null,2)+'\n');
+fs.writeFileSync(path.join(sourceRoot,'migration/validation.json'),JSON.stringify(report,null,2)+'\n');
 console.log(JSON.stringify(report,null,2));
 if(issues.length)process.exitCode=1;

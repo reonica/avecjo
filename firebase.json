@@ -1,8 +1,13 @@
 {
   "hosting": {
-    "public": ".",
+    "target": "main",
+    "public": "dist",
+    "predeploy": [
+      "npm run build"
+    ],
     "ignore": [
       "firebase.json",
+      "**/*.php",
       "**/.*",
       "**/node_modules/**",
       "tools/**",
@@ -23,6 +28,16 @@
     "cleanUrls": true,
     "trailingSlash": false,
     "redirects": [
+      {
+        "source": "/admin",
+        "destination": "/backend",
+        "type": 301
+      },
+      {
+        "source": "/admin/**",
+        "destination": "/backend",
+        "type": 301
+      },
       {
         "source": "/5-jours-au-nord-vietnam",
         "destination": "/",
@@ -96,8 +111,8 @@
     ],
     "rewrites": [
       {
-        "source": "/admin",
-        "destination": "/admin/index.html"
+        "source": "/backend",
+        "destination": "/backend/index.html"
       },
       {
         "source": "/blog",
@@ -496,12 +511,12 @@
         "destination": "/tours/index.html"
       },
       {
-        "source": "/video",
-        "destination": "/video/index.html"
-      },
-      {
         "source": "/video-voyage-vietnam",
         "destination": "/video-voyage-vietnam/index.html"
+      },
+      {
+        "source": "/video",
+        "destination": "/video/index.html"
       },
       {
         "source": "/vol-en-montgolfiere-a-la-hauteur-dun-immeuble-de-six-etages",
@@ -1223,7 +1238,7 @@
         ]
       },
       {
-        "source": "/admin",
+        "source": "/backend",
         "headers": [
           {
             "key": "Cache-Control",
@@ -1240,7 +1255,7 @@
         ]
       },
       {
-        "source": "/admin/**",
+        "source": "/backend/**",
         "headers": [
           {
             "key": "Cache-Control",
@@ -1257,7 +1272,7 @@
         ]
       },
       {
-        "source": "/admin/vendor/**",
+        "source": "/backend/vendor/**",
         "headers": [
           {
             "key": "Cache-Control",

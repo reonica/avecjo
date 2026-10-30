@@ -7,8 +7,8 @@ const seo=JSON.parse(fs.readFileSync(path.join(root,'data/seo.json'),'utf8'));
 const manifest=JSON.parse(fs.readFileSync(path.join(root,'migration/build-manifest.json'),'utf8'));
 const site=JSON.parse(fs.readFileSync(path.join(root,'data/content.json'),'utf8')).site;
 const errors=[], titles=new Map(), descriptions=new Map();
-const read=slug=>fs.readFileSync(path.join(root,slug,'index.html'),'utf8');
-const sitemap=fs.readFileSync(path.join(root,'sitemap.xml'),'utf8');
+const read=slug=>fs.readFileSync(path.join(root,'dist',slug,'index.html'),'utf8');
+const sitemap=fs.readFileSync(path.join(root,'dist/sitemap.xml'),'utf8');
 let structuredGraphs=0,indexablePages=0;
 for(const route of manifest.routes){
   const slug=route.replace(/^\//,'');

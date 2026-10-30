@@ -30,5 +30,7 @@ export function structuredData({site,domain,slug,title,description,content,socia
     const list={...schema,'@id':`${pageUrl}#circuits`,itemListElement:schema.itemListElement.map(item=>({...item,url:fullUrl(domain,item.url)}))};
     graph.push(list);graph[3].mainEntity={'@id':list['@id']};
   }
+  const faqs=[...content.matchAll(/<details><summary>([\s\S]*?)<\/summary><p>([\s\S]*?)<\/p><\/details>/g)].map(m=>({'@type':'Question',name:plain(m[1]),acceptedAnswer:{'@type':'Answer',text:plain(m[2])}}));
+  if(faqs.length)graph.push({'@type':'FAQPage','@id':`${pageUrl}#faq`,mainEntity:faqs});
   return {'@context':'https://schema.org','@graph':graph};
 }

@@ -1,0 +1,82 @@
+{
+  "slug": "da-nang",
+  "url": "/da-nang",
+  "title": "Da Nang",
+  "seoTitle": "Da Nang",
+  "description": "",
+  "image": "assets/images/1440-810-12-hanoi-vietnam-be057816ee.jpg",
+  "imageAlt": "Da Nang",
+  "html": "",
+  "sourceUrl": "https://www.guidehanoi.com/da-nang",
+  "originalCanonical": "https://www.guidehanoi.com/da-nang",
+  "date": "",
+  "dateModified": "",
+  "tags": [],
+  "sourceType": 3,
+  "sourceId": null,
+  "links": [
+    {
+      "slug": "hanoi",
+      "title": "Hanoi",
+      "image": "assets/images/1440-810-12-hanoi-vietnam-be057816ee.jpg",
+      "description": ""
+    },
+    {
+      "slug": "saigon-ho-chi-minh-ville",
+      "title": "Saigon - Ho Chi Minh ville",
+      "image": "assets/images/1440-810-12-hanoi-vietnam-be057816ee.jpg",
+      "description": ""
+    },
+    {
+      "slug": "hue",
+      "title": "Hue",
+      "image": "assets/images/1440-810-12-hanoi-vietnam-be057816ee.jpg",
+      "description": ""
+    },
+    {
+      "slug": "hoi-an",
+      "title": "Hoi An",
+      "image": "assets/images/1440-810-12-hanoi-vietnam-be057816ee.jpg",
+      "description": ""
+    },
+    {
+      "slug": "ha-giang-loop",
+      "title": "Ha Giang",
+      "image": "assets/images/1440-810-12-hanoi-vietnam-be057816ee.jpg",
+      "description": ""
+    },
+    {
+      "slug": "cao-bang",
+      "title": "Cao Bang",
+      "image": "assets/images/1440-810-12-hanoi-vietnam-be057816ee.jpg",
+      "description": ""
+    },
+    {
+      "slug": "lang-son",
+      "title": "Lang Son",
+      "image": "assets/images/1440-810-12-hanoi-vietnam-be057816ee.jpg",
+      "description": ""
+    },
+    {
+      "slug": "baie-d-halong",
+      "title": "Baie d'Halong",
+      "image": "assets/images/1440-810-12-hanoi-vietnam-be057816ee.jpg",
+      "description": ""
+    },
+    {
+      "slug": "cat-ba",
+      "title": "Cat Ba",
+      "image": "assets/images/1440-810-12-hanoi-vietnam-be057816ee.jpg",
+      "description": ""
+    },
+    {
+      "slug": "dien-bien",
+      "title": "Dien Bien",
+      "image": "assets/images/1440-810-12-hanoi-vietnam-be057816ee.jpg",
+      "description": ""
+    }
+  ],
+  "sourceHasBody": false,
+  "category": "incontournables-vietnam",
+  "kind": "legacy"
+}

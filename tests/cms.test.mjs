@@ -6,7 +6,8 @@ import path from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {spawnSync} from 'node:child_process';
 import {loadContent, validatePost} from '../tools/content.mjs';
-import {createAuthBridge} from '../admin/auth-bridge.mjs';
+import {cmsSnapshot} from '../tools/cms-data.mjs';
+import {applySnapshot} from '../tools/cms-sync.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const data = loadContent(root);
@@ -46,12 +47,12 @@ test('a new CMS article builds into its page, blog, category, tag, RSS and sitem
   const temporary = fs.mkdtempSync(path.join(os.tmpdir(), 'avecjo-build-test-'));
   const copy = path.join(temporary, 'site');
   try {
-    fs.cpSync(root, copy, {recursive: true, filter(source) { return !path.relative(root, source).split(path.sep).some(part => ['.git', 'node_modules'].includes(part)); }});
+    fs.cpSync(root, copy, {recursive: true, filter(source) { return !path.relative(root, source).split(path.sep).some(part => ['.git', 'node_modules', 'dist'].includes(part)); }});
     const post = {...sample, slug: 'cms-integration-test', title: 'Découverte de Hanoi — test CMS', seoTitle: 'Une publication de test indépendante pour Avec Jo', description: 'Cet article temporaire vérifie que le CMS génère correctement les pages, les sujets et les métadonnées du carnet de Jo.', html: '<h2>Une nouvelle découverte</h2><p>Contenu de test temporaire.</p>', tags: ['CMS Integration'], date: '2026-10-16T12:00:00Z'};
     fs.writeFileSync(path.join(copy, 'content/posts/cms-integration-test.json'), JSON.stringify(post));
     const build = spawnSync(process.execPath, ['tools/build.mjs'], {cwd: copy, encoding: 'utf8'});
     assert.equal(build.status, 0, build.stderr);
-    const read = file => fs.readFileSync(path.join(copy, file), 'utf8');
+    const read = file => fs.readFileSync(path.join(copy, file==='firebase.json'?file:'dist/'+file), 'utf8');
     const article = read('cms-integration-test/index.html');
     assert.ok(article.includes(`<title>${post.seoTitle}</title>`));
     assert.ok(article.includes('https://www.guidehanoi.com/cms-integration-test'));
@@ -72,50 +73,55 @@ test('unsafe article markup and obfuscated active URLs fail the build', () => {
   assert.throws(() => validatePost({...sample, image: '/assets/images/../private.jpg'}, `${sample.slug}.json`, data));
 });
 
-test('CMS draft workflow uses forks and public-repository scope without a publishing token', () => {
-  const config = JSON.parse(fs.readFileSync(path.join(root, 'admin/config.json'), 'utf8'));
-  assert.equal(config.backend.repo, 'reonica/avecjo');
-  assert.equal(config.backend.branch, 'main');
-  assert.equal(config.backend.open_authoring, true);
-  assert.equal(config.backend.auth_scope, 'public_repo');
-  assert.equal(config.publish_mode, 'editorial_workflow');
-  assert.ok(!JSON.stringify(config).includes('client_secret'));
+test('native CMS snapshot includes every source module without accounts or client credentials', () => {
+  const snapshot=cmsSnapshot(root);
+  assert.equal(snapshot.documents.filter(d=>d.kind==='posts').length,data.posts.length);
+  for(const kind of ['posts','pages','categories','tags','guides','settings'])assert.ok(snapshot.documents.some(d=>d.kind===kind),kind);
+  assert.ok(!snapshot.documents.some(d=>['admins','leads','sessions'].includes(d.kind)));
+  assert.ok(snapshot.media.length>20);
+  assert.ok(!fs.readFileSync(path.join(root,'cms/app.js'),'utf8').includes('auth/github'));
 });
 
-function harness() {
-  const opener = {};
-  const origin = 'https://cms.example.web.app';
-  let listener;
-  const sent = [];
-  const bridge = createAuthBridge({origin, opener, subscribe(fn) { listener = fn; return () => { listener = null; }; }, send(target, message, targetOrigin) { sent.push({target, message, targetOrigin}); }});
-  return {bridge, opener, origin, sent, receive(event) { listener?.(event); }};
-}
-
-test('OAuth token waits for same-origin handshake from the actual CMS window', () => {
-  const h = harness();
-  h.bridge.complete('test-token-not-a-real-credential');
-  assert.equal(h.sent.length, 1);
-  h.receive({source: h.opener, origin: 'https://attacker.invalid', data: 'authorizing:github'});
-  h.receive({source: {}, origin: h.origin, data: 'authorizing:github'});
-  assert.equal(h.sent.length, 1);
-  h.receive({source: h.opener, origin: h.origin, data: 'authorizing:github'});
-  assert.equal(h.sent.length, 2);
-  assert.equal(h.sent[1].target, h.opener);
-  assert.equal(h.sent[1].targetOrigin, h.origin);
-  assert.ok(h.sent[1].message.startsWith('authorization:github:success:'));
-  h.bridge.complete('another-test-token');
-  assert.equal(h.sent.length, 2);
+test('CMS export round-trips approved source content and rejects route traversal without changing the repo', async () => {
+ const temporary=fs.mkdtempSync(path.join(os.tmpdir(),'avecjo-sync-test-'));
+ try{
+  for(const dir of ['content','data','web'])fs.cpSync(path.join(root,dir),path.join(temporary,dir),{recursive:true});
+  const snapshot=cmsSnapshot(root);
+  const result=await applySnapshot(temporary,snapshot);
+  assert.equal(result.downloaded,0);
+  assert.equal(loadContent(temporary).posts.length,data.posts.length);
+  assert.deepEqual(loadContent(temporary).posts.map(p=>p.html),data.posts.map(p=>p.html));
+  const before=fs.readFileSync(path.join(temporary,'data/content.json'),'utf8');
+  snapshot.documents.push({kind:'pages',id:'bad',data:{slug:'../backend',title:'Bad',html:'<p>x</p>'}});
+  await assert.rejects(applySnapshot(temporary,snapshot),/Unsafe content filename/);
+  assert.equal(fs.readFileSync(path.join(temporary,'data/content.json'),'utf8'),before);
+ }finally{fs.rmSync(temporary,{recursive:true,force:true});}
 });
 
-test('OAuth handshake may arrive before login and disposal prevents token delivery', () => {
-  const h = harness();
-  h.receive({source: h.opener, origin: h.origin, data: 'authorizing:github'});
-  assert.equal(h.sent.length, 1);
-  h.bridge.complete('test-token');
-  assert.equal(h.sent.length, 2);
-  const closed = harness();
-  closed.bridge.dispose();
-  closed.bridge.complete('test-token');
-  closed.receive({source: closed.opener, origin: closed.origin, data: 'authorizing:github'});
-  assert.equal(closed.sent.length, 1);
+test('new CMS landing, FAQ and SEO metadata generate visible content, matching schema and noindex exclusion', () => {
+ const temporary=fs.mkdtempSync(path.join(os.tmpdir(),'avecjo-pages-test-'));
+ try{
+  fs.cpSync(root,temporary,{recursive:true,filter(source){return !path.relative(root,source).split(path.sep).some(p=>['.git','node_modules','dist','.cms-backups'].includes(p));}});
+  for(const name of ['landing-pages','faqs','seo'])fs.mkdirSync(path.join(temporary,'content',name),{recursive:true});
+  fs.writeFileSync(path.join(temporary,'content/landing-pages/hanoi-special.json'),JSON.stringify({slug:'hanoi-special',title:'Un voyage ensemble',seoTitle:'Hanoi spécial — Avec Jo',description:'Une découverte privée de Hanoi avec Joseph, guide francophone pour préparer un voyage selon vos envies et votre rythme.',html:'<h2>Découvrir Hanoi</h2><p>Une page de campagne.</p>'}));
+  fs.writeFileSync(path.join(temporary,'content/faqs/question.json'),JSON.stringify({question:'Comment réserver ce voyage ?',answer:'Contactez Joseph pour confirmer les disponibilités.',page:'hanoi-special',published:true}));
+  fs.writeFileSync(path.join(temporary,'content/seo/hanoi-special.json'),JSON.stringify({title:'SEO campagne',page:'hanoi-special',seoTitle:'Un titre de campagne unique',noindex:true}));
+  const build=spawnSync(process.execPath,['tools/build.mjs'],{cwd:temporary,encoding:'utf8'});assert.equal(build.status,0,build.stderr);
+  const html=fs.readFileSync(path.join(temporary,'dist/hanoi-special/index.html'),'utf8');
+  assert.ok(html.includes('<title>Un titre de campagne unique</title>'));
+  assert.ok(html.includes('Comment réserver ce voyage ?'));
+  assert.ok(html.includes('"@type":"FAQPage"'));
+  assert.ok(!fs.readFileSync(path.join(temporary,'dist/sitemap.xml'),'utf8').includes('/hanoi-special</loc>'));
+ }finally{fs.rmSync(temporary,{recursive:true,force:true});}
+});
+
+
+test('production artifacts expose the login shell but no CMS seed or dashboard data', () => {
+  const html=fs.readFileSync(path.join(root,'dist/backend/index.html'),'utf8');
+  assert.ok(html.includes('id="auth-screen"'));
+  assert.ok(html.includes('id="sidebar" data-protected hidden'));
+  assert.ok(html.includes('class="main-shell" data-protected hidden'));
+  for(const file of ['seed.json','manifest.json','demo-data.json'])assert.equal(fs.existsSync(path.join(root,'dist/backend',file)),false,file);
+  const hosting=JSON.parse(fs.readFileSync(path.join(root,'firebase.json'))).hosting;
+  assert.ok(hosting.ignore.includes('**/*.php'));
 });

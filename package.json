@@ -2,9 +2,15 @@
   "name": "guidehanoi-avec-jo",
   "version": "1.0.0",
   "private": true,
-  "description": "The ready-to-upload static Guidehanoi website, with original articles and images.",
+  "description": "Avec Jo: static website, private file-based admin/mod CMS, optional MySQL contacts",
   "scripts": {
     "build": "node tools/build.mjs",
-    "check": "node --test tests/*.test.mjs && node tools/validate.mjs && node tools/validate-seo.mjs"
+    "check": "node --test tests/*.test.mjs && node tools/validate.mjs && node tools/validate-seo.mjs",
+    "dev": "node tools/serve.mjs",
+    "deploy:firebase": "npm run build && npm run check && firebase deploy --only hosting --project avec-jo",
+    "package:pa": "npm run build && npm run check && node tools/package-pa.mjs",
+    "cms:sync": "node tools/cms-sync.mjs",
+    "check:php": "node tools/check-php.mjs",
+    "check:php:integration": "node tools/check-php-integration.mjs"
   }
 }

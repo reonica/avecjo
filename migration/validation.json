@@ -1,11 +1,11 @@
 {
-  "checkedAt": "2026-10-25T13:10:35.117Z",
+  "checkedAt": "2026-10-30T16:40:02.529Z",
   "passed": true,
   "counts": {
     "htmlFiles": 170,
     "localReferences": 8328,
     "imageReferences": 1081,
-    "validFragmentAnchors": 173,
+    "validFragmentAnchors": 174,
     "originalPublicPaths": 105,
     "posts": 28,
     "articleTextMatches": 28,
@@ -15,7 +15,7 @@
     "xmlSitemapUrls": 162,
     "technicalApiPathsExcluded": 1,
     "firebaseRewrites": 269,
-    "firebaseRedirects": 14
+    "firebaseRedirects": 16
   },
   "sourceLimitations": [
     {
